@@ -1,0 +1,28 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="ja">
+	<head><BaseHead title="ページが見つかりません｜玉城祐輔" description="お探しのページは見つかりませんでした。" /></head>
+	<body>
+		<Header />
+		<main id="main-content" class="not-found shell">
+			<p class="code">404</p>
+			<p class="eyebrow">LOST A TOOL?</p>
+			<h1>そのページは、<br />見つかりませんでした。</h1>
+			<p>URLが変わったか、ページが移動した可能性があります。</p>
+			<div class="button-row"><a class="button primary" href="/">ホームへ戻る</a><a class="button" href="/blog">記事を読む</a></div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.not-found { padding-block: clamp(5rem, 12vw, 10rem); }
+	.code { margin: 0; color: var(--coral); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.15em; }
+	.not-found h1 { font-size: clamp(3rem, 8vw, 7rem); }
+	.not-found > p:not(.code, .eyebrow) { color: var(--muted); }
+</style>

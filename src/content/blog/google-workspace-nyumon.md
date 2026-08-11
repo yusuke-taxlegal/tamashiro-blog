@@ -2,6 +2,8 @@
 title: '中小企業のためのGoogle Workspace入門 — 導入前に知っておくべき5つのこと'
 description: 'Google Workspaceを検討している事業者向けに、導入前に確認すべきポイントを整理しました。料金・移行・活用事例を交えて解説します。'
 pubDate: '2026-05-15'
+category: '仕事の道具'
+accent: 'olive'
 heroImage: '../../assets/blog-placeholder-1.jpg'
 ---
 

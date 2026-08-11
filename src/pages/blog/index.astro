@@ -1,11 +1,9 @@
 ---
-import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
+import ArticleCard from '../../components/ArticleCard.astro';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -13,102 +11,81 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
+		<BaseHead
+			title="読む｜玉城祐輔"
+			description="沖縄の小さな会社の現場から、AI、仕事の道具、経営の工夫について書いた記事です。"
+		/>
 	</head>
 	<body>
 		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
+		<main id="main-content">
+			<header class="page-intro shell">
+				<p class="eyebrow">FIELD NOTES / 読む</p>
+				<h1>試して、転んで、<br />わかったこと。</h1>
+				<p>AIの使い方から、日々の仕事の道具、経営の現場まで。一般論ではなく、玉城が実際に触ったことを中心に残しています。</p>
+			</header>
+
+			<section class="blog-content shell" aria-labelledby="article-list-title">
+				<div class="filter-note">
+					<h2 id="article-list-title">すべての記事</h2>
+					<div aria-label="記事のテーマ">
+						<span>AIの使い方</span>
+						<span>仕事の道具</span>
+						<span>経営の現場</span>
+					</div>
+				</div>
+				<div class="article-list">
+					{posts.map((post, index) => <ArticleCard post={post} index={index} />)}
+				</div>
 			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.blog-content {
+		display: grid;
+		grid-template-columns: 210px minmax(0, 1fr);
+		gap: clamp(2rem, 6vw, 6rem);
+	}
+
+	.filter-note {
+		position: sticky;
+		top: 2rem;
+		align-self: start;
+		padding-top: 2rem;
+		border-top: 4px solid var(--ink);
+	}
+
+	.filter-note h2 {
+		font-size: 1.15rem;
+	}
+
+	.filter-note div {
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 0.55rem;
+		color: var(--muted);
+		font-size: 0.78rem;
+	}
+
+	@media (max-width: 800px) {
+		.blog-content {
+			grid-template-columns: 1fr;
+		}
+
+		.filter-note {
+			position: static;
+		}
+
+		.filter-note div {
+			align-items: center;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+	}
+</style>

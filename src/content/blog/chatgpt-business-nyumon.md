@@ -2,6 +2,8 @@
 title: 'ChatGPT・Claude、中小企業での実践的な使い方 — セミナーでよく出る質問まとめ'
 description: 'AI活用セミナーで参加者からよく出る質問に答えながら、中小企業がすぐに使えるAIの実践例を紹介します。'
 pubDate: '2026-03-10'
+category: 'AIの使い方'
+accent: 'coral'
 heroImage: '../../assets/blog-placeholder-3.jpg'
 ---
 
