@@ -1,6 +1,8 @@
-// Place any global data in this file.
-// You can import this data from anywhere in your site by using the `import` keyword.
-
-export const SITE_TITLE = '玉城祐輔 | DX × 地域ビジネス';
+export const SITE_TITLE = '玉城祐輔｜沖縄の現場から、AIと経営を。';
+export const SITE_SHORT_TITLE = '玉城祐輔';
 export const SITE_DESCRIPTION =
-	'沖縄でDX支援・経営伴走をする玉城祐輔のブログ。中小企業のデジタル活用・補助金・セミナー情報を発信。';
+	'元・商工会経営指導員の玉城祐輔が、沖縄の小さな会社で試したAI、デジタル活用、経営の工夫を現場目線で届けます。';
+
+export const TOOLBOX_URL = 'https://tamashiro-toolbox.surge.sh/';
+export const COMPANY_URL = 'https://taxlegal.jp/';
+export const CONTACT_EMAIL = 'tamashiro@taxlegal.jp';

@@ -1,178 +1,204 @@
 ---
+import { Image } from 'astro:assets';
+import profilePhoto from '../assets/people/tamashiro-yusuke-profile-black-2048.jpg';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import { COMPANY_URL, CONTACT_EMAIL } from '../consts';
 ---
 
 <!doctype html>
 <html lang="ja">
 	<head>
 		<BaseHead
-			title="プロフィール | 玉城祐輔"
-			description="玉城祐輔のプロフィール。T&Lサポート株式会社代表。沖縄で中小企業のDX支援・経営伴走を行っています。"
+			title="玉城について｜玉城祐輔"
+			description="元・商工会経営指導員11年。沖縄で小さな会社のデジタルとお金の相談に伴走する玉城祐輔のプロフィールです。"
 		/>
 	</head>
 	<body>
 		<Header />
-		<main>
-			<article class="about">
-				<h1>プロフィール</h1>
+		<main id="main-content">
+			<header class="about-hero shell">
+				<div class="about-photo">
+					<Image src={profilePhoto} alt="黒い背景の前に立つ玉城祐輔" width={900} height={900} />
+				</div>
+				<div class="about-copy">
+					<p class="eyebrow">ABOUT YUSUKE</p>
+					<h1>支援する側も、<br />迷うことがあります。</h1>
+					<p class="lead">元・商工会経営指導員として11年、500社以上の相談に向き合ってきました。いまはT&Lサポート株式会社の代表として、自社でもAIと財務の立て直しを実践しています。</p>
+					<p>きれいな成功談だけではなく、試してみて失敗したこと、遠回りしたことも含めて共有する。それが、私なりの伴走です。</p>
+				</div>
+			</header>
 
-				<div class="profile-block">
-					<div class="profile-text">
-						<h2 class="name">玉城 祐輔（たましろ ゆうすけ）</h2>
-						<p class="title">T&Lサポート株式会社 代表取締役</p>
-						<p>
-							沖縄県を拠点に、中小企業・個人事業主のデジタル活用支援と経営伴走を行っています。
-							「難しいITを、使えるものに」をモットーに、現場に寄り添った支援を心がけています。
-						</p>
+			<section class="profile-band">
+				<div class="shell facts">
+					<div><strong>11年</strong><span>商工会経営指導員</span></div>
+					<div><strong>500社+</strong><span>これまでの支援</span></div>
+					<div><strong>4人</strong><span>子どもたちの父</span></div>
+					<div><strong>沖縄</strong><span>活動の拠点</span></div>
+				</div>
+			</section>
+
+			<section class="story shell">
+				<div class="story-heading">
+					<p class="eyebrow">WHAT I DO</p>
+					<h2>制度と現場の、<br />すき間を埋める。</h2>
+				</div>
+				<div class="story-list">
+					<article>
+						<span>01</span>
+						<h3>地域のAI参謀</h3>
+						<p>専任のIT担当者を置けない小さな会社に、難しい説明ではなく「明日から使える形」でAIやデジタルを届けます。</p>
+					</article>
+					<article>
+						<span>02</span>
+						<h3>支援者の支援者</h3>
+						<p>商工会の中で11年働いた経験を生かし、経営指導員や支援機関が相談対応で使える研修と道具をつくります。</p>
+					</article>
+					<article>
+						<span>03</span>
+						<h3>実践する経営者</h3>
+						<p>自分の会社でも、AIと財務を使った改善を実践中です。自分で試していないことを、体験談のようには語りません。</p>
+					</article>
+				</div>
+			</section>
+
+			<section class="contact shell">
+				<div>
+					<p class="eyebrow">CONTACT</p>
+					<h2>ひとりで抱え込む前に、<br />一度整理してみませんか。</h2>
+				</div>
+				<div>
+					<p>法人としてのAI活用・業務整理・経営伴走のご相談は、T&Lサポート株式会社で承ります。</p>
+					<div class="button-row">
+						<a class="button light" href={COMPANY_URL} target="_blank" rel="noopener noreferrer">T&Lサポートへ ↗</a>
+						<a class="button light" href={`mailto:${CONTACT_EMAIL}`}>メールを送る</a>
 					</div>
 				</div>
-
-				<h2>主な活動</h2>
-				<ul class="activity-list">
-					<li>
-						<strong>商工会専門家窓口</strong>
-						<span>北谷町・恩納村・北中城村の商工会にて、IT活用・DX推進の専門家として月次巡回支援を実施</span>
-					</li>
-					<li>
-						<strong>月額デジタル顧問</strong>
-						<span>中小企業・士業事務所のDX推進を月額契約で伴走。業務効率化・ツール導入・AI活用を支援</span>
-					</li>
-					<li>
-						<strong>セミナー講師</strong>
-						<span>Google・SNS・AI活用など、事業者向けのIT活用セミナーを多数開催</span>
-					</li>
-					<li>
-						<strong>補助金・助成金支援</strong>
-						<span>持続化補助金・IT導入補助金など、デジタル投資に関わる補助金申請を支援</span>
-					</li>
-				</ul>
-
-				<h2>得意分野</h2>
-				<div class="skill-tags">
-					<span class="tag">Google Workspace</span>
-					<span class="tag">SNS運用</span>
-					<span class="tag">AI活用（ChatGPT / Claude）</span>
-					<span class="tag">業務自動化</span>
-					<span class="tag">ウェブサイト制作</span>
-					<span class="tag">持続化補助金</span>
-					<span class="tag">IT導入補助金</span>
-					<span class="tag">LINE公式アカウント</span>
-				</div>
-
-				<h2>連絡先・SNS</h2>
-				<ul class="contact-list">
-					<li>
-						<strong>Email:</strong>
-						<a href="mailto:tamashiro@taxlegal.jp">tamashiro@taxlegal.jp</a>
-					</li>
-					<li>
-						<strong>Facebook:</strong>
-						<a href="https://www.facebook.com/yusuke.tamashiro" target="_blank" rel="noopener noreferrer">
-							facebook.com/yusuke.tamashiro
-						</a>
-					</li>
-					<li>
-						<strong>Instagram:</strong>
-						<a href="https://www.instagram.com/tamashiro_yusuke_tl/" target="_blank" rel="noopener noreferrer">
-							@tamashiro_yusuke_tl
-						</a>
-					</li>
-				</ul>
-			</article>
+			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
 
 <style>
-	.about {
-		max-width: 720px;
-		margin: 0 auto;
-		padding: 3em 1em;
+	.about-hero {
+		display: grid;
+		grid-template-columns: minmax(320px, 0.8fr) minmax(0, 1.2fr);
+		align-items: center;
+		gap: clamp(3rem, 8vw, 8rem);
+		padding-block: clamp(4rem, 9vw, 8rem);
 	}
-	.about h1 {
-		font-size: 2em;
-		margin-bottom: 1.5em;
+
+	.about-photo {
+		overflow: hidden;
+		border-radius: 50% 50% 1rem 1rem;
+		background: var(--ink);
+		box-shadow: var(--shadow);
 	}
-	.about h2 {
-		font-size: 1.25em;
-		margin: 2em 0 0.75em;
-		padding-bottom: 0.4em;
-		border-bottom: 2px solid rgb(var(--gray-light));
+
+	.about-photo :global(img) {
+		width: 100%;
+		aspect-ratio: 1;
+		object-fit: cover;
 	}
-	.profile-block {
+
+	.about-copy h1 {
+		margin-bottom: 1.5rem;
+		font-family: var(--font-serif);
+		font-size: clamp(2.7rem, 6vw, 5.4rem);
+		font-weight: 600;
+	}
+
+	.about-copy .lead {
+		font-size: clamp(1.08rem, 2vw, 1.35rem);
+		font-weight: 650;
+	}
+
+	.about-copy p:last-child {
+		color: var(--muted);
+	}
+
+	.profile-band {
+		padding: 3rem 0;
+		background: var(--paper-deep);
+	}
+
+	.facts {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.facts div {
 		display: flex;
-		gap: 2em;
-		margin-bottom: 0.5em;
-		align-items: flex-start;
-	}
-	.profile-text {
-		flex: 1;
-	}
-	.name {
-		font-size: 1.5em;
-		margin: 0 0 0.25em;
-		border: none;
-		padding: 0;
-	}
-	.title {
-		color: var(--accent);
-		font-weight: 700;
-		margin: 0 0 1em;
-		font-size: 0.95em;
-	}
-	.activity-list {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: flex;
+		align-items: center;
 		flex-direction: column;
-		gap: 1em;
+		padding: 1.5rem;
+		border-right: 1px solid var(--line);
+		text-align: center;
 	}
-	.activity-list li {
-		display: flex;
-		flex-direction: column;
-		gap: 0.2em;
-		padding: 0.75em 1em;
-		background: rgb(var(--gray-light), 40%);
-		border-radius: 8px;
+
+	.facts div:last-child { border-right: 0; }
+	.facts strong { font-size: clamp(1.8rem, 4vw, 3rem); }
+	.facts span { color: var(--muted); font-size: 0.73rem; }
+
+	.story {
+		display: grid;
+		grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
+		gap: clamp(3rem, 8vw, 8rem);
+		padding-top: clamp(6rem, 11vw, 10rem);
 	}
-	.activity-list li strong {
-		font-size: 0.95em;
+
+	.story-heading h2 {
+		font-family: var(--font-serif);
+		font-size: clamp(2.2rem, 5vw, 4.5rem);
+		font-weight: 600;
 	}
-	.activity-list li span {
-		font-size: 0.875em;
-		color: rgb(var(--gray-dark));
-		line-height: 1.6;
+
+	.story-list article {
+		display: grid;
+		grid-template-columns: 50px 1fr;
+		gap: 0.5rem 1rem;
+		padding: 2rem 0;
+		border-top: 1px solid var(--line);
 	}
-	.skill-tags {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5em;
+
+	.story-list article > span {
+		grid-row: span 2;
+		color: var(--coral);
+		font-size: 0.72rem;
+		font-weight: 800;
 	}
-	.tag {
-		display: inline-block;
-		padding: 0.3em 0.8em;
-		background: rgb(var(--gray-light));
-		border-radius: 999px;
-		font-size: 0.85em;
-		color: rgb(var(--gray-dark));
+
+	.story-list h3 {
+		margin-bottom: 0.5rem;
+		font-size: 1.5rem;
 	}
-	.contact-list {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 0.6em;
-		font-size: 0.95em;
+
+	.story-list p { margin: 0; color: var(--muted); }
+
+	.contact {
+		display: grid;
+		grid-template-columns: 1.2fr 0.8fr;
+		gap: clamp(2rem, 6vw, 6rem);
+		margin-top: clamp(6rem, 12vw, 10rem);
+		padding: clamp(3rem, 7vw, 6rem);
+		border-radius: var(--radius);
+		background: var(--olive);
+		color: var(--white);
 	}
-	.contact-list li {
-		display: flex;
-		gap: 0.5em;
-		flex-wrap: wrap;
-		align-items: baseline;
+
+	.contact h2 { color: var(--white); font-size: clamp(2rem, 4.5vw, 4rem); }
+	.contact .eyebrow { color: #d7dfc4; }
+	.contact > div:last-child { align-self: end; }
+
+	@media (max-width: 800px) {
+		.about-hero,
+		.story,
+		.contact { grid-template-columns: 1fr; }
+		.about-photo { width: min(100%, 540px); }
+		.facts { grid-template-columns: repeat(2, 1fr); }
+		.facts div:nth-child(2) { border-right: 0; }
+		.facts div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
 	}
 </style>

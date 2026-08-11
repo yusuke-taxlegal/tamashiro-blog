@@ -8,7 +8,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://tamashiro-blog.vercel.app',
+  site: 'https://ysk.life',
+  compressHTML: true,
   integrations: [mdx(), sitemap()],
 
   fonts: [

@@ -1,0 +1,92 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { TOOLBOX_URL } from '../consts';
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title="玉城祐輔の道具箱" description="玉城祐輔が仕事と暮らしで実際に使っている道具を、個人の目線で紹介します。" />
+	</head>
+	<body>
+		<Header />
+		<main id="main-content">
+			<header class="toolbox-hero shell">
+				<div>
+					<p class="eyebrow">YUSUKE'S TOOLBOX</p>
+					<h1>使ってから、<br />おすすめします。</h1>
+					<p>仕事と暮らしの中で、玉城が実際に使っているガジェットやサービスをまとめています。便利そう、だけでは載せません。</p>
+					<a class="button primary" href={TOOLBOX_URL} target="_blank" rel="noopener noreferrer">現在の道具箱を見る ↗</a>
+				</div>
+				<div class="toolbox-art" aria-hidden="true">
+					<span>TOOL</span><span>01</span><span>TRY</span><span>USE</span>
+				</div>
+			</header>
+
+			<section class="principles shell">
+				<article><strong>01</strong><h2>自分で使ったもの</h2><p>実体験のない商品を、使ったようには紹介しません。</p></article>
+				<article><strong>02</strong><h2>良い点も、惜しい点も</h2><p>合う人と合わない人がわかる紹介を心がけます。</p></article>
+				<article><strong>03</strong><h2>個人の紹介活動</h2><p>道具箱の収益は玉城個人に帰属し、T&Lサポート株式会社の法人サービスとは区別しています。</p></article>
+			</section>
+
+			<p class="notice shell">一部のリンクは、購入等により紹介料を受け取るアフィリエイトリンクです。価格や条件はリンク先で最新情報をご確認ください。詳しくは<a href="/affiliate-disclosure">広告・紹介について</a>をご覧ください。</p>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.toolbox-hero {
+		display: grid;
+		grid-template-columns: 1.2fr 0.8fr;
+		align-items: center;
+		gap: clamp(3rem, 8vw, 8rem);
+		padding-block: clamp(4rem, 9vw, 8rem);
+	}
+
+	.toolbox-hero h1 { font-size: clamp(3rem, 7vw, 6.5rem); }
+	.toolbox-hero > div:first-child > p:not(.eyebrow) { max-width: 650px; margin-bottom: 2rem; color: var(--muted); font-size: 1.08rem; }
+
+	.toolbox-art {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		aspect-ratio: 1;
+		transform: rotate(2deg);
+		box-shadow: var(--shadow);
+	}
+
+	.toolbox-art span {
+		display: grid;
+		place-items: center;
+		background: var(--ink);
+		color: var(--paper);
+		font-size: clamp(1.2rem, 3vw, 2.2rem);
+		font-weight: 800;
+		letter-spacing: 0.08em;
+	}
+
+	.toolbox-art span:nth-child(2) { background: var(--coral); }
+	.toolbox-art span:nth-child(3) { background: var(--paper-deep); color: var(--ink); }
+	.toolbox-art span:nth-child(4) { background: var(--olive); }
+
+	.principles {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+	}
+
+	.principles article { padding: 2rem; border-top: 4px solid var(--ink); background: var(--white); }
+	.principles strong { color: var(--coral); font-size: 0.72rem; }
+	.principles h2 { margin: 2rem 0 0.8rem; font-size: 1.35rem; }
+	.principles p { color: var(--muted); font-size: 0.9rem; }
+
+	.notice { margin-top: 2rem; padding: 1.2rem; border: 1px solid var(--line); color: var(--muted); font-size: 0.78rem; }
+
+	@media (max-width: 760px) {
+		.toolbox-hero,
+		.principles { grid-template-columns: 1fr; }
+		.toolbox-art { width: min(100%, 480px); }
+	}
+</style>

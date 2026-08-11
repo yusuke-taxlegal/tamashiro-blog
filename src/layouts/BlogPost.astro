@@ -1,86 +1,225 @@
 ---
-import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import { COMPANY_URL, TOOLBOX_URL } from '../consts';
 
-type Props = CollectionEntry<'blog'>['data'];
+type PostData = CollectionEntry<'blog'>['data'];
+type Props = PostData & { readingMinutes: number };
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, category, accent, readingMinutes } = Astro.props;
 ---
 
-<html lang="en">
+<!doctype html>
+<html lang="ja">
 	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
+		<BaseHead title={`${title}｜玉城祐輔`} description={description} type="article" />
 	</head>
-
 	<body>
 		<Header />
-		<main>
+		<main id="main-content">
 			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
+				<header class:list={['article-hero', `accent-${accent}`]}>
+					<div class="shell article-hero-inner">
+						<div class="article-copy">
+							<a class="back-link" href="/blog">← 記事一覧へ</a>
+							<p class="category">{category}</p>
+							<h1>{title}</h1>
+							<p class="description">{description}</p>
+							<div class="article-meta">
+								<span>公開 <FormattedDate date={pubDate} /></span>
+								{updatedDate && <span>更新 <FormattedDate date={updatedDate} /></span>}
+								<span>読了 約{readingMinutes}分</span>
+							</div>
 						</div>
-						<h1>{title}</h1>
-						<hr />
+						<div class="cover-art" aria-hidden="true">
+							<span class="cover-dot"></span>
+							<span class="cover-grid"></span>
+							<span class="cover-word">FIELD<br />NOTE</span>
+						</div>
 					</div>
-					<slot />
+				</header>
+
+				<div class="article-shell">
+					<aside class="article-aside">
+						<p>YUSUKE'S NOTE</p>
+						<span>掲載時点の情報です。料金・制度・サービス仕様は、必ず公式情報も確認してください。</span>
+					</aside>
+					<div class="prose">
+						<slot />
+					</div>
 				</div>
+
+				<section class="after-note narrow">
+					<p class="eyebrow">AFTER READING</p>
+					<h2>次に、どちらを見ますか？</h2>
+					<p>玉城個人が使っている道具を見るなら「道具箱」。会社の仕事として相談したい場合は、T&Lサポートへどうぞ。</p>
+					<div class="button-row">
+						<a class="button" href={TOOLBOX_URL} target="_blank" rel="noopener noreferrer">道具箱を見る ↗</a>
+						<a class="button primary" href={COMPANY_URL} target="_blank" rel="noopener noreferrer">法人相談はこちら ↗</a>
+					</div>
+				</section>
 			</article>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.article-hero {
+		padding: clamp(3.5rem, 8vw, 7rem) 0;
+		background: var(--olive);
+		color: var(--white);
+	}
+
+	.article-hero.accent-coral { background: var(--coral); }
+	.article-hero.accent-ink { background: var(--ink); }
+
+	.article-hero-inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.55fr);
+		align-items: center;
+		gap: clamp(2.5rem, 7vw, 7rem);
+	}
+
+	.back-link {
+		display: inline-block;
+		margin-bottom: 3rem;
+		color: rgba(255, 255, 255, 0.75);
+		font-size: 0.75rem;
+		font-weight: 750;
+		text-decoration: none;
+	}
+
+	.category {
+		margin-bottom: 0.8rem;
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+	}
+
+	.article-copy h1 {
+		max-width: 900px;
+		margin-bottom: 1.3rem;
+		color: var(--white);
+		font-size: clamp(2.2rem, 5.8vw, 5.2rem);
+	}
+
+	.description {
+		max-width: 760px;
+		color: rgba(255, 255, 255, 0.82);
+		font-size: 1rem;
+	}
+
+	.article-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 1.25rem;
+		margin-top: 2rem;
+		color: rgba(255, 255, 255, 0.68);
+		font-size: 0.7rem;
+	}
+
+	.cover-art {
+		position: relative;
+		min-height: 340px;
+		overflow: hidden;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		border-radius: 45% 45% 1rem 1rem;
+	}
+
+	.cover-dot {
+		position: absolute;
+		top: 18%;
+		right: 18%;
+		width: 4.2rem;
+		height: 4.2rem;
+		border-radius: 50%;
+		background: var(--paper);
+	}
+
+	.cover-grid {
+		position: absolute;
+		right: -10%;
+		bottom: -10%;
+		width: 75%;
+		height: 55%;
+		background-image: linear-gradient(rgba(255,255,255,.22) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.22) 1px, transparent 1px);
+		background-size: 22px 22px;
+	}
+
+	.cover-word {
+		position: absolute;
+		bottom: 1.5rem;
+		left: 1.5rem;
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.14em;
+		line-height: 1.35;
+	}
+
+	.article-shell {
+		display: grid;
+		grid-template-columns: 180px minmax(0, 760px);
+		justify-content: center;
+		gap: clamp(2rem, 5vw, 5rem);
+		padding: clamp(4rem, 8vw, 7rem) 20px;
+	}
+
+	.article-aside {
+		align-self: start;
+		padding-top: 1rem;
+		border-top: 3px solid var(--coral);
+	}
+
+	.article-aside p {
+		margin-bottom: 0.6rem;
+		font-size: 0.65rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+	}
+
+	.article-aside span {
+		display: block;
+		color: var(--muted);
+		font-size: 0.72rem;
+		line-height: 1.7;
+	}
+
+	.after-note {
+		padding: clamp(2rem, 5vw, 4rem);
+		border-radius: var(--radius);
+		background: var(--paper-deep);
+	}
+
+	.after-note h2 {
+		font-size: clamp(1.8rem, 4vw, 3rem);
+	}
+
+	.after-note > p:not(.eyebrow) {
+		max-width: 620px;
+		color: var(--ink-soft);
+	}
+
+	@media (max-width: 800px) {
+		.article-hero-inner {
+			grid-template-columns: 1fr;
+		}
+
+		.cover-art {
+			min-height: 190px;
+		}
+
+		.article-shell {
+			grid-template-columns: 1fr;
+			width: min(100% - 12px, 800px);
+			margin: 0 auto;
+		}
+
+		.article-aside {
+			max-width: 480px;
+		}
+	}
+</style>
