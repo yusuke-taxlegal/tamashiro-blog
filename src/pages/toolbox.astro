@@ -1,37 +1,257 @@
 ---
+import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { TOOLBOX_URL } from '../consts';
+import profileImage from '../assets/people/tamashiro-yusuke-profile-black-2048.jpg';
+
+const tools = [
+	{
+		id: 'hidock-p1',
+		category: '会議・相談の記録',
+		channel: 'メーカー紹介',
+		title: 'HiDock P1',
+		statement: '目の前の相手との会話に、集中する。',
+		lead: '録音、文字起こし、要約まで。会議後に長い録音を聞き直す時間を減らすために使っているAIレコーダーです。',
+		details: [
+			['使う場面', '商工会の相談窓口、巡回相談、オンライン会議、セミナー。'],
+			['良かった点', '報告書や議事録の下書きを早く作り、会話中はメモより相手に集中できます。'],
+			['購入前の注意', '録音の同意と、AIが作った要約を人が確認する運用が必要です。'],
+		],
+		url: 'https://jp.hidock.com/pages/referral-program?ref=uzxdtbsg',
+		button: '公式サイトで10%OFF',
+		note: '紹介リンクです。購入者はHiDock全製品10%OFFになります。',
+		tone: 'coral',
+		featured: true,
+	},
+	{
+		id: 'switchbot-lock',
+		category: '玄関・スマートホーム',
+		channel: 'Amazon',
+		title: 'SwitchBot スマートロック Pro＋指紋認証パッド',
+		statement: '鍵を出す動作と、閉め忘れを減らす。',
+		lead: '家族それぞれに合う解錠方法を選びやすい、後付け型のスマートロックです。',
+		details: [
+			['使う場面', '毎日の玄関。指紋、暗証番号、交通系ICカードなどから解錠方法を選べます。'],
+			['良かった点', '鍵を探す手間が減り、オートロックで閉め忘れも減らせます。'],
+			['購入前の注意', 'ドアとサムターンの形状、取り付け位置のスペースを確認してください。'],
+		],
+		url: 'https://amzn.to/4hszTQF',
+		button: 'Amazonで商品を見る',
+		note: '価格や在庫はAmazonの商品ページでご確認ください。',
+		tone: 'olive',
+	},
+	{
+		id: 'sparkling-water',
+		category: '暮らし・飲み物',
+		channel: 'Amazon',
+		title: '富士山の強炭酸水 ラベルレス 500ml×24本',
+		statement: '重いケースを、店から運ばなくていい。',
+		lead: '約2カ月に1回購入している、わが家の定番です。機能よりも、箱で家まで届くことが助かっています。',
+		details: [
+			['使う場面', '日々の飲み物として、ケースで買い置きしています。'],
+			['良かった点', '重い炭酸水を自分で運ぶ負担と、ラベルをはがす手間を減らせます。'],
+			['購入前の注意', '容量、本数、価格、配送条件は購入時に確認してください。'],
+		],
+		url: 'https://amzn.to/4xyLBOu',
+		button: 'Amazonで商品を見る',
+		note: '容量、本数、価格、配送条件はAmazonの商品ページでご確認ください。',
+		tone: 'paper',
+	},
+	{
+		id: 'soy-milk',
+		category: '暮らし・飲み物',
+		channel: 'Amazon',
+		title: 'マルサン 調製豆乳 カロリー45%オフ 1L×6本',
+		statement: '家にある安心を、まとめて買っておく。',
+		lead: '2〜3カ月に1回購入しています。未開封のまま買い置きしやすく、飲みたいときに家にあるのが助かります。',
+		details: [
+			['使う場面', '健康を意識して飲み物を選びたいときの日常の選択肢です。'],
+			['良かった点', '6本まとめて届き、未開封なら常温で保管できます。'],
+			['購入前の注意', '開封後は冷蔵し、商品表示に従って早めに飲み切ります。'],
+		],
+		url: 'https://amzn.to/4bDXsSX',
+		button: 'Amazonで商品を見る',
+		note: '賞味期限、保存方法、内容量、原材料、価格は商品ページと届いた商品の表示をご確認ください。',
+		tone: 'paper',
+	},
+	{
+		id: 'toy-cleaner',
+		category: '家族・ごっこ遊び',
+		channel: 'Amazon',
+		title: 'キャスドン ダイソン コードレス トイクリーナー',
+		statement: '掃除が、親子で同じことを楽しむ時間になる。',
+		lead: '3歳の娘の誕生日に購入しました。私が掃除機をかける横で、娘も自分のトイクリーナーを持って一緒に掃除しています。',
+		details: [
+			['使う場面', '3歳の誕生日プレゼント。大人のまねをしながら遊んでいます。'],
+			['良かった点', '親が掃除を始めると、娘も自然に家事へ参加できます。'],
+			['購入前の注意', 'メーカー対象年齢は3歳以上。小さな部品があり、保護者の目が届く場所で使います。'],
+		],
+		url: 'https://amzn.to/4fTdtag',
+		button: 'Amazonで商品を見る',
+		note: '対象年齢、付属品、電池、価格、在庫、安全上の注意をご確認ください。',
+		tone: 'coral',
+	},
+	{
+		id: 'dyson-v8',
+		category: '掃除・家電',
+		channel: 'Amazon',
+		title: 'Dyson V8 Slim Fluffy Extra',
+		statement: '最新モデルでなくても、日々の掃除には十分。',
+		lead: '新しい機種を追いかけるより、自分の使い方に必要な仕事をきちんとしてくれることを重視しています。',
+		details: [
+			['使う場面', '家の普段の掃除。娘がトイクリーナーを持って並ぶ時間にも使います。'],
+			['良かった点', '取り回しやすく、日常の掃除に必要な仕事を十分にこなしてくれます。'],
+			['購入前の注意', '型番によって付属品や販売条件が異なるため、セット内容を確認してください。'],
+		],
+		url: 'https://amzn.to/3U9FO3n',
+		button: 'Amazonで商品を見る',
+		note: '型番、付属品、保証、価格、在庫はAmazonの商品ページでご確認ください。',
+		tone: 'ink',
+		featured: true,
+	},
+	{
+		id: 'dyson-stand',
+		category: '掃除・収納',
+		channel: 'Amazon',
+		title: '八番屋 ダイソン対応スタンド',
+		statement: '壁に穴を開けずに、置き場所をつくる。',
+		lead: 'ダイソンの掃除機を置くために使っています。壁を傷つけたくない人には、本体と一緒に用意したいスタンドです。',
+		details: [
+			['使う場面', '壁へ収納用ブラケットを固定せず、掃除機の定位置をつくっています。'],
+			['良かった点', '賃貸住宅や、壁へ穴を開けたくない部屋でも設置しやすいです。'],
+			['購入前の注意', '手元のダイソンの型番が対応機種に含まれているか確認してください。'],
+		],
+		url: 'https://amzn.to/4xtkTXp',
+		button: 'Amazonで商品を見る',
+		note: '対応機種、寸法、組み立て方法、設置条件、価格、在庫をご確認ください。',
+		tone: 'olive',
+	},
+	{
+		id: 'dishwasher',
+		category: 'キッチン・家事',
+		channel: 'Amazon',
+		title: 'AVAKYO タンク式食器洗い乾燥機 AV-01',
+		statement: '水道工事なしで、食器洗いを任せる場所をつくる。',
+		lead: 'タンクへ給水して使える食洗機です。水道の分岐工事が難しい場所でも設置を考えやすく、毎日の洗い物を任せられます。',
+		details: [
+			['使う場面', '毎日の食器洗い。電源、給水、排水を確保できる場所へ置いています。'],
+			['良かった点', '水道工事をせずに導入でき、手洗いに使う時間を減らせます。'],
+			['購入前の注意', '本体寸法、電源、給水方法、排水ホースを安全に固定できる場所が必要です。'],
+		],
+		url: 'https://amzn.to/4qijmBm',
+		button: 'Amazonで商品を見る',
+		note: '設置寸法、給排水方法、電源条件、容量、対応食器、洗剤、価格、在庫をご確認ください。',
+		tone: 'paper',
+	},
+	{
+		id: 'dryer',
+		category: '洗濯・家事',
+		channel: 'Amazon',
+		title: '日立 電気衣類乾燥機 DE-N50HV',
+		statement: '子育て世代の洗濯には、必須級。',
+		lead: '洗濯した衣類をそのまま乾燥まで進められることが助かっています。干す作業と、天気を待つ時間を減らせます。',
+		details: [
+			['使う場面', '子どもがいて洗濯物が多い日の、毎日の乾燥。メーカー仕様の乾燥容量は5kgです。'],
+			['良かった点', '洗濯後の家事をひとつ減らし、子どもと過ごす時間やほかの家事に時間を使えます。'],
+			['購入前の注意', '本体寸法、搬入経路、設置台、周囲の空間、電源条件を確認してください。'],
+		],
+		url: 'https://amzn.to/4wFcTC9',
+		button: 'Amazonで商品を見る',
+		note: '乾燥容量、設置条件、別売品、搬入、電源、使用できる衣類、価格、在庫をご確認ください。',
+		tone: 'coral',
+		featured: true,
+	},
+];
 ---
 
 <!doctype html>
 <html lang="ja">
 	<head>
-		<BaseHead title="玉城祐輔の道具箱" description="玉城祐輔が仕事と暮らしで実際に使っている道具を、個人の目線で紹介します。" />
+		<BaseHead
+			title="玉城祐輔の道具箱｜実際に使っている仕事と暮らしの道具"
+			description="玉城祐輔が仕事と暮らしで実際に使っている9つの道具を、使う場面、良かった点、購入前の注意まで紹介します。"
+		/>
 	</head>
 	<body>
 		<Header />
 		<main id="main-content">
-			<header class="toolbox-hero shell">
-				<div>
+			<section class="toolbox-hero shell">
+				<div class="hero-copy">
 					<p class="eyebrow">YUSUKE'S TOOLBOX</p>
-					<h1>使ってから、<br />おすすめします。</h1>
-					<p>仕事と暮らしの中で、玉城が実際に使っているガジェットやサービスをまとめています。便利そう、だけでは載せません。</p>
-					<a class="button primary" href={TOOLBOX_URL} target="_blank" rel="noopener noreferrer">現在の道具箱を見る ↗</a>
+					<h1>仕事を軽くする、<br /><em>本当に使っている</em>道具。</h1>
+					<p class="hero-lead">相談、会議、家事、子育て。便利そうだからではなく、実際に使い続けているものだけを、良い点と注意点まで紹介します。</p>
+					<div class="button-row">
+						<a class="button primary" href="#tools">9つの道具を見る</a>
+						<a class="button" href="#policy">選ぶ基準を見る</a>
+					</div>
 				</div>
-				<div class="toolbox-art" aria-hidden="true">
-					<span>TOOL</span><span>01</span><span>TRY</span><span>USE</span>
-				</div>
-			</header>
-
-			<section class="principles shell">
-				<article><strong>01</strong><h2>自分で使ったもの</h2><p>実体験のない商品を、使ったようには紹介しません。</p></article>
-				<article><strong>02</strong><h2>良い点も、惜しい点も</h2><p>合う人と合わない人がわかる紹介を心がけます。</p></article>
-				<article><strong>03</strong><h2>個人の紹介活動</h2><p>道具箱の収益は玉城個人に帰属し、T&Lサポート株式会社の法人サービスとは区別しています。</p></article>
+				<figure class="hero-portrait">
+					<Image src={profileImage} alt="黒い背景の前に立つ玉城祐輔" widths={[480, 720, 960]} sizes="(max-width: 760px) 100vw, 42vw" loading="eager" />
+					<figcaption><strong>玉城祐輔</strong><span>実務で使い続けているものを紹介します。</span></figcaption>
+				</figure>
 			</section>
 
-			<p class="notice shell">一部のリンクは、購入等により紹介料を受け取るアフィリエイトリンクです。価格や条件はリンク先で最新情報をご確認ください。詳しくは<a href="/affiliate-disclosure">広告・紹介について</a>をご覧ください。</p>
+			<aside class="disclosure" aria-label="広告に関する表示">
+				<div class="shell disclosure-inner">
+					<strong>紹介リンクについて</strong>
+					<p>このページには紹介リンク、アフィリエイトリンクが含まれます。Amazonのアソシエイトとして、玉城祐輔は適格販売により収入を得ています。道具箱の収益は玉城祐輔個人に帰属し、T&amp;Lサポート株式会社の法人サービスとは区別しています。</p>
+				</div>
+			</aside>
+
+			<section class="tools shell" id="tools" aria-labelledby="tools-title">
+				<header class="tools-heading">
+					<div>
+						<p class="eyebrow">SELECTED TOOLS</p>
+						<h2 id="tools-title">今、すすめたい9つ</h2>
+					</div>
+					<p>報酬の高さではなく、日々の小さな負担を減らせるかで選んでいます。</p>
+				</header>
+
+				<div class="tool-list">
+					{tools.map((tool, index) => (
+						<article id={tool.id} class:list={['tool-card', tool.tone, { featured: tool.featured }]}>
+							<div class="tool-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div>
+							<div class="tool-main">
+								<div class="tool-meta"><span>{tool.category}</span><span>{tool.channel}</span></div>
+								<h3>{tool.title}</h3>
+								<p class="tool-statement">{tool.statement}</p>
+								<p class="tool-lead">{tool.lead}</p>
+							</div>
+							<div class="tool-detail">
+								<dl>
+									{tool.details.map(([label, value]) => (
+										<div><dt>{label}</dt><dd>{value}</dd></div>
+									))}
+								</dl>
+								<a class="product-link" href={tool.url} target="_blank" rel="sponsored noopener noreferrer">{tool.button}<span aria-hidden="true">↗</span></a>
+								<p class="affiliate-note">広告・アフィリエイトリンクです。{tool.note}</p>
+							</div>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section class="policy shell" id="policy" aria-labelledby="policy-title">
+				<div class="policy-intro">
+					<p class="eyebrow">HOW I CHOOSE</p>
+					<h2 id="policy-title">買わない判断にも、<br />役立つ紹介を。</h2>
+					<p>おすすめだけを並べるのではなく、使う場面と、購入前に確認したいことを一緒に残します。</p>
+				</div>
+				<div class="policy-grid">
+					<article><span>01</span><h3>実際に使っている</h3><p>仕事や暮らしの中で使い、何が変わったかを説明できるものだけを掲載します。</p></article>
+					<article><span>02</span><h3>注意点も書く</h3><p>便利な点だけでなく、合わない人や購入前に確認すべき条件も紹介します。</p></article>
+					<article><span>03</span><h3>情報を固定しない</h3><p>価格や在庫は変わります。最新の条件は必ずリンク先で確認してください。</p></article>
+				</div>
+			</section>
+
+			<section class="closing shell">
+				<p>道具を増やすためではなく、<br />目の前の人と仕事に集中するために選びます。</p>
+				<div>
+					<strong>玉城祐輔</strong>
+					<a href="/affiliate-disclosure/">広告・紹介について</a>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>
@@ -40,53 +260,250 @@ import { TOOLBOX_URL } from '../consts';
 <style>
 	.toolbox-hero {
 		display: grid;
-		grid-template-columns: 1.2fr 0.8fr;
+		grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.75fr);
 		align-items: center;
 		gap: clamp(3rem, 8vw, 8rem);
 		padding-block: clamp(4rem, 9vw, 8rem);
 	}
 
-	.toolbox-hero h1 { font-size: clamp(3rem, 7vw, 6.5rem); }
-	.toolbox-hero > div:first-child > p:not(.eyebrow) { max-width: 650px; margin-bottom: 2rem; color: var(--muted); font-size: 1.08rem; }
-
-	.toolbox-art {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		aspect-ratio: 1;
-		transform: rotate(2deg);
-		box-shadow: var(--shadow);
+	.hero-copy h1 {
+		max-width: 800px;
+		margin-bottom: 1.6rem;
+		font-size: clamp(3rem, 7vw, 6.8rem);
+		line-height: 1.05;
 	}
 
-	.toolbox-art span {
-		display: grid;
-		place-items: center;
+	.hero-copy h1 em {
+		display: inline-block;
+		margin-right: 0.12em;
+		color: var(--coral);
+		font-family: var(--font-serif);
+		font-style: normal;
+		font-weight: 650;
+	}
+
+	.hero-lead {
+		max-width: 620px;
+		margin-bottom: 2rem;
+		color: var(--ink-soft);
+		font-size: clamp(1rem, 1.7vw, 1.2rem);
+	}
+
+	.hero-portrait {
+		margin: 0;
+		transform: rotate(1.5deg);
+	}
+
+	.hero-portrait :global(img) {
+		width: 100%;
+		aspect-ratio: 1;
+		border-radius: var(--radius);
+		box-shadow: var(--shadow);
+		object-fit: cover;
+	}
+
+	.hero-portrait figcaption {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 1rem 0.25rem 0;
+		color: var(--muted);
+		font-size: 0.72rem;
+	}
+
+	.hero-portrait figcaption strong { color: var(--ink); }
+
+	.disclosure {
+		border-block: 1px solid var(--line);
 		background: var(--ink);
 		color: var(--paper);
-		font-size: clamp(1.2rem, 3vw, 2.2rem);
-		font-weight: 800;
-		letter-spacing: 0.08em;
 	}
 
-	.toolbox-art span:nth-child(2) { background: var(--coral); }
-	.toolbox-art span:nth-child(3) { background: var(--paper-deep); color: var(--ink); }
-	.toolbox-art span:nth-child(4) { background: var(--olive); }
-
-	.principles {
+	.disclosure-inner {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 1rem;
+		grid-template-columns: 220px minmax(0, 760px);
+		gap: 2rem;
+		padding-block: 1.5rem;
 	}
 
-	.principles article { padding: 2rem; border-top: 4px solid var(--ink); background: var(--white); }
-	.principles strong { color: var(--coral); font-size: 0.72rem; }
-	.principles h2 { margin: 2rem 0 0.8rem; font-size: 1.35rem; }
-	.principles p { color: var(--muted); font-size: 0.9rem; }
+	.disclosure strong { color: var(--coral); font-size: 0.8rem; }
+	.disclosure p { margin: 0; color: rgba(255, 253, 248, 0.76); font-size: 0.78rem; line-height: 1.8; }
 
-	.notice { margin-top: 2rem; padding: 1.2rem; border: 1px solid var(--line); color: var(--muted); font-size: 0.78rem; }
+	.tools { padding-block: clamp(5rem, 10vw, 9rem); }
 
-	@media (max-width: 760px) {
+	.tools-heading {
+		display: grid;
+		grid-template-columns: 1fr minmax(280px, 0.55fr);
+		align-items: end;
+		gap: 3rem;
+		margin-bottom: clamp(3rem, 6vw, 5rem);
+	}
+
+	.tools-heading h2,
+	.policy-intro h2 {
+		margin: 0;
+		font-size: clamp(2.4rem, 5.5vw, 5rem);
+	}
+
+	.tools-heading > p,
+	.policy-intro > p:last-child { margin: 0; color: var(--muted); }
+
+	.tool-list { display: grid; gap: 1.25rem; }
+
+	.tool-card {
+		display: grid;
+		grid-template-columns: 90px minmax(0, 0.92fr) minmax(360px, 1.08fr);
+		gap: clamp(1.5rem, 4vw, 4rem);
+		padding: clamp(1.8rem, 4vw, 3.5rem);
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		background: var(--white);
+	}
+
+	.tool-card.featured { padding-block: clamp(3rem, 6vw, 5.5rem); }
+	.tool-card.coral { background: linear-gradient(135deg, rgba(227, 111, 74, 0.13), transparent 52%), var(--white); }
+	.tool-card.olive { background: linear-gradient(145deg, rgba(102, 114, 75, 0.15), transparent 58%), var(--white); }
+	.tool-card.ink { background: var(--ink); color: var(--paper); }
+
+	.tool-index {
+		color: var(--coral);
+		font-size: clamp(2rem, 4vw, 4rem);
+		font-weight: 850;
+		letter-spacing: -0.08em;
+		line-height: 1;
+	}
+
+	.tool-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 1rem;
+		margin-bottom: 1rem;
+		color: var(--muted);
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.06em;
+	}
+
+	.tool-meta span + span::before { margin-right: 1rem; color: var(--line); content: '/'; }
+
+	.tool-main h3 {
+		margin-bottom: 1.3rem;
+		font-size: clamp(1.8rem, 3.8vw, 3.7rem);
+	}
+
+	.tool-statement {
+		margin-bottom: 1rem;
+		color: var(--olive-dark);
+		font-family: var(--font-serif);
+		font-size: clamp(1.35rem, 2.4vw, 2.2rem);
+		font-weight: 700;
+		line-height: 1.5;
+	}
+
+	.tool-lead { margin: 0; color: var(--muted); }
+
+	.tool-detail dl { display: grid; gap: 1.25rem; margin: 0; }
+
+	.tool-detail dl > div {
+		display: grid;
+		grid-template-columns: 7rem 1fr;
+		gap: 1rem;
+		padding-top: 1.1rem;
+		border-top: 1px solid var(--line);
+	}
+
+	.tool-detail dt { color: var(--coral); font-size: 0.72rem; font-weight: 850; }
+	.tool-detail dd { margin: 0; color: var(--ink-soft); font-size: 0.86rem; line-height: 1.75; }
+
+	.product-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.7rem;
+		margin-top: 2rem;
+		padding-bottom: 0.35rem;
+		border-bottom: 2px solid currentColor;
+		font-weight: 850;
+		text-decoration: none;
+	}
+
+	.product-link span { color: var(--coral); }
+	.affiliate-note { margin: 0.8rem 0 0; color: var(--muted); font-size: 0.68rem; line-height: 1.65; }
+
+	.tool-card.ink .tool-meta,
+	.tool-card.ink .tool-lead,
+	.tool-card.ink .tool-detail dd,
+	.tool-card.ink .affiliate-note { color: rgba(244, 240, 231, 0.7); }
+	.tool-card.ink .tool-statement,
+	.tool-card.ink .product-link { color: var(--paper); }
+	.tool-card.ink .tool-detail dl > div { border-color: rgba(244, 240, 231, 0.2); }
+
+	.policy {
+		display: grid;
+		grid-template-columns: minmax(0, 0.75fr) minmax(480px, 1.25fr);
+		gap: clamp(3rem, 8vw, 8rem);
+		padding-block: clamp(5rem, 10vw, 9rem);
+		border-top: 1px solid var(--line);
+	}
+
+	.policy-intro > p:last-child { margin-top: 1.4rem; }
+	.policy-grid { display: grid; gap: 1rem; }
+
+	.policy-grid article {
+		display: grid;
+		grid-template-columns: 3rem 0.7fr 1fr;
+		align-items: baseline;
+		gap: 1rem;
+		padding: 1.6rem 0;
+		border-bottom: 1px solid var(--line);
+	}
+
+	.policy-grid span { color: var(--coral); font-size: 0.72rem; font-weight: 850; }
+	.policy-grid h3 { margin: 0; font-size: 1.35rem; }
+	.policy-grid p { margin: 0; color: var(--muted); font-size: 0.86rem; }
+
+	.closing {
+		display: flex;
+		align-items: end;
+		justify-content: space-between;
+		gap: 2rem;
+		padding-block: clamp(4rem, 9vw, 8rem);
+		border-top: 1px solid var(--line);
+	}
+
+	.closing > p {
+		max-width: 850px;
+		margin: 0;
+		font-family: var(--font-serif);
+		font-size: clamp(2rem, 4.5vw, 4.5rem);
+		font-weight: 700;
+		line-height: 1.45;
+	}
+
+	.closing > div { display: grid; gap: 0.6rem; min-width: 12rem; }
+	.closing a { font-size: 0.78rem; }
+
+	@media (max-width: 940px) {
 		.toolbox-hero,
-		.principles { grid-template-columns: 1fr; }
-		.toolbox-art { width: min(100%, 480px); }
+		.tools-heading,
+		.policy { grid-template-columns: 1fr; }
+
+		.hero-portrait { width: min(100%, 620px); }
+		.tool-card { grid-template-columns: 70px 1fr; }
+		.tool-detail { grid-column: 2; }
+	}
+
+	@media (max-width: 640px) {
+		.toolbox-hero { padding-block: 3.5rem 5rem; }
+		.hero-copy h1 { font-size: clamp(2.7rem, 13vw, 4.5rem); }
+		.hero-portrait figcaption { align-items: start; flex-direction: column; gap: 0.2rem; }
+		.disclosure-inner { grid-template-columns: 1fr; gap: 0.5rem; }
+		.tool-card { grid-template-columns: 1fr; padding: 1.5rem; }
+		.tool-index { font-size: 2rem; }
+		.tool-detail { grid-column: auto; }
+		.tool-detail dl > div { grid-template-columns: 1fr; gap: 0.3rem; }
+		.policy { gap: 2rem; }
+		.policy-grid article { grid-template-columns: 2.2rem 1fr; }
+		.policy-grid p { grid-column: 2; }
+		.closing { align-items: start; flex-direction: column; }
 	}
 </style>
