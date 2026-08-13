@@ -723,8 +723,8 @@ const heroTools = tools.filter((tool) => ['hidock-p1', 'dryer'].includes(tool.id
 	.tool-card.featured,
 	.tool-card.wide {
 		grid-column: 1 / -1;
-		grid-template-columns: minmax(300px, 0.92fr) minmax(0, 1.08fr);
-		align-items: stretch;
+		grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.28fr);
+		align-items: start;
 		padding: clamp(1.4rem, 3vw, 2.5rem);
 	}
 
@@ -759,8 +759,9 @@ const heroTools = tools.filter((tool) => ['hidock-p1', 'dryer'].includes(tool.id
 
 	.tool-card.featured .tool-image img,
 	.tool-card.wide .tool-image img {
-		height: 100%;
-		min-height: 360px;
+		height: clamp(260px, 25vw, 360px);
+		min-height: 0;
+		padding: clamp(1.25rem, 2.5vw, 2rem);
 	}
 
 	.tool-copy {
