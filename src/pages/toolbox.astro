@@ -28,6 +28,29 @@ const tools = [
 		featured: true,
 	},
 	{
+		id: 'nihontsushin-sim',
+		group: 'work',
+		category: '通信・モバイル',
+		channel: 'Amazon',
+		title: '日本通信SIM 合理的みんなのプラン',
+		statement: '月額1,390円で20GB。外の仕事も、これで十分。',
+		lead: '外でパソコンを使うときは、スマホのテザリングを利用しています。メール、LINE、チャット、クラウド上のデータ利用、ウェブ会議まで、私の使い方ではこの20GBで間に合っています。',
+		details: [
+			['使う場面', '外出先でパソコンを使うときのテザリングと、普段のスマホ通信。'],
+			['良かった点', '外でWi-Fiを探すことがほとんどなくなり、月額料金も抑えられています。'],
+			['通話', '1回5分までの国内通話かけ放題、または月70分までの無料通話のどちらかを選べます。'],
+			['契約前の注意', 'ウェブ会議や動画はデータを多く使い、通信速度は場所や時間帯などで変わります。自分の利用量と対応エリアを確認してください。'],
+		],
+		url: 'https://amzn.to/4zgLclg',
+		officialUrl: 'https://www.nihontsushin.com/plan/planminna.html',
+		image: 'https://www.nihontsushin.com/plan/images/starterpack_pkg.jpg',
+		imageAlt: '日本通信SIM スターターパック NT-ST2-P',
+		button: 'Amazonでスターターパックを見る',
+		note: 'リンク先は申込用スターターパックです。SIMカードは同梱されていません。価格、申込期限、対象プランを確認し、公式サイトから直接申し込む場合の初期手数料3,300円とも比較してください。',
+		tone: 'olive',
+		featured: true,
+	},
+	{
 		id: 'switchbot-lock',
 		group: 'home',
 		category: '玄関・スマートホーム',
@@ -195,7 +218,7 @@ const toolCollections = [
 		id: 'work-tools',
 		label: '仕事',
 		title: '会話と記録に集中する。',
-		intro: '相談や会議のあとに残る作業を減らし、目の前の相手へ意識を戻す道具です。',
+		intro: '相談、会議、外出先での通信。仕事の小さな手間を減らし、目の前の相手へ意識を戻す道具です。',
 		items: tools.filter((tool) => tool.group === 'work'),
 	},
 	{
@@ -222,7 +245,7 @@ const heroTools = tools.filter((tool) => ['hidock-p1', 'dryer'].includes(tool.id
 	<head>
 		<BaseHead
 			title="玉城祐輔の道具箱｜実際に使っている仕事と暮らしの道具"
-			description="玉城祐輔が仕事と暮らしで実際に使っている9つの道具を、使う場面、良かった点、購入前の注意まで紹介します。"
+			description="玉城祐輔が仕事と暮らしで実際に使っている10の道具を、使う場面、良かった点、購入前の注意まで紹介します。"
 		/>
 	</head>
 	<body class="toolbox-page">
@@ -232,7 +255,7 @@ const heroTools = tools.filter((tool) => ['hidock-p1', 'dryer'].includes(tool.id
 				<div class="hero-copy">
 					<p class="eyebrow">玉城祐輔の道具箱</p>
 					<h1>使っているから、<br /><strong>すすめられる。</strong></h1>
-					<p class="hero-lead">仕事と暮らしの負担を減らした9つを、注意点まで紹介します。</p>
+					<p class="hero-lead">仕事と暮らしの負担を減らした10の道具を、注意点まで紹介します。</p>
 					<div class="button-row">
 						<a class="button primary" href="#tools">道具を見る</a>
 					</div>
@@ -276,6 +299,7 @@ const heroTools = tools.filter((tool) => ['hidock-p1', 'dryer'].includes(tool.id
 										<p class="tool-statement">{tool.statement}</p>
 										<p class="tool-lead">{tool.lead}</p>
 										<a class="product-link" href={tool.url} target="_blank" rel="sponsored noopener noreferrer">{tool.button}<span aria-hidden="true">↗</span></a>
+										{'officialUrl' in tool && <a class="official-link" href={tool.officialUrl} target="_blank" rel="noopener noreferrer">公式の料金・条件を見る<span aria-hidden="true">↗</span></a>}
 										<p class="affiliate-note">広告・アフィリエイトリンクです。{tool.note}</p>
 										<details class="tool-notes">
 											<summary>使い方と注意点</summary>
@@ -518,6 +542,18 @@ const heroTools = tools.filter((tool) => ['hidock-p1', 'dryer'].includes(tool.id
 	}
 
 	.product-link span { color: var(--coral); }
+	.official-link {
+		display: inline-flex;
+		align-items: center;
+		align-self: flex-start;
+		gap: 0.55rem;
+		margin-top: 0.85rem;
+		color: var(--ink-soft);
+		font-size: 0.76rem;
+		font-weight: 800;
+		text-underline-offset: 0.25rem;
+	}
+	.official-link span { color: var(--coral); }
 	.affiliate-note { margin: 0.8rem 0 0; color: var(--muted); font-size: 0.68rem; line-height: 1.65; }
 
 	.tool-card.ink .tool-meta,
