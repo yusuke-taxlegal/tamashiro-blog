@@ -1,10 +1,10 @@
 ---
-title: '小規模事業者持続化補助金 — 2025年の申請で押さえるべきポイント'
+title: '小規模事業者持続化補助金。2025年の申請で押さえるべきポイント'
 description: '持続化補助金の基本から申請の流れ、採択されやすい計画書の書き方まで、支援現場からのリアルな情報をお届けします。'
 pubDate: '2026-04-20'
 category: '経営の現場'
 accent: 'ink'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: '../../assets/blog/subsidy-application.jpg'
 ---
 
 「持続化補助金、去年申請したら落ちてしまって…」

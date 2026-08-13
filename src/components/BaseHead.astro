@@ -19,8 +19,10 @@ const imageURL = new URL(typeof image === 'string' ? image : image.src, Astro.si
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="theme-color" content="#171915" />
 <meta name="google-site-verification" content="ZOHyxB9OxiSl2kg7iNFCxDlsYK6K5h7e890uRt8Vyt0" />
-<link rel="icon" type="image/png" href="/images/favicon.png" />
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.png?v=2" />
+<link rel="shortcut icon" href="/favicon.ico?v=2" />
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=2" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL('/rss.xml', Astro.site)} />
 <meta name="generator" content={Astro.generator} />

@@ -13,24 +13,24 @@ import { CONTACT_EMAIL } from '../consts';
 	<body>
 		<Header />
 		<main id="main-content">
-			<header class="page-intro narrow"><p class="eyebrow">PRIVACY</p><h1>プライバシーポリシー</h1><p>このサイトにおける情報の取り扱いについて記載します。</p></header>
-			<article class="prose narrow policy">
-				<h2>個人情報の利用目的</h2>
+			<header class="page-intro narrow legal-intro"><p class="eyebrow">情報の取り扱い</p><h1>プライバシー<br class="mobile-break" />ポリシー</h1><p>このサイトにおける情報の取り扱いについて記載します。</p><span>制定 2026年8月12日</span></header>
+			<article class="legal-document shell">
+				<nav class="legal-summary" aria-label="このページの内容">
+					<p>このページの内容</p>
+					<ul><li><a href="#purpose">個人情報の利用目的</a></li><li><a href="#analytics">アクセス情報</a></li><li><a href="#external-links">外部リンク</a></li><li><a href="#contact">お問い合わせ</a></li></ul>
+				</nav>
+				<div class="prose legal-body">
+				<h2 id="purpose">個人情報の利用目的</h2>
 				<p>お問い合わせ等で提供いただいた情報は、ご連絡やご質問への回答のために利用し、法令に基づく場合を除き、ご本人の同意なく第三者へ提供しません。</p>
-				<h2>アクセス情報について</h2>
+				<h2 id="analytics">アクセス情報について</h2>
 				<p>サイトの改善や利用状況の把握のため、アクセス解析を導入する場合があります。導入する際は、使用するサービスとデータの取り扱いを本ページで明示します。</p>
-				<h2>外部リンク</h2>
+				<h2 id="external-links">外部リンク</h2>
 				<p>外部サイトで提供される情報やサービスについては、当サイトでは責任を負いかねます。各リンク先の利用条件とプライバシーポリシーをご確認ください。</p>
-				<h2>お問い合わせ</h2>
+				<h2 id="contact">お問い合わせ</h2>
 				<p>本方針に関するお問い合わせは、<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> までご連絡ください。</p>
-				<p class="updated">制定日：2026年8月12日</p>
+				</div>
 			</article>
 		</main>
 		<Footer />
 	</body>
 </html>
-
-<style>
-	.policy { padding-bottom: 2rem; }
-	.updated { margin-top: 4rem; color: var(--muted); font-size: 0.8rem; }
-</style>

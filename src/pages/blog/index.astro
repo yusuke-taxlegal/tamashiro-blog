@@ -8,6 +8,7 @@ import Header from '../../components/Header.astro';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+const [latestPost, ...otherPosts] = posts;
 ---
 
 <!doctype html>
@@ -22,22 +23,34 @@ const posts = (await getCollection('blog')).sort(
 		<Header />
 		<main id="main-content">
 			<header class="page-intro shell">
-				<p class="eyebrow">FIELD NOTES / 読む</p>
-				<h1>試して、転んで、<br />わかったこと。</h1>
-				<p>AIの使い方から、日々の仕事の道具、経営の現場まで。一般論ではなく、玉城が実際に触ったことを中心に残しています。</p>
+				<p class="eyebrow">記事を読む</p>
+				<h1>実際に試して、<br />わかったこと。</h1>
+				<p>AIの使い方、仕事の道具、経営の現場について、玉城が実際に試したことを中心に書いています。</p>
 			</header>
 
-			<section class="blog-content shell" aria-labelledby="article-list-title">
-				<div class="filter-note">
-					<h2 id="article-list-title">すべての記事</h2>
-					<div aria-label="記事のテーマ">
-						<span>AIの使い方</span>
-						<span>仕事の道具</span>
-						<span>経営の現場</span>
+			<section class="blog-content shell" aria-labelledby="latest-article-title">
+				<header class="section-heading latest-heading">
+					<div>
+						<p class="eyebrow">新しい記事</p>
+						<h2 id="latest-article-title">まず、ここから。</h2>
 					</div>
-				</div>
-				<div class="article-list">
-					{posts.map((post, index) => <ArticleCard post={post} index={index} />)}
+					<p>{posts.length}本の記事を公開しています。</p>
+				</header>
+				{latestPost && <ArticleCard post={latestPost} featured />}
+
+				<div class="archive-layout">
+					<aside class="theme-note" aria-labelledby="article-list-title">
+						<h2 id="article-list-title">これまでの記事</h2>
+						<p>現場で試した内容を、3つのテーマで残しています。</p>
+						<ul aria-label="記事のテーマ">
+							<li>AIの使い方</li>
+							<li>仕事の道具</li>
+							<li>経営の現場</li>
+						</ul>
+					</aside>
+					<div class="article-list">
+						{otherPosts.map((post) => <ArticleCard post={post} />)}
+					</div>
 				</div>
 			</section>
 		</main>
@@ -47,45 +60,69 @@ const posts = (await getCollection('blog')).sort(
 
 <style>
 	.blog-content {
+		padding-bottom: clamp(5rem, 10vw, 9rem);
+	}
+
+	.latest-heading {
+		margin-bottom: 2rem;
+	}
+
+	.latest-heading .eyebrow {
+		margin-bottom: 0.7rem;
+	}
+
+	.latest-heading > p {
+		margin: 0;
+		color: var(--muted);
+		font-size: 0.82rem;
+	}
+
+	.archive-layout {
 		display: grid;
 		grid-template-columns: 210px minmax(0, 1fr);
 		gap: clamp(2rem, 6vw, 6rem);
+		margin-top: clamp(4rem, 8vw, 7rem);
 	}
 
-	.filter-note {
+	.theme-note {
 		position: sticky;
-		top: 2rem;
+		top: 7rem;
 		align-self: start;
 		padding-top: 2rem;
 		border-top: 4px solid var(--ink);
 	}
 
-	.filter-note h2 {
+	.theme-note h2 {
+		margin-bottom: 0.6rem;
 		font-size: 1.15rem;
 	}
 
-	.filter-note div {
-		display: flex;
-		align-items: flex-start;
-		flex-direction: column;
-		gap: 0.55rem;
+	.theme-note p,
+	.theme-note ul {
 		color: var(--muted);
 		font-size: 0.78rem;
 	}
 
+	.theme-note ul {
+		display: grid;
+		gap: 0.35rem;
+		margin: 1.2rem 0 0;
+		padding-left: 1.1rem;
+	}
+
 	@media (max-width: 800px) {
-		.blog-content {
+		.archive-layout {
 			grid-template-columns: 1fr;
 		}
 
-		.filter-note {
+		.theme-note {
 			position: static;
 		}
 
-		.filter-note div {
-			align-items: center;
-			flex-direction: row;
+		.theme-note ul {
+			display: flex;
 			flex-wrap: wrap;
+			gap: 0.4rem 1.5rem;
 		}
 	}
 </style>

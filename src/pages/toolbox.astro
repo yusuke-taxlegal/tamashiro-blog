@@ -8,6 +8,7 @@ import profileImage from '../assets/people/tamashiro-yusuke-profile-black-2048.j
 const tools = [
 	{
 		id: 'hidock-p1',
+		group: 'work',
 		category: '会議・相談の記録',
 		channel: 'メーカー紹介',
 		title: 'HiDock P1',
@@ -28,6 +29,7 @@ const tools = [
 	},
 	{
 		id: 'switchbot-lock',
+		group: 'home',
 		category: '玄関・スマートホーム',
 		channel: 'Amazon',
 		title: 'SwitchBot スマートロック Pro＋指紋認証パッド',
@@ -47,6 +49,7 @@ const tools = [
 	},
 	{
 		id: 'sparkling-water',
+		group: 'daily',
 		category: '暮らし・飲み物',
 		channel: 'Amazon',
 		title: '富士山の強炭酸水 ラベルレス 500ml×24本',
@@ -66,6 +69,7 @@ const tools = [
 	},
 	{
 		id: 'soy-milk',
+		group: 'daily',
 		category: '暮らし・飲み物',
 		channel: 'Amazon',
 		title: 'マルサン 調製豆乳 カロリー45%オフ 1L×6本',
@@ -85,6 +89,7 @@ const tools = [
 	},
 	{
 		id: 'toy-cleaner',
+		group: 'daily',
 		category: '家族・ごっこ遊び',
 		channel: 'Amazon',
 		title: 'アガツマ(AGATSUMA) アンパンマン スティックスイスイそうじき',
@@ -104,6 +109,7 @@ const tools = [
 	},
 	{
 		id: 'dyson-v8',
+		group: 'home',
 		category: '掃除・家電',
 		channel: 'Amazon',
 		title: 'Dyson V8 Slim Fluffy Extra',
@@ -120,10 +126,10 @@ const tools = [
 		button: 'Amazonで商品を見る',
 		note: '型番、付属品、保証、価格、在庫はAmazonの商品ページでご確認ください。',
 		tone: 'ink',
-		featured: true,
 	},
 	{
 		id: 'dyson-stand',
+		group: 'home',
 		category: '掃除・収納',
 		channel: 'Amazon',
 		title: '八番屋 ダイソン対応スタンド',
@@ -143,6 +149,7 @@ const tools = [
 	},
 	{
 		id: 'dishwasher',
+		group: 'home',
 		category: 'キッチン・家事',
 		channel: 'Amazon',
 		title: 'AVAKYO タンク式食器洗い乾燥機 AV-01',
@@ -162,6 +169,7 @@ const tools = [
 	},
 	{
 		id: 'dryer',
+		group: 'home',
 		category: '洗濯・家事',
 		channel: 'Amazon',
 		title: '日立 電気衣類乾燥機 DE-N50HV',
@@ -181,6 +189,32 @@ const tools = [
 		featured: true,
 	},
 ];
+
+const toolCollections = [
+	{
+		id: 'work-tools',
+		label: '仕事',
+		title: '会話と記録に集中する。',
+		intro: '相談や会議のあとに残る作業を減らし、目の前の相手へ意識を戻す道具です。',
+		items: tools.filter((tool) => tool.group === 'work'),
+	},
+	{
+		id: 'home-tools',
+		label: '家事',
+		title: '家の動作を、ひとつずつ減らす。',
+		intro: '鍵、掃除、食器、洗濯。毎日くり返す動作を、無理なく任せられる道具です。',
+		items: tools.filter((tool) => tool.group === 'home'),
+	},
+	{
+		id: 'daily-tools',
+		label: '日々の定番',
+		title: '買い足す理由が、はっきりしている。',
+		intro: '運ぶ手間、家にない不安、親子で過ごす時間。小さな負担を減らす定番です。',
+		items: tools.filter((tool) => tool.group === 'daily'),
+	},
+];
+
+const heroTools = tools.filter((tool) => ['hidock-p1', 'dryer'].includes(tool.id));
 ---
 
 <!doctype html>
@@ -191,23 +225,29 @@ const tools = [
 			description="玉城祐輔が仕事と暮らしで実際に使っている9つの道具を、使う場面、良かった点、購入前の注意まで紹介します。"
 		/>
 	</head>
-	<body>
+	<body class="toolbox-page">
 		<Header />
 		<main id="main-content">
 			<section class="toolbox-hero shell">
 				<div class="hero-copy">
-					<p class="eyebrow">YUSUKE'S TOOLBOX</p>
-					<h1>仕事を軽くする、<br /><em>本当に使っている</em>道具。</h1>
-					<p class="hero-lead">相談、会議、家事、子育て。便利そうだからではなく、実際に使い続けているものだけを、良い点と注意点まで紹介します。</p>
+					<p class="eyebrow">玉城祐輔の道具箱</p>
+					<h1>使っているから、<br /><strong>すすめられる。</strong></h1>
+					<p class="hero-lead">仕事と暮らしの負担を減らした9つを、注意点まで紹介します。</p>
 					<div class="button-row">
-						<a class="button primary" href="#tools">9つの道具を見る</a>
-						<a class="button" href="#policy">選ぶ基準を見る</a>
+						<a class="button primary" href="#tools">道具を見る</a>
+						<a class="button" href="#policy">選び方</a>
 					</div>
 				</div>
-				<figure class="hero-portrait">
-					<Image src={profileImage} alt="黒い背景の前に立つ玉城祐輔" widths={[480, 720, 960]} sizes="(max-width: 760px) 100vw, 42vw" loading="eager" />
-					<figcaption><strong>玉城祐輔</strong><span>実務で使い続けているものを紹介します。</span></figcaption>
-				</figure>
+				<div class="hero-visual" aria-label="玉城祐輔と愛用している道具">
+					<figure class="hero-portrait">
+						<Image src={profileImage} alt="黒い背景の前に立つ玉城祐輔" widths={[480, 720, 960]} sizes="(max-width: 760px) 100vw, 32vw" loading="eager" />
+					</figure>
+					{heroTools.map((tool) => (
+						<a class="hero-product" href={`#${tool.id}`} aria-label={`${tool.title}の紹介へ移動`}>
+							<img src={tool.image} alt={tool.imageAlt} loading="eager" decoding="async" referrerpolicy="no-referrer" />
+						</a>
+					))}
+				</div>
 			</section>
 
 			<aside class="disclosure" aria-label="広告に関する表示">
@@ -219,51 +259,65 @@ const tools = [
 
 			<section class="tools shell" id="tools" aria-labelledby="tools-title">
 				<header class="tools-heading">
-					<div>
-						<p class="eyebrow">SELECTED TOOLS</p>
-						<h2 id="tools-title">今、すすめたい9つ</h2>
-					</div>
+					<h2 id="tools-title">今、すすめたい9つ</h2>
 					<p>報酬の高さではなく、日々の小さな負担を減らせるかで選んでいます。</p>
 				</header>
 
-				<div class="tool-list">
-					{tools.map((tool, index) => (
-						<article id={tool.id} class:list={['tool-card', tool.tone, { featured: tool.featured }]}>
-							<div class="tool-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div>
-							<a class="tool-image" href={tool.url} target="_blank" rel="sponsored noopener noreferrer" aria-label={`${tool.title}の商品ページを開く`}>
-								<img src={tool.image} alt={tool.imageAlt} loading="lazy" decoding="async" referrerpolicy="no-referrer" />
-								<span>商品写真</span>
-							</a>
-							<div class="tool-main">
-								<div class="tool-meta"><span>{tool.category}</span><span>{tool.channel}</span></div>
-								<h3>{tool.title}</h3>
-								<p class="tool-statement">{tool.statement}</p>
-								<p class="tool-lead">{tool.lead}</p>
-							</div>
-							<div class="tool-detail">
-								<dl>
-									{tool.details.map(([label, value]) => (
-										<div><dt>{label}</dt><dd>{value}</dd></div>
-									))}
-								</dl>
-								<a class="product-link" href={tool.url} target="_blank" rel="sponsored noopener noreferrer">{tool.button}<span aria-hidden="true">↗</span></a>
-								<p class="affiliate-note">広告・アフィリエイトリンクです。{tool.note}</p>
-							</div>
-						</article>
+				<nav class="collection-nav" aria-label="道具の種類">
+					{toolCollections.map((collection) => (
+						<a href={`#${collection.id}`}>
+							<span>{collection.label}</span>
+							<strong>{collection.title}</strong>
+							<small>{collection.items.length}点</small>
+						</a>
 					))}
-				</div>
+				</nav>
+
+				{toolCollections.map((collection) => (
+					<section id={collection.id} class="tool-collection" aria-labelledby={`${collection.id}-title`}>
+						<header class="collection-heading">
+							<p>{collection.label}</p>
+							<h3 id={`${collection.id}-title`}>{collection.title}</h3>
+							<span>{collection.intro}</span>
+						</header>
+						<div class="tool-grid">
+							{collection.items.map((tool) => (
+								<article id={tool.id} class:list={['tool-card', tool.tone, { featured: tool.featured, wide: tool.id === 'toy-cleaner' }]}>
+									<a class="tool-image" href={tool.url} target="_blank" rel="sponsored noopener noreferrer" aria-label={`${tool.title}の商品ページを開く`}>
+										<img src={tool.image} alt={tool.imageAlt} loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+									</a>
+									<div class="tool-copy">
+										<div class="tool-meta"><span>{tool.category}</span><span>{tool.channel}</span></div>
+										<h4>{tool.title}</h4>
+										<p class="tool-statement">{tool.statement}</p>
+										<p class="tool-lead">{tool.lead}</p>
+										<a class="product-link" href={tool.url} target="_blank" rel="sponsored noopener noreferrer">{tool.button}<span aria-hidden="true">↗</span></a>
+										<p class="affiliate-note">広告・アフィリエイトリンクです。{tool.note}</p>
+										<details class="tool-notes">
+											<summary>使い方と注意点</summary>
+											<dl>
+												{tool.details.map(([label, value]) => (
+													<div><dt>{label}</dt><dd>{value}</dd></div>
+												))}
+											</dl>
+										</details>
+									</div>
+								</article>
+							))}
+						</div>
+					</section>
+				))}
 			</section>
 
 			<section class="policy shell" id="policy" aria-labelledby="policy-title">
 				<div class="policy-intro">
-					<p class="eyebrow">HOW I CHOOSE</p>
 					<h2 id="policy-title">買わない判断にも、<br />役立つ紹介を。</h2>
 					<p>おすすめだけを並べるのではなく、使う場面と、購入前に確認したいことを一緒に残します。</p>
 				</div>
 				<div class="policy-grid">
-					<article><span>01</span><h3>実際に使っている</h3><p>仕事や暮らしの中で使い、何が変わったかを説明できるものだけを掲載します。</p></article>
-					<article><span>02</span><h3>注意点も書く</h3><p>便利な点だけでなく、合わない人や購入前に確認すべき条件も紹介します。</p></article>
-					<article><span>03</span><h3>情報を固定しない</h3><p>価格や在庫は変わります。最新の条件は必ずリンク先で確認してください。</p></article>
+					<article><h3>実際に使っている</h3><p>仕事や暮らしの中で使い、何が変わったかを説明できるものだけを掲載します。</p></article>
+					<article><h3>注意点も書く</h3><p>便利な点だけでなく、合わない人や購入前に確認すべき条件も紹介します。</p></article>
+					<article><h3>情報を固定しない</h3><p>価格や在庫は変わります。最新の条件は必ずリンク先で確認してください。</p></article>
 				</div>
 			</section>
 
@@ -295,13 +349,9 @@ const tools = [
 		line-height: 1.05;
 	}
 
-	.hero-copy h1 em {
+	.hero-copy h1 strong {
 		display: inline-block;
-		margin-right: 0.12em;
-		color: var(--coral);
-		font-family: var(--font-serif);
-		font-style: normal;
-		font-weight: 650;
+		font-weight: 750;
 	}
 
 	.hero-lead {
@@ -370,11 +420,54 @@ const tools = [
 	.tools-heading > p,
 	.policy-intro > p:last-child { margin: 0; color: var(--muted); }
 
-	.tool-list { display: grid; gap: 1.25rem; }
+	.tool-index {
+		margin-bottom: clamp(2.5rem, 6vw, 5rem);
+		padding: 1.25rem 0;
+		border-block: 1px solid var(--line);
+	}
+
+	.tool-index > p {
+		margin-bottom: 1rem;
+		font-size: 0.75rem;
+		font-weight: 800;
+	}
+
+	.tool-index ol {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 0;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.tool-index li {
+		min-width: 0;
+		border-top: 1px solid var(--line);
+	}
+
+	.tool-index a {
+		display: grid;
+		gap: 0.1rem 0.5rem;
+		padding: 0.85rem 0.5rem;
+		font-size: 0.78rem;
+		font-weight: 800;
+		line-height: 1.5;
+		text-decoration: none;
+	}
+
+	.tool-index a span {
+		color: var(--muted);
+		font-size: 0.65rem;
+		font-weight: 700;
+	}
+
+	.tool-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
 
 	.tool-card {
 		display: grid;
-		grid-template-columns: 90px minmax(0, 0.92fr) minmax(360px, 1.08fr);
+		grid-template-columns: minmax(0, 1fr);
+		min-width: 0;
 		gap: clamp(1.5rem, 4vw, 4rem);
 		padding: clamp(1.8rem, 4vw, 3.5rem);
 		border: 1px solid var(--line);
@@ -382,23 +475,18 @@ const tools = [
 		background: var(--white);
 	}
 
-	.tool-card.featured { padding-block: clamp(3rem, 6vw, 5.5rem); }
+	.tool-card.featured {
+		grid-column: 1 / -1;
+		grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
+		padding-block: clamp(3rem, 6vw, 5.5rem);
+	}
 	.tool-card.coral { background: linear-gradient(135deg, rgba(227, 111, 74, 0.13), transparent 52%), var(--white); }
 	.tool-card.olive { background: linear-gradient(145deg, rgba(102, 114, 75, 0.15), transparent 58%), var(--white); }
 	.tool-card.ink { background: var(--ink); color: var(--paper); }
 
-	.tool-index {
-		grid-row: 1 / span 2;
-		color: var(--coral);
-		font-size: clamp(2rem, 4vw, 4rem);
-		font-weight: 850;
-		letter-spacing: -0.08em;
-		line-height: 1;
-	}
-
 	.tool-image {
 		position: relative;
-		grid-column: 2 / -1;
+		grid-column: 1 / -1;
 		min-height: 280px;
 		overflow: hidden;
 		border: 1px solid var(--line);
@@ -417,19 +505,6 @@ const tools = [
 
 	.tool-image:hover img { transform: scale(1.025); }
 
-	.tool-image span {
-		position: absolute;
-		top: 1rem;
-		left: 1rem;
-		padding: 0.35rem 0.65rem;
-		border-radius: 999px;
-		background: rgba(23, 25, 21, 0.88);
-		color: var(--white);
-		font-size: 0.68rem;
-		font-weight: 800;
-		letter-spacing: 0.05em;
-	}
-
 	.tool-meta {
 		display: flex;
 		flex-wrap: wrap;
@@ -446,6 +521,10 @@ const tools = [
 	.tool-main h3 {
 		margin-bottom: 1.3rem;
 		font-size: clamp(1.8rem, 3.8vw, 3.7rem);
+	}
+
+	.tool-card:not(.featured) .tool-main h3 {
+		font-size: clamp(1.65rem, 2.8vw, 2.45rem);
 	}
 
 	.tool-statement {
@@ -507,14 +586,13 @@ const tools = [
 
 	.policy-grid article {
 		display: grid;
-		grid-template-columns: 3rem 0.7fr 1fr;
+		grid-template-columns: 0.7fr 1fr;
 		align-items: baseline;
 		gap: 1rem;
 		padding: 1.6rem 0;
 		border-bottom: 1px solid var(--line);
 	}
 
-	.policy-grid span { color: var(--coral); font-size: 0.72rem; font-weight: 850; }
 	.policy-grid h3 { margin: 0; font-size: 1.35rem; }
 	.policy-grid p { margin: 0; color: var(--muted); font-size: 0.86rem; }
 
@@ -545,9 +623,12 @@ const tools = [
 		.policy { grid-template-columns: 1fr; }
 
 		.hero-portrait { width: min(100%, 620px); }
-		.tool-card { grid-template-columns: 70px 1fr; }
-		.tool-image { grid-column: 2; }
-		.tool-detail { grid-column: 2; }
+		.tool-list { grid-template-columns: 1fr; }
+		.tool-card,
+		.tool-card.featured { grid-column: auto; grid-template-columns: minmax(0, 1fr); }
+		.tool-image,
+		.tool-detail { grid-column: auto; }
+		.tool-card > * { min-width: 0; }
 	}
 
 	@media (max-width: 640px) {
@@ -555,15 +636,492 @@ const tools = [
 		.hero-copy h1 { font-size: clamp(2.7rem, 13vw, 4.5rem); }
 		.hero-portrait figcaption { align-items: start; flex-direction: column; gap: 0.2rem; }
 		.disclosure-inner { grid-template-columns: 1fr; gap: 0.5rem; }
+		.tool-index ol { grid-template-columns: 1fr; }
 		.tool-card { grid-template-columns: 1fr; padding: 1.5rem; }
-		.tool-index { grid-row: auto; font-size: 2rem; }
 		.tool-image { grid-column: auto; min-height: 220px; }
 		.tool-image img { height: 260px; padding: 1.25rem; }
 		.tool-detail { grid-column: auto; }
 		.tool-detail dl > div { grid-template-columns: 1fr; gap: 0.3rem; }
 		.policy { gap: 2rem; }
-		.policy-grid article { grid-template-columns: 2.2rem 1fr; }
-		.policy-grid p { grid-column: 2; }
+		.policy-grid article { grid-template-columns: 1fr; }
 		.closing { align-items: start; flex-direction: column; }
+	}
+
+	/* Toolbox redesign: grouped editorial catalog */
+	:global(body.toolbox-page) {
+		background: var(--paper);
+	}
+
+	.toolbox-hero {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: clamp(2.5rem, 6vw, 6rem);
+		min-height: calc(100dvh - 72px);
+		padding-block: clamp(3rem, 6vw, 6rem);
+	}
+
+	.hero-copy h1 {
+		max-width: 700px;
+		font-size: clamp(3rem, 4vw, 3.75rem);
+		line-height: 1.08;
+	}
+
+	.hero-copy h1 strong {
+		font-weight: 750;
+	}
+
+	.hero-lead {
+		max-width: 34rem;
+		font-size: clamp(1rem, 1.35vw, 1.12rem);
+	}
+
+	.hero-visual {
+		display: grid;
+		grid-template-columns: minmax(0, 1.3fr) minmax(150px, 0.7fr);
+		grid-template-rows: repeat(2, minmax(0, 1fr));
+		gap: 0.8rem;
+		min-width: 0;
+	}
+
+	.hero-portrait {
+		position: relative;
+		grid-row: 1 / 3;
+		margin: 0;
+		transform: none;
+	}
+
+	.hero-portrait :global(img) {
+		height: 100%;
+		aspect-ratio: 4 / 5;
+		border-radius: var(--radius);
+		box-shadow: var(--shadow);
+		object-fit: cover;
+	}
+
+	.hero-product {
+		position: relative;
+		display: block;
+		min-width: 0;
+		overflow: hidden;
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		background: #fff;
+		text-decoration: none;
+	}
+
+	.hero-product img {
+		width: 100%;
+		height: 100%;
+		padding: clamp(0.7rem, 2vw, 1.4rem);
+		object-fit: contain;
+		transition: transform 220ms ease;
+	}
+
+	.hero-product:hover img {
+		transform: scale(1.035);
+	}
+
+	.disclosure {
+		border-block: 1px solid var(--line);
+		background: var(--paper-deep);
+		color: var(--ink);
+	}
+
+	.disclosure strong {
+		color: var(--coral);
+	}
+
+	.disclosure p {
+		color: var(--ink-soft);
+	}
+
+	.tools {
+		padding-block: clamp(5rem, 9vw, 8rem);
+	}
+
+	.tools-heading {
+		display: block;
+		margin-bottom: clamp(2.5rem, 5vw, 4rem);
+	}
+
+	.tools-heading h2 {
+		font-size: clamp(2.5rem, 5vw, 4.8rem);
+	}
+
+	.tools-heading > p {
+		max-width: 42rem;
+		margin-top: 1rem;
+	}
+
+	.collection-nav {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		margin-bottom: clamp(5rem, 9vw, 8rem);
+		border-block: 1px solid var(--line);
+	}
+
+	.collection-nav a {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 0.35rem 1rem;
+		min-width: 0;
+		padding: 1.4rem clamp(1rem, 2.5vw, 2rem);
+		border-right: 1px solid var(--line);
+		text-decoration: none;
+		transition: background 160ms ease, transform 160ms ease;
+	}
+
+	.collection-nav a:last-child {
+		border-right: 0;
+	}
+
+	.collection-nav a:hover {
+		background: var(--paper-deep);
+	}
+
+	.collection-nav a:active {
+		transform: translateY(1px);
+	}
+
+	.collection-nav span {
+		grid-column: 1 / -1;
+		color: var(--coral);
+		font-size: 0.7rem;
+		font-weight: 850;
+	}
+
+	.collection-nav strong {
+		font-size: 0.92rem;
+		line-height: 1.5;
+	}
+
+	.collection-nav small {
+		align-self: end;
+		color: var(--muted);
+		font-size: 0.68rem;
+	}
+
+	.tool-collection {
+		scroll-margin-top: 6rem;
+		padding-top: clamp(3.5rem, 7vw, 6rem);
+		border-top: 1px solid var(--line);
+	}
+
+	.tool-collection + .tool-collection {
+		margin-top: clamp(5rem, 9vw, 8rem);
+	}
+
+	.collection-heading {
+		max-width: 760px;
+		margin-bottom: clamp(2rem, 5vw, 4rem);
+	}
+
+	.collection-heading p {
+		margin-bottom: 0.8rem;
+		color: var(--coral);
+		font-size: 0.75rem;
+		font-weight: 850;
+	}
+
+	.collection-heading h3 {
+		margin-bottom: 1rem;
+		font-size: clamp(2rem, 4.3vw, 4rem);
+	}
+
+	.collection-heading > span {
+		display: block;
+		max-width: 42rem;
+		color: var(--muted);
+	}
+
+	.tool-grid {
+		display: grid;
+		grid-template-columns: repeat(12, minmax(0, 1fr));
+		gap: 1.25rem;
+	}
+
+	.tool-card {
+		grid-column: span 6;
+		grid-template-columns: 1fr;
+		align-content: start;
+		gap: 1.35rem;
+		padding: clamp(1.2rem, 2.5vw, 2rem);
+		border-radius: var(--radius);
+		background: var(--white);
+	}
+
+	.tool-card.featured,
+	.tool-card.wide {
+		grid-column: 1 / -1;
+		grid-template-columns: minmax(300px, 0.92fr) minmax(0, 1.08fr);
+		align-items: stretch;
+		padding: clamp(1.4rem, 3vw, 2.5rem);
+	}
+
+	.tool-card.coral {
+		background: color-mix(in srgb, var(--coral) 9%, var(--white));
+	}
+
+	.tool-card.olive {
+		background: color-mix(in srgb, var(--olive) 12%, var(--white));
+	}
+
+	.tool-card.ink {
+		background: #1b1e18;
+		color: #f4f0e7;
+	}
+
+	.tool-card.ink .tool-statement,
+	.tool-card.ink .product-link {
+		color: #f4f0e7;
+	}
+
+	.tool-image {
+		grid-column: auto;
+		min-height: 0;
+		border-radius: calc(var(--radius) - 0.3rem);
+	}
+
+	.tool-image img {
+		height: clamp(220px, 25vw, 320px);
+		padding: clamp(1.2rem, 3vw, 2.4rem);
+	}
+
+	.tool-card.featured .tool-image img,
+	.tool-card.wide .tool-image img {
+		height: 100%;
+		min-height: 360px;
+	}
+
+	.tool-copy {
+		display: flex;
+		min-width: 0;
+		flex-direction: column;
+	}
+
+	.tool-copy h4 {
+		margin-bottom: 1rem;
+		font-size: clamp(1.55rem, 2.5vw, 2.7rem);
+	}
+
+	.tool-card.featured .tool-copy h4,
+	.tool-card.wide .tool-copy h4 {
+		font-size: clamp(1.9rem, 3.4vw, 3.5rem);
+	}
+
+	.tool-statement {
+		font-size: clamp(1.2rem, 1.9vw, 1.75rem);
+	}
+
+	.tool-lead {
+		font-size: 0.9rem;
+	}
+
+	.product-link {
+		align-self: flex-start;
+		margin-top: 1.5rem;
+		font-size: 0.86rem;
+	}
+
+	.affiliate-note {
+		margin-bottom: 1rem;
+	}
+
+	.tool-notes {
+		margin-top: auto;
+		padding-top: 0.9rem;
+		border-top: 1px solid var(--line);
+	}
+
+	.tool-notes summary {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		min-height: 2.5rem;
+		cursor: pointer;
+		font-size: 0.78rem;
+		font-weight: 850;
+		list-style: none;
+	}
+
+	.tool-notes summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.tool-notes summary::after {
+		color: var(--coral);
+		content: "+";
+		font-size: 1.1rem;
+	}
+
+	.tool-notes[open] summary::after {
+		content: "−";
+	}
+
+	.tool-notes dl {
+		display: grid;
+		gap: 0;
+		margin: 0.5rem 0 0;
+	}
+
+	.tool-notes dl > div {
+		display: grid;
+		grid-template-columns: 6.5rem 1fr;
+		gap: 1rem;
+		padding: 0.9rem 0;
+		border-top: 1px solid var(--line);
+	}
+
+	.tool-notes dt {
+		color: var(--coral);
+		font-size: 0.7rem;
+		font-weight: 850;
+	}
+
+	.tool-notes dd {
+		margin: 0;
+		color: var(--ink-soft);
+		font-size: 0.78rem;
+		line-height: 1.7;
+	}
+
+	.tool-card.ink .tool-notes dd {
+		color: rgba(244, 240, 231, 0.72);
+	}
+
+	.policy {
+		display: block;
+	}
+
+	.policy-intro {
+		max-width: 760px;
+		margin-bottom: clamp(2.5rem, 5vw, 4rem);
+	}
+
+	.policy-grid {
+		display: grid;
+		grid-template-columns: repeat(12, minmax(0, 1fr));
+		gap: 1rem;
+	}
+
+	.policy-grid article {
+		display: block;
+		grid-column: span 5;
+		padding: 1.6rem;
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		background: var(--white);
+	}
+
+	.policy-grid article:nth-child(2) {
+		grid-column: span 7;
+		background: var(--paper-deep);
+	}
+
+	.policy-grid article:nth-child(3) {
+		grid-column: 4 / -1;
+		background: color-mix(in srgb, var(--olive) 12%, var(--white));
+	}
+
+	.policy-grid h3 {
+		margin-bottom: 0.65rem;
+	}
+
+	@media (max-width: 940px) {
+		.toolbox-hero {
+			grid-template-columns: 1fr;
+			min-height: 0;
+		}
+
+		.hero-visual {
+			width: min(100%, 720px);
+		}
+
+		.collection-nav {
+			grid-template-columns: 1fr;
+		}
+
+		.collection-nav a {
+			border-right: 0;
+			border-bottom: 1px solid var(--line);
+		}
+
+		.collection-nav a:last-child {
+			border-bottom: 0;
+		}
+
+		.tool-card,
+		.tool-card.featured,
+		.tool-card.wide {
+			grid-column: 1 / -1;
+		}
+	}
+
+	@media (max-width: 680px) {
+		.toolbox-hero {
+			padding-block: 3rem 4rem;
+		}
+
+		.hero-copy h1 {
+			font-size: clamp(2.45rem, 11.5vw, 3.35rem);
+		}
+
+		.hero-visual {
+			grid-template-columns: minmax(0, 1.2fr) minmax(105px, 0.8fr);
+			gap: 0.55rem;
+		}
+
+		.disclosure-inner {
+			grid-template-columns: 1fr;
+		}
+
+		.tool-card.featured,
+		.tool-card.wide {
+			grid-template-columns: 1fr;
+		}
+
+		.tool-card.featured .tool-image img,
+		.tool-card.wide .tool-image img {
+			height: 260px;
+			min-height: 0;
+		}
+
+		.tool-notes dl > div {
+			grid-template-columns: 1fr;
+			gap: 0.25rem;
+		}
+
+		.policy-grid article,
+		.policy-grid article:nth-child(2),
+		.policy-grid article:nth-child(3) {
+			grid-column: 1 / -1;
+		}
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:global(body.toolbox-page) {
+			--ink: #f0f2eb;
+			--ink-soft: #d0d4c8;
+			--paper: #151712;
+			--paper-deep: #22251e;
+			--white: #1b1e18;
+			--olive: #8e9a70;
+			--olive-dark: #c0caa9;
+			--coral: #f08a64;
+			--line: rgba(240, 242, 235, 0.17);
+			--muted: #a9ad9f;
+			--shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+		}
+
+		:global(body.toolbox-page footer) {
+			--ink: #0f110e;
+			--paper: #eceee6;
+			--white: #eceee6;
+			--coral: #f08a64;
+		}
+
+		.tool-card.ink {
+			background: #0f110e;
+		}
 	}
 </style>
