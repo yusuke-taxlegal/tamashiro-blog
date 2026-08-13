@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
@@ -7,24 +8,26 @@ import Header from '../components/Header.astro';
 import { COMPANY_URL, TOOLBOX_URL } from '../consts';
 
 type PostData = CollectionEntry<'blog'>['data'];
-type Props = PostData & { readingMinutes: number };
+type ArticleHeading = { depth: number; slug: string; text: string };
+type Props = PostData & { readingMinutes: number; headings: ArticleHeading[] };
 
-const { title, description, pubDate, updatedDate, category, accent, readingMinutes } = Astro.props;
+const { title, description, pubDate, updatedDate, category, readingMinutes, heroImage, headings } = Astro.props;
+const articleHeadings = headings.filter((heading) => heading.depth === 2);
 ---
 
 <!doctype html>
 <html lang="ja">
 	<head>
-		<BaseHead title={`${title}｜玉城祐輔`} description={description} type="article" />
+		<BaseHead title={`${title}｜玉城祐輔`} description={description} image={heroImage} type="article" />
 	</head>
 	<body>
 		<Header />
 		<main id="main-content">
 			<article>
-				<header class:list={['article-hero', `accent-${accent}`]}>
+				<header class="article-hero">
 					<div class="shell article-hero-inner">
 						<div class="article-copy">
-							<a class="back-link" href="/blog">← 記事一覧へ</a>
+							<a class="back-link" href="/blog">記事一覧へ戻る</a>
 							<p class="category">{category}</p>
 							<h1>{title}</h1>
 							<p class="description">{description}</p>
@@ -34,18 +37,28 @@ const { title, description, pubDate, updatedDate, category, accent, readingMinut
 								<span>読了 約{readingMinutes}分</span>
 							</div>
 						</div>
-						<div class="cover-art" aria-hidden="true">
-							<span class="cover-dot"></span>
-							<span class="cover-grid"></span>
-							<span class="cover-word">FIELD<br />NOTE</span>
-						</div>
+						{heroImage && (
+							<div class="cover-image">
+								<Image src={heroImage} alt="" width={900} height={600} loading="eager" fetchpriority="high" />
+							</div>
+						)}
 					</div>
 				</header>
 
 				<div class="article-shell">
 					<aside class="article-aside">
-						<p>YUSUKE'S NOTE</p>
-						<span>掲載時点の情報です。料金・制度・サービス仕様は、必ず公式情報も確認してください。</span>
+						{articleHeadings.length > 0 && (
+							<nav aria-labelledby="article-nav-title">
+								<p id="article-nav-title">この記事の内容</p>
+								<ol>
+									{articleHeadings.map((heading) => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}
+								</ol>
+							</nav>
+						)}
+						<div class="article-caution">
+							<p>情報の確認</p>
+							<span>掲載時点の情報です。料金、制度、サービス仕様は、必ず公式情報も確認してください。</span>
+						</div>
 					</aside>
 					<div class="prose">
 						<slot />
@@ -53,12 +66,11 @@ const { title, description, pubDate, updatedDate, category, accent, readingMinut
 				</div>
 
 				<section class="after-note narrow">
-					<p class="eyebrow">AFTER READING</p>
-					<h2>次に、どちらを見ますか？</h2>
-					<p>玉城個人が使っている道具を見るなら「道具箱」。会社の仕事として相談したい場合は、T&Lサポートへどうぞ。</p>
+					<h2>次に見るものを選ぶ</h2>
+					<p>玉城個人が使っている道具は「道具箱」へ。会社の仕事として相談したい場合は、T&Lサポートへお進みください。</p>
 					<div class="button-row">
-						<a class="button" href={TOOLBOX_URL}>道具箱を見る →</a>
-						<a class="button primary" href={COMPANY_URL} target="_blank" rel="noopener noreferrer">法人相談はこちら ↗</a>
+						<a class="button" href={TOOLBOX_URL}>道具箱を見る</a>
+						<a class="button primary" href={COMPANY_URL} target="_blank" rel="noopener noreferrer">相談内容を確認する</a>
 					</div>
 				</section>
 			</article>
@@ -69,47 +81,44 @@ const { title, description, pubDate, updatedDate, category, accent, readingMinut
 
 <style>
 	.article-hero {
-		padding: clamp(3.5rem, 8vw, 7rem) 0;
-		background: var(--olive);
-		color: var(--white);
+		padding: clamp(3rem, 7vw, 6rem) 0;
+		border-bottom: 1px solid var(--line);
 	}
-
-	.article-hero.accent-coral { background: var(--coral); }
-	.article-hero.accent-ink { background: var(--ink); }
 
 	.article-hero-inner {
 		display: grid;
-		grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.55fr);
+		grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
 		align-items: center;
-		gap: clamp(2.5rem, 7vw, 7rem);
+		gap: clamp(2.5rem, 6vw, 6rem);
 	}
 
 	.back-link {
 		display: inline-block;
-		margin-bottom: 3rem;
-		color: rgba(255, 255, 255, 0.75);
-		font-size: 0.75rem;
+		margin-bottom: 2.5rem;
+		color: var(--muted);
+		font-size: 0.78rem;
 		font-weight: 750;
 		text-decoration: none;
 	}
 
+	.back-link::before { content: "← "; }
+
 	.category {
 		margin-bottom: 0.8rem;
-		font-size: 0.72rem;
+		color: var(--olive-dark);
+		font-size: 0.76rem;
 		font-weight: 800;
-		letter-spacing: 0.12em;
 	}
 
 	.article-copy h1 {
 		max-width: 900px;
 		margin-bottom: 1.3rem;
-		color: var(--white);
-		font-size: clamp(2.2rem, 5.8vw, 5.2rem);
+		font-size: clamp(2.2rem, 4.7vw, 4.5rem);
 	}
 
 	.description {
 		max-width: 760px;
-		color: rgba(255, 255, 255, 0.82);
+		color: var(--ink-soft);
 		font-size: 1rem;
 	}
 
@@ -118,46 +127,21 @@ const { title, description, pubDate, updatedDate, category, accent, readingMinut
 		flex-wrap: wrap;
 		gap: 0.5rem 1.25rem;
 		margin-top: 2rem;
-		color: rgba(255, 255, 255, 0.68);
-		font-size: 0.7rem;
+		color: var(--muted);
+		font-size: 0.72rem;
 	}
 
-	.cover-art {
-		position: relative;
-		min-height: 340px;
+	.cover-image {
 		overflow: hidden;
-		border: 1px solid rgba(255, 255, 255, 0.3);
-		border-radius: 45% 45% 1rem 1rem;
+		border-radius: var(--radius);
+		background: var(--paper-deep);
+		box-shadow: var(--shadow);
 	}
 
-	.cover-dot {
-		position: absolute;
-		top: 18%;
-		right: 18%;
-		width: 4.2rem;
-		height: 4.2rem;
-		border-radius: 50%;
-		background: var(--paper);
-	}
-
-	.cover-grid {
-		position: absolute;
-		right: -10%;
-		bottom: -10%;
-		width: 75%;
-		height: 55%;
-		background-image: linear-gradient(rgba(255,255,255,.22) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.22) 1px, transparent 1px);
-		background-size: 22px 22px;
-	}
-
-	.cover-word {
-		position: absolute;
-		bottom: 1.5rem;
-		left: 1.5rem;
-		font-size: 0.7rem;
-		font-weight: 800;
-		letter-spacing: 0.14em;
-		line-height: 1.35;
+	.cover-image :global(img) {
+		width: 100%;
+		aspect-ratio: 3 / 2;
+		object-fit: cover;
 	}
 
 	.article-shell {
@@ -169,24 +153,23 @@ const { title, description, pubDate, updatedDate, category, accent, readingMinut
 	}
 
 	.article-aside {
+		position: sticky;
+		top: 7rem;
 		align-self: start;
+	}
+
+	.article-aside nav,
+	.article-caution {
 		padding-top: 1rem;
 		border-top: 3px solid var(--coral);
 	}
 
-	.article-aside p {
-		margin-bottom: 0.6rem;
-		font-size: 0.65rem;
-		font-weight: 800;
-		letter-spacing: 0.12em;
-	}
-
-	.article-aside span {
-		display: block;
-		color: var(--muted);
-		font-size: 0.72rem;
-		line-height: 1.7;
-	}
+	.article-aside p { margin-bottom: 0.6rem; font-size: 0.78rem; font-weight: 800; }
+	.article-aside ol { display: grid; gap: 0.65rem; margin: 0; padding-left: 1.15rem; }
+	.article-aside li { color: var(--muted); font-size: 0.72rem; line-height: 1.55; }
+	.article-aside a { text-decoration: none; }
+	.article-caution { margin-top: 2rem; border-top-color: var(--line); }
+	.article-aside span { display: block; color: var(--muted); font-size: 0.72rem; line-height: 1.7; }
 
 	.after-note {
 		padding: clamp(2rem, 5vw, 4rem);
@@ -194,32 +177,18 @@ const { title, description, pubDate, updatedDate, category, accent, readingMinut
 		background: var(--paper-deep);
 	}
 
-	.after-note h2 {
-		font-size: clamp(1.8rem, 4vw, 3rem);
+	.after-note h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
+	.after-note > p { max-width: 620px; color: var(--ink-soft); }
+
+	@media (max-width: 820px) {
+		.article-hero-inner { grid-template-columns: 1fr; }
+		.article-shell { grid-template-columns: 1fr; width: min(100% - 12px, 800px); margin: 0 auto; }
+		.article-aside { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: none; }
+		.article-caution { margin-top: 0; }
 	}
 
-	.after-note > p:not(.eyebrow) {
-		max-width: 620px;
-		color: var(--ink-soft);
-	}
-
-	@media (max-width: 800px) {
-		.article-hero-inner {
-			grid-template-columns: 1fr;
-		}
-
-		.cover-art {
-			min-height: 190px;
-		}
-
-		.article-shell {
-			grid-template-columns: 1fr;
-			width: min(100% - 12px, 800px);
-			margin: 0 auto;
-		}
-
-		.article-aside {
-			max-width: 480px;
-		}
+	@media (max-width: 560px) {
+		.article-aside { grid-template-columns: 1fr; }
+		.article-caution { margin-top: 0; }
 	}
 </style>

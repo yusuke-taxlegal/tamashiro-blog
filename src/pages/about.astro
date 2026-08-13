@@ -4,7 +4,7 @@ import profilePhoto from '../assets/people/tamashiro-yusuke-profile-black-2048.j
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { COMPANY_URL, CONTACT_EMAIL } from '../consts';
+import { COMPANY_URL } from '../consts';
 ---
 
 <!doctype html>
@@ -23,17 +23,17 @@ import { COMPANY_URL, CONTACT_EMAIL } from '../consts';
 					<Image src={profilePhoto} alt="黒い背景の前に立つ玉城祐輔" width={900} height={900} />
 				</div>
 				<div class="about-copy">
-					<p class="eyebrow">ABOUT YUSUKE</p>
-					<h1>支援する側も、<br />迷うことがあります。</h1>
+					<p class="eyebrow">玉城祐輔について</p>
+					<h1>相談に向き合った、<br />11年。</h1>
 					<p class="lead">元・商工会経営指導員として11年、500社以上の相談に向き合ってきました。いまはT&Lサポート株式会社の代表として、自社でもAIと財務の立て直しを実践しています。</p>
-					<p>きれいな成功談だけではなく、試してみて失敗したこと、遠回りしたことも含めて共有する。それが、私なりの伴走です。</p>
+					<p>成功談だけでなく、試して失敗したことや遠回りしたことも共有します。自分で確かめたことを、現場で使える形にして届けます。</p>
 				</div>
 			</header>
 
 			<section class="profile-band">
 				<div class="shell facts">
 					<div><strong>11年</strong><span>商工会経営指導員</span></div>
-					<div><strong>500社+</strong><span>これまでの支援</span></div>
+					<div><strong>500社以上</strong><span>これまでの支援</span></div>
 					<div><strong>4人</strong><span>子どもたちの父</span></div>
 					<div><strong>沖縄</strong><span>活動の拠点</span></div>
 				</div>
@@ -41,38 +41,54 @@ import { COMPANY_URL, CONTACT_EMAIL } from '../consts';
 
 			<section class="story shell">
 				<div class="story-heading">
-					<p class="eyebrow">WHAT I DO</p>
-					<h2>制度と現場の、<br />すき間を埋める。</h2>
+					<p class="eyebrow">今、取り組んでいること</p>
+					<h2>制度や技術を、<br />使える形にする。</h2>
 				</div>
 				<div class="story-list">
 					<article>
-						<span>01</span>
 						<h3>地域のAI参謀</h3>
 						<p>専任のIT担当者を置けない小さな会社に、難しい説明ではなく「明日から使える形」でAIやデジタルを届けます。</p>
 					</article>
 					<article>
-						<span>02</span>
 						<h3>支援者の支援者</h3>
 						<p>商工会の中で11年働いた経験を生かし、経営指導員や支援機関が相談対応で使える研修と道具をつくります。</p>
 					</article>
 					<article>
-						<span>03</span>
 						<h3>実践する経営者</h3>
 						<p>自分の会社でも、AIと財務を使った改善を実践中です。自分で試していないことを、体験談のようには語りません。</p>
 					</article>
 				</div>
 			</section>
 
+			<section class="pathways shell" aria-labelledby="pathways-title">
+				<header>
+					<p class="eyebrow">発信と相談の入口</p>
+					<h2 id="pathways-title">個人の発信と、<br />法人の仕事を分けています。</h2>
+				</header>
+				<div class="pathway-list">
+					<article>
+						<p class="pathway-label">玉城祐輔 個人</p>
+						<h3>試したことを読む</h3>
+						<p>このサイトでは、AI、仕事の道具、経営の現場で実際に試したことを残しています。道具箱の紹介活動も個人の発信です。</p>
+						<div class="text-links"><a href="/blog/">記事を読む</a><a href="/toolbox/">道具箱を見る</a></div>
+					</article>
+					<article class="company-pathway">
+						<p class="pathway-label">T&amp;Lサポート株式会社</p>
+						<h3>仕事として相談する</h3>
+						<p>法人としてのAI活用、業務整理、経営伴走は、T&amp;Lサポート株式会社で承ります。</p>
+						<div class="text-links"><a href={COMPANY_URL} target="_blank" rel="noopener noreferrer">相談内容を確認する</a></div>
+					</article>
+				</div>
+			</section>
+
 			<section class="contact shell">
 				<div>
-					<p class="eyebrow">CONTACT</p>
-					<h2>ひとりで抱え込む前に、<br />一度整理してみませんか。</h2>
+					<h2>AI活用と経営の相談は、<br />T&Lサポートへ。</h2>
 				</div>
 				<div>
 					<p>法人としてのAI活用・業務整理・経営伴走のご相談は、T&Lサポート株式会社で承ります。</p>
 					<div class="button-row">
-						<a class="button light" href={COMPANY_URL} target="_blank" rel="noopener noreferrer">T&Lサポートへ ↗</a>
-						<a class="button light" href={`mailto:${CONTACT_EMAIL}`}>メールを送る</a>
+						<a class="button light" href={COMPANY_URL} target="_blank" rel="noopener noreferrer">相談内容を確認する</a>
 					</div>
 				</div>
 			</section>
@@ -156,18 +172,9 @@ import { COMPANY_URL, CONTACT_EMAIL } from '../consts';
 	}
 
 	.story-list article {
-		display: grid;
-		grid-template-columns: 50px 1fr;
-		gap: 0.5rem 1rem;
+		display: block;
 		padding: 2rem 0;
 		border-top: 1px solid var(--line);
-	}
-
-	.story-list article > span {
-		grid-row: span 2;
-		color: var(--coral);
-		font-size: 0.72rem;
-		font-weight: 800;
 	}
 
 	.story-list h3 {
@@ -176,6 +183,51 @@ import { COMPANY_URL, CONTACT_EMAIL } from '../consts';
 	}
 
 	.story-list p { margin: 0; color: var(--muted); }
+
+	.pathways {
+		display: grid;
+		grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+		gap: clamp(3rem, 8vw, 8rem);
+		margin-top: clamp(6rem, 11vw, 10rem);
+		padding-block: clamp(3rem, 7vw, 6rem);
+		border-block: 1px solid var(--line);
+	}
+
+	.pathways h2 {
+		font-family: var(--font-serif);
+		font-size: clamp(2.1rem, 4.5vw, 4rem);
+		font-weight: 600;
+	}
+
+	.pathway-list {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		align-self: start;
+		gap: 1rem;
+	}
+
+	.pathway-list article {
+		min-width: 0;
+		padding: clamp(1.5rem, 3vw, 2.4rem);
+		border-radius: var(--radius);
+		background: var(--white);
+	}
+
+	.pathway-list .company-pathway {
+		background: var(--paper-deep);
+	}
+
+	.pathway-label {
+		margin-bottom: 1.2rem;
+		color: var(--coral);
+		font-size: 0.72rem;
+		font-weight: 800;
+	}
+
+	.pathway-list h3 { font-size: 1.55rem; }
+	.pathway-list article > p:not(.pathway-label) { color: var(--muted); font-size: 0.86rem; }
+	.text-links { display: flex; flex-wrap: wrap; gap: 0.75rem 1.2rem; margin-top: 1.5rem; }
+	.text-links a { font-size: 0.8rem; font-weight: 800; }
 
 	.contact {
 		display: grid;
@@ -195,10 +247,20 @@ import { COMPANY_URL, CONTACT_EMAIL } from '../consts';
 	@media (max-width: 800px) {
 		.about-hero,
 		.story,
+		.pathways,
 		.contact { grid-template-columns: 1fr; }
+		.about-hero > *,
+		.story > *,
+		.pathways > *,
+		.contact > * { min-width: 0; }
 		.about-photo { width: min(100%, 540px); }
 		.facts { grid-template-columns: repeat(2, 1fr); }
 		.facts div:nth-child(2) { border-right: 0; }
 		.facts div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+	}
+
+	@media (max-width: 560px) {
+		.about-copy h1 { font-size: clamp(2.1rem, 10vw, 2.8rem); }
+		.pathway-list { grid-template-columns: 1fr; }
 	}
 </style>

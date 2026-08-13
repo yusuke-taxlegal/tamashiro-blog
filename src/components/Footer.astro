@@ -7,8 +7,7 @@ const today = new Date();
 <footer>
 	<div class="shell footer-grid">
 		<div class="footer-statement">
-			<p class="footer-kicker">FROM OKINAWA, WITH PRACTICE.</p>
-			<p>うまくいった話も、失敗した話も。<br />小さな会社の現場で試したことを残します。</p>
+			<p>沖縄の現場で、実際に試したことを残します。</p>
 		</div>
 		<div class="footer-links">
 			<div>
@@ -29,7 +28,7 @@ const today = new Date();
 	</div>
 	<div class="shell footer-bottom">
 		<span>&copy; {today.getFullYear()} Yusuke Tamashiro</span>
-		<span>AIは魔法ではなく、仕事を楽にする大工道具。</span>
+		<span>AIとデジタルを、現場で使える形に。</span>
 	</div>
 </footer>
 
@@ -37,8 +36,8 @@ const today = new Date();
 	footer {
 		margin-top: clamp(5rem, 10vw, 9rem);
 		padding: clamp(4rem, 8vw, 7rem) 0 2rem;
-		background: var(--ink);
-		color: var(--paper);
+		background: var(--footer-bg, var(--ink));
+		color: var(--footer-text, var(--paper));
 	}
 
 	.footer-grid {
@@ -47,14 +46,7 @@ const today = new Date();
 		gap: 4rem;
 	}
 
-	.footer-kicker {
-		color: var(--coral);
-		font-size: 0.7rem;
-		font-weight: 800;
-		letter-spacing: 0.16em;
-	}
-
-	.footer-statement p:last-child {
+	.footer-statement p {
 		max-width: 570px;
 		font-family: var(--font-serif);
 		font-size: clamp(1.7rem, 3.5vw, 3.1rem);
@@ -76,19 +68,19 @@ const today = new Date();
 
 	.footer-links strong {
 		margin-bottom: 0.5rem;
-		color: #aaa999;
+		color: var(--footer-muted, #aaa999);
 		font-size: 0.7rem;
 		letter-spacing: 0.12em;
 	}
 
 	.footer-links a {
-		color: var(--paper);
+		color: var(--footer-text, var(--paper));
 		font-size: 0.88rem;
 		text-decoration: none;
 	}
 
 	.footer-links a:hover {
-		color: var(--coral);
+		color: var(--site-accent, var(--coral));
 	}
 
 	.footer-bottom {
@@ -98,7 +90,7 @@ const today = new Date();
 		margin-top: 5rem;
 		padding-top: 1.5rem;
 		border-top: 1px solid rgba(255, 255, 255, 0.16);
-		color: #aaa999;
+		color: var(--footer-muted, #aaa999);
 		font-size: 0.72rem;
 	}
 
