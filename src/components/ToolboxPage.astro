@@ -47,6 +47,7 @@ const tools = [
 		],
 		url: 'https://amzn.to/4zgLclg',
 		officialUrl: 'https://www.nihontsushin.com/plan/planminna.html',
+		officialLabel: '公式の料金・条件を見る',
 		image: 'https://www.nihontsushin.com/plan/images/starterpack_pkg.jpg',
 		imageAlt: '日本通信SIM スターターパック NT-ST2-P',
 		button: 'Amazonでスターターパックを見る',
@@ -193,6 +194,29 @@ const tools = [
 		button: 'Amazonで商品を見る',
 		note: '型番、付属品、保証、価格、在庫はAmazonの商品ページでご確認ください。',
 		tone: 'ink',
+	},
+	{
+		id: 'eufy-robovac-g30',
+		group: 'home',
+		category: '掃除・家電',
+		channel: 'Amazon',
+		title: 'Anker Eufy RoboVac G30',
+		statement: '床掃除を任せて、毎日の掃除機がけを減らす。',
+		lead: '家の床掃除に使っているロボット掃除機です。約7.2cmの薄型で家具の下まで動き、アプリから掃除の開始やスケジュールを設定できます。',
+		details: [
+			['使う場面', '家の普段の床掃除。掃除機がけを任せたいときに使っています。'],
+			['良かった点', '決めた時間に床掃除を任せられ、家具の下など手が届きにくい場所も掃除できます。'],
+			['購入前の注意', '厚手のカーペットを避け、床のケーブルを片づけてから使います。エリア指定、進入禁止エリアの設定、水拭きには対応していません。'],
+			['製品回収の確認', 'メーカーは、2023年4月1日〜10月15日に販売した一部製品のバッテリーについて回収を案内しています。購入時期を確認し、該当する可能性がある場合はメーカー公式情報をご確認ください。'],
+		],
+		url: 'https://amzn.to/4x3D7z7',
+		officialUrl: 'https://www.ankerjapan.com/products/t2250',
+		officialLabel: 'メーカー公式で仕様・回収情報を見る',
+		image: 'https://www.ankerjapan.com/cdn/shop/files/T2250521.jpg?v=1685066634&width=1500',
+		imageAlt: 'Anker Eufy RoboVac G30 ホワイト',
+		button: 'Amazonで商品を見る',
+		note: 'リンク先はホワイトのRoboVac G30です。型番、付属品、保証、製品回収情報、価格、在庫はAmazonとメーカー公式ページでご確認ください。',
+		tone: 'paper',
 	},
 	{
 		id: 'dyson-stand',
@@ -360,13 +384,13 @@ const pageCopy = {
 					<p class="eyebrow">{pageCopy.eyebrow}</p>
 					{view === 'index' && <h1>まずは、<strong>この5品から。</strong></h1>}
 					{view === 'work' && <h1>仕事で使う、<strong>2つの道具。</strong></h1>}
-					{view === 'home' && <h1>家事を減らす、<strong>11の道具。</strong></h1>}
+					{view === 'home' && <h1>家事を減らす、<strong>12の道具。</strong></h1>}
 					<p class="hero-lead">{pageCopy.lead}</p>
 					<div class="button-row">
 						{view === 'index' && <a class="button primary" href="#work-tools">仕事用2品を見る</a>}
 						{view === 'index' && <a class="button" href="#home-tools">家庭用3品を見る</a>}
 						{view === 'work' && <a class="button primary" href="#work-tools">2品を見る</a>}
-						{view === 'home' && <a class="button primary" href="#home-tools">11品を見る</a>}
+						{view === 'home' && <a class="button primary" href="#home-tools">12品を見る</a>}
 					</div>
 				</div>
 			</section>
@@ -391,7 +415,7 @@ const pageCopy = {
 										<p class="tool-statement">{tool.statement}</p>
 										<p class="tool-lead">{tool.lead}</p>
 										<a class="product-link" href={tool.url} target="_blank" rel="sponsored noopener noreferrer">{tool.button}<span aria-hidden="true">↗</span></a>
-										{'officialUrl' in tool && <a class="official-link" href={tool.officialUrl} target="_blank" rel="noopener noreferrer">公式の料金・条件を見る<span aria-hidden="true">↗</span></a>}
+										{'officialUrl' in tool && <a class="official-link" href={tool.officialUrl} target="_blank" rel="noopener noreferrer">{tool.officialLabel}<span aria-hidden="true">↗</span></a>}
 										<p class="affiliate-note">{tool.note}</p>
 									<details class="tool-notes" open={view !== 'index'}>
 											<summary>使い方と注意点</summary>
