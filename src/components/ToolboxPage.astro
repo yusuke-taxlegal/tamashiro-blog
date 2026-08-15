@@ -46,6 +46,7 @@ const tools = [
 			['契約前の注意', 'ウェブ会議や動画はデータを多く使い、通信速度は場所や時間帯などで変わります。自分の利用量と対応エリアを確認してください。'],
 		],
 		url: 'https://amzn.to/4zgLclg',
+		articleHref: '/blog/nihontsushin-sim-minna-plan/',
 		officialUrl: 'https://www.nihontsushin.com/plan/planminna.html',
 		officialLabel: '公式の料金・条件を見る',
 		image: 'https://www.nihontsushin.com/plan/images/starterpack_pkg.jpg',
@@ -69,6 +70,7 @@ const tools = [
 			['購入前の注意', 'ドアとサムターンの形状、取り付け位置のスペースを確認してください。'],
 		],
 		url: 'https://amzn.to/4hszTQF',
+		articleHref: '/blog/switchbot-lock-pro/',
 		image: 'https://m.media-amazon.com/images/I/61lQHV7vkFL._AC_SL1500_.jpg',
 		imageAlt: 'SwitchBot スマートロック Proと指紋認証パッド',
 		button: 'Amazonで商品を見る',
@@ -252,6 +254,7 @@ const tools = [
 			['購入前の注意', '本体寸法、電源、給水方法、排水ホースを安全に固定できる場所が必要です。'],
 		],
 		url: 'https://amzn.to/4qijmBm',
+		articleHref: '/blog/avakyo-tank-dishwasher-av-01/',
 		image: 'https://m.media-amazon.com/images/I/51hQDbCYBOL._AC_SL1500_.jpg',
 		imageAlt: 'AVAKYO タンク式食器洗い乾燥機 AV-01 ホワイト',
 		button: 'Amazonで商品を見る',
@@ -272,6 +275,7 @@ const tools = [
 			['購入前の注意', 'リンク先はレッドの2.4Lタイプで、量の目安は2〜6人分です。本体寸法、ふたを開く空間、蒸気の逃げ道、お手入れ方法を確認してください。'],
 		],
 		url: 'https://amzn.to/4qfDzYe',
+		articleHref: '/blog/healsio-hotcook-kn-hw24g/',
 		image: 'https://jp.sharp/hotcook/products/knhw24g/images/gallery-1.jpg',
 		imageAlt: 'シャープ ヘルシオ ホットクック KN-HW24G-R レッドの正面',
 		button: 'Amazonで商品を見る',
@@ -414,6 +418,11 @@ const pageCopy = {
 										<h3>{tool.title}</h3>
 										<p class="tool-statement">{tool.statement}</p>
 										<p class="tool-lead">{tool.lead}</p>
+										{'articleHref' in tool && (
+											<a class="article-link" href={tool.articleHref} aria-label={`${tool.title}の紹介記事を読む`}>
+												紹介記事を読む<span aria-hidden="true">→</span>
+											</a>
+										)}
 										<a class="product-link" href={tool.url} target="_blank" rel="sponsored noopener noreferrer">{tool.button}<span aria-hidden="true">↗</span></a>
 										{'officialUrl' in tool && <a class="official-link" href={tool.officialUrl} target="_blank" rel="noopener noreferrer">{tool.officialLabel}<span aria-hidden="true">↗</span></a>}
 										<p class="affiliate-note">{tool.note}</p>
@@ -924,6 +933,28 @@ const pageCopy = {
 		align-self: flex-start;
 		margin-top: 1.5rem;
 		font-size: 0.86rem;
+	}
+
+	.article-link {
+		display: inline-flex;
+		align-items: center;
+		align-self: flex-start;
+		gap: 0.7rem;
+		margin-top: 1.5rem;
+		padding-bottom: 0.35rem;
+		border-bottom: 2px solid currentColor;
+		color: var(--olive-dark);
+		font-size: 0.86rem;
+		font-weight: 850;
+		text-decoration: none;
+	}
+
+	.article-link span {
+		color: var(--coral);
+	}
+
+	.article-link + .product-link {
+		margin-top: 0.85rem;
 	}
 
 	.affiliate-note {
