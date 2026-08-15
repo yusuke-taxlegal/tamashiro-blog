@@ -40,7 +40,7 @@ const imageURL = new URL(typeof image === 'string' ? image : image.src, Astro.si
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={imageURL} />
-<meta property="og:image:alt" content="玉城祐輔｜沖縄の現場から、AIと経営を。" />
+<meta property="og:image:alt" content={SITE_TITLE} />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
