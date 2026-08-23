@@ -7,12 +7,17 @@ interface Props {
 	title: string;
 	description: string;
 	image?: ImageMetadata | string;
+	imageAlt?: string;
 	type?: 'website' | 'article';
 }
 
-const { title, description, image = '/images/ysk-life-og.png', type = 'website' } = Astro.props;
+const defaultImage = '/images/ysk-life-og.png';
+const { title, description, image, imageAlt = title, type = 'website' } = Astro.props;
+const resolvedImage = image || defaultImage;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const imageURL = new URL(typeof image === 'string' ? image : image.src, Astro.site);
+const imageURL = new URL(typeof resolvedImage === 'string' ? resolvedImage : resolvedImage.src, Astro.site);
+const imageWidth = typeof resolvedImage === 'string' ? (resolvedImage === defaultImage ? 1200 : undefined) : resolvedImage.width;
+const imageHeight = typeof resolvedImage === 'string' ? (resolvedImage === defaultImage ? 630 : undefined) : resolvedImage.height;
 ---
 
 <meta charset="utf-8" />
@@ -40,9 +45,114 @@ const imageURL = new URL(typeof image === 'string' ? image : image.src, Astro.si
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={imageURL} />
-<meta property="og:image:alt" content={SITE_TITLE} />
+<meta property="og:image:secure_url" content={imageURL} />
+{imageWidth && <meta property="og:image:width" content={imageWidth} />}
+{imageHeight && <meta property="og:image:height" content={imageHeight} />}
+<meta property="og:image:alt" content={imageAlt} />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageURL} />
+<meta name="twitter:image:alt" content={imageAlt} />
+
+<script is:inline>
+	(() => {
+		const measurementId = 'G-752CVHZQNC';
+		const consentKey = 'ysk-analytics-consent-v1';
+		const acceptedValue = 'granted';
+		const declinedValue = 'denied';
+
+		const readConsent = () => {
+			try {
+				return window.localStorage.getItem(consentKey);
+			} catch {
+				return null;
+			}
+		};
+
+		const saveConsent = (value) => {
+			try {
+				window.localStorage.setItem(consentKey, value);
+			} catch {
+				// Storage can be unavailable in private browsing or restricted browsers.
+			}
+		};
+
+		const removeConsent = () => {
+			try {
+				window.localStorage.removeItem(consentKey);
+			} catch {
+				// Keep the page usable even when storage is unavailable.
+			}
+		};
+
+		const loadAnalytics = () => {
+			if (window.__yskAnalyticsLoaded) return;
+			window.__yskAnalyticsLoaded = true;
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = function () {
+				window.dataLayer.push(arguments);
+			};
+			window.gtag('js', new Date());
+			window.gtag('config', measurementId, {
+				allow_google_signals: false,
+				allow_ad_personalization_signals: false,
+			});
+
+			const script = document.createElement('script');
+			script.async = true;
+			script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+			document.head.appendChild(script);
+		};
+
+		const removeBanner = () => {
+			document.querySelector('[data-analytics-consent]')?.remove();
+		};
+
+		const showBanner = () => {
+			if (document.querySelector('[data-analytics-consent]')) return;
+
+			const banner = document.createElement('aside');
+			banner.className = 'analytics-consent';
+			banner.dataset.analyticsConsent = '';
+			banner.setAttribute('aria-label', 'アクセス解析の設定');
+			banner.innerHTML = `
+				<div class="analytics-consent__inner">
+					<p><strong>アクセス解析について</strong><span>サイト改善のためGoogle Analyticsを使用します。許可するまで計測は始まりません。<a href="/privacy/#analytics">詳しく見る</a></span></p>
+					<div class="analytics-consent__actions">
+						<button type="button" data-analytics-decline>許可しない</button>
+						<button type="button" class="primary" data-analytics-accept>許可する</button>
+					</div>
+				</div>`;
+			document.body.appendChild(banner);
+
+			banner.querySelector('[data-analytics-accept]')?.addEventListener('click', () => {
+				saveConsent(acceptedValue);
+				removeBanner();
+				loadAnalytics();
+			});
+			banner.querySelector('[data-analytics-decline]')?.addEventListener('click', () => {
+				saveConsent(declinedValue);
+				removeBanner();
+			});
+		};
+
+		const initialize = () => {
+			const consent = readConsent();
+			if (consent === acceptedValue) loadAnalytics();
+			else if (consent !== declinedValue) showBanner();
+
+			document.querySelector('[data-analytics-consent-reset]')?.addEventListener('click', () => {
+				removeConsent();
+				showBanner();
+			});
+		};
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initialize, { once: true });
+		} else {
+			initialize();
+		}
+	})();
+</script>

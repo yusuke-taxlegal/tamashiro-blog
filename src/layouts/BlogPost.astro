@@ -1,24 +1,39 @@
 ---
 import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import ArticleCard from '../components/ArticleCard.astro';
 import BaseHead from '../components/BaseHead.astro';
+import BlogGenreNav from '../components/BlogGenreNav.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import WebApps from '../components/WebApps.astro';
 import { COMPANY_URL, TOOLBOX_URL } from '../consts';
+import { countPostsByGenre, getBlogGenre } from '../lib/blogNavigation';
 
 type PostData = CollectionEntry<'blog'>['data'];
 type ArticleHeading = { depth: number; slug: string; text: string };
-type Props = PostData & { readingMinutes: number; headings: ArticleHeading[] };
+type Props = PostData & { postId: string; readingMinutes: number; headings: ArticleHeading[] };
 
-const { title, description, pubDate, updatedDate, category, readingMinutes, heroImage, headings } = Astro.props;
+const { title, description, pubDate, updatedDate, category, postId, readingMinutes, heroImage, headings } = Astro.props;
 const articleHeadings = headings.filter((heading) => heading.depth === 2);
+const allPosts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const currentGenre = getBlogGenre(category);
+const otherPosts = allPosts.filter((post) => post.id !== postId);
+const recommendedPosts = [
+	...otherPosts.filter((post) => getBlogGenre(post.data.category) === currentGenre),
+	...otherPosts.filter((post) => getBlogGenre(post.data.category) !== currentGenre),
+].slice(0, 3);
+const genreCounts = countPostsByGenre(allPosts);
 ---
 
 <!doctype html>
 <html lang="ja">
 	<head>
-		<BaseHead title={`${title}｜玉城祐輔`} description={description} image={heroImage} type="article" />
+		<BaseHead title={`${title}｜玉城祐輔`} description={description} image={heroImage} imageAlt={title} type="article" />
 	</head>
 	<body>
 		<Header />
@@ -45,10 +60,14 @@ const articleHeadings = headings.filter((heading) => heading.depth === 2);
 					</div>
 				</header>
 
+				<div class="article-share article-share-top">
+					<ShareButtons title={title} label="この記事を共有" />
+				</div>
+
 				<div class="article-shell">
 					<aside class="article-aside">
 						{articleHeadings.length > 0 && (
-							<details class="article-toc">
+							<details class="article-toc" open>
 								<summary>この記事の内容</summary>
 								<nav aria-label="この記事の内容">
 									<ol>
@@ -61,11 +80,61 @@ const articleHeadings = headings.filter((heading) => heading.depth === 2);
 								</div>
 							</details>
 						)}
+						<div class="article-aside-desktop">
+							<section class="aside-section" aria-labelledby="aside-genres-heading">
+								<h2 id="aside-genres-heading">ジャンルから探す</h2>
+								<BlogGenreNav compact />
+							</section>
+							{recommendedPosts.length > 0 && (
+								<section class="aside-section" aria-labelledby="aside-next-heading">
+									<h2 id="aside-next-heading">次に読む</h2>
+									<div class="aside-articles">
+										{recommendedPosts.slice(0, 2).map((post) => (
+											<a href={`/blog/${post.id}/`}>
+												{post.data.heroImage && <Image src={post.data.heroImage} alt="" width={160} height={106} loading="lazy" />}
+												<span>{post.data.title}</span>
+											</a>
+										))}
+									</div>
+								</section>
+							)}
+							<section class="aside-section" aria-labelledby="aside-apps-heading">
+								<h2 id="aside-apps-heading">作ったWebアプリ</h2>
+								<WebApps compact />
+							</section>
+						</div>
 					</aside>
 					<div class="prose">
 						<slot />
 					</div>
 				</div>
+
+				<div class="article-share article-share-bottom">
+					<ShareButtons title={title} label="この記事を共有" />
+				</div>
+
+				{recommendedPosts.length > 0 && (
+					<section class="article-related shell" aria-labelledby="related-heading">
+						<div class="related-heading">
+							<h2 id="related-heading">おすすめの記事</h2>
+							<p>同じジャンルの記事を優先して、次に読みやすい記事を選びました。</p>
+						</div>
+						<div class="related-stage">
+							{recommendedPosts[0] && <ArticleCard post={recommendedPosts[0]} featured stacked />}
+							<div class="related-side">
+								{recommendedPosts.slice(1).map((post) => <ArticleCard post={post} compact />)}
+							</div>
+						</div>
+					</section>
+				)}
+
+				<section class="article-genres shell" aria-labelledby="article-genres-heading">
+					<div class="related-heading">
+						<h2 id="article-genres-heading">ジャンルから記事を探す</h2>
+						<p>全{allPosts.length}本の記事を、3つのジャンルから選べます。</p>
+					</div>
+					<BlogGenreNav counts={genreCounts} />
+				</section>
 
 				<section class="after-note narrow">
 					<h2>次に見るものを選ぶ</h2>
@@ -193,7 +262,110 @@ const articleHeadings = headings.filter((heading) => heading.depth === 2);
 	.article-caution { margin-top: 2rem; border-top-color: var(--line); }
 	.article-aside span { display: block; color: var(--muted); font-size: 0.72rem; line-height: 1.7; }
 
+	.article-aside-desktop {
+		display: grid;
+		gap: 2rem;
+		margin-top: 2rem;
+	}
+
+	.aside-section {
+		padding-top: 1rem;
+		border-top: 1px solid var(--line);
+	}
+
+	.aside-section h2 {
+		margin-bottom: 0.8rem;
+		font-size: 0.78rem;
+		letter-spacing: 0;
+	}
+
+	.aside-articles {
+		display: grid;
+		gap: 0.75rem;
+	}
+
+	.aside-articles a {
+		display: grid;
+		grid-template-columns: 72px minmax(0, 1fr);
+		align-items: center;
+		gap: 0.65rem;
+		color: var(--ink);
+		text-decoration: none;
+	}
+
+	.aside-articles img {
+		width: 72px;
+		aspect-ratio: 3 / 2;
+		border-radius: 0.35rem;
+		object-fit: cover;
+	}
+
+	.aside-articles a > span {
+		display: -webkit-box;
+		overflow: hidden;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 3;
+		color: var(--ink);
+		font-size: 0.7rem;
+		font-weight: 750;
+		line-height: 1.55;
+	}
+
+	.aside-articles a:hover > span { color: var(--olive-dark); }
+
+	.article-share {
+		display: grid;
+		grid-template-columns: minmax(0, 760px) minmax(200px, 240px);
+		justify-content: center;
+		gap: clamp(3rem, 6vw, 6rem);
+		width: min(calc(100% - 40px), 1180px);
+		margin-inline: auto;
+	}
+
+	.article-share-top { margin-top: clamp(2rem, 5vw, 3.5rem); }
+	.article-share-bottom { margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+
+	.article-related,
+	.article-genres {
+		padding-block: clamp(4rem, 8vw, 6.5rem);
+		border-top: 1px solid var(--line);
+	}
+
+	.article-genres {
+		padding-top: 0;
+		border-top: 0;
+	}
+
+	.related-heading {
+		max-width: 680px;
+		margin-bottom: clamp(1.6rem, 4vw, 2.5rem);
+	}
+
+	.related-heading h2 {
+		margin-bottom: 0.65rem;
+		font-size: clamp(2rem, 4vw, 3.25rem);
+	}
+
+	.related-heading p {
+		margin: 0;
+		color: var(--muted);
+		font-size: 0.9rem;
+	}
+
+	.related-stage {
+		display: grid;
+		grid-template-columns: minmax(0, 1.28fr) minmax(330px, 0.72fr);
+		align-items: start;
+		gap: clamp(1rem, 2.5vw, 2rem);
+	}
+
+	.related-side {
+		display: grid;
+		gap: 1rem;
+	}
+
 	.after-note {
+		margin-bottom: clamp(4rem, 8vw, 7rem);
 		padding: clamp(2rem, 5vw, 4rem);
 		border-radius: var(--radius);
 		background: var(--paper-deep);
@@ -204,6 +376,7 @@ const articleHeadings = headings.filter((heading) => heading.depth === 2);
 
 	@media (max-width: 1080px) {
 		.article-hero-inner { grid-template-columns: 1fr; }
+		.article-aside-desktop { display: none; }
 		.article-shell {
 			grid-template-areas:
 				"aside"
@@ -212,10 +385,23 @@ const articleHeadings = headings.filter((heading) => heading.depth === 2);
 			width: min(calc(100% - 28px), 760px);
 			gap: 2.5rem;
 		}
+		.article-share {
+			grid-template-columns: 1fr;
+			width: min(calc(100% - 28px), 760px);
+		}
 		.article-aside {
 			position: static;
 			max-height: none;
 			overflow: visible;
 		}
+		.related-stage { grid-template-columns: 1fr; }
+		.related-side { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	}
+
+	@media (max-width: 700px) {
+		.article-related,
+		.article-genres { padding-block: 3.5rem; }
+		.article-genres { padding-top: 0; }
+		.related-side { grid-template-columns: 1fr; }
 	}
 </style>

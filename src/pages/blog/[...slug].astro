@@ -16,6 +16,6 @@ const { Content, headings } = await render(post);
 const readingMinutes = Math.max(1, Math.ceil((post.body?.length || 0) / 600));
 ---
 
-<BlogPost {...post.data} readingMinutes={readingMinutes} headings={headings}>
+<BlogPost {...post.data} postId={post.id} readingMinutes={readingMinutes} headings={headings}>
 	<Content />
 </BlogPost>

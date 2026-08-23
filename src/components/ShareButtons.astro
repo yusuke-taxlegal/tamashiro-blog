@@ -1,0 +1,213 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+	title: string;
+	label?: string;
+}
+
+const { title, label = 'このページを共有' } = Astro.props;
+const shareURL = new URL(Astro.url.pathname, Astro.site).href;
+const encodedURL = encodeURIComponent(shareURL);
+---
+
+<div class="share-panel" role="group" aria-label={label} data-share-root data-share-url={shareURL} data-share-title={title}>
+	<div class="share-actions">
+		<a
+			class="share-button line"
+			href={`https://social-plugins.line.me/lineit/share?url=${encodedURL}`}
+			target="_blank"
+			rel="noopener noreferrer nofollow"
+			aria-label="LINEで送る"
+			data-tooltip="LINEで送る"
+		>
+			<Icon name="ri:line-fill" class="share-icon" aria-hidden="true" />
+		</a>
+		<a
+			class="share-button facebook"
+			href={`https://www.facebook.com/sharer/sharer.php?u=${encodedURL}`}
+			target="_blank"
+			rel="noopener noreferrer nofollow"
+			aria-label="Facebookで共有"
+			data-tooltip="Facebookで共有"
+		>
+			<Icon name="ri:facebook-fill" class="share-icon" aria-hidden="true" />
+		</a>
+		<button
+			class="share-button instagram"
+			type="button"
+			aria-label="Instagramで共有"
+			data-tooltip="Instagramで共有"
+			data-share-instagram
+		>
+			<Icon name="ri:instagram-line" class="share-icon" aria-hidden="true" />
+		</button>
+		<button
+			class="share-button copy"
+			type="button"
+			aria-label="記事のリンクをコピー"
+			data-tooltip="リンクをコピー"
+			data-share-copy
+		>
+			<Icon name="ri:file-copy-line" class="share-icon" aria-hidden="true" />
+		</button>
+	</div>
+	<p class="share-status" aria-live="polite" data-share-status></p>
+</div>
+
+<script is:inline>
+	(() => {
+		if (window.__yskShareButtonsInitialized) return;
+		window.__yskShareButtonsInitialized = true;
+
+		const copyText = async (text) => {
+			if (navigator.clipboard && window.isSecureContext) {
+				await navigator.clipboard.writeText(text);
+				return;
+			}
+
+			const input = document.createElement('textarea');
+			input.value = text;
+			input.setAttribute('readonly', '');
+			input.style.position = 'fixed';
+			input.style.opacity = '0';
+			document.body.appendChild(input);
+			input.select();
+			const copied = document.execCommand('copy');
+			input.remove();
+			if (!copied) throw new Error('Copy failed');
+		};
+
+		document.addEventListener('click', async (event) => {
+			const button = event.target.closest('[data-share-copy], [data-share-instagram]');
+			if (!button) return;
+
+			const root = button.closest('[data-share-root]');
+			if (!root) return;
+
+			const url = root.dataset.shareUrl;
+			const title = root.dataset.shareTitle;
+			const status = root.querySelector('[data-share-status]');
+			if (!url || !title || !status) return;
+
+			status.textContent = '';
+
+			try {
+				if (button.matches('[data-share-instagram]') && navigator.share) {
+					await navigator.share({ title, url });
+					return;
+				}
+
+				await copyText(url);
+				status.textContent = button.matches('[data-share-instagram]')
+					? 'リンクをコピーしました。InstagramのDMなどに貼り付けてください。'
+					: 'リンクをコピーしました。';
+			} catch (error) {
+				if (error && error.name === 'AbortError') return;
+				status.textContent = 'コピーできませんでした。ブラウザのアドレス欄からURLをコピーしてください。';
+			}
+		});
+	})();
+</script>
+
+<style>
+	.share-panel {
+		display: inline-flex;
+		max-width: 100%;
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	.share-actions {
+		display: flex;
+		flex-wrap: nowrap;
+		gap: 0.55rem;
+	}
+
+	.share-button {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.875rem;
+		height: 2.875rem;
+		padding: 0;
+		cursor: pointer;
+		border: 1px solid var(--line);
+		border-radius: 999px;
+		background: color-mix(in srgb, var(--white) 72%, transparent);
+		color: var(--ink);
+		font: inherit;
+		text-decoration: none;
+		box-shadow: 0 1px 0 rgba(255, 253, 248, 0.72);
+		transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+	}
+
+	.share-button:hover {
+		transform: translateY(-1px);
+		border-color: var(--coral);
+		background: var(--coral);
+		color: var(--white);
+	}
+
+	.share-button:active {
+		transform: translateY(0) scale(0.96);
+	}
+
+	.share-button:focus-visible {
+		outline: 3px solid var(--coral);
+		outline-offset: 3px;
+	}
+
+	.share-icon {
+		width: 1.3rem;
+		height: 1.3rem;
+	}
+
+	.share-button::after {
+		position: absolute;
+		bottom: calc(100% + 0.55rem);
+		left: 50%;
+		padding: 0.35rem 0.55rem;
+		border-radius: 0.45rem;
+		background: var(--ink);
+		color: var(--white);
+		content: attr(data-tooltip);
+		font-size: 0.66rem;
+		font-weight: 700;
+		line-height: 1.35;
+		opacity: 0;
+		pointer-events: none;
+		transform: translate(-50%, 0.2rem);
+		transition: opacity 140ms ease, transform 140ms ease;
+		white-space: nowrap;
+		z-index: 1;
+	}
+
+	.share-button:hover::after,
+	.share-button:focus-visible::after {
+		opacity: 1;
+		transform: translate(-50%, 0);
+	}
+
+	.share-status {
+		max-width: min(24rem, calc(100vw - 2rem));
+		margin: 0;
+		color: var(--muted);
+		font-size: 0.72rem;
+		line-height: 1.6;
+	}
+
+	.share-status:not(:empty) {
+		margin-top: 0.65rem;
+	}
+
+	@media (hover: none) {
+		.share-button::after { display: none; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.share-button,
+		.share-button::after { transition: none; }
+	}
+</style>

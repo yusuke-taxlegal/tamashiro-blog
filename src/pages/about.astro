@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import workPhoto from '../assets/home/practical-ai-desk.jpg';
+import currentWorkIllustration from '../assets/about/tamashiro-current-work.webp';
 import profilePhoto from '../assets/people/tamashiro-yusuke-profile-black-2048.jpg';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
@@ -19,7 +19,7 @@ import { COMPANY_URL } from '../consts';
 	<body class="about-page">
 		<Header />
 		<main id="main-content">
-			<header class="about-hero shell" aria-labelledby="about-title">
+			<header class="about-hero shell">
 				<div class="about-copy">
 					<p class="about-kicker">沖縄の現場で、相談に向き合う</p>
 					<h1 id="about-title"><span>相談に向き合った、</span><br /><strong>11年。</strong></h1>
@@ -55,8 +55,8 @@ import { COMPANY_URL } from '../consts';
 				<div class="work-layout">
 					<figure class="work-photo">
 						<Image
-							src={workPhoto}
-							alt="海辺の小さな事務所で、ノートとパソコンを使って仕事を整理する机"
+							src={currentWorkIllustration}
+							alt="AIの活用方法をパソコンで試し、チェックリストと研修資料にまとめる玉城祐輔のイラスト"
 							widths={[640, 920, 1280]}
 							sizes="(max-width: 800px) 100vw, 45vw"
 							loading="lazy"
@@ -64,15 +64,15 @@ import { COMPANY_URL } from '../consts';
 					</figure>
 					<div class="work-list">
 						<article>
-							<h3>地域のAI参謀</h3>
+							<h3>小さな会社のAI活用支援</h3>
 							<p>専任のIT担当者を置けない小さな会社に、難しい説明ではなく「明日から使える形」でAIやデジタルを届けます。</p>
 						</article>
 						<article>
-							<h3>支援者の支援者</h3>
+							<h3>経営支援者向けの研修・道具</h3>
 							<p>商工会の中で11年働いた経験を生かし、経営指導員や支援機関が相談対応で使える研修と道具をつくります。</p>
 						</article>
 						<article>
-							<h3>実践する経営者</h3>
+							<h3>自社で試して確かめる</h3>
 							<p>自分の会社でも、AIと財務を使った改善を実践中です。自分で試していないことを、体験談のようには語りません。</p>
 						</article>
 					</div>

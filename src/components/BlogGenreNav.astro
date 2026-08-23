@@ -1,0 +1,109 @@
+---
+import { BLOG_GENRES, type BlogGenreId } from '../lib/blogNavigation';
+
+interface Props {
+	counts?: Partial<Record<BlogGenreId, number>>;
+	compact?: boolean;
+}
+
+const { counts, compact = false } = Astro.props;
+---
+
+<nav class:list={['blog-genre-nav', { compact }]} aria-label="記事のジャンル">
+	{BLOG_GENRES.map((genre) => (
+		<a href={`/blog/#genre-${genre.id}`}>
+			<span class="genre-copy">
+				<strong>{genre.label}</strong>
+				{!compact && <small>{genre.description}</small>}
+			</span>
+			<span class="genre-count" aria-label={counts ? `${counts[genre.id] ?? 0}本` : undefined}>
+				{counts ? `${counts[genre.id] ?? 0}本` : '→'}
+			</span>
+		</a>
+	))}
+</nav>
+
+<style>
+	.blog-genre-nav {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		border-block: 1px solid var(--site-line, var(--line));
+	}
+
+	.blog-genre-nav a {
+		display: flex;
+		min-height: 7.5rem;
+		padding: 1.4rem;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		border-right: 1px solid var(--site-line, var(--line));
+		color: var(--site-text, var(--ink));
+		text-decoration: none;
+		transition: background 160ms ease, color 160ms ease;
+	}
+
+	.blog-genre-nav a:last-child { border-right: 0; }
+	.blog-genre-nav a:hover { background: var(--site-surface-subtle, var(--paper-deep)); }
+	.blog-genre-nav a:active { background: color-mix(in srgb, var(--site-surface-subtle, var(--paper-deep)) 75%, transparent); }
+
+	.genre-copy {
+		display: grid;
+		gap: 0.2rem;
+	}
+
+	.genre-copy strong {
+		font-size: 0.96rem;
+		line-height: 1.5;
+	}
+
+	.genre-copy small {
+		color: var(--site-muted, var(--muted));
+		font-size: 0.74rem;
+		line-height: 1.6;
+	}
+
+	.genre-count {
+		flex: 0 0 auto;
+		color: var(--site-accent-dark, var(--olive-dark));
+		font-size: 0.75rem;
+		font-weight: 800;
+		white-space: nowrap;
+	}
+
+	.blog-genre-nav.compact {
+		grid-template-columns: 1fr;
+		border-bottom: 0;
+	}
+
+	.blog-genre-nav.compact a {
+		min-height: 0;
+		padding: 0.65rem 0;
+		border-right: 0;
+		border-bottom: 1px solid var(--site-line, var(--line));
+	}
+
+	.blog-genre-nav.compact a:hover {
+		background: transparent;
+		color: var(--olive-dark);
+	}
+
+	.blog-genre-nav.compact .genre-copy strong {
+		font-size: 0.75rem;
+	}
+
+	@media (max-width: 700px) {
+		.blog-genre-nav:not(.compact) { grid-template-columns: 1fr; }
+		.blog-genre-nav:not(.compact) a {
+			min-height: 0;
+			padding: 1.05rem 0.25rem;
+			border-right: 0;
+			border-bottom: 1px solid var(--site-line, var(--line));
+		}
+		.blog-genre-nav:not(.compact) a:last-child { border-bottom: 0; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.blog-genre-nav a { transition: none; }
+	}
+</style>

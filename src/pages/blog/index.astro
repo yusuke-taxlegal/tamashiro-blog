@@ -2,13 +2,16 @@
 import { getCollection } from 'astro:content';
 import ArticleCard from '../../components/ArticleCard.astro';
 import BaseHead from '../../components/BaseHead.astro';
+import BlogGenreNav from '../../components/BlogGenreNav.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
+import { BLOG_GENRES, countPostsByGenre, groupPostsByGenre } from '../../lib/blogNavigation';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-const [latestPost, ...otherPosts] = posts;
+const genreCounts = countPostsByGenre(posts);
+const groupedPosts = groupPostsByGenre(posts);
 ---
 
 <!doctype html>
@@ -25,33 +28,29 @@ const [latestPost, ...otherPosts] = posts;
 			<header class="page-intro shell">
 				<p class="eyebrow">記事を読む</p>
 				<h1>実際に試して、<br />わかったこと。</h1>
-				<p>AIの使い方、仕事の道具、経営の現場について、玉城が実際に試したことを中心に書いています。</p>
+				<p>全{posts.length}本。AIの使い方、仕事と暮らしの道具、経営と仕事の仕組みについて書いています。</p>
 			</header>
 
-			<section class="blog-content shell" aria-labelledby="latest-article-title">
-				<header class="section-heading latest-heading">
-					<div>
-						<p class="eyebrow">新しい記事</p>
-						<h2 id="latest-article-title">まず、ここから。</h2>
-					</div>
-					<p>{posts.length}本の記事を公開しています。</p>
-				</header>
-				{latestPost && <ArticleCard post={latestPost} featured />}
+			<section class="genre-picker shell" aria-labelledby="genre-picker-heading">
+				<h2 id="genre-picker-heading">ジャンルを選ぶ</h2>
+				<BlogGenreNav counts={genreCounts} />
+			</section>
 
-				<div class="archive-layout">
-					<aside class="theme-note" aria-labelledby="article-list-title">
-						<h2 id="article-list-title">これまでの記事</h2>
-						<p>現場で試した内容を、3つのテーマで残しています。</p>
-						<ul aria-label="記事のテーマ">
-							<li>AIの使い方</li>
-							<li>仕事の道具</li>
-							<li>経営の現場</li>
-						</ul>
-					</aside>
-					<div class="article-list">
-						{otherPosts.map((post) => <ArticleCard post={post} />)}
-					</div>
-				</div>
+			<section class="blog-content shell" aria-label="すべての記事">
+				{BLOG_GENRES.map((genre) => (
+					<section class="genre-section" id={`genre-${genre.id}`} aria-labelledby={`genre-${genre.id}-heading`}>
+						<header class="genre-heading">
+							<div>
+								<h2 id={`genre-${genre.id}-heading`}>{genre.label}</h2>
+								<p>{genre.description}</p>
+							</div>
+							<span>{groupedPosts[genre.id].length}本</span>
+						</header>
+						<div class="article-list">
+							{groupedPosts[genre.id].map((post) => <ArticleCard post={post} />)}
+						</div>
+					</section>
+				))}
 			</section>
 		</main>
 		<Footer />
@@ -63,66 +62,48 @@ const [latestPost, ...otherPosts] = posts;
 		padding-bottom: clamp(5rem, 10vw, 9rem);
 	}
 
-	.latest-heading {
-		margin-bottom: 2rem;
+	.genre-picker {
+		padding-bottom: clamp(4rem, 8vw, 6rem);
 	}
 
-	.latest-heading .eyebrow {
-		margin-bottom: 0.7rem;
+	.genre-picker > h2 {
+		margin-bottom: 1.5rem;
+		font-size: clamp(1.55rem, 3vw, 2.15rem);
 	}
 
-	.latest-heading > p {
+	.genre-section {
+		scroll-margin-top: 6rem;
+		padding-block: clamp(3.5rem, 7vw, 5.5rem);
+		border-top: 1px solid var(--line);
+	}
+
+	.genre-heading {
+		display: flex;
+		align-items: end;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+	}
+
+	.genre-heading h2 {
+		margin-bottom: 0.4rem;
+		font-size: clamp(2rem, 4vw, 3.25rem);
+	}
+
+	.genre-heading p {
 		margin: 0;
 		color: var(--muted);
-		font-size: 0.82rem;
+		font-size: 0.86rem;
 	}
 
-	.archive-layout {
-		display: grid;
-		grid-template-columns: 210px minmax(0, 1fr);
-		gap: clamp(2rem, 6vw, 6rem);
-		margin-top: clamp(4rem, 8vw, 7rem);
-	}
-
-	.theme-note {
-		position: sticky;
-		top: 7rem;
-		align-self: start;
-		padding-top: 2rem;
-		border-top: 4px solid var(--ink);
-	}
-
-	.theme-note h2 {
-		margin-bottom: 0.6rem;
-		font-size: 1.15rem;
-	}
-
-	.theme-note p,
-	.theme-note ul {
+	.genre-heading > span {
+		flex: 0 0 auto;
 		color: var(--muted);
-		font-size: 0.78rem;
+		font-size: 0.8rem;
+		font-weight: 800;
 	}
 
-	.theme-note ul {
-		display: grid;
-		gap: 0.35rem;
-		margin: 1.2rem 0 0;
-		padding-left: 1.1rem;
-	}
-
-	@media (max-width: 800px) {
-		.archive-layout {
-			grid-template-columns: 1fr;
-		}
-
-		.theme-note {
-			position: static;
-		}
-
-		.theme-note ul {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 0.4rem 1.5rem;
-		}
+	@media (max-width: 700px) {
+		.genre-heading { align-items: start; }
 	}
 </style>

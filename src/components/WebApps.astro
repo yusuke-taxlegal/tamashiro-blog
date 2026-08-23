@@ -1,0 +1,159 @@
+---
+interface Props {
+	compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+const apps = [
+	{
+		name: 'JIZOKA',
+		description: '持続化補助金の計画書づくりを、質問に答えながら進められます。',
+		url: 'https://jizoka.app/',
+		image: '/images/apps/jizoka-ogp.png',
+		width: 1200,
+		height: 630,
+		alt: 'JIZOKA 持続化補助金 計画書づくりサポート',
+	},
+	{
+		name: 'SeminarFlow',
+		description: 'セミナーの準備、申込受付、名簿、連絡、共有を一か所につなぎます。',
+		url: 'https://seminar-flow.com/',
+		image: '/images/apps/seminarflow-ogp.png',
+		width: 1200,
+		height: 630,
+		alt: 'SeminarFlow セミナー運営を一か所にまとめる',
+	},
+	{
+		name: 'JCI規則財審アシスタント',
+		description: '議案提出前のリンク切れと、議案番号案をまとめて確認できます。',
+		url: 'https://kisoku-zaishin.com/',
+		image: '/images/apps/kisoku-zaishin-ogp.png',
+		width: 1200,
+		height: 630,
+		alt: 'JCI規則財審アシスタント リンクを確かめて議案番号を組み立てる',
+	},
+	{
+		name: 'ポイレシ',
+		description: '領収書をLINEへ送り、AIの読み取りと人の確認で整理を進めます。',
+		url: 'https://poireshi.com/',
+		image: '/images/apps/poireshi-ogp.png',
+		width: 1200,
+		height: 630,
+		alt: 'ポイレシ 領収書はLINEにポイッ',
+	},
+];
+---
+
+<div class:list={['web-apps', { compact }]}>
+	{apps.map((app, index) => (
+		<a class:list={['web-app', { primary: index === 0 }]} href={app.url} target="_blank" rel="noopener noreferrer">
+			<img src={app.image} alt={app.alt} width={app.width} height={app.height} loading="lazy" decoding="async" />
+			<div class="web-app-copy">
+				<strong>{app.name}</strong>
+				{!compact && <p>{app.description}</p>}
+				{!compact && <span>アプリを開く <span aria-hidden="true">↗</span></span>}
+			</div>
+		</a>
+	))}
+</div>
+
+<style>
+	.web-apps {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+	}
+
+	.web-app {
+		display: grid;
+		grid-template-columns: 1fr;
+		align-items: center;
+		gap: 1rem;
+		overflow: hidden;
+		border: 1px solid var(--site-line, var(--line));
+		border-radius: var(--radius);
+		background: var(--site-surface, var(--white));
+		color: var(--site-text, var(--ink));
+		text-decoration: none;
+		transition: transform 180ms ease, border-color 180ms ease;
+	}
+
+	.web-app.primary {
+		grid-template-columns: 1fr;
+	}
+
+	.web-app:hover {
+		transform: translateY(-3px);
+		border-color: var(--site-accent, var(--coral));
+		color: var(--site-text, var(--ink));
+	}
+
+	.web-app:active { transform: translateY(-1px) scale(0.99); }
+
+	.web-app img {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1200 / 630;
+		background: var(--site-surface-subtle, var(--paper-deep));
+		object-fit: contain;
+	}
+
+	.web-app-copy { padding: 0.4rem 1.2rem 1.2rem; }
+	.web-app.primary .web-app-copy { padding: 0.6rem 1.5rem 1.5rem; }
+	.web-app-copy strong { display: block; margin-bottom: 0.35rem; font-size: 1rem; line-height: 1.45; }
+	.web-app.primary .web-app-copy strong { font-size: clamp(1.25rem, 2.2vw, 1.75rem); }
+	.web-app-copy p { margin-bottom: 0.8rem; color: var(--site-muted, var(--muted)); font-size: 0.78rem; line-height: 1.7; }
+	.web-app-copy span { font-size: 0.76rem; font-weight: 800; }
+
+	.web-apps.compact {
+		grid-template-columns: 1fr;
+		gap: 0.65rem;
+	}
+
+	.web-apps.compact .web-app,
+	.web-apps.compact .web-app.primary {
+		grid-row: auto;
+		grid-template-columns: 72px minmax(0, 1fr);
+		gap: 0.65rem;
+		border: 0;
+		border-radius: 0;
+		background: transparent;
+	}
+
+	.web-apps.compact .web-app:hover { transform: none; color: var(--olive-dark); }
+	.web-apps.compact img,
+	.web-apps.compact .web-app:not(.primary) img {
+		height: auto;
+		aspect-ratio: 1200 / 630;
+		border-radius: 0.35rem;
+	}
+	.web-apps.compact .web-app-copy,
+	.web-apps.compact .web-app.primary .web-app-copy { padding: 0; }
+	.web-apps.compact .web-app-copy strong,
+	.web-apps.compact .web-app.primary .web-app-copy strong { margin: 0; font-size: 0.7rem; }
+
+	@media (max-width: 820px) {
+		.web-apps:not(.compact) { grid-template-columns: 1fr; }
+		.web-apps:not(.compact) .web-app,
+		.web-apps:not(.compact) .web-app.primary {
+			grid-row: auto;
+			grid-template-columns: minmax(150px, 0.85fr) minmax(0, 1.15fr);
+		}
+		.web-apps:not(.compact) .web-app img { aspect-ratio: 1200 / 630; }
+		.web-apps:not(.compact) .web-app-copy,
+		.web-apps:not(.compact) .web-app.primary .web-app-copy { padding: 1rem 1rem 1rem 0; }
+	}
+
+	@media (max-width: 560px) {
+		.web-apps:not(.compact) .web-app,
+		.web-apps:not(.compact) .web-app.primary { grid-template-columns: 1fr; }
+		.web-apps:not(.compact) .web-app-copy,
+		.web-apps:not(.compact) .web-app.primary .web-app-copy { padding: 0.4rem 1.15rem 1.2rem; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.web-app { transition: none; }
+		.web-app:hover,
+		.web-app:active { transform: none; }
+	}
+</style>

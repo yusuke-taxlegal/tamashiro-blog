@@ -2,6 +2,7 @@
 import BaseHead from './BaseHead.astro';
 import Footer from './Footer.astro';
 import Header from './Header.astro';
+import ShareButtons from './ShareButtons.astro';
 
 interface Props {
 	view?: 'index' | 'work' | 'home';
@@ -24,6 +25,7 @@ const tools = [
 			['購入前の注意', '録音の同意と、AIが作った要約を人が確認する運用が必要です。'],
 		],
 		url: 'https://jp.hidock.com/pages/referral-program?ref=uzxdtbsg',
+		articleHref: '/blog/hidock-p1-ai-recorder/',
 		image: 'https://jp.hidock.com/cdn/shop/files/HiDock_P1_Space_Gray_Front_Image.jpg?v=1779855196&width=1200',
 		imageAlt: 'HiDock P1 AIボイスレコーダー スペースグレーの正面',
 		button: '公式サイトで10%OFF',
@@ -399,6 +401,10 @@ const pageCopy = {
 				</div>
 			</section>
 
+			<div class="toolbox-share toolbox-share-top shell">
+				<ShareButtons title={pageCopy.title} label="この道具ページを共有" />
+			</div>
+
 			<section class="tools shell" id="tools" aria-label="紹介している道具">
 				{toolCollections.map((collection) => (
 					<section id={collection.id} class="tool-collection" aria-labelledby={`${collection.id}-title`}>
@@ -447,6 +453,10 @@ const pageCopy = {
 					</section>
 				))}
 			</section>
+
+			<div class="toolbox-share toolbox-share-bottom shell">
+				<ShareButtons title={pageCopy.title} label="この道具ページを共有" />
+			</div>
 
 			<section class="closing shell">
 				<p>道具を増やすためではなく、目の前の人と仕事に集中するために選びます。</p>
@@ -510,6 +520,9 @@ const pageCopy = {
 
 	.disclosure strong { color: var(--coral); font-size: 0.8rem; }
 	.disclosure p { margin: 0; color: rgba(255, 253, 248, 0.76); font-size: 0.78rem; line-height: 1.8; }
+
+	.toolbox-share-top { margin-top: clamp(-1.5rem, -2vw, -0.75rem); }
+	.toolbox-share-bottom { margin-bottom: clamp(3rem, 7vw, 5rem); }
 
 	.tools { padding-block: clamp(5rem, 10vw, 9rem); }
 
