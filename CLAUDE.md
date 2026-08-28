@@ -80,31 +80,42 @@ Astro は `heroImage` と本文の相対画像パスをビルド時に解決す�
 - 保存先パス（`src/assets/blog/<slug>/xxx.webp`）
 - 用途（ヒーロー／本文セクション名）
 - alt文言（記事本文のプレースホルダーと完全一致させる）
-- 生成プロンプト（日本語で可。GPT Image 2 は日本語プロンプトを解釈できる）
-- 添付するキャラクター参照画像のファイル名
+- 生成プロンプト（`CHARACTER_GUIDE.md` のコピペ用プロンプト全文 ＋ `Scene/action` `Expression` `Background` `Aspect ratio` を埋めたもの。ユーザーがそのまま貼れる完成形で書く）
+- 添付する正本シートのファイル名
 - 完了チェックボックス `- [ ]`
 
 冒頭に使い方メモを置く:
 
-> ChatGPTで GPT Image 2 を選び、対象キャラの参照画像を添付のうえ、下記プロンプトを貼り付けて生成してください。
-> 生成画像は `.webp` に変換し、指定パスへ保存してチェックを入れてください。
+> ChatGPTで GPT Image 2 を選び、記載の正本シートを画像添付のうえ、下記プロンプトをそのまま貼り付けて生成してください。
+> 生成後は `CHARACTER_GUIDE.md` の「生成後の確認項目」で崩れがないか確認し、`.webp` に変換して指定パスへ保存し、チェックを入れてください。
 
-### キャラクター参照画像
+### キャラクター参照画像（正本）
 
-イラストは既存の**玉城祐輔 2.5頭身ちびキャラ**スタイルで統一する（写真ベースにしない）。
-参照画像はObsidian Vault側にある（このリポジトリには含まれない）:
+イラストは**約2頭身のちびキャラ**で統一する（写真ベースにしない）。
+**正本と、キャラごとのコピペ用プロンプトは、Obsidian Vault側の下記ガイドが唯一の正本**（このリポジトリには含まれない）。
 
-`00_Obsidian/01_T&L_Projects/T&L_マーケ02/キャラ画像/`
+**ガイド**: `00_Obsidian/01_T&L_収益化プロジェクト/brand-assets/tl-support/character-sheets/CHARACTER_GUIDE.md`
+**正本画像**: 同ディレクトリ
 
-| キャラクター | ファイル |
-|---|---|
-| 玉城祐輔（既定） | `キャラデザイン_玉城_2頭身_三面.png`（三面図。一貫性が最も安定する）<br>`tamashiro yusuke_Business.png` / `tamashiro yusuke_Business Casual.png` |
-| 悩める社長 | `nayameru syatyo.png` |
-| 総務・経理女性 | `soumu keiri josei.png` |
+| キャラクター | 正本ファイル | 主な用途 |
+|---|---|---|
+| 玉城祐輔（標準） | `tamashiro-yusuke-character-sheet-v4.png` | 講師、専門家、公式な場面 |
+| 玉城祐輔（ビジネスカジュアル） | `tamashiro-yusuke-business-casual-character-sheet-v3.png` | DX支援、SNS、親しみやすい解説 |
+| Rira | `rira-character-sheet-v2.png` | AI秘書、案内、整理、提案 |
+| Riku | `riku-character-sheet-v2.png` | PC操作、ファイル操作、現場実行 |
+| 悩める社長 | `worried-business-owner-character-sheet-v1.png` | 経営課題、資金繰り、相談前後の変化 |
+| 総務・経理担当者 | `accounting-staff-character-sheet-v1.png` | 経理、書類整理、バックオフィス改善 |
 
-- **ysk.life の既定は玉城キャラ単独**。個人サイトのため、T&L法人マーケ用のサブキャラ（悩める社長・総務経理女性）は、記事が明確に法人・実務向けの場面を描く時に限って使う。
-- ChatGPTへは「この参照画像と同じ絵柄・頭身・配色で描いてください」と添えて依頼する。
-- ※ note向けの「白い正方形キャンバス＋上下ホワイトレターボックス」制約は **Nano Banana Pro 固有のもの。GPT Image 2 では付けない**。ysk.lifeは横長（ヒーロー3:2前後）でそのまま生成してよい。
+**ysk.life では上記6キャラすべてを使ってよい。** 記事の場面に合うキャラを選ぶ。
+
+- ※ 古い `01_T&L_Projects/T&L_マーケ02/キャラ画像/` は「元設定」であり正本ではない。**参照しない**（ガイド内で元設定として明示されている）。
+- プロンプトは**自作しない**。`CHARACTER_GUIDE.md` の各キャラ「コピペ用プロンプト」（英語の同一性固定ブロック）をそのまま使い、末尾の
+  `Scene/action:` / `Expression:` / `Background:` / `Aspect ratio:` だけを記事の場面に合わせて埋める。
+  複数キャラを同時に出す場合は、ガイド末尾の「3人を同時に出す場合」のブロックを使う。
+- ChatGPTには**該当キャラの正本シートを画像添付**する（プロンプト本文が添付ファイル名を参照している）。
+- **Aspect ratio**: ysk.lifeは横長。ヒーローは 3:2（1536x1024 実績）、本文挿絵は 16:9（1672x941 実績）のいずれかに合わせる。
+- ※ note向けの「白い正方形キャンバス＋上下ホワイトレターボックス」制約は **Nano Banana Pro 固有のもの。GPT Image 2 では付けない**。
+- 生成後は `CHARACTER_GUIDE.md` の「生成後の確認項目」チェックリストで確認する（Riraの花の位置、Rira/Rikuのイヤーピースが視聴者から見て右側、頭身、靴の種類など、崩れやすい箇所が列挙されている）。
 
 ### 画像がそろった後の手順
 
