@@ -8,6 +8,7 @@ heroImage: '../../assets/blog/wws-workwear-suit-ankle-pants/hero-tamashiro-yusuk
 ---
 
 <!-- product-article-character-sheets: tamashiro-yusuke-business-casual-character-sheet-v3.png -->
+<!-- product-article-character-check: hero-and-body-verified -->
 
 朝は事務所、昼は商工会の相談窓口、夕方は現場や打ち合わせ。
 
@@ -45,10 +46,7 @@ WWSは「スーツに見える作業着」として作られたブランドで�
 
 ## 私の使い方。移動と現場と相談窓口を、一本で回す
 
-<!-- 画像プレースホルダー: 1日の仕事を動き回る場面
-     生成後の保存先: src/assets/blog/wws-workwear-suit-ankle-pants/workday-move.webp
-     alt: 玉城祐輔が資料の箱を持って車から降り、相談窓口へ向かうイメージイラスト
-     → 画像設置後、この行を ![alt](../../assets/blog/wws-workwear-suit-ankle-pants/workday-move.webp) に置き換える -->
+![玉城祐輔が資料の箱を持って車から降り、相談窓口へ向かうイメージイラスト](../../assets/blog/wws-workwear-suit-ankle-pants/tamashiro-yusuke-workday-move.webp)
 
 私が普段この服で動いているのは、こんな場面です。
 
@@ -84,10 +82,7 @@ WWSは、もともと水道工事会社として始まった会社（現・オ�
 
 ## 「ほつれない」と感じている理由と、私が気をつけていること
 
-<!-- 画像プレースホルダー: 洗濯とお手入れの場面
-     生成後の保存先: src/assets/blog/wws-workwear-suit-ankle-pants/laundry-care.webp
-     alt: 玉城祐輔が洗濯ネットに入れたパンツを洗濯機へ入れ、部屋干しの準備をしているイメージイラスト
-     → 画像設置後、この行を ![alt](../../assets/blog/wws-workwear-suit-ankle-pants/laundry-care.webp) に置き換える -->
+![玉城祐輔が洗濯ネットに入れたパンツを洗濯機へ入れ、部屋干しの準備をしているイメージイラスト](../../assets/blog/wws-workwear-suit-ankle-pants/tamashiro-yusuke-laundry-care.webp)
 
 毎日履いて、頻繁に洗っています。それでも、縫い目のほつれや、生地の毛羽立ちは出ていません。
 
