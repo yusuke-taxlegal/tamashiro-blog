@@ -4,6 +4,7 @@ description: '仕事の日は毎日WWS（ワークウェアスーツ）のアン
 pubDate: '2026-08-29'
 category: '仕事の道具'
 accent: 'ink'
+heroImage: '../../assets/blog/wws-workwear-suit-ankle-pants/hero-tamashiro-yusuke-workday-start.webp'
 ---
 
 <!-- product-article-character-sheets: tamashiro-yusuke-business-casual-character-sheet-v3.png -->
