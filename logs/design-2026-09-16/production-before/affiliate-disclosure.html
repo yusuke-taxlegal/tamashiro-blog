@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="ja"> <head><meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta name="theme-color" content="#171915"> <meta name="google-site-verification" content="ZOHyxB9OxiSl2kg7iNFCxDlsYK6K5h7e890uRt8Vyt0"> <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2"> <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.png?v=2"> <link rel="shortcut icon" href="/favicon.ico?v=2"> <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=2"> <link rel="sitemap" href="/sitemap-index.xml"> <link rel="alternate" type="application/rss+xml" title="玉城祐輔｜AIとデジタルを、現場で使える形に。" href="https://ysk.life/rss.xml"> <meta name="generator" content="Astro v7.2.1"> <link rel="canonical" href="https://ysk.life/affiliate-disclosure/"> <title>広告・紹介について｜玉城祐輔</title> <meta name="title" content="広告・紹介について｜玉城祐輔"> <meta name="description" content="ysk.lifeと玉城祐輔の道具箱における広告・アフィリエイトリンクの表示方針です。"> <meta name="author" content="玉城祐輔"> <meta property="og:type" content="website"> <meta property="og:locale" content="ja_JP"> <meta property="og:site_name" content="玉城祐輔"> <meta property="og:url" content="https://ysk.life/affiliate-disclosure/"> <meta property="og:title" content="広告・紹介について｜玉城祐輔"> <meta property="og:description" content="ysk.lifeと玉城祐輔の道具箱における広告・アフィリエイトリンクの表示方針です。"> <meta property="og:image" content="https://ysk.life/images/ysk-life-og.png"> <meta property="og:image:secure_url" content="https://ysk.life/images/ysk-life-og.png"> <meta property="og:image:width" content="1200"> <meta property="og:image:height" content="630"> <meta property="og:image:alt" content="広告・紹介について｜玉城祐輔"> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="広告・紹介について｜玉城祐輔"> <meta name="twitter:description" content="ysk.lifeと玉城祐輔の道具箱における広告・アフィリエイトリンクの表示方針です。"> <meta name="twitter:image" content="https://ysk.life/images/ysk-life-og.png"> <meta name="twitter:image:alt" content="広告・紹介について｜玉城祐輔"> <script>
+	(() => {
+		const measurementId = 'G-752CVHZQNC';
+		const consentKey = 'ysk-analytics-consent-v1';
+		const acceptedValue = 'granted';
+		const declinedValue = 'denied';
+
+		const readConsent = () => {
+			try {
+				return window.localStorage.getItem(consentKey);
+			} catch {
+				return null;
+			}
+		};
+
+		const saveConsent = (value) => {
+			try {
+				window.localStorage.setItem(consentKey, value);
+			} catch {
+				// Storage can be unavailable in private browsing or restricted browsers.
+			}
+		};
+
+		const removeConsent = () => {
+			try {
+				window.localStorage.removeItem(consentKey);
+			} catch {
+				// Keep the page usable even when storage is unavailable.
+			}
+		};
+
+		const loadAnalytics = () => {
+			if (window.__yskAnalyticsLoaded) return;
+			window.__yskAnalyticsLoaded = true;
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = function () {
+				window.dataLayer.push(arguments);
+			};
+			window.gtag('js', new Date());
+			window.gtag('config', measurementId, {
+				allow_google_signals: false,
+				allow_ad_personalization_signals: false,
+			});
+
+			const script = document.createElement('script');
+			script.async = true;
+			script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+			document.head.appendChild(script);
+		};
+
+		const removeBanner = () => {
+			document.querySelector('[data-analytics-consent]')?.remove();
+		};
+
+		const showBanner = () => {
+			if (document.querySelector('[data-analytics-consent]')) return;
+
+			const banner = document.createElement('aside');
+			banner.className = 'analytics-consent';
+			banner.dataset.analyticsConsent = '';
+			banner.setAttribute('aria-label', 'アクセス解析の設定');
+			banner.innerHTML = `
+				<div class="analytics-consent__inner">
+					<p><strong>アクセス解析について</strong><span>サイト改善のためGoogle Analyticsを使用します。許可するまで計測は始まりません。<a href="/privacy/#analytics">詳しく見る</a></span></p>
+					<div class="analytics-consent__actions">
+						<button type="button" data-analytics-decline>許可しない</button>
+						<button type="button" class="primary" data-analytics-accept>許可する</button>
+					</div>
+				</div>`;
+			document.body.appendChild(banner);
+
+			banner.querySelector('[data-analytics-accept]')?.addEventListener('click', () => {
+				saveConsent(acceptedValue);
+				removeBanner();
+				loadAnalytics();
+			});
+			banner.querySelector('[data-analytics-decline]')?.addEventListener('click', () => {
+				saveConsent(declinedValue);
+				removeBanner();
+			});
+		};
+
+		const initialize = () => {
+			const consent = readConsent();
+			if (consent === acceptedValue) loadAnalytics();
+			else if (consent !== declinedValue) showBanner();
+
+			document.querySelector('[data-analytics-consent-reset]')?.addEventListener('click', () => {
+				removeConsent();
+				showBanner();
+			});
+		};
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initialize, { once: true });
+		} else {
+			initialize();
+		}
+	})();
+</script><link rel="stylesheet" href="/_astro/Header.vNaMTfFZ.css"></head> <body> <header class="site-header" data-astro-cid-nen7h5rs> <a class="skip-link" href="#main-content" data-astro-cid-nen7h5rs>本文へ移動</a> <nav class="shell" aria-label="メインナビゲーション" data-astro-cid-nen7h5rs> <a class="brand" href="/" aria-label="玉城祐輔 ホーム" data-astro-cid-nen7h5rs> <span class="brand-mark" aria-hidden="true" data-astro-cid-nen7h5rs> <img src="/images/tamashiro-yusuke-logo.svg?v=3" alt="" width="64" height="64" decoding="async" data-astro-cid-nen7h5rs> </span> </a> <div class="internal-links" data-astro-cid-nen7h5rs> <a href="/blog" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 読む </a> <a href="/toolbox" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 道具箱 </a> <a href="/about" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 玉城について </a> </div> </nav> </header> <main id="main-content"> <header class="page-intro narrow legal-intro"><p class="eyebrow">紹介方針</p><h1>広告・紹介について</h1><p>読者のかたに、紹介の背景がきちんと伝わる運用を心がけます。</p><span>制定 2026年8月12日</span></header> <article class="legal-document shell"> <nav class="legal-summary" aria-label="このページの内容"> <p>このページの内容</p> <ul><li><a href="#affiliate">アフィリエイトリンク</a></li><li><a href="#standard">紹介の基準</a></li><li><a href="#company">法人サービスとの区別</a></li><li><a href="#before-buying">購入前の確認</a></li></ul> </nav> <div class="prose legal-body"> <h2 id="affiliate">アフィリエイトリンク</h2> <p>当サイトおよび「玉城祐輔の道具箱」には、商品やサービスの購入・申込みにより、玉城祐輔個人が紹介料を受け取るリンクが含まれる場合があります。</p> <h2 id="standard">紹介の基準</h2> <p>原則として、玉城本人が実際に使用・確認したものを、良い点だけでなく注意点も含めて紹介します。広告報酬の有無だけを理由に評価を変えることはありません。</p> <h2 id="company">法人サービスとの区別</h2> <p>道具箱を通じた紹介活動は玉城個人の活動です。T&Lサポート株式会社が提供する相談・支援サービスとは、運営・収益の帰属を区別しています。</p> <h2 id="before-buying">購入前の確認</h2> <p>価格、在庫、仕様、キャンペーン等は変更される場合があります。購入や申込みの前に、必ずリンク先の最新情報をご確認ください。</p> </div> </article> </main> <footer data-astro-cid-jo6i4kqk> <div class="shell footer-grid" data-astro-cid-jo6i4kqk> <div class="footer-statement" data-astro-cid-jo6i4kqk> <p data-astro-cid-jo6i4kqk>沖縄の現場で、実際に試したことを残します。</p> </div> <div class="footer-links" data-astro-cid-jo6i4kqk> <div data-astro-cid-jo6i4kqk> <strong data-astro-cid-jo6i4kqk>このサイト</strong> <a href="/blog" data-astro-cid-jo6i4kqk>記事を読む</a> <a href="/about" data-astro-cid-jo6i4kqk>玉城について</a> <a href="/privacy" data-astro-cid-jo6i4kqk>プライバシー</a> <a href="/affiliate-disclosure" data-astro-cid-jo6i4kqk>広告・紹介について</a> </div> <div data-astro-cid-jo6i4kqk> <strong data-astro-cid-jo6i4kqk>外部リンク</strong> <a href="/toolbox/" data-astro-cid-jo6i4kqk>玉城祐輔の道具箱 →</a> <a href="https://taxlegal.jp/" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>T&Lサポート株式会社 ↗</a> <a href="https://www.facebook.com/yusuke.tamashiro" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>Facebook ↗</a> <a href="https://www.instagram.com/tamashiro_yusuke_tl/" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>Instagram ↗</a> </div> </div> </div> <div class="shell footer-bottom" data-astro-cid-jo6i4kqk> <span data-astro-cid-jo6i4kqk>&copy; 2026 Yusuke Tamashiro</span> <span data-astro-cid-jo6i4kqk>AIとデジタルを、現場で使える形に。</span> </div> </footer> </body> </html>

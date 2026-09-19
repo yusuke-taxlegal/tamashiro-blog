@@ -1,0 +1,81 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	posts: CollectionEntry<'blog'>[];
+}
+
+const { posts } = Astro.props;
+const articleMetadata = Object.fromEntries(posts.map((post) => [post.id, { title: post.data.title, href: `/blog/${post.id}/` }]));
+---
+
+<section class="popular-articles journal-section shell" data-popular-articles data-articles={JSON.stringify(articleMetadata)} hidden aria-labelledby="popular-heading">
+	<div class="journal-heading"><h2 id="popular-heading">いま読まれていること</h2></div>
+	<div class="popular-columns">
+		<section aria-labelledby="popular-views-heading">
+			<h3 id="popular-views-heading">最近よく読まれている記事</h3>
+			<p>昨日までの30日間</p>
+			<ol data-popular-list="views"></ol>
+		</section>
+		<section aria-labelledby="popular-helpful-heading">
+			<h3 id="popular-helpful-heading">読者の参考になった記事</h3>
+			<p>昨日までの30日間</p>
+			<ol data-popular-list="helpful"></ol>
+		</section>
+	</div>
+</section>
+
+<script>
+	const popularSection = document.querySelector('[data-popular-articles]');
+
+	if (popularSection instanceof HTMLElement) {
+		const knownArticles:Record<string,{title:string;href:string}> = JSON.parse(popularSection.dataset.articles || '{}');
+		const viewsList = popularSection.querySelector('[data-popular-list="views"]');
+		const helpfulList = popularSection.querySelector('[data-popular-list="helpful"]');
+		const makeItems = (entries: {article:string}[] | undefined, list: Element | null) => {
+			if (!Array.isArray(entries) || !list) return 0;
+			const fragment = document.createDocumentFragment();
+			let count = 0;
+			entries.forEach((entry) => {
+				const article = knownArticles[entry?.article];
+				if (!article) return;
+				const item = document.createElement('li');
+				const link = document.createElement('a');
+				link.href = article.href;
+				link.textContent = article.title;
+				item.append(link);
+				fragment.append(item);
+				count += 1;
+			});
+			list.append(fragment);
+			return count;
+		};
+
+		fetch('/api/popular', { credentials: 'same-origin' })
+			.then((response) => {
+				if (!response.ok) throw new Error('Popular request failed');
+				return response.json() as Promise<{popular?:{article:string}[];helpful?:{article:string}[]}>;
+			})
+			.then((payload) => {
+				const viewCount = makeItems(payload?.popular, viewsList);
+				const helpfulCount = makeItems(payload?.helpful, helpfulList);
+				if (viewsList?.parentElement) viewsList.parentElement.hidden = !viewCount;
+				if (helpfulList?.parentElement) helpfulList.parentElement.hidden = !helpfulCount;
+				if (viewCount || helpfulCount) popularSection.hidden = false;
+			})
+			.catch(() => {});
+	}
+</script>
+
+<style>
+	.popular-articles[hidden], .popular-columns section[hidden] { display: none; }
+	.popular-articles { border-top: 1px solid var(--site-line, var(--line)); }
+	.popular-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(2rem, 6vw, 5rem); }
+	.popular-columns section { padding-top: 1rem; border-top: 3px solid var(--journal-accent, var(--coral)); }
+	.popular-columns h3 { margin: 0; font-size: 1.1rem; }
+	.popular-columns p { margin: 0.35rem 0 1rem; color: var(--site-muted, var(--muted)); font-size: 0.78rem; }
+	.popular-columns ol { display: grid; gap: 0.8rem; margin: 0; padding-left: 1.3rem; }
+	.popular-columns li { padding-left: 0.2rem; }
+	.popular-columns a { color: inherit; font-size: 0.92rem; font-weight: 700; line-height: 1.55; }
+	@media (max-width: 620px) { .popular-columns { grid-template-columns: 1fr; } }
+</style>

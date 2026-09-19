@@ -1,0 +1,11 @@
+
+ ⛅️ wrangler 4.121.0
+────────────────────
+Uploading... (160/161)
+Uploading... (161/161)
+✨ Success! Uploaded 1 files (160 already uploaded) (1.05 sec)
+
+✨ Uploading _headers
+🌎 Deploying...
+✨ Deployment complete! Take a peek over at https://91816690.tamashiro-blog.pages.dev
+✨ Deployment alias URL: https://codex-about-jc-preview.tamashiro-blog.pages.dev

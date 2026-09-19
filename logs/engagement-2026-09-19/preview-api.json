@@ -1,0 +1,58 @@
+[
+  {
+    "test": "GET counts",
+    "passed": true
+  },
+  {
+    "test": "first vote committed",
+    "passed": true
+  },
+  {
+    "test": "retry idempotent",
+    "passed": true
+  },
+  {
+    "test": "readback cookie",
+    "passed": true
+  },
+  {
+    "test": "CSRF rejected",
+    "passed": true
+  },
+  {
+    "test": "unpublished rejected",
+    "passed": true
+  },
+  {
+    "test": "private report protected",
+    "passed": true
+  },
+  {
+    "test": "wrong key rejected",
+    "passed": true
+  },
+  {
+    "test": "admin login",
+    "passed": true
+  },
+  {
+    "test": "private report readback",
+    "passed": true
+  },
+  {
+    "test": "unconnected GA explicit status",
+    "passed": true
+  },
+  {
+    "test": "no fabricated ranking",
+    "passed": true
+  },
+  {
+    "test": "logout",
+    "passed": true
+  },
+  {
+    "test": "session removed",
+    "passed": true
+  }
+]

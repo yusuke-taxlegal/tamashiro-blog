@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="ja" data-astro-cid-75lfn3dl> <head><meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta name="theme-color" content="#171915"> <meta name="google-site-verification" content="ZOHyxB9OxiSl2kg7iNFCxDlsYK6K5h7e890uRt8Vyt0"> <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2"> <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.png?v=2"> <link rel="shortcut icon" href="/favicon.ico?v=2"> <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=2"> <link rel="sitemap" href="/sitemap-index.xml"> <link rel="alternate" type="application/rss+xml" title="玉城祐輔｜AIとデジタルを、現場で使える形に。" href="https://ysk.life/rss.xml"> <meta name="generator" content="Astro v7.2.1"> <link rel="canonical" href="https://ysk.life/toolbox/work/"> <title>仕事で使っている道具｜玉城祐輔の道具箱</title> <meta name="title" content="仕事で使っている道具｜玉城祐輔の道具箱"> <meta name="description" content="相談、会議、外出先で玉城祐輔が実際に使っている仕事の道具を、使い方と注意点まで紹介します。"> <meta name="author" content="玉城祐輔"> <meta property="og:type" content="website"> <meta property="og:locale" content="ja_JP"> <meta property="og:site_name" content="玉城祐輔"> <meta property="og:url" content="https://ysk.life/toolbox/work/"> <meta property="og:title" content="仕事で使っている道具｜玉城祐輔の道具箱"> <meta property="og:description" content="相談、会議、外出先で玉城祐輔が実際に使っている仕事の道具を、使い方と注意点まで紹介します。"> <meta property="og:image" content="https://ysk.life/images/ysk-life-og.png"> <meta property="og:image:secure_url" content="https://ysk.life/images/ysk-life-og.png"> <meta property="og:image:width" content="1200"> <meta property="og:image:height" content="630"> <meta property="og:image:alt" content="仕事で使っている道具｜玉城祐輔の道具箱"> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="仕事で使っている道具｜玉城祐輔の道具箱"> <meta name="twitter:description" content="相談、会議、外出先で玉城祐輔が実際に使っている仕事の道具を、使い方と注意点まで紹介します。"> <meta name="twitter:image" content="https://ysk.life/images/ysk-life-og.png"> <meta name="twitter:image:alt" content="仕事で使っている道具｜玉城祐輔の道具箱"> <script>
+	(() => {
+		const measurementId = 'G-752CVHZQNC';
+		const consentKey = 'ysk-analytics-consent-v1';
+		const acceptedValue = 'granted';
+		const declinedValue = 'denied';
+
+		const readConsent = () => {
+			try {
+				return window.localStorage.getItem(consentKey);
+			} catch {
+				return null;
+			}
+		};
+
+		const saveConsent = (value) => {
+			try {
+				window.localStorage.setItem(consentKey, value);
+			} catch {
+				// Storage can be unavailable in private browsing or restricted browsers.
+			}
+		};
+
+		const removeConsent = () => {
+			try {
+				window.localStorage.removeItem(consentKey);
+			} catch {
+				// Keep the page usable even when storage is unavailable.
+			}
+		};
+
+		const loadAnalytics = () => {
+			if (window.__yskAnalyticsLoaded) return;
+			window.__yskAnalyticsLoaded = true;
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = function () {
+				window.dataLayer.push(arguments);
+			};
+			window.gtag('js', new Date());
+			window.gtag('config', measurementId, {
+				allow_google_signals: false,
+				allow_ad_personalization_signals: false,
+			});
+
+			const script = document.createElement('script');
+			script.async = true;
+			script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+			document.head.appendChild(script);
+		};
+
+		const removeBanner = () => {
+			document.querySelector('[data-analytics-consent]')?.remove();
+		};
+
+		const showBanner = () => {
+			if (document.querySelector('[data-analytics-consent]')) return;
+
+			const banner = document.createElement('aside');
+			banner.className = 'analytics-consent';
+			banner.dataset.analyticsConsent = '';
+			banner.setAttribute('aria-label', 'アクセス解析の設定');
+			banner.innerHTML = `
+				<div class="analytics-consent__inner">
+					<p><strong>アクセス解析について</strong><span>サイト改善のためGoogle Analyticsを使用します。許可するまで計測は始まりません。<a href="/privacy/#analytics">詳しく見る</a></span></p>
+					<div class="analytics-consent__actions">
+						<button type="button" data-analytics-decline>許可しない</button>
+						<button type="button" class="primary" data-analytics-accept>許可する</button>
+					</div>
+				</div>`;
+			document.body.appendChild(banner);
+
+			banner.querySelector('[data-analytics-accept]')?.addEventListener('click', () => {
+				saveConsent(acceptedValue);
+				removeBanner();
+				loadAnalytics();
+			});
+			banner.querySelector('[data-analytics-decline]')?.addEventListener('click', () => {
+				saveConsent(declinedValue);
+				removeBanner();
+			});
+		};
+
+		const initialize = () => {
+			const consent = readConsent();
+			if (consent === acceptedValue) loadAnalytics();
+			else if (consent !== declinedValue) showBanner();
+
+			document.querySelector('[data-analytics-consent-reset]')?.addEventListener('click', () => {
+				removeConsent();
+				showBanner();
+			});
+		};
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initialize, { once: true });
+		} else {
+			initialize();
+		}
+	})();
+</script><link rel="stylesheet" href="/_astro/Header.vNaMTfFZ.css"><link rel="stylesheet" href="/_astro/ToolboxPage.Bwy7itQH.css"><style>.share-panel[data-astro-cid-eqjx2q6l]{flex-direction:column;align-items:flex-start;max-width:100%;display:inline-flex}.share-actions[data-astro-cid-eqjx2q6l]{flex-wrap:nowrap;gap:.55rem;display:flex}.share-button[data-astro-cid-eqjx2q6l]{cursor:pointer;border:1px solid var(--line);background:color-mix(in srgb, var(--white) 72%, transparent);width:2.875rem;height:2.875rem;color:var(--ink);font:inherit;border-radius:999px;justify-content:center;align-items:center;padding:0;text-decoration:none;transition:transform .16s,border-color .16s,background-color .16s,color .16s;display:inline-flex;position:relative;box-shadow:0 1px #fffdf8b8}.share-button[data-astro-cid-eqjx2q6l]:hover{border-color:var(--coral);background:var(--coral);color:var(--white);transform:translateY(-1px)}.share-button[data-astro-cid-eqjx2q6l]:active{transform:translateY(0)scale(.96)}.share-button[data-astro-cid-eqjx2q6l]:focus-visible{outline:3px solid var(--coral);outline-offset:3px}.share-icon[data-astro-cid-eqjx2q6l]{width:1.3rem;height:1.3rem}.share-button[data-astro-cid-eqjx2q6l]:after{background:var(--ink);color:var(--white);content:attr(data-tooltip);opacity:0;pointer-events:none;white-space:nowrap;z-index:1;border-radius:.45rem;padding:.35rem .55rem;font-size:.66rem;font-weight:700;line-height:1.35;transition:opacity .14s,transform .14s;position:absolute;bottom:calc(100% + .55rem);left:50%;transform:translate(-50%,.2rem)}.share-button[data-astro-cid-eqjx2q6l]:hover:after,.share-button[data-astro-cid-eqjx2q6l]:focus-visible:after{opacity:1;transform:translate(-50%)}.share-status[data-astro-cid-eqjx2q6l]{max-width:min(24rem,100vw - 2rem);color:var(--muted);margin:0;font-size:.72rem;line-height:1.6}.share-status[data-astro-cid-eqjx2q6l]:not(:empty){margin-top:.65rem}@media (hover:none){.share-button[data-astro-cid-eqjx2q6l]:after{display:none}}@media (prefers-reduced-motion:reduce){.share-button[data-astro-cid-eqjx2q6l],.share-button[data-astro-cid-eqjx2q6l]:after{transition:none}}
+</style></head> <body class="toolbox-page toolbox-work" data-astro-cid-75lfn3dl> <header class="site-header" data-astro-cid-nen7h5rs> <a class="skip-link" href="#main-content" data-astro-cid-nen7h5rs>本文へ移動</a> <nav class="shell" aria-label="メインナビゲーション" data-astro-cid-nen7h5rs> <a class="brand" href="/" aria-label="玉城祐輔 ホーム" data-astro-cid-nen7h5rs> <span class="brand-mark" aria-hidden="true" data-astro-cid-nen7h5rs> <img src="/images/tamashiro-yusuke-logo.svg?v=3" alt="" width="64" height="64" decoding="async" data-astro-cid-nen7h5rs> </span> </a> <div class="internal-links" data-astro-cid-nen7h5rs> <a href="/blog" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 読む </a> <a href="/toolbox" class="active" aria-current="page" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 道具箱 </a> <a href="/about" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 玉城について </a> </div> </nav> </header> <main id="main-content" data-astro-cid-75lfn3dl> <section class="toolbox-hero shell" data-astro-cid-75lfn3dl> <div class="hero-copy" data-astro-cid-75lfn3dl> <a class="back-link" href="/toolbox/" data-astro-cid-75lfn3dl>道具箱の入口へ戻る</a> <p class="eyebrow" data-astro-cid-75lfn3dl>仕事で使っている道具</p>  <h1 data-astro-cid-75lfn3dl>仕事で使う、<strong data-astro-cid-75lfn3dl>2つの道具。</strong></h1>  <p class="hero-lead" data-astro-cid-75lfn3dl>相談の記録と外出先の通信。仕事の手間を減らすために使っている道具を、詳しく紹介します。</p> <div class="button-row" data-astro-cid-75lfn3dl>   <a class="button primary" href="#work-tools" data-astro-cid-75lfn3dl>2品を見る</a>  </div> </div> </section> <div class="toolbox-share toolbox-share-top shell" data-astro-cid-75lfn3dl> <div class="share-panel" role="group" aria-label="この道具ページを共有" data-share-root data-share-url="https://ysk.life/toolbox/work/" data-share-title="仕事で使っている道具｜玉城祐輔の道具箱" data-astro-cid-eqjx2q6l> <div class="share-actions" data-astro-cid-eqjx2q6l> <a class="share-button line" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fysk.life%2Ftoolbox%2Fwork%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="LINEで送る" data-tooltip="LINEで送る" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:line-fill">   <symbol id="ai:ri:line-fill"><path fill="currentColor" d="M18.664 10.84a.526.526 0 0 1-.526.525h-1.462v.938h1.463a.525.525 0 1 1 0 1.049H16.15a.526.526 0 0 1-.522-.524V8.852c0-.287.235-.525.525-.525h1.988a.526.526 0 0 1-.002 1.05h-1.463v.938h1.463c.29 0 .524.237.524.525m-4.098 2.485a.5.5 0 0 1-.166.025a.52.52 0 0 1-.425-.208l-2.036-2.764v2.45a.525.525 0 0 1-1.047 0V8.852a.52.52 0 0 1 .52-.523c.162 0 .312.086.412.211l2.052 2.775V8.852c0-.287.235-.525.525-.525c.287 0 .525.238.525.525v3.976a.52.52 0 0 1-.36.497m-4.95.027a.526.526 0 0 1-.523-.524V8.852c0-.287.235-.525.525-.525c.289 0 .524.238.524.525v3.976a.527.527 0 0 1-.526.524m-1.53 0H6.099a.53.53 0 0 1-.525-.524V8.852c0-.287.238-.525.525-.525c.29 0 .525.238.525.525v3.45h1.464a.525.525 0 0 1 0 1.05m3.915-10.78c-5.513 0-10 3.643-10 8.118c0 4.01 3.558 7.369 8.363 8.007c.325.068.769.215.881.492c.1.25.066.638.032.9l-.137.85c-.037.25-.2.988.874.537c1.076-.449 5.764-3.398 7.864-5.812C21.314 14.089 22 12.477 22 10.69c0-4.475-4.488-8.118-10-8.118"/></symbol><use href="#ai:ri:line-fill"></use>  </svg> </a> <a class="share-button facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fysk.life%2Ftoolbox%2Fwork%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="Facebookで共有" data-tooltip="Facebookで共有" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:facebook-fill">   <symbol id="ai:ri:facebook-fill"><path fill="currentColor" d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4z"/></symbol><use href="#ai:ri:facebook-fill"></use>  </svg> </a> <button class="share-button instagram" type="button" aria-label="Instagramで共有" data-tooltip="Instagramで共有" data-share-instagram data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:instagram-line">   <symbol id="ai:ri:instagram-line"><path fill="currentColor" d="M12.001 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6m0-2a5 5 0 1 1 0 10a5 5 0 0 1 0-10m6.5-.25a1.25 1.25 0 0 1-2.5 0a1.25 1.25 0 0 1 2.5 0M12.001 4c-2.474 0-2.878.007-4.029.058c-.784.037-1.31.142-1.798.332a2.9 2.9 0 0 0-1.08.703a2.9 2.9 0 0 0-.704 1.08c-.19.49-.295 1.015-.331 1.798C4.007 9.075 4 9.461 4 12c0 2.475.007 2.878.058 4.029c.037.783.142 1.31.331 1.797c.17.435.37.748.702 1.08c.337.336.65.537 1.08.703c.494.191 1.02.297 1.8.333C9.075 19.994 9.461 20 12 20c2.475 0 2.878-.007 4.029-.058c.782-.037 1.308-.142 1.797-.331a2.9 2.9 0 0 0 1.08-.703c.337-.336.538-.649.704-1.08c.19-.492.296-1.018.332-1.8c.052-1.103.058-1.49.058-4.028c0-2.474-.007-2.878-.058-4.029c-.037-.782-.143-1.31-.332-1.798a2.9 2.9 0 0 0-.703-1.08a2.9 2.9 0 0 0-1.08-.704c-.49-.19-1.016-.295-1.798-.331C14.926 4.006 14.54 4 12 4m0-2c2.717 0 3.056.01 4.123.06c1.064.05 1.79.217 2.427.465c.66.254 1.216.598 1.772 1.153a4.9 4.9 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428c.047 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122s-.218 1.79-.465 2.428a4.9 4.9 0 0 1-1.153 1.772a4.9 4.9 0 0 1-1.772 1.153c-.637.247-1.363.415-2.427.465c-1.067.047-1.406.06-4.123.06s-3.056-.01-4.123-.06c-1.064-.05-1.789-.218-2.427-.465a4.9 4.9 0 0 1-1.772-1.153a4.9 4.9 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.012 15.056 2 14.717 2 12s.01-3.056.06-4.122s.217-1.79.465-2.428a4.9 4.9 0 0 1 1.153-1.772A4.9 4.9 0 0 1 5.45 2.525c.637-.248 1.362-.415 2.427-.465C8.945 2.013 9.284 2 12.001 2"/></symbol><use href="#ai:ri:instagram-line"></use>  </svg> </button> <button class="share-button copy" type="button" aria-label="記事のリンクをコピー" data-tooltip="リンクをコピー" data-share-copy data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:file-copy-line">   <symbol id="ai:ri:file-copy-line"><path fill="currentColor" d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .552-.45 1-1.007 1H4.007A1 1 0 0 1 3 21l.003-14c0-.552.45-1 1.006-1zM5.002 8L5 20h10V8zM9 6h8v10h2V4H9z"/></symbol><use href="#ai:ri:file-copy-line"></use>  </svg> </button> </div> <p class="share-status" aria-live="polite" data-share-status data-astro-cid-eqjx2q6l></p> </div> <script>
+	(() => {
+		if (window.__yskShareButtonsInitialized) return;
+		window.__yskShareButtonsInitialized = true;
+
+		const copyText = async (text) => {
+			if (navigator.clipboard && window.isSecureContext) {
+				await navigator.clipboard.writeText(text);
+				return;
+			}
+
+			const input = document.createElement('textarea');
+			input.value = text;
+			input.setAttribute('readonly', '');
+			input.style.position = 'fixed';
+			input.style.opacity = '0';
+			document.body.appendChild(input);
+			input.select();
+			const copied = document.execCommand('copy');
+			input.remove();
+			if (!copied) throw new Error('Copy failed');
+		};
+
+		document.addEventListener('click', async (event) => {
+			const button = event.target.closest('[data-share-copy], [data-share-instagram]');
+			if (!button) return;
+
+			const root = button.closest('[data-share-root]');
+			if (!root) return;
+
+			const url = root.dataset.shareUrl;
+			const title = root.dataset.shareTitle;
+			const status = root.querySelector('[data-share-status]');
+			if (!url || !title || !status) return;
+
+			status.textContent = '';
+
+			try {
+				if (button.matches('[data-share-instagram]') && navigator.share) {
+					await navigator.share({ title, url });
+					return;
+				}
+
+				await copyText(url);
+				status.textContent = button.matches('[data-share-instagram]')
+					? 'リンクをコピーしました。InstagramのDMなどに貼り付けてください。'
+					: 'リンクをコピーしました。';
+			} catch (error) {
+				if (error && error.name === 'AbortError') return;
+				status.textContent = 'コピーできませんでした。ブラウザのアドレス欄からURLをコピーしてください。';
+			}
+		});
+	})();
+</script> </div> <section class="tools shell" id="tools" aria-label="紹介している道具" data-astro-cid-75lfn3dl> <section id="work-tools" class="tool-collection" aria-labelledby="work-tools-title" data-astro-cid-75lfn3dl> <header class="collection-heading" data-astro-cid-75lfn3dl> <p data-astro-cid-75lfn3dl>2品を掲載</p> <h2 id="work-tools-title" data-astro-cid-75lfn3dl>仕事の道具</h2> <span data-astro-cid-75lfn3dl>相談や会議の記録、外出先での通信に使っています。仕事の手間を減らし、目の前の相手に集中するための道具です。</span> </header> <div class="tool-grid" data-astro-cid-75lfn3dl> <article id="hidock-p1" class="tool-card coral featured" data-astro-cid-75lfn3dl> <a class="tool-image" href="https://jp.hidock.com/pages/referral-program?ref=uzxdtbsg" target="_blank" rel="sponsored noopener noreferrer" aria-label="HiDock P1の商品ページを開く" data-astro-cid-75lfn3dl> <img src="https://jp.hidock.com/cdn/shop/files/HiDock_P1_Space_Gray_Front_Image.jpg?v=1779855196&amp;width=1200" alt="HiDock P1 AIボイスレコーダー スペースグレーの正面" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-astro-cid-75lfn3dl> </a> <div class="tool-copy" data-astro-cid-75lfn3dl> <div class="tool-meta" data-astro-cid-75lfn3dl><span data-astro-cid-75lfn3dl>会議・相談の記録</span><span data-astro-cid-75lfn3dl>メーカー紹介</span></div> <h3 data-astro-cid-75lfn3dl>HiDock P1</h3> <p class="tool-statement" data-astro-cid-75lfn3dl>目の前の相手との会話に、集中する。</p> <p class="tool-lead" data-astro-cid-75lfn3dl>録音、文字起こし、要約まで。会議後に長い録音を聞き直す時間を減らすために使っているAIレコーダーです。</p> <a class="article-link" href="/blog/hidock-p1-ai-recorder/" aria-label="HiDock P1の紹介記事を読む" data-astro-cid-75lfn3dl>
+紹介記事を読む<span aria-hidden="true" data-astro-cid-75lfn3dl>→</span> </a> <a class="product-link" href="https://jp.hidock.com/pages/referral-program?ref=uzxdtbsg" target="_blank" rel="sponsored noopener noreferrer" data-astro-cid-75lfn3dl>公式サイトで10%OFF<span aria-hidden="true" data-astro-cid-75lfn3dl>↗</span></a>  <p class="affiliate-note" data-astro-cid-75lfn3dl>紹介リンクです。購入者はHiDock全製品10%OFFになります。</p> <details class="tool-notes" open data-astro-cid-75lfn3dl> <summary data-astro-cid-75lfn3dl>使い方と注意点</summary> <dl data-astro-cid-75lfn3dl> <div data-astro-cid-75lfn3dl><dt data-astro-cid-75lfn3dl>使う場面</dt><dd data-astro-cid-75lfn3dl>商工会の相談窓口、巡回相談、オンライン会議、セミナー。</dd></div><div data-astro-cid-75lfn3dl><dt data-astro-cid-75lfn3dl>良かった点</dt><dd data-astro-cid-75lfn3dl>報告書や議事録の下書きを早く作り、会話中はメモより相手に集中できます。</dd></div><div data-astro-cid-75lfn3dl><dt data-astro-cid-75lfn3dl>購入前の注意</dt><dd data-astro-cid-75lfn3dl>録音の同意と、AIが作った要約を人が確認する運用が必要です。</dd></div> </dl> </details> </div> </article><article id="nihontsushin-sim" class="tool-card olive featured" data-astro-cid-75lfn3dl> <a class="tool-image" href="https://amzn.to/4zgLclg" target="_blank" rel="sponsored noopener noreferrer" aria-label="日本通信SIM 合理的みんなのプランの商品ページを開く" data-astro-cid-75lfn3dl> <img src="https://www.nihontsushin.com/plan/images/starterpack_pkg.jpg" alt="日本通信SIM スターターパック NT-ST2-P" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-astro-cid-75lfn3dl> </a> <div class="tool-copy" data-astro-cid-75lfn3dl> <div class="tool-meta" data-astro-cid-75lfn3dl><span data-astro-cid-75lfn3dl>通信・モバイル</span><span data-astro-cid-75lfn3dl>Amazon</span></div> <h3 data-astro-cid-75lfn3dl>日本通信SIM 合理的みんなのプラン</h3> <p class="tool-statement" data-astro-cid-75lfn3dl>月額1,390円で20GB。外の仕事も、これで十分。</p> <p class="tool-lead" data-astro-cid-75lfn3dl>外でパソコンを使うときは、スマホのテザリングを利用しています。メール、LINE、チャット、クラウド上のデータ利用、ウェブ会議まで、私の使い方ではこの20GBで間に合っています。</p> <a class="article-link" href="/blog/nihontsushin-sim-minna-plan/" aria-label="日本通信SIM 合理的みんなのプランの紹介記事を読む" data-astro-cid-75lfn3dl>
+紹介記事を読む<span aria-hidden="true" data-astro-cid-75lfn3dl>→</span> </a> <a class="product-link" href="https://amzn.to/4zgLclg" target="_blank" rel="sponsored noopener noreferrer" data-astro-cid-75lfn3dl>Amazonでスターターパックを見る<span aria-hidden="true" data-astro-cid-75lfn3dl>↗</span></a> <a class="official-link" href="https://www.nihontsushin.com/plan/planminna.html" target="_blank" rel="noopener noreferrer" data-astro-cid-75lfn3dl>公式の料金・条件を見る<span aria-hidden="true" data-astro-cid-75lfn3dl>↗</span></a> <p class="affiliate-note" data-astro-cid-75lfn3dl>リンク先は申込用スターターパックです。SIMカードは同梱されていません。価格、申込期限、対象プランを確認し、公式サイトから直接申し込む場合の初期手数料3,300円とも比較してください。</p> <details class="tool-notes" open data-astro-cid-75lfn3dl> <summary data-astro-cid-75lfn3dl>使い方と注意点</summary> <dl data-astro-cid-75lfn3dl> <div data-astro-cid-75lfn3dl><dt data-astro-cid-75lfn3dl>使う場面</dt><dd data-astro-cid-75lfn3dl>外出先でパソコンを使うときのテザリングと、普段のスマホ通信。</dd></div><div data-astro-cid-75lfn3dl><dt data-astro-cid-75lfn3dl>良かった点</dt><dd data-astro-cid-75lfn3dl>外でWi-Fiを探すことがほとんどなくなり、月額料金も抑えられています。</dd></div><div data-astro-cid-75lfn3dl><dt data-astro-cid-75lfn3dl>通話</dt><dd data-astro-cid-75lfn3dl>1回5分までの国内通話かけ放題、または月70分までの無料通話のどちらかを選べます。</dd></div><div data-astro-cid-75lfn3dl><dt data-astro-cid-75lfn3dl>契約前の注意</dt><dd data-astro-cid-75lfn3dl>ウェブ会議や動画はデータを多く使い、通信速度は場所や時間帯などで変わります。自分の利用量と対応エリアを確認してください。</dd></div> </dl> </details> </div> </article> </div>  </section> </section> <div class="toolbox-share toolbox-share-bottom shell" data-astro-cid-75lfn3dl> <div class="share-panel" role="group" aria-label="この道具ページを共有" data-share-root data-share-url="https://ysk.life/toolbox/work/" data-share-title="仕事で使っている道具｜玉城祐輔の道具箱" data-astro-cid-eqjx2q6l> <div class="share-actions" data-astro-cid-eqjx2q6l> <a class="share-button line" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fysk.life%2Ftoolbox%2Fwork%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="LINEで送る" data-tooltip="LINEで送る" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:line-fill">   <use href="#ai:ri:line-fill"></use>  </svg> </a> <a class="share-button facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fysk.life%2Ftoolbox%2Fwork%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="Facebookで共有" data-tooltip="Facebookで共有" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:facebook-fill">   <use href="#ai:ri:facebook-fill"></use>  </svg> </a> <button class="share-button instagram" type="button" aria-label="Instagramで共有" data-tooltip="Instagramで共有" data-share-instagram data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:instagram-line">   <use href="#ai:ri:instagram-line"></use>  </svg> </button> <button class="share-button copy" type="button" aria-label="記事のリンクをコピー" data-tooltip="リンクをコピー" data-share-copy data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:file-copy-line">   <use href="#ai:ri:file-copy-line"></use>  </svg> </button> </div> <p class="share-status" aria-live="polite" data-share-status data-astro-cid-eqjx2q6l></p> </div> <script>
+	(() => {
+		if (window.__yskShareButtonsInitialized) return;
+		window.__yskShareButtonsInitialized = true;
+
+		const copyText = async (text) => {
+			if (navigator.clipboard && window.isSecureContext) {
+				await navigator.clipboard.writeText(text);
+				return;
+			}
+
+			const input = document.createElement('textarea');
+			input.value = text;
+			input.setAttribute('readonly', '');
+			input.style.position = 'fixed';
+			input.style.opacity = '0';
+			document.body.appendChild(input);
+			input.select();
+			const copied = document.execCommand('copy');
+			input.remove();
+			if (!copied) throw new Error('Copy failed');
+		};
+
+		document.addEventListener('click', async (event) => {
+			const button = event.target.closest('[data-share-copy], [data-share-instagram]');
+			if (!button) return;
+
+			const root = button.closest('[data-share-root]');
+			if (!root) return;
+
+			const url = root.dataset.shareUrl;
+			const title = root.dataset.shareTitle;
+			const status = root.querySelector('[data-share-status]');
+			if (!url || !title || !status) return;
+
+			status.textContent = '';
+
+			try {
+				if (button.matches('[data-share-instagram]') && navigator.share) {
+					await navigator.share({ title, url });
+					return;
+				}
+
+				await copyText(url);
+				status.textContent = button.matches('[data-share-instagram]')
+					? 'リンクをコピーしました。InstagramのDMなどに貼り付けてください。'
+					: 'リンクをコピーしました。';
+			} catch (error) {
+				if (error && error.name === 'AbortError') return;
+				status.textContent = 'コピーできませんでした。ブラウザのアドレス欄からURLをコピーしてください。';
+			}
+		});
+	})();
+</script> </div> <section class="closing shell" data-astro-cid-75lfn3dl> <p data-astro-cid-75lfn3dl>道具を増やすためではなく、目の前の人と仕事に集中するために選びます。</p> <div data-astro-cid-75lfn3dl> <strong data-astro-cid-75lfn3dl>玉城祐輔</strong> <a href="/affiliate-disclosure/" data-astro-cid-75lfn3dl>広告・紹介について</a> </div> </section> <aside class="disclosure" aria-label="広告に関する表示" data-astro-cid-75lfn3dl> <div class="shell disclosure-inner" data-astro-cid-75lfn3dl> <strong data-astro-cid-75lfn3dl>広告</strong> <p data-astro-cid-75lfn3dl>このページにはアフィリエイトリンクが含まれます。Amazonのアソシエイトとして、玉城祐輔は適格販売により収入を得ています。</p> </div> </aside> </main> <footer data-astro-cid-jo6i4kqk> <div class="shell footer-grid" data-astro-cid-jo6i4kqk> <div class="footer-statement" data-astro-cid-jo6i4kqk> <p data-astro-cid-jo6i4kqk>沖縄の現場で、実際に試したことを残します。</p> </div> <div class="footer-links" data-astro-cid-jo6i4kqk> <div data-astro-cid-jo6i4kqk> <strong data-astro-cid-jo6i4kqk>このサイト</strong> <a href="/blog" data-astro-cid-jo6i4kqk>記事を読む</a> <a href="/about" data-astro-cid-jo6i4kqk>玉城について</a> <a href="/privacy" data-astro-cid-jo6i4kqk>プライバシー</a> <a href="/affiliate-disclosure" data-astro-cid-jo6i4kqk>広告・紹介について</a> </div> <div data-astro-cid-jo6i4kqk> <strong data-astro-cid-jo6i4kqk>外部リンク</strong> <a href="/toolbox/" data-astro-cid-jo6i4kqk>玉城祐輔の道具箱 →</a> <a href="https://taxlegal.jp/" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>T&Lサポート株式会社 ↗</a> <a href="https://www.facebook.com/yusuke.tamashiro" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>Facebook ↗</a> <a href="https://www.instagram.com/tamashiro_yusuke_tl/" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>Instagram ↗</a> </div> </div> </div> <div class="shell footer-bottom" data-astro-cid-jo6i4kqk> <span data-astro-cid-jo6i4kqk>&copy; 2026 Yusuke Tamashiro</span> <span data-astro-cid-jo6i4kqk>AIとデジタルを、現場で使える形に。</span> </div> </footer> </body> </html>

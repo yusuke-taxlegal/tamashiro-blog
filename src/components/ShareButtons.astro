@@ -20,6 +20,7 @@ const encodedURL = encodeURIComponent(shareURL);
 			rel="noopener noreferrer nofollow"
 			aria-label="LINEで送る"
 			data-tooltip="LINEで送る"
+			data-share-network="line"
 		>
 			<Icon name="ri:line-fill" class="share-icon" aria-hidden="true" />
 		</a>
@@ -30,6 +31,7 @@ const encodedURL = encodeURIComponent(shareURL);
 			rel="noopener noreferrer nofollow"
 			aria-label="Facebookで共有"
 			data-tooltip="Facebookで共有"
+			data-share-network="facebook"
 		>
 			<Icon name="ri:facebook-fill" class="share-icon" aria-hidden="true" />
 		</a>
@@ -95,10 +97,12 @@ const encodedURL = encodeURIComponent(shareURL);
 			try {
 				if (button.matches('[data-share-instagram]') && navigator.share) {
 					await navigator.share({ title, url });
+					window.dispatchEvent(new CustomEvent("ysk:share", { detail: { kind: "native", url } }));
 					return;
 				}
 
 				await copyText(url);
+				window.dispatchEvent(new CustomEvent("ysk:share", { detail: { kind: "copy", url } }));
 				status.textContent = button.matches('[data-share-instagram]')
 					? 'リンクをコピーしました。InstagramのDMなどに貼り付けてください。'
 					: 'リンクをコピーしました。';

@@ -1,0 +1,9 @@
+
+ ⛅️ wrangler 4.121.0 (update available 4.132.0)
+───────────────────────────────────────────────
+Uploading... (141/141)
+✨ Success! Uploaded 0 files (141 already uploaded) (0.49 sec)
+
+✨ Uploading _headers
+🌎 Deploying...
+✨ Deployment complete! Take a peek over at https://957cb34d.tamashiro-blog.pages.dev

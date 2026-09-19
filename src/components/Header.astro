@@ -1,5 +1,7 @@
 ---
 import HeaderLink from './HeaderLink.astro';
+interface Props { showName?: boolean }
+const { showName = false } = Astro.props;
 ---
 
 <header class="site-header">
@@ -9,6 +11,7 @@ import HeaderLink from './HeaderLink.astro';
 			<span class="brand-mark" aria-hidden="true">
 				<img src="/images/tamashiro-yusuke-logo.svg?v=3" alt="" width="64" height="64" decoding="async" />
 			</span>
+			{showName && <span class="brand-name">玉城祐輔</span>}
 		</a>
 		<div class="internal-links">
 			<HeaderLink href="/blog">読む</HeaderLink>
@@ -41,6 +44,8 @@ import HeaderLink from './HeaderLink.astro';
 		align-items: center;
 		text-decoration: none;
 	}
+	.brand-name { margin-left: 0.9rem; font-size: 1.5rem; font-weight: 750; white-space: nowrap; }
+	@media (max-width: 620px) { .brand-name { font-size: 1rem; margin-left: 0.45rem; } }
 
 	.brand-mark {
 		width: 2.5rem;

@@ -1,0 +1,94 @@
+[
+  {
+    "path": "index.html",
+    "same": true
+  },
+  {
+    "path": "404.html",
+    "same": true
+  },
+  {
+    "path": "privacy/index.html",
+    "same": true
+  },
+  {
+    "path": "affiliate-disclosure/index.html",
+    "same": true
+  },
+  {
+    "path": "about/index.html",
+    "same": true
+  },
+  {
+    "path": "blog/index.html",
+    "same": false
+  },
+  {
+    "path": "blog/healsio-hotcook-kn-hw24g/index.html",
+    "same": false
+  },
+  {
+    "path": "blog/upsider-staff-card/index.html",
+    "same": false
+  },
+  {
+    "path": "blog/hidock-p1-ai-recorder/index.html",
+    "same": false
+  },
+  {
+    "path": "blog/jizokuka-hojo-2025/index.html",
+    "same": false
+  },
+  {
+    "path": "blog/seminarflow-seminar-operation-sharing/index.html",
+    "same": false
+  },
+  {
+    "path": "blog/chatgpt-business-nyumon/index.html",
+    "same": false
+  },
+  {
+    "path": "blog/switchbot-lock-pro/index.html",
+    "same": false
+  },
+  {
+    "path": "blog/avakyo-tank-dishwasher-av-01/index.html",
+    "same": false
+  },
+  {
+    "path": "blog/nihontsushin-sim-minna-plan/index.html",
+    "same": false
+  },
+  {
+    "path": "blog/wws-workwear-suit-ankle-pants/index.html",
+    "same": false
+  },
+  {
+    "path": "blog/google-workspace-nyumon/index.html",
+    "same": false
+  },
+  {
+    "path": "blog/google-workspace-gmail-gemini-productivity/index.html",
+    "same": false
+  },
+  {
+    "path": "toolbox/index.html",
+    "same": true
+  },
+  {
+    "path": "toolbox/home/index.html",
+    "same": true
+  },
+  {
+    "path": "toolbox/work/index.html",
+    "same": true
+  },
+  {
+    "path": "rss.xml",
+    "same": true
+  },
+  {
+    "path": "sitemap-0.xml",
+    "same": true
+  }
+]

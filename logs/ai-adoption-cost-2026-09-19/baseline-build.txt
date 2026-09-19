@@ -1,0 +1,123 @@
+
+> tamashiro-blog@0.0.1 build
+> astro build
+
+19:05:23 [content] Syncing content
+19:05:23 [content] Synced content
+19:05:23 [types] Generated 233ms
+19:05:23 [build] output: "static"
+19:05:23 [build] mode: "static"
+19:05:23 [build] directory: /private/var/folders/jr/gzh94cqs07d8h7czpq_zk6z00000gn/T/ysk-ai-cost-release-_ero_n2f/dist/
+19:05:23 [build] Collecting build info...
+19:05:23 [build] ✓ Completed in 261ms.
+19:05:23 [build] Building static entrypoints...
+19:05:23 [astro-icon] Loaded icons from src/icons, ri
+19:05:23 [assets] Copying fonts (2 files)...
+19:05:23 [vite] ✓ built in 195ms
+19:05:23 [vite] ✓ built in 42ms
+19:05:23 [build] Rearranging server assets...
+
+ generating static routes 
+19:05:23   ├─ /404.html (+12ms) 
+19:05:23   ├─ /about/index.html (+3ms) 
+19:05:23   ├─ /affiliate-disclosure/index.html (+1ms) 
+19:05:23   ├─ /blog/index.html (+4ms) 
+19:05:23   ├─ /blog/avakyo-tank-dishwasher-av-01/index.html (+3ms) 
+19:05:23   ├─ /blog/chatgpt-business-nyumon/index.html (+2ms) 
+19:05:23   ├─ /blog/google-workspace-gmail-gemini-productivity/index.html (+2ms) 
+19:05:23   ├─ /blog/google-workspace-nyumon/index.html (+1ms) 
+19:05:23   ├─ /blog/healsio-hotcook-kn-hw24g/index.html (+2ms) 
+19:05:23   ├─ /blog/hidock-p1-ai-recorder/index.html (+2ms) 
+19:05:23   ├─ /blog/jizokuka-hojo-2025/index.html (+1ms) 
+19:05:23   ├─ /blog/nihontsushin-sim-minna-plan/index.html (+2ms) 
+19:05:23   ├─ /blog/seminarflow-seminar-operation-sharing/index.html (+1ms) 
+19:05:23   ├─ /blog/switchbot-lock-pro/index.html (+1ms) 
+19:05:23   ├─ /blog/upsider-staff-card/index.html (+1ms) 
+19:05:23   ├─ /blog/wws-workwear-suit-ankle-pants/index.html (+2ms) 
+19:05:23   ├─ /privacy/index.html (+1ms) 
+19:05:23   ├─ /rss.xml (+16ms) 
+19:05:23   ├─ /toolbox/home/index.html (+2ms) 
+19:05:23   ├─ /toolbox/work/index.html (+1ms) 
+19:05:23   ├─ /toolbox/index.html (+1ms) 
+19:05:23   ├─ /index.html (+2ms) 
+19:05:23 ✓ Completed in 83ms.
+
+ generating optimized images 
+19:05:23   ▶ /_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_Z2gIJOz.webp (reused cache entry) (+1ms) (1/72)
+19:05:23   ▶ /_astro/practical-ai-workshop.DElgcIIz_Z2vlLjP.webp (reused cache entry) (+1ms) (2/72)
+19:05:23   ▶ /_astro/tamashiro-current-work-right-handed.C8YaVRos_Z16NUOC.webp (reused cache entry) (+1ms) (3/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-email-draft.uRBsXRPi_1j1rdH.webp (reused cache entry) (+1ms) (4/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke.DZnAc5iT_2khzUM.webp (reused cache entry) (+1ms) (5/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_ZGgoR4.webp (reused cache entry) (+1ms) (6/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_1RWFwP.webp (reused cache entry) (+1ms) (7/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1sRhMU.webp (reused cache entry) (+1ms) (8/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-loading-dishwasher.Bg4ieaFj_197OMr.webp (reused cache entry) (+2ms) (9/72)
+19:05:23   ▶ /_astro/practical-ai-workshop.DElgcIIz_aoB0U.webp (reused cache entry) (+1ms) (10/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-email-draft.uRBsXRPi_1F4RQs.webp (reused cache entry) (+1ms) (11/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke.DZnAc5iT_uDtEV.webp (reused cache entry) (+1ms) (12/72)
+19:05:23   ▶ /_astro/tamashiro-current-work-right-handed.C8YaVRos_Z1pof5C.webp (reused cache entry) (+1ms) (13/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1CktzR.webp (reused cache entry) (+1ms) (14/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_Z1nrFmu.webp (reused cache entry) (+1ms) (15/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_ZGyMx8.webp (reused cache entry) (+1ms) (16/72)
+19:05:23   ▶ /_astro/practical-ai-workshop.DElgcIIz_ZNgoH.webp (reused cache entry) (+1ms) (17/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-loading-dishwasher.Bg4ieaFj_Z1YwdnT.webp (reused cache entry) (+1ms) (18/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke.DZnAc5iT_ZS0yJb.webp (reused cache entry) (+1ms) (19/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-email-draft.uRBsXRPi_1X1oKX.webp (reused cache entry) (+1ms) (20/72)
+19:05:23   ▶ /_astro/tamashiro-current-work-right-handed.C8YaVRos_1SLX8T.webp (reused cache entry) (+1ms) (21/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_2lAkut.webp (reused cache entry) (+1ms) (22/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1BGRXp.webp (reused cache entry) (+1ms) (23/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-family-dinner.Db4S2BMO_6YhDR.webp (reused cache entry) (+1ms) (24/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_2bav9n.webp (reused cache entry) (+1ms) (25/72)
+19:05:23   ▶ /_astro/hero-tethering-illustration.D-9nUnFE_1MMvw7.webp (reused cache entry) (+1ms) (26/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke.DZnAc5iT_Zpsr0I.webp (reused cache entry) (+2ms) (27/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_Z2kpjgb.webp (reused cache entry) (+2ms) (28/72)
+19:05:23   ▶ /_astro/hero-family-entry.BPcjKjna_Z1sFqj2.webp (reused cache entry) (+2ms) (29/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1wdLdJ.webp (reused cache entry) (+2ms) (30/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_1zxUVx.webp (reused cache entry) (+2ms) (31/72)
+19:05:23   ▶ /_astro/tamashiro-current-work-right-handed.C8YaVRos_594cC.webp (reused cache entry) (+3ms) (32/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-family-dinner.Db4S2BMO_6FSXN.webp (reused cache entry) (+3ms) (33/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke.DZnAc5iT_14BVYV.webp (reused cache entry) (+2ms) (34/72)
+19:05:23   ▶ /_astro/hero-tethering-illustration.D-9nUnFE_1ecfnI.webp (reused cache entry) (+3ms) (35/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_1hKHT1.webp (reused cache entry) (+2ms) (36/72)
+19:05:23   ▶ /_astro/hero-family-entry.BPcjKjna_1z4GDU.webp (reused cache entry) (+2ms) (37/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_1afmNQ.webp (reused cache entry) (+1ms) (38/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z20sGJG.webp (reused cache entry) (+2ms) (39/72)
+19:05:23   ▶ /_astro/google-workspace-office.DMKWt-uA_ZftRta.webp (reused cache entry) (+1ms) (40/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT_D4wdC.webp (reused cache entry) (+1ms) (41/72)
+19:05:23   ▶ /_astro/subsidy-application.C1Zk6RM9_ZoyYe5.webp (reused cache entry) (+1ms) (42/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-family-time.V6sgztUS_29Y5aB.webp (reused cache entry) (+1ms) (43/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-measure-installation.B9eNX0WC_ZR1hEH.webp (reused cache entry) (+1ms) (44/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_Z15KKgF.webp (reused cache entry) (+1ms) (45/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-clean-filter.9_k7QH_U_ZgjS1s.webp (reused cache entry) (+1ms) (46/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT_ZIX9oL.webp (reused cache entry) (+1ms) (47/72)
+19:05:23   ▶ /_astro/google-workspace-office.DMKWt-uA_1GLwL5.webp (reused cache entry) (+1ms) (48/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-before-after-workflow.CunzsNDl_1stDBS.webp (reused cache entry) (+1ms) (49/72)
+19:05:23   ▶ /_astro/subsidy-application.C1Zk6RM9_Z2r1054.webp (reused cache entry) (+1ms) (50/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-gmail-gemini-reply-ui.Bwnct934_Z1bMIle.webp (reused cache entry) (+1ms) (51/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-homework-while-cooking.CsyK5WDM_70ylN.webp (reused cache entry) (+1ms) (52/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-final-review.Bsme4rIn_Z2jsw1e.webp (reused cache entry) (+1ms) (53/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-clean-removable-parts.0mSbEna3_vNcOw.webp (reused cache entry) (+1ms) (54/72)
+19:05:23   ▶ /_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT_29Pd49.webp (reused cache entry) (+1ms) (55/72)
+19:05:23   ▶ /_astro/subsidy-application.C1Zk6RM9_thlRi.webp (reused cache entry) (+1ms) (56/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-recording-consent.CT_TuK35_Z1JbSWG.webp (reused cache entry) (+2ms) (57/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-referral-10off.CJakyKcC_Bvl0B.webp (reused cache entry) (+2ms) (58/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-measure-kitchen-space.AN_D4u1P_8CiCH.webp (reused cache entry) (+3ms) (59/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-upload-review.LvN-msDg_Z1CYdxA.webp (reused cache entry) (+3ms) (60/72)
+19:05:23   ▶ /_astro/data-usage-20gb-illustration.Cjs6MNwm_1ptRpU.webp (reused cache entry) (+3ms) (61/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-after-form-work.D9m9E2-I_Z1QpPHW.webp (reused cache entry) (+3ms) (62/72)
+19:05:23   ▶ /_astro/busy-time-fallback-illustration.CcYhfFBe_ZK8dFC.webp (reused cache entry) (+3ms) (63/72)
+19:05:23   ▶ /_astro/application-check-illustration.CGEeB0dt_Z2r3y8t.webp (reused cache entry) (+3ms) (64/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-free-trial.D0zK0u6Z_mEgbP.webp (reused cache entry) (+1ms) (65/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-three-values.CET-KVcm_Z1iSeTc.webp (reused cache entry) (+2ms) (66/72)
+19:05:23   ▶ /_astro/office-entry.CFxzF8RI_ZTGeSp.webp (reused cache entry) (+1ms) (67/72)
+19:05:23   ▶ /_astro/limits-tamashiro-yusuke.C4Ubs0C-_ZvJGRj.webp (reused cache entry) (+1ms) (68/72)
+19:05:23   ▶ /_astro/receipt-tamashiro-yusuke.B6Klk4pA_Z1uwKbe.webp (reused cache entry) (+1ms) (69/72)
+19:05:23   ▶ /_astro/before-install.EX2aHwEN_Z1TFSqR.webp (reused cache entry) (+1ms) (70/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-workday-move.D2ThI91M_NKEPk.webp (reused cache entry) (+2ms) (71/72)
+19:05:23   ▶ /_astro/tamashiro-yusuke-laundry-care.khZ1H_3__1fT0Mm.webp (reused cache entry) (+3ms) (72/72)
+19:05:23 ✓ Completed in 16ms.
+
+19:05:23 [build] ✓ Completed in 354ms.
+19:05:23 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+19:05:23 [build] 21 page(s) built in 630ms
+19:05:23 [build] Complete!

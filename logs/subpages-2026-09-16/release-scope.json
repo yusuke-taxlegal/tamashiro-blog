@@ -1,0 +1,7 @@
+[
+  "src/styles/journal-pages.css",
+  "src/components/ToolboxPage.astro",
+  "src/assets/about/tamashiro-current-work-right-handed.webp",
+  "src/pages/about.astro",
+  "src/pages/blog/index.astro"
+]

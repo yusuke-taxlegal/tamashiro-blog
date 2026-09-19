@@ -46,8 +46,8 @@ const imageHeight = typeof resolvedImage === 'string' ? (resolvedImage === defau
 <meta property="og:description" content={description} />
 <meta property="og:image" content={imageURL} />
 <meta property="og:image:secure_url" content={imageURL} />
-{imageWidth && <meta property="og:image:width" content={imageWidth} />}
-{imageHeight && <meta property="og:image:height" content={imageHeight} />}
+{imageWidth && <meta property="og:image:width" content={String(imageWidth)} />}
+{imageHeight && <meta property="og:image:height" content={String(imageHeight)} />}
 <meta property="og:image:alt" content={imageAlt} />
 
 <meta name="twitter:card" content="summary_large_image" />
@@ -59,6 +59,7 @@ const imageHeight = typeof resolvedImage === 'string' ? (resolvedImage === defau
 <script is:inline>
 	(() => {
 		const measurementId = 'G-752CVHZQNC';
+		if (!['ysk.life', 'www.ysk.life'].includes(window.location.hostname)) return;
 		const consentKey = 'ysk-analytics-consent-v1';
 		const acceptedValue = 'granted';
 		const declinedValue = 'denied';
@@ -88,6 +89,8 @@ const imageHeight = typeof resolvedImage === 'string' ? (resolvedImage === defau
 		};
 
 		const loadAnalytics = () => {
+			window['ga-disable-' + measurementId] = false;
+			window.gtag?.('consent', 'update', { analytics_storage: 'granted' });
 			if (window.__yskAnalyticsLoaded) return;
 			window.__yskAnalyticsLoaded = true;
 			window.dataLayer = window.dataLayer || [];
@@ -96,7 +99,8 @@ const imageHeight = typeof resolvedImage === 'string' ? (resolvedImage === defau
 			};
 			window.gtag('js', new Date());
 			window.gtag('config', measurementId, {
-				allow_google_signals: false,
+				page_location: window.location.origin + window.location.pathname,
+					allow_google_signals: false,
 				allow_ad_personalization_signals: false,
 			});
 
@@ -144,6 +148,8 @@ const imageHeight = typeof resolvedImage === 'string' ? (resolvedImage === defau
 			else if (consent !== declinedValue) showBanner();
 
 			document.querySelector('[data-analytics-consent-reset]')?.addEventListener('click', () => {
+				window['ga-disable-' + measurementId] = true;
+				window.gtag?.('consent', 'update', { analytics_storage: 'denied' });
 				removeConsent();
 				showBanner();
 			});
@@ -155,4 +161,8 @@ const imageHeight = typeof resolvedImage === 'string' ? (resolvedImage === defau
 			initialize();
 		}
 	})();
+</script>
+
+<script>
+ import "../scripts/article-analytics";
 </script>

@@ -1,0 +1,120 @@
+[
+  {
+    "path": "/",
+    "status": 200
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_1hKHT1.webp",
+    "status": 200,
+    "matches_asset": true
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT_BDec.webp",
+    "status": 200,
+    "matches_asset": true
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z20sGJG.webp",
+    "status": 200,
+    "matches_asset": true
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_Z15KKgF.webp",
+    "status": 200,
+    "matches_asset": true
+  },
+  {
+    "path": "/about",
+    "status": 200
+  },
+  {
+    "path": "/about/",
+    "status": 200
+  },
+  {
+    "path": "/affiliate-disclosure/",
+    "status": 200
+  },
+  {
+    "path": "/blog",
+    "status": 200
+  },
+  {
+    "path": "/blog/",
+    "status": 200
+  },
+  {
+    "path": "/blog/avakyo-tank-dishwasher-av-01/",
+    "status": 200
+  },
+  {
+    "path": "/blog/healsio-hotcook-kn-hw24g/",
+    "status": 200
+  },
+  {
+    "path": "/blog/hidock-p1-ai-recorder/",
+    "status": 200
+  },
+  {
+    "path": "/blog/seminarflow-seminar-operation-sharing/",
+    "status": 200
+  },
+  {
+    "path": "/blog/switchbot-lock-pro/",
+    "status": 200
+  },
+  {
+    "path": "/blog/wws-workwear-suit-ankle-pants/",
+    "status": 200
+  },
+  {
+    "path": "/images/apps/jizoka-ogp.png",
+    "status": 200,
+    "matches_asset": true
+  },
+  {
+    "path": "/images/apps/seminarflow-ogp.png",
+    "status": 200,
+    "matches_asset": true
+  },
+  {
+    "path": "/images/home-tools/dishwasher.jpg",
+    "status": 200,
+    "matches_asset": true
+  },
+  {
+    "path": "/images/home-tools/hotcook.jpg",
+    "status": 200,
+    "matches_asset": true
+  },
+  {
+    "path": "/images/home-tools/switchbot.jpg",
+    "status": 200,
+    "matches_asset": true
+  },
+  {
+    "path": "/images/tamashiro-yusuke-logo.svg",
+    "status": 200,
+    "matches_asset": true
+  },
+  {
+    "path": "/privacy/",
+    "status": 200
+  },
+  {
+    "path": "/rss.xml",
+    "status": 200
+  },
+  {
+    "path": "/sitemap-index.xml",
+    "status": 200
+  },
+  {
+    "path": "/toolbox",
+    "status": 200
+  },
+  {
+    "path": "/toolbox/",
+    "status": 200
+  }
+]

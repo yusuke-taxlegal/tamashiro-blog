@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="ja" data-astro-cid-tldeq5d5> <head><meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta name="theme-color" content="#171915"> <meta name="google-site-verification" content="ZOHyxB9OxiSl2kg7iNFCxDlsYK6K5h7e890uRt8Vyt0"> <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2"> <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.png?v=2"> <link rel="shortcut icon" href="/favicon.ico?v=2"> <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=2"> <link rel="sitemap" href="/sitemap-index.xml"> <link rel="alternate" type="application/rss+xml" title="玉城祐輔｜AIとデジタルを、現場で使える形に。" href="https://ysk.life/rss.xml"> <meta name="generator" content="Astro v7.2.1"> <link rel="canonical" href="https://ysk.life/blog/seminarflow-seminar-operation-sharing/"> <title>なぜSeminarFlowを作ったのか｜玉城祐輔</title> <meta name="title" content="なぜSeminarFlowを作ったのか｜玉城祐輔"> <meta name="description" content="申込フォームを作った後に残る、人数確認、入金確認、参加者への案内、関係者共有。SeminarFlowを開発した背景と、無料で試せる範囲を紹介します。"> <meta name="author" content="玉城祐輔"> <meta property="og:type" content="article"> <meta property="og:locale" content="ja_JP"> <meta property="og:site_name" content="玉城祐輔"> <meta property="og:url" content="https://ysk.life/blog/seminarflow-seminar-operation-sharing/"> <meta property="og:title" content="なぜSeminarFlowを作ったのか｜玉城祐輔"> <meta property="og:description" content="申込フォームを作った後に残る、人数確認、入金確認、参加者への案内、関係者共有。SeminarFlowを開発した背景と、無料で試せる範囲を紹介します。"> <meta property="og:image" content="https://ysk.life/_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT.webp"> <meta property="og:image:secure_url" content="https://ysk.life/_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT.webp"> <meta property="og:image:width" content="1200"> <meta property="og:image:height" content="800"> <meta property="og:image:alt" content="なぜSeminarFlowを作ったのか"> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="なぜSeminarFlowを作ったのか｜玉城祐輔"> <meta name="twitter:description" content="申込フォームを作った後に残る、人数確認、入金確認、参加者への案内、関係者共有。SeminarFlowを開発した背景と、無料で試せる範囲を紹介します。"> <meta name="twitter:image" content="https://ysk.life/_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT.webp"> <meta name="twitter:image:alt" content="なぜSeminarFlowを作ったのか"> <script>
+	(() => {
+		const measurementId = 'G-752CVHZQNC';
+		const consentKey = 'ysk-analytics-consent-v1';
+		const acceptedValue = 'granted';
+		const declinedValue = 'denied';
+
+		const readConsent = () => {
+			try {
+				return window.localStorage.getItem(consentKey);
+			} catch {
+				return null;
+			}
+		};
+
+		const saveConsent = (value) => {
+			try {
+				window.localStorage.setItem(consentKey, value);
+			} catch {
+				// Storage can be unavailable in private browsing or restricted browsers.
+			}
+		};
+
+		const removeConsent = () => {
+			try {
+				window.localStorage.removeItem(consentKey);
+			} catch {
+				// Keep the page usable even when storage is unavailable.
+			}
+		};
+
+		const loadAnalytics = () => {
+			if (window.__yskAnalyticsLoaded) return;
+			window.__yskAnalyticsLoaded = true;
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = function () {
+				window.dataLayer.push(arguments);
+			};
+			window.gtag('js', new Date());
+			window.gtag('config', measurementId, {
+				allow_google_signals: false,
+				allow_ad_personalization_signals: false,
+			});
+
+			const script = document.createElement('script');
+			script.async = true;
+			script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+			document.head.appendChild(script);
+		};
+
+		const removeBanner = () => {
+			document.querySelector('[data-analytics-consent]')?.remove();
+		};
+
+		const showBanner = () => {
+			if (document.querySelector('[data-analytics-consent]')) return;
+
+			const banner = document.createElement('aside');
+			banner.className = 'analytics-consent';
+			banner.dataset.analyticsConsent = '';
+			banner.setAttribute('aria-label', 'アクセス解析の設定');
+			banner.innerHTML = `
+				<div class="analytics-consent__inner">
+					<p><strong>アクセス解析について</strong><span>サイト改善のためGoogle Analyticsを使用します。許可するまで計測は始まりません。<a href="/privacy/#analytics">詳しく見る</a></span></p>
+					<div class="analytics-consent__actions">
+						<button type="button" data-analytics-decline>許可しない</button>
+						<button type="button" class="primary" data-analytics-accept>許可する</button>
+					</div>
+				</div>`;
+			document.body.appendChild(banner);
+
+			banner.querySelector('[data-analytics-accept]')?.addEventListener('click', () => {
+				saveConsent(acceptedValue);
+				removeBanner();
+				loadAnalytics();
+			});
+			banner.querySelector('[data-analytics-decline]')?.addEventListener('click', () => {
+				saveConsent(declinedValue);
+				removeBanner();
+			});
+		};
+
+		const initialize = () => {
+			const consent = readConsent();
+			if (consent === acceptedValue) loadAnalytics();
+			else if (consent !== declinedValue) showBanner();
+
+			document.querySelector('[data-analytics-consent-reset]')?.addEventListener('click', () => {
+				removeConsent();
+				showBanner();
+			});
+		};
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initialize, { once: true });
+		} else {
+			initialize();
+		}
+	})();
+</script><link rel="stylesheet" href="/_astro/Header.vNaMTfFZ.css"><link rel="stylesheet" href="/_astro/BlogGenreNav.-Av1WMRZ.css"><style>.share-panel[data-astro-cid-eqjx2q6l]{flex-direction:column;align-items:flex-start;max-width:100%;display:inline-flex}.share-actions[data-astro-cid-eqjx2q6l]{flex-wrap:nowrap;gap:.55rem;display:flex}.share-button[data-astro-cid-eqjx2q6l]{cursor:pointer;border:1px solid var(--line);background:color-mix(in srgb, var(--white) 72%, transparent);width:2.875rem;height:2.875rem;color:var(--ink);font:inherit;border-radius:999px;justify-content:center;align-items:center;padding:0;text-decoration:none;transition:transform .16s,border-color .16s,background-color .16s,color .16s;display:inline-flex;position:relative;box-shadow:0 1px #fffdf8b8}.share-button[data-astro-cid-eqjx2q6l]:hover{border-color:var(--coral);background:var(--coral);color:var(--white);transform:translateY(-1px)}.share-button[data-astro-cid-eqjx2q6l]:active{transform:translateY(0)scale(.96)}.share-button[data-astro-cid-eqjx2q6l]:focus-visible{outline:3px solid var(--coral);outline-offset:3px}.share-icon[data-astro-cid-eqjx2q6l]{width:1.3rem;height:1.3rem}.share-button[data-astro-cid-eqjx2q6l]:after{background:var(--ink);color:var(--white);content:attr(data-tooltip);opacity:0;pointer-events:none;white-space:nowrap;z-index:1;border-radius:.45rem;padding:.35rem .55rem;font-size:.66rem;font-weight:700;line-height:1.35;transition:opacity .14s,transform .14s;position:absolute;bottom:calc(100% + .55rem);left:50%;transform:translate(-50%,.2rem)}.share-button[data-astro-cid-eqjx2q6l]:hover:after,.share-button[data-astro-cid-eqjx2q6l]:focus-visible:after{opacity:1;transform:translate(-50%)}.share-status[data-astro-cid-eqjx2q6l]{max-width:min(24rem,100vw - 2rem);color:var(--muted);margin:0;font-size:.72rem;line-height:1.6}.share-status[data-astro-cid-eqjx2q6l]:not(:empty){margin-top:.65rem}@media (hover:none){.share-button[data-astro-cid-eqjx2q6l]:after{display:none}}@media (prefers-reduced-motion:reduce){.share-button[data-astro-cid-eqjx2q6l],.share-button[data-astro-cid-eqjx2q6l]:after{transition:none}}
+</style><link rel="stylesheet" href="/_astro/WebApps.Bp6qbTHi.css"><link rel="stylesheet" href="/_astro/_..VrzJgKDI.css"></head> <body data-astro-cid-tldeq5d5> <header class="site-header" data-astro-cid-nen7h5rs> <a class="skip-link" href="#main-content" data-astro-cid-nen7h5rs>本文へ移動</a> <nav class="shell" aria-label="メインナビゲーション" data-astro-cid-nen7h5rs> <a class="brand" href="/" aria-label="玉城祐輔 ホーム" data-astro-cid-nen7h5rs> <span class="brand-mark" aria-hidden="true" data-astro-cid-nen7h5rs> <img src="/images/tamashiro-yusuke-logo.svg?v=3" alt="" width="64" height="64" decoding="async" data-astro-cid-nen7h5rs> </span> </a> <div class="internal-links" data-astro-cid-nen7h5rs> <a href="/blog" class="active" aria-current="page" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 読む </a> <a href="/toolbox" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 道具箱 </a> <a href="/about" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 玉城について </a> </div> </nav> </header> <main id="main-content" data-astro-cid-tldeq5d5> <article data-astro-cid-tldeq5d5> <header class="article-hero" data-astro-cid-tldeq5d5> <div class="shell article-hero-inner" data-astro-cid-tldeq5d5> <div class="article-copy" data-astro-cid-tldeq5d5> <a class="back-link" href="/blog" data-astro-cid-tldeq5d5>記事一覧へ戻る</a> <p class="category" data-astro-cid-tldeq5d5>仕事の仕組み</p> <h1 data-astro-cid-tldeq5d5>なぜSeminarFlowを作ったのか</h1> <p class="description" data-astro-cid-tldeq5d5>申込フォームを作った後に残る、人数確認、入金確認、参加者への案内、関係者共有。SeminarFlowを開発した背景と、無料で試せる範囲を紹介します。</p> <div class="article-meta" data-astro-cid-tldeq5d5> <span data-astro-cid-tldeq5d5>公開 <time datetime="2026-08-21T00:00:00.000Z"> 2026年8月21日 </time></span>  <span data-astro-cid-tldeq5d5>読了 約7分</span> </div> </div> <div class="cover-image" data-astro-cid-tldeq5d5>  <img src="/_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT_29Pd49.webp" alt loading="eager" fetchpriority="high" data-astro-cid-tldeq5d5="true" decoding="async" width="900" height="600"> </div> </div> </header> <div class="article-share article-share-top" data-astro-cid-tldeq5d5> <div class="share-panel" role="group" aria-label="この記事を共有" data-share-root data-share-url="https://ysk.life/blog/seminarflow-seminar-operation-sharing/" data-share-title="なぜSeminarFlowを作ったのか" data-astro-cid-eqjx2q6l> <div class="share-actions" data-astro-cid-eqjx2q6l> <a class="share-button line" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fysk.life%2Fblog%2Fseminarflow-seminar-operation-sharing%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="LINEで送る" data-tooltip="LINEで送る" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:line-fill">   <symbol id="ai:ri:line-fill"><path fill="currentColor" d="M18.664 10.84a.526.526 0 0 1-.526.525h-1.462v.938h1.463a.525.525 0 1 1 0 1.049H16.15a.526.526 0 0 1-.522-.524V8.852c0-.287.235-.525.525-.525h1.988a.526.526 0 0 1-.002 1.05h-1.463v.938h1.463c.29 0 .524.237.524.525m-4.098 2.485a.5.5 0 0 1-.166.025a.52.52 0 0 1-.425-.208l-2.036-2.764v2.45a.525.525 0 0 1-1.047 0V8.852a.52.52 0 0 1 .52-.523c.162 0 .312.086.412.211l2.052 2.775V8.852c0-.287.235-.525.525-.525c.287 0 .525.238.525.525v3.976a.52.52 0 0 1-.36.497m-4.95.027a.526.526 0 0 1-.523-.524V8.852c0-.287.235-.525.525-.525c.289 0 .524.238.524.525v3.976a.527.527 0 0 1-.526.524m-1.53 0H6.099a.53.53 0 0 1-.525-.524V8.852c0-.287.238-.525.525-.525c.29 0 .525.238.525.525v3.45h1.464a.525.525 0 0 1 0 1.05m3.915-10.78c-5.513 0-10 3.643-10 8.118c0 4.01 3.558 7.369 8.363 8.007c.325.068.769.215.881.492c.1.25.066.638.032.9l-.137.85c-.037.25-.2.988.874.537c1.076-.449 5.764-3.398 7.864-5.812C21.314 14.089 22 12.477 22 10.69c0-4.475-4.488-8.118-10-8.118"/></symbol><use href="#ai:ri:line-fill"></use>  </svg> </a> <a class="share-button facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fysk.life%2Fblog%2Fseminarflow-seminar-operation-sharing%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="Facebookで共有" data-tooltip="Facebookで共有" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:facebook-fill">   <symbol id="ai:ri:facebook-fill"><path fill="currentColor" d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4z"/></symbol><use href="#ai:ri:facebook-fill"></use>  </svg> </a> <button class="share-button instagram" type="button" aria-label="Instagramで共有" data-tooltip="Instagramで共有" data-share-instagram data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:instagram-line">   <symbol id="ai:ri:instagram-line"><path fill="currentColor" d="M12.001 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6m0-2a5 5 0 1 1 0 10a5 5 0 0 1 0-10m6.5-.25a1.25 1.25 0 0 1-2.5 0a1.25 1.25 0 0 1 2.5 0M12.001 4c-2.474 0-2.878.007-4.029.058c-.784.037-1.31.142-1.798.332a2.9 2.9 0 0 0-1.08.703a2.9 2.9 0 0 0-.704 1.08c-.19.49-.295 1.015-.331 1.798C4.007 9.075 4 9.461 4 12c0 2.475.007 2.878.058 4.029c.037.783.142 1.31.331 1.797c.17.435.37.748.702 1.08c.337.336.65.537 1.08.703c.494.191 1.02.297 1.8.333C9.075 19.994 9.461 20 12 20c2.475 0 2.878-.007 4.029-.058c.782-.037 1.308-.142 1.797-.331a2.9 2.9 0 0 0 1.08-.703c.337-.336.538-.649.704-1.08c.19-.492.296-1.018.332-1.8c.052-1.103.058-1.49.058-4.028c0-2.474-.007-2.878-.058-4.029c-.037-.782-.143-1.31-.332-1.798a2.9 2.9 0 0 0-.703-1.08a2.9 2.9 0 0 0-1.08-.704c-.49-.19-1.016-.295-1.798-.331C14.926 4.006 14.54 4 12 4m0-2c2.717 0 3.056.01 4.123.06c1.064.05 1.79.217 2.427.465c.66.254 1.216.598 1.772 1.153a4.9 4.9 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428c.047 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122s-.218 1.79-.465 2.428a4.9 4.9 0 0 1-1.153 1.772a4.9 4.9 0 0 1-1.772 1.153c-.637.247-1.363.415-2.427.465c-1.067.047-1.406.06-4.123.06s-3.056-.01-4.123-.06c-1.064-.05-1.789-.218-2.427-.465a4.9 4.9 0 0 1-1.772-1.153a4.9 4.9 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.012 15.056 2 14.717 2 12s.01-3.056.06-4.122s.217-1.79.465-2.428a4.9 4.9 0 0 1 1.153-1.772A4.9 4.9 0 0 1 5.45 2.525c.637-.248 1.362-.415 2.427-.465C8.945 2.013 9.284 2 12.001 2"/></symbol><use href="#ai:ri:instagram-line"></use>  </svg> </button> <button class="share-button copy" type="button" aria-label="記事のリンクをコピー" data-tooltip="リンクをコピー" data-share-copy data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:file-copy-line">   <symbol id="ai:ri:file-copy-line"><path fill="currentColor" d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .552-.45 1-1.007 1H4.007A1 1 0 0 1 3 21l.003-14c0-.552.45-1 1.006-1zM5.002 8L5 20h10V8zM9 6h8v10h2V4H9z"/></symbol><use href="#ai:ri:file-copy-line"></use>  </svg> </button> </div> <p class="share-status" aria-live="polite" data-share-status data-astro-cid-eqjx2q6l></p> </div> <script>
+	(() => {
+		if (window.__yskShareButtonsInitialized) return;
+		window.__yskShareButtonsInitialized = true;
+
+		const copyText = async (text) => {
+			if (navigator.clipboard && window.isSecureContext) {
+				await navigator.clipboard.writeText(text);
+				return;
+			}
+
+			const input = document.createElement('textarea');
+			input.value = text;
+			input.setAttribute('readonly', '');
+			input.style.position = 'fixed';
+			input.style.opacity = '0';
+			document.body.appendChild(input);
+			input.select();
+			const copied = document.execCommand('copy');
+			input.remove();
+			if (!copied) throw new Error('Copy failed');
+		};
+
+		document.addEventListener('click', async (event) => {
+			const button = event.target.closest('[data-share-copy], [data-share-instagram]');
+			if (!button) return;
+
+			const root = button.closest('[data-share-root]');
+			if (!root) return;
+
+			const url = root.dataset.shareUrl;
+			const title = root.dataset.shareTitle;
+			const status = root.querySelector('[data-share-status]');
+			if (!url || !title || !status) return;
+
+			status.textContent = '';
+
+			try {
+				if (button.matches('[data-share-instagram]') && navigator.share) {
+					await navigator.share({ title, url });
+					return;
+				}
+
+				await copyText(url);
+				status.textContent = button.matches('[data-share-instagram]')
+					? 'リンクをコピーしました。InstagramのDMなどに貼り付けてください。'
+					: 'リンクをコピーしました。';
+			} catch (error) {
+				if (error && error.name === 'AbortError') return;
+				status.textContent = 'コピーできませんでした。ブラウザのアドレス欄からURLをコピーしてください。';
+			}
+		});
+	})();
+</script> </div> <div class="article-shell" data-astro-cid-tldeq5d5> <aside class="article-aside" data-astro-cid-tldeq5d5> <details class="article-toc" open data-astro-cid-tldeq5d5> <summary data-astro-cid-tldeq5d5>この記事の内容</summary> <nav aria-label="この記事の内容" data-astro-cid-tldeq5d5> <ol data-astro-cid-tldeq5d5> <li data-astro-cid-tldeq5d5><a href="#問題は申込フォームそのものではなかった" data-astro-cid-tldeq5d5>問題は、申込フォームそのものではなかった</a></li><li data-astro-cid-tldeq5d5><a href="#目指したのは担当者だけが分かる状態を減らすこと" data-astro-cid-tldeq5d5>目指したのは、担当者だけが分かる状態を減らすこと</a></li><li data-astro-cid-tldeq5d5><a href="#seminarflowで大切にした3つのこと" data-astro-cid-tldeq5d5>SeminarFlowで大切にした3つのこと</a></li><li data-astro-cid-tldeq5d5><a href="#無料枠で実際の流れを試せる" data-astro-cid-tldeq5d5>無料枠で、実際の流れを試せる</a></li><li data-astro-cid-tldeq5d5><a href="#向いている運営と今の道具で十分な運営" data-astro-cid-tldeq5d5>向いている運営と、今の道具で十分な運営</a></li><li data-astro-cid-tldeq5d5><a href="#最初は次の開催を1件だけ登録する" data-astro-cid-tldeq5d5>最初は、次の開催を1件だけ登録する</a></li><li data-astro-cid-tldeq5d5><a href="#セミナー運営を担当者だけの仕事にしない" data-astro-cid-tldeq5d5>セミナー運営を、担当者だけの仕事にしない</a></li> </ol> </nav> <div class="article-caution" data-astro-cid-tldeq5d5> <p data-astro-cid-tldeq5d5>情報の確認</p> <span data-astro-cid-tldeq5d5>掲載時点の情報です。料金、制度、サービス仕様は、必ず公式情報も確認してください。</span> </div> </details> <div class="article-aside-desktop" data-astro-cid-tldeq5d5> <section class="aside-section" aria-labelledby="aside-genres-heading" data-astro-cid-tldeq5d5> <h2 id="aside-genres-heading" data-astro-cid-tldeq5d5>ジャンルから探す</h2> <nav class="blog-genre-nav compact" aria-label="記事のジャンル" data-astro-cid-3vbq5m5q> <a href="/blog/#genre-ai" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>AIの使い方</strong>  </span> <span class="genre-count" data-astro-cid-3vbq5m5q> → </span> </a><a href="/blog/#genre-tools" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>仕事と暮らしの道具</strong>  </span> <span class="genre-count" data-astro-cid-3vbq5m5q> → </span> </a><a href="/blog/#genre-management" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>経営と仕事の仕組み</strong>  </span> <span class="genre-count" data-astro-cid-3vbq5m5q> → </span> </a> </nav> </section> <section class="aside-section" aria-labelledby="aside-next-heading" data-astro-cid-tldeq5d5> <h2 id="aside-next-heading" data-astro-cid-tldeq5d5>次に読む</h2> <div class="aside-articles" data-astro-cid-tldeq5d5> <a href="/blog/jizokuka-hojo-2025/" data-astro-cid-tldeq5d5>  <img src="/_astro/subsidy-application.C1Zk6RM9_thlRi.webp" alt loading="lazy" data-astro-cid-tldeq5d5="true" decoding="async" width="160" height="106"> <span data-astro-cid-tldeq5d5>小規模事業者持続化補助金。2025年の申請で押さえるべきポイント</span> </a><a href="/blog/wws-workwear-suit-ankle-pants/" data-astro-cid-tldeq5d5>  <img src="/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1CktzR.webp" alt loading="lazy" data-astro-cid-tldeq5d5="true" decoding="async" width="160" height="106"> <span data-astro-cid-tldeq5d5>毎日履いて、ほつれない。WWSのアンクルパンツ</span> </a> </div> </section> <section class="aside-section" aria-labelledby="aside-apps-heading" data-astro-cid-tldeq5d5> <h2 id="aside-apps-heading" data-astro-cid-tldeq5d5>作ったWebアプリ</h2> <div class="web-apps compact" data-astro-cid-p2qrvzwu> <a class="web-app primary" href="https://jizoka.app/" target="_blank" rel="noopener noreferrer" data-astro-cid-p2qrvzwu> <img src="/images/apps/jizoka-ogp.png" alt="JIZOKA 持続化補助金 計画書づくりサポート" width="1200" height="630" loading="lazy" decoding="async" data-astro-cid-p2qrvzwu> <div class="web-app-copy" data-astro-cid-p2qrvzwu> <strong data-astro-cid-p2qrvzwu>JIZOKA</strong>   </div> </a><a class="web-app" href="https://seminar-flow.com/" target="_blank" rel="noopener noreferrer" data-astro-cid-p2qrvzwu> <img src="/images/apps/seminarflow-ogp.png" alt="SeminarFlow セミナー運営を一か所にまとめる" width="1200" height="630" loading="lazy" decoding="async" data-astro-cid-p2qrvzwu> <div class="web-app-copy" data-astro-cid-p2qrvzwu> <strong data-astro-cid-p2qrvzwu>SeminarFlow</strong>   </div> </a><a class="web-app" href="https://kisoku-zaishin.com/" target="_blank" rel="noopener noreferrer" data-astro-cid-p2qrvzwu> <img src="/images/apps/kisoku-zaishin-ogp.png" alt="JCI規則財審アシスタント リンクを確かめて議案番号を組み立てる" width="1200" height="630" loading="lazy" decoding="async" data-astro-cid-p2qrvzwu> <div class="web-app-copy" data-astro-cid-p2qrvzwu> <strong data-astro-cid-p2qrvzwu>JCI規則財審アシスタント</strong>   </div> </a><a class="web-app" href="https://poireshi.com/" target="_blank" rel="noopener noreferrer" data-astro-cid-p2qrvzwu> <img src="/images/apps/poireshi-ogp.png" alt="ポイレシ 領収書はLINEにポイッ" width="1200" height="630" loading="lazy" decoding="async" data-astro-cid-p2qrvzwu> <div class="web-app-copy" data-astro-cid-p2qrvzwu> <strong data-astro-cid-p2qrvzwu>ポイレシ</strong>   </div> </a> </div> </section> </div> </aside> <div class="prose" data-astro-cid-tldeq5d5>  <!-- product-article-character-sheets: tamashiro-yusuke-business-casual-character-sheet-v3.png -->
+<!-- product-article-character-check: hero-and-body-verified -->
+<p>セミナーの申込フォームは、Googleフォームなどを使えば短時間で作れます。</p>
+<p>ところが、申込受付が始まってからは別の仕事が増えていきます。「今、何人申し込んでいるか」「入金は確認できたか」「参加者への案内は送ったか」。主催者や共催者から質問が来るたびに、事務局の担当者が表を開いて確認し、メールやLINEで伝えることになります。</p>
+<p><strong>SeminarFlowは、この「フォームを作った後」に残る仕事を、一つの流れにつなぐために開発したWebアプリです。</strong></p>
+<p>公開申込ページ、参加者名簿、支払状況、通知、関係者への共有を同じ情報で扱えます。小さく試せる無料枠も用意しているので、まず実際の運用に近い形で触ってから、自分たちに合うか判断できます。</p>
+<h2 id="問題は申込フォームそのものではなかった">問題は、申込フォームそのものではなかった</h2>
+<p>私が課題だと感じたのは、フォームを作る難しさではありません。</p>
+<p>フォームから申込が届いた後、その情報を誰が確認し、誰に伝え、次の作業へどうつなぐか。この部分が担当者の手作業に残りやすいことでした。</p>
+<p><img alt="玉城祐輔が、申込フォーム、表、メール、スマートフォンを行き来して最新状況を確認しているイラスト" loading="lazy" decoding="async" width="1280" height="720" src="/_astro/tamashiro-yusuke-after-form-work.D9m9E2-I_Z1QpPHW.webp" srcset=""></p>
+<p>たとえば、地域団体や勉強会の運営では、代表者、事務局、講師、共催者、当日スタッフなど、複数の人が関わります。しかし、全員が同じ表を見ているとは限りません。見ていたとしても、どの列が最新か、入金確認は終わっているか、案内メールを送ったかまでは分からないことがあります。</p>
+<p>その結果、情報が担当者のところに集まり、「今、何人？」という確認も担当者に集まります。</p>
+<p>一回だけの小さな無料イベントなら、このやり方でも十分かもしれません。ところが、定期的に開催する、参加費がある、複数人で運営する、担当交代がある。こうした条件が重なるほど、小さな確認作業が運営全体の負担になります。</p>
+<h2 id="目指したのは担当者だけが分かる状態を減らすこと">目指したのは、担当者だけが分かる状態を減らすこと</h2>
+<p>SeminarFlowでは、開催情報を登録し、公開申込ページで受付を始めます。届いた申込は参加者名簿にまとまり、参加区分や支払状況を同じ場所で確認できます。必要なときはCSVでも保存できます。</p>
+<p>登録された情報をもとに、参加者への控えや案内を送り、主催者や共催者へ同じ申込状況を共有します。</p>
+<p>つまり、別々の道具を完全になくすことが目的ではありません。<strong>受付後の確認先を一つにして、同じ情報から次の作業へ進めること</strong>が目的です。</p>
+<p>担当者が不在でも状況を確認できる。開催が終わった後も、何をどこまで進めたかが残る。担当が変わったときも、口頭説明だけに頼らず引き継げる。そこまで含めて、セミナー運営の仕組みだと考えています。</p>
+<h2 id="seminarflowで大切にした3つのこと">SeminarFlowで大切にした3つのこと</h2>
+<p><img alt="玉城祐輔が、関係者共有、参加者への案内、申込と支払状況の把握を一つの流れとして説明しているイラスト" loading="lazy" decoding="async" width="1280" height="720" src="/_astro/tamashiro-yusuke-three-values.CET-KVcm_Z1iSeTc.webp" srcset=""></p>
+<h3 id="共有しやすい">共有しやすい</h3>
+<p>主催者や共催者が、同じ申込状況を確認できることを大切にしました。</p>
+<p>担当者が毎回、表を開いて人数を数え、最新情報を転記して送るのではなく、必要な人が同じ情報を見られる状態を作ります。団体向けの運用では、権限のある運営メンバーだけで参加者情報を扱えるようにしています。</p>
+<h3 id="案内しやすい">案内しやすい</h3>
+<p>チラシやSNSで案内する公開申込ページと、申込後の参加者連絡をつなげます。</p>
+<p>申込時の情報を使って、参加者へ控えや開催前の案内を送れます。申込受付と連絡先の管理が分かれることで起きる、転記や宛先確認の手間を減らします。</p>
+<h3 id="把握しやすい">把握しやすい</h3>
+<p>申込者、参加区分、支払状況を、一つの場所で確認できます。</p>
+<p>参加費のあるセミナーでは、人数だけでなく、誰の入金を確認できたかも重要です。名簿と支払状況が同じ画面にあることで、次に確認する相手や作業を判断しやすくします。</p>
+<h2 id="無料枠で実際の流れを試せる">無料枠で、実際の流れを試せる</h2>
+<p>仕組みの説明を読むだけでは、自分たちの運営に合うかは分かりません。そこでSeminarFlowには、無料で体験できる枠を用意しています。</p>
+<p><img alt="玉城祐輔が、セミナー1件と少人数の申込を試せる入口へ案内しているイラスト" loading="lazy" decoding="async" width="1280" height="720" src="/_astro/tamashiro-yusuke-free-trial.D0zK0u6Z_mEgbP.webp" srcset=""></p>
+<p>2026年8月21日時点の無料枠は、次の範囲です。</p>
+<ul>
+<li>運用中のセミナーは1件まで</li>
+<li>申込は累計5名まで（キャンセルを除く）</li>
+<li>ログイン席は1席</li>
+</ul>
+<p>Googleアカウント、またはメールアドレスでアカウントを作成できます。新しい月額契約やカード決済の申込みを行わず、公開申込ページの作成、申込受付、名簿の確認、参加者への案内といった主要な流れを小規模に試せます。</p>
+<p>無料枠は、複数人で本格運用するためのプランではありません。まず1人の担当者が、実際のセミナーに近い内容を登録し、テスト申込を入れて、受付後の流れを確認するための入口です。</p>
+<p><strong><a href="https://seminar-flow.com/signup">SeminarFlowを無料で試す</a></strong></p>
+<h2 id="向いている運営と今の道具で十分な運営">向いている運営と、今の道具で十分な運営</h2>
+<p>SeminarFlowが向いているのは、次のような運営です。</p>
+<ul>
+<li>セミナーや勉強会を繰り返し開催する</li>
+<li>主催者、事務局、共催者など複数人が関わる</li>
+<li>申込人数だけでなく、参加区分や支払状況も確認したい</li>
+<li>担当交代があり、運用を個人の記憶だけに残したくない</li>
+</ul>
+<p>一方で、年に一度だけの無料イベントで、申込人数を1人が確認できれば十分なら、Googleフォームとスプレッドシートのままでも問題ありません。</p>
+<p>また、イベントを探している人へ広く集客したい場合は、イベント掲載やチケット販売を中心とするサービスの方が合います。SeminarFlowが重視しているのは、集客プラットフォームになることではなく、すでにつながりのある団体や参加者との運営を分かりやすくすることです。</p>
+<p>道具を増やすことが目的ではありません。今困っているのが「フォームを作ること」なのか、「フォームの後を運営すること」なのかを分けて考えると、選びやすくなります。</p>
+<h2 id="最初は次の開催を1件だけ登録する">最初は、次の開催を1件だけ登録する</h2>
+<p>無料枠で試すときは、過去のセミナーを全部移す必要はありません。</p>
+<ol>
+<li>次に開催するセミナーを1件登録する</li>
+<li>公開申込ページを作り、自分でテスト申込を入れる</li>
+<li>名簿と支払状況の見え方を確認する</li>
+<li>参加者への控えや案内が、登録情報からつながるか確かめる</li>
+</ol>
+<p>この一連の流れを動かすと、今の運営で転記している情報や、担当者に集中している確認が見えてきます。</p>
+<p>無料枠を超えて複数人で運営したい場合は、T&amp;Lサポートが初期設定や操作説明を含めて導入を支援します。現在、新規の公開月額プランはありません。制限の解除や団体での利用は、個別の相談で対応しています。</p>
+<h2 id="セミナー運営を担当者だけの仕事にしない">セミナー運営を、担当者だけの仕事にしない</h2>
+<p>SeminarFlowを開発した目的は、高機能なシステムを増やすことではありません。</p>
+<p>担当者しか分からない情報を減らし、申込受付から名簿、支払確認、参加者への連絡、関係者共有までを、同じ情報で進められるようにすることです。</p>
+<p>フォームを作った後の仕事に負担を感じているなら、まず無料枠で次の開催を1件だけ動かしてみてください。自分たちに必要な仕組みかどうかは、実際の流れで試すのが一番分かりやすいと思います。</p>
+<ul>
+<li><a href="https://seminar-flow.com/">SeminarFlow公式サイト</a></li>
+<li><a href="https://seminar-flow.com/signup">無料アカウントを作成する</a></li>
+<li><a href="https://seminar-flow.com/contact">T&amp;Lサポートへ導入を相談する</a></li>
+</ul>
+<p>機能と無料枠の内容は、2026年8月21日に公式サイトと現行アプリで確認しました。提供内容は変更される場合があるため、利用前に公式サイトも確認してください。</p>
+  </div> </div> <div class="article-share article-share-bottom" data-astro-cid-tldeq5d5> <div class="share-panel" role="group" aria-label="この記事を共有" data-share-root data-share-url="https://ysk.life/blog/seminarflow-seminar-operation-sharing/" data-share-title="なぜSeminarFlowを作ったのか" data-astro-cid-eqjx2q6l> <div class="share-actions" data-astro-cid-eqjx2q6l> <a class="share-button line" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fysk.life%2Fblog%2Fseminarflow-seminar-operation-sharing%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="LINEで送る" data-tooltip="LINEで送る" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:line-fill">   <use href="#ai:ri:line-fill"></use>  </svg> </a> <a class="share-button facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fysk.life%2Fblog%2Fseminarflow-seminar-operation-sharing%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="Facebookで共有" data-tooltip="Facebookで共有" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:facebook-fill">   <use href="#ai:ri:facebook-fill"></use>  </svg> </a> <button class="share-button instagram" type="button" aria-label="Instagramで共有" data-tooltip="Instagramで共有" data-share-instagram data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:instagram-line">   <use href="#ai:ri:instagram-line"></use>  </svg> </button> <button class="share-button copy" type="button" aria-label="記事のリンクをコピー" data-tooltip="リンクをコピー" data-share-copy data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:file-copy-line">   <use href="#ai:ri:file-copy-line"></use>  </svg> </button> </div> <p class="share-status" aria-live="polite" data-share-status data-astro-cid-eqjx2q6l></p> </div> <script>
+	(() => {
+		if (window.__yskShareButtonsInitialized) return;
+		window.__yskShareButtonsInitialized = true;
+
+		const copyText = async (text) => {
+			if (navigator.clipboard && window.isSecureContext) {
+				await navigator.clipboard.writeText(text);
+				return;
+			}
+
+			const input = document.createElement('textarea');
+			input.value = text;
+			input.setAttribute('readonly', '');
+			input.style.position = 'fixed';
+			input.style.opacity = '0';
+			document.body.appendChild(input);
+			input.select();
+			const copied = document.execCommand('copy');
+			input.remove();
+			if (!copied) throw new Error('Copy failed');
+		};
+
+		document.addEventListener('click', async (event) => {
+			const button = event.target.closest('[data-share-copy], [data-share-instagram]');
+			if (!button) return;
+
+			const root = button.closest('[data-share-root]');
+			if (!root) return;
+
+			const url = root.dataset.shareUrl;
+			const title = root.dataset.shareTitle;
+			const status = root.querySelector('[data-share-status]');
+			if (!url || !title || !status) return;
+
+			status.textContent = '';
+
+			try {
+				if (button.matches('[data-share-instagram]') && navigator.share) {
+					await navigator.share({ title, url });
+					return;
+				}
+
+				await copyText(url);
+				status.textContent = button.matches('[data-share-instagram]')
+					? 'リンクをコピーしました。InstagramのDMなどに貼り付けてください。'
+					: 'リンクをコピーしました。';
+			} catch (error) {
+				if (error && error.name === 'AbortError') return;
+				status.textContent = 'コピーできませんでした。ブラウザのアドレス欄からURLをコピーしてください。';
+			}
+		});
+	})();
+</script> </div> <section class="article-related shell" aria-labelledby="related-heading" data-astro-cid-tldeq5d5> <div class="related-heading" data-astro-cid-tldeq5d5> <h2 id="related-heading" data-astro-cid-tldeq5d5>おすすめの記事</h2> <p data-astro-cid-tldeq5d5>同じジャンルの記事を優先して、次に読みやすい記事を選びました。</p> </div> <div class="related-stage" data-astro-cid-tldeq5d5> <article class="article-card featured stacked" data-astro-cid-7ahxywo7> <a href="/blog/jizokuka-hojo-2025/" aria-label="小規模事業者持続化補助金。2025年の申請で押さえるべきポイントを読む" data-astro-cid-7ahxywo7> <div class="card-visual" data-astro-cid-7ahxywo7>  <img src="/_astro/subsidy-application.C1Zk6RM9_ZoyYe5.webp" alt loading="lazy" data-astro-cid-7ahxywo7="true" decoding="async" width="720" height="480"> </div> <div class="card-body" data-astro-cid-7ahxywo7> <div class="card-meta" data-astro-cid-7ahxywo7> <span data-astro-cid-7ahxywo7>経営の現場</span> <span data-astro-cid-7ahxywo7><time datetime="2026-04-20T00:00:00.000Z"> 2026年4月20日 </time> 約2分</span> </div> <h3 data-astro-cid-7ahxywo7>小規模事業者持続化補助金。2025年の申請で押さえるべきポイント</h3> <p data-astro-cid-7ahxywo7>持続化補助金の基本から申請の流れ、採択されやすい計画書の書き方まで、支援現場からのリアルな情報をお届けします。</p> <span class="read-more" data-astro-cid-7ahxywo7>この記事を読む <span aria-hidden="true" data-astro-cid-7ahxywo7>→</span></span> </div> </a> </article> <div class="related-side" data-astro-cid-tldeq5d5> <article class="article-card compact" data-astro-cid-7ahxywo7> <a href="/blog/wws-workwear-suit-ankle-pants/" aria-label="毎日履いて、ほつれない。WWSのアンクルパンツを読む" data-astro-cid-7ahxywo7> <div class="card-visual" data-astro-cid-7ahxywo7>  <img src="/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1sRhMU.webp" alt loading="lazy" data-astro-cid-7ahxywo7="true" decoding="async" width="720" height="480"> </div> <div class="card-body" data-astro-cid-7ahxywo7> <div class="card-meta" data-astro-cid-7ahxywo7> <span data-astro-cid-7ahxywo7>仕事の道具</span> <span data-astro-cid-7ahxywo7><time datetime="2026-08-29T00:00:00.000Z"> 2026年8月29日 </time> 約11分</span> </div> <h3 data-astro-cid-7ahxywo7>毎日履いて、ほつれない。WWSのアンクルパンツ</h3> <p data-astro-cid-7ahxywo7>仕事の日は毎日WWS（ワークウェアスーツ）のアンクルパンツ。動き回っても傷まない持ちの良さと、素材ultimexの機能、洗濯で気をつけること、初回3,000円割引になる紹介コードまでまとめます。</p> <span class="read-more" data-astro-cid-7ahxywo7>この記事を読む <span aria-hidden="true" data-astro-cid-7ahxywo7>→</span></span> </div> </a> </article><article class="article-card compact" data-astro-cid-7ahxywo7> <a href="/blog/hidock-p1-ai-recorder/" aria-label="録音時間を気にしない。HiDock P1を読む" data-astro-cid-7ahxywo7> <div class="card-visual" data-astro-cid-7ahxywo7>  <img src="/_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_ZGgoR4.webp" alt loading="lazy" data-astro-cid-7ahxywo7="true" decoding="async" width="720" height="480"> </div> <div class="card-body" data-astro-cid-7ahxywo7> <div class="card-meta" data-astro-cid-7ahxywo7> <span data-astro-cid-7ahxywo7>家と仕事の道具</span> <span data-astro-cid-7ahxywo7><time datetime="2026-08-21T00:00:00.000Z"> 2026年8月21日 </time> 約13分</span> </div> <h3 data-astro-cid-7ahxywo7>録音時間を気にしない。HiDock P1</h3> <p data-astro-cid-7ahxywo7>相談や会議を録音し、HiNotesで文字起こし・要約まで進めるAIレコーダーHiDock P1。買い切りで使える標準範囲、実際の取り込み画面、仕事での使い方、注意点を紹介します。</p> <span class="read-more" data-astro-cid-7ahxywo7>この記事を読む <span aria-hidden="true" data-astro-cid-7ahxywo7>→</span></span> </div> </a> </article> </div> </div> </section> <section class="article-genres shell" aria-labelledby="article-genres-heading" data-astro-cid-tldeq5d5> <div class="related-heading" data-astro-cid-tldeq5d5> <h2 id="article-genres-heading" data-astro-cid-tldeq5d5>ジャンルから記事を探す</h2> <p data-astro-cid-tldeq5d5>全11本の記事を、3つのジャンルから選べます。</p> </div> <nav class="blog-genre-nav" aria-label="記事のジャンル" data-astro-cid-3vbq5m5q> <a href="/blog/#genre-ai" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>AIの使い方</strong> <small data-astro-cid-3vbq5m5q>AIを仕事に取り入れる方法</small> </span> <span class="genre-count" aria-label="2本" data-astro-cid-3vbq5m5q> 2本 </span> </a><a href="/blog/#genre-tools" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>仕事と暮らしの道具</strong> <small data-astro-cid-3vbq5m5q>実際に使った道具と選び方</small> </span> <span class="genre-count" aria-label="7本" data-astro-cid-3vbq5m5q> 7本 </span> </a><a href="/blog/#genre-management" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>経営と仕事の仕組み</strong> <small data-astro-cid-3vbq5m5q>経営支援と仕組みづくりの実践</small> </span> <span class="genre-count" aria-label="2本" data-astro-cid-3vbq5m5q> 2本 </span> </a> </nav> </section> <section class="after-note narrow" data-astro-cid-tldeq5d5> <h2 data-astro-cid-tldeq5d5>次に見るものを選ぶ</h2> <p data-astro-cid-tldeq5d5>玉城個人が使っている道具は「道具箱」へ。会社の仕事として相談したい場合は、T&Lサポートへお進みください。</p> <div class="button-row" data-astro-cid-tldeq5d5> <a class="button" href="/toolbox/" data-astro-cid-tldeq5d5>道具箱を見る</a> <a class="button primary" href="https://taxlegal.jp/" target="_blank" rel="noopener noreferrer" data-astro-cid-tldeq5d5>相談内容を確認する</a> </div> </section> </article> </main> <footer data-astro-cid-jo6i4kqk> <div class="shell footer-grid" data-astro-cid-jo6i4kqk> <div class="footer-statement" data-astro-cid-jo6i4kqk> <p data-astro-cid-jo6i4kqk>沖縄の現場で、実際に試したことを残します。</p> </div> <div class="footer-links" data-astro-cid-jo6i4kqk> <div data-astro-cid-jo6i4kqk> <strong data-astro-cid-jo6i4kqk>このサイト</strong> <a href="/blog" data-astro-cid-jo6i4kqk>記事を読む</a> <a href="/about" data-astro-cid-jo6i4kqk>玉城について</a> <a href="/privacy" data-astro-cid-jo6i4kqk>プライバシー</a> <a href="/affiliate-disclosure" data-astro-cid-jo6i4kqk>広告・紹介について</a> </div> <div data-astro-cid-jo6i4kqk> <strong data-astro-cid-jo6i4kqk>外部リンク</strong> <a href="/toolbox/" data-astro-cid-jo6i4kqk>玉城祐輔の道具箱 →</a> <a href="https://taxlegal.jp/" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>T&Lサポート株式会社 ↗</a> <a href="https://www.facebook.com/yusuke.tamashiro" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>Facebook ↗</a> <a href="https://www.instagram.com/tamashiro_yusuke_tl/" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>Instagram ↗</a> </div> </div> </div> <div class="shell footer-bottom" data-astro-cid-jo6i4kqk> <span data-astro-cid-jo6i4kqk>&copy; 2026 Yusuke Tamashiro</span> <span data-astro-cid-jo6i4kqk>AIとデジタルを、現場で使える形に。</span> </div> </footer> </body> </html>

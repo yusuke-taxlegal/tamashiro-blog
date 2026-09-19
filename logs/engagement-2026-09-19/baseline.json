@@ -1,0 +1,74 @@
+{
+  "capturedAt": "2026-09-19T11:38:55.589Z",
+  "fixedOrigin": "https://04d54dfa.tamashiro-blog.pages.dev",
+  "snapshotRoot": "/tmp/ysk-engagement-baseline",
+  "requestedPathCount": 124,
+  "downloadedFiles": {
+    "count": 142,
+    "httpStatus": { "200": 131 },
+    "manifest": {
+      "algorithm": "SHA-256",
+      "sortedPathBytesHash": "6933a04f1b15dce0d66f73634c6a717d458fb211432a6c47ac726081b5c443fb",
+      "format": "path TAB bytes TAB sha256",
+      "scope": "/tmp/ysk-engagement-baseline"
+    }
+  },
+  "discovered": {
+    "sitemapIndex": "/sitemap-index.xml",
+    "sitemapUrls": 22,
+    "robots": "/robots.txt",
+    "rss": "/rss.xml",
+    "additionalReferencedAssets": 18,
+    "srcsetAssetsAdded": [
+      "/_astro/hero-tamashiro-yusuke-ai-cost.BZqSiptr_Zick5R.webp",
+      "/_astro/hero-tamashiro-yusuke-rira.dcUBkkkA_Z9eEQw.webp",
+      "/_astro/hero-tamashiro-yusuke.DZnAc5iT_Zpsr0I.webp",
+      "/_astro/tamashiro-current-work-right-handed.C8YaVRos_1SLX8T.webp",
+      "/_astro/tamashiro-current-work-right-handed.C8YaVRos_Z16NUOC.webp",
+      "/_astro/tamashiro-current-work-right-handed.C8YaVRos_Z1pof5C.webp",
+      "/_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_1RWFwP.webp",
+      "/_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_1afmNQ.webp",
+      "/_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_1zxUVx.webp",
+      "/_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_Z1nrFmu.webp",
+      "/_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_Z2gIJOz.webp"
+    ],
+    "sameOriginAssetScan": {
+      "references": 98,
+      "missing": 0,
+      "contentTypeFallbacks": 0
+    }
+  },
+  "blogSlugs": [
+    "ai-adoption-cost-and-skills",
+    "avakyo-tank-dishwasher-av-01",
+    "chatgpt-business-nyumon",
+    "google-workspace-gmail-gemini-productivity",
+    "google-workspace-nyumon",
+    "healsio-hotcook-kn-hw24g",
+    "hidock-p1-ai-recorder",
+    "jizokuka-hojo-2025",
+    "nihontsushin-sim-minna-plan",
+    "organizational-ai-repeatable-work",
+    "seminarflow-seminar-operation-sharing",
+    "switchbot-lock-pro",
+    "upsider-staff-card",
+    "wws-workwear-suit-ankle-pants"
+  ],
+  "yskLifeHtmlComparison": {
+    "htmlPathCount": 23,
+    "exactMatchCount": 22,
+    "normalizedOnlyCount": 1,
+    "discrepancies": [],
+    "normalization": {
+      "path": "/privacy/",
+      "fixedSha256": "7b7f96aae3ad7c5652229cb55baf458f1df8a582a68559d1ad6ba81ca8a0dab7",
+      "yskLifeSha256": "3010e792bcaf3e3a3b1cee79f049474a7de6e3859b8a06dfc3bb414ce4d9ca6f",
+      "rule": "Cloudflare email obfuscation decoded; injected decoder script removed for comparison only"
+    },
+    "sampleExactHashes": {
+      "/": "39d1993ba54cee3e73f7a9784e72461279e0b694d1682c07146cfdbf39527509",
+      "/404.html": "265535c933cb1160ecc896d7658d6c83d2dfe5efc2805d509031adfd1cbf4b4c",
+      "/blog/": "bf200aa33f4bb59b7fc16c9c7e05e767dabb0eeebc13f83e06a87a30aa42fd68"
+    }
+  }
+}

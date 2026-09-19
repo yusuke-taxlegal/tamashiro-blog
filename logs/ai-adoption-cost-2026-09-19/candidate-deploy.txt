@@ -1,0 +1,13 @@
+
+ ⛅️ wrangler 4.121.0 (update available 4.135.0)
+───────────────────────────────────────────────
+Uploading... (129/154)
+Uploading... (137/154)
+Uploading... (146/154)
+Uploading... (154/154)
+✨ Success! Uploaded 25 files (129 already uploaded) (2.04 sec)
+
+✨ Uploading _headers
+🌎 Deploying...
+✨ Deployment complete! Take a peek over at https://e0c102f8.tamashiro-blog.pages.dev
+✨ Deployment alias URL: https://codex-ai-cost-20260919.tamashiro-blog.pages.dev

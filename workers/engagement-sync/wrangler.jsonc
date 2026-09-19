@@ -1,0 +1,15 @@
+{
+ "$schema":"../../node_modules/wrangler/config-schema.json",
+ "name":"ysk-life-engagement-sync",
+ "main":"index.ts",
+ "account_id":"042e5a365510f394d8181f19eb620ea8",
+ "compatibility_date":"2026-09-19",
+ "compatibility_flags":["nodejs_compat"],
+ "workers_dev":false,
+ "preview_urls":false,
+ "observability":{"enabled":true,"head_sampling_rate":1},
+ "vars":{"GA4_PROPERTY_ID":"550976520"},
+ "d1_databases":[{"binding":"DB","database_name":"ysk-life-engagement","database_id":"b88737c5-a1f5-4dd1-b581-eb0b6bc2d210","migrations_dir":"../../migrations"}],
+ "triggers":{"crons":["15 19 * * *"]},
+ "env":{"preview":{"name":"ysk-life-engagement-sync-preview","vars":{"GA4_PROPERTY_ID":"550976520"},"d1_databases":[{"binding":"DB","database_name":"ysk-life-engagement-preview","database_id":"c04961d0-05f3-49de-bf60-6b9e7e4de7f8","migrations_dir":"../../migrations"}],"triggers":{"crons":[]}}}
+}

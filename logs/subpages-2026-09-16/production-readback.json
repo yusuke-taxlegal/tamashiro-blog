@@ -1,0 +1,162 @@
+[
+  {
+    "path": "/",
+    "bytes": 20369,
+    "matches": true
+  },
+  {
+    "path": "/blog/",
+    "bytes": 25100,
+    "matches": true
+  },
+  {
+    "path": "/toolbox/",
+    "bytes": 35322,
+    "matches": true
+  },
+  {
+    "path": "/toolbox/work/",
+    "bytes": 28637,
+    "matches": true
+  },
+  {
+    "path": "/toolbox/home/",
+    "bytes": 46727,
+    "matches": true
+  },
+  {
+    "path": "/about/",
+    "bytes": 14207,
+    "matches": true
+  },
+  {
+    "path": "/_astro/Header.DnkTOj6x.css",
+    "bytes": 10015,
+    "matches": true
+  },
+  {
+    "path": "/_astro/index.ifRBJQOR.css",
+    "bytes": 9047,
+    "matches": true
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_Z15KKgF.webp",
+    "bytes": 51668,
+    "matches": true
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z20sGJG.webp",
+    "bytes": 44134,
+    "matches": true
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_1hKHT1.webp",
+    "bytes": 27008,
+    "matches": true
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT_BDec.webp",
+    "bytes": 15556,
+    "matches": true
+  },
+  {
+    "path": "/images/home-tools/hotcook.jpg",
+    "bytes": 26816,
+    "matches": true
+  },
+  {
+    "path": "/images/home-tools/dishwasher.jpg",
+    "bytes": 60798,
+    "matches": true
+  },
+  {
+    "path": "/images/home-tools/switchbot.jpg",
+    "bytes": 87336,
+    "matches": true
+  },
+  {
+    "path": "/images/apps/seminarflow-ogp.png",
+    "bytes": 626142,
+    "matches": true
+  },
+  {
+    "path": "/images/apps/jizoka-ogp.png",
+    "bytes": 1029817,
+    "matches": true
+  },
+  {
+    "path": "/_astro/journal-pages.UktNKsVn.css",
+    "bytes": 10264,
+    "matches": true
+  },
+  {
+    "path": "/_astro/BlogGenreNav.-Av1WMRZ.css",
+    "bytes": 7005,
+    "matches": true
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-email-draft.uRBsXRPi_1j1rdH.webp",
+    "bytes": 41744,
+    "matches": true
+  },
+  {
+    "path": "/_astro/practical-ai-workshop.DElgcIIz_Z2vlLjP.webp",
+    "bytes": 29616,
+    "matches": true
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1sRhMU.webp",
+    "bytes": 51908,
+    "matches": true
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_ZGgoR4.webp",
+    "bytes": 30928,
+    "matches": true
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-loading-dishwasher.Bg4ieaFj_197OMr.webp",
+    "bytes": 42762,
+    "matches": true
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-family-dinner.Db4S2BMO_6YhDR.webp",
+    "bytes": 41296,
+    "matches": true
+  },
+  {
+    "path": "/_astro/hero-tethering-illustration.D-9nUnFE_1MMvw7.webp",
+    "bytes": 47488,
+    "matches": true
+  },
+  {
+    "path": "/_astro/hero-family-entry.BPcjKjna_Z1sFqj2.webp",
+    "bytes": 38648,
+    "matches": true
+  },
+  {
+    "path": "/_astro/google-workspace-office.DMKWt-uA_ZftRta.webp",
+    "bytes": 25848,
+    "matches": true
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT_D4wdC.webp",
+    "bytes": 18170,
+    "matches": true
+  },
+  {
+    "path": "/_astro/subsidy-application.C1Zk6RM9_ZoyYe5.webp",
+    "bytes": 29416,
+    "matches": true
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_2bav9n.webp",
+    "bytes": 123136,
+    "matches": true
+  },
+  {
+    "path": "/_astro/tamashiro-current-work-right-handed.C8YaVRos_594cC.webp",
+    "bytes": 85690,
+    "matches": true
+  }
+]

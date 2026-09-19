@@ -1,0 +1,227 @@
+[
+  {
+    "Id": "4cce5d3b-7c54-4d5a-a210-4f12150954a0",
+    "Environment": "Production",
+    "Branch": "main",
+    "Source": "32d3a63",
+    "Deployment": "https://4cce5d3b.tamashiro-blog.pages.dev",
+    "Status": "12 minutes ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/4cce5d3b-7c54-4d5a-a210-4f12150954a0"
+  },
+  {
+    "Id": "a8f663e6-6345-447a-a215-c5e90d92aec9",
+    "Environment": "Preview",
+    "Branch": "codex-home-design-20260916",
+    "Source": "32d3a63",
+    "Deployment": "https://a8f663e6.tamashiro-blog.pages.dev",
+    "Status": "13 minutes ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/a8f663e6-6345-447a-a215-c5e90d92aec9"
+  },
+  {
+    "Id": "55118e90-8142-4187-9d0b-36d91d48511d",
+    "Environment": "Production",
+    "Branch": "main",
+    "Source": "32d3a63",
+    "Deployment": "https://55118e90.tamashiro-blog.pages.dev",
+    "Status": "2 days ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/55118e90-8142-4187-9d0b-36d91d48511d"
+  },
+  {
+    "Id": "ef4d02c3-1687-4242-8f46-3a58b3ce9713",
+    "Environment": "Production",
+    "Branch": "main",
+    "Source": "7f27e84",
+    "Deployment": "https://ef4d02c3.tamashiro-blog.pages.dev",
+    "Status": "3 days ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/ef4d02c3-1687-4242-8f46-3a58b3ce9713"
+  },
+  {
+    "Id": "70865b92-3056-4791-a615-c70f2a7d9980",
+    "Environment": "Production",
+    "Branch": "main",
+    "Source": "2e1d6f1",
+    "Deployment": "https://70865b92.tamashiro-blog.pages.dev",
+    "Status": "1 week ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/70865b92-3056-4791-a615-c70f2a7d9980"
+  },
+  {
+    "Id": "7606d47e-f9e1-4d6a-9f06-d5329cb9bc1e",
+    "Environment": "Production",
+    "Branch": "main",
+    "Source": "3e6b091",
+    "Deployment": "https://7606d47e.tamashiro-blog.pages.dev",
+    "Status": "2 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/7606d47e-f9e1-4d6a-9f06-d5329cb9bc1e"
+  },
+  {
+    "Id": "35004600-1bc1-4711-a755-fdd74528ffde",
+    "Environment": "Production",
+    "Branch": "main",
+    "Source": "3e6b091",
+    "Deployment": "https://35004600.tamashiro-blog.pages.dev",
+    "Status": "2 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/35004600-1bc1-4711-a755-fdd74528ffde"
+  },
+  {
+    "Id": "958cd633-5468-4021-91db-d6b796ed5fda",
+    "Environment": "Production",
+    "Branch": "main",
+    "Source": "3e6b091",
+    "Deployment": "https://958cd633.tamashiro-blog.pages.dev",
+    "Status": "2 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/958cd633-5468-4021-91db-d6b796ed5fda"
+  },
+  {
+    "Id": "b1369170-5f1d-4098-adab-5dd423943db6",
+    "Environment": "Production",
+    "Branch": "main",
+    "Source": "3e6b091",
+    "Deployment": "https://b1369170.tamashiro-blog.pages.dev",
+    "Status": "2 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/b1369170-5f1d-4098-adab-5dd423943db6"
+  },
+  {
+    "Id": "da791cd6-a5db-4694-8ce8-df0b3ea441d0",
+    "Environment": "Production",
+    "Branch": "main",
+    "Source": "2e1d6f1",
+    "Deployment": "https://da791cd6.tamashiro-blog.pages.dev",
+    "Status": "2 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/da791cd6-a5db-4694-8ce8-df0b3ea441d0"
+  },
+  {
+    "Id": "46ed806d-88cc-4218-bd3a-b360187bd95f",
+    "Environment": "Production",
+    "Branch": "main",
+    "Source": "3e6b091",
+    "Deployment": "https://46ed806d.tamashiro-blog.pages.dev",
+    "Status": "2 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/46ed806d-88cc-4218-bd3a-b360187bd95f"
+  },
+  {
+    "Id": "a5d9a072-5166-4512-8c90-33d91423b109",
+    "Environment": "Preview",
+    "Branch": "claude/sorajuku-blog-article-kllljz",
+    "Source": "3e6b091",
+    "Deployment": "https://a5d9a072.tamashiro-blog.pages.dev",
+    "Status": "2 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/a5d9a072-5166-4512-8c90-33d91423b109"
+  },
+  {
+    "Id": "2e3eea01-3093-44e0-ba19-cb280269c3af",
+    "Environment": "Production",
+    "Branch": "main",
+    "Source": "2e1d6f1",
+    "Deployment": "https://2e3eea01.tamashiro-blog.pages.dev",
+    "Status": "2 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/2e3eea01-3093-44e0-ba19-cb280269c3af"
+  },
+  {
+    "Id": "4bd5eecd-f6ee-4ddf-8607-ee7af111e294",
+    "Environment": "Preview",
+    "Branch": "claude/tamaki-blog-workwear-suit-jkodck",
+    "Source": "cef870a",
+    "Deployment": "https://4bd5eecd.tamashiro-blog.pages.dev",
+    "Status": "2 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/4bd5eecd-f6ee-4ddf-8607-ee7af111e294"
+  },
+  {
+    "Id": "25cbd9bc-41f6-4c07-865c-5279b4d319bd",
+    "Environment": "Preview",
+    "Branch": "claude/tamaki-blog-workwear-suit-jkodck",
+    "Source": "fabccdd",
+    "Deployment": "https://25cbd9bc.tamashiro-blog.pages.dev",
+    "Status": "2 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/25cbd9bc-41f6-4c07-865c-5279b4d319bd"
+  },
+  {
+    "Id": "d73f6ecb-ed29-425a-ba3e-4321fcde6209",
+    "Environment": "Production",
+    "Branch": "main",
+    "Source": "a6456b6",
+    "Deployment": "https://d73f6ecb.tamashiro-blog.pages.dev",
+    "Status": "2 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/d73f6ecb-ed29-425a-ba3e-4321fcde6209"
+  },
+  {
+    "Id": "d742be9e-2496-4dd9-a28c-7ebf28516839",
+    "Environment": "Preview",
+    "Branch": "claude/tamaki-blog-logo-design-ute2lx",
+    "Source": "c0779e5",
+    "Deployment": "https://d742be9e.tamashiro-blog.pages.dev",
+    "Status": "2 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/d742be9e-2496-4dd9-a28c-7ebf28516839"
+  },
+  {
+    "Id": "b8d8487d-ed10-4715-bca4-cdc6cd49eb37",
+    "Environment": "Production",
+    "Branch": "main",
+    "Source": "6856462",
+    "Deployment": "https://b8d8487d.tamashiro-blog.pages.dev",
+    "Status": "2 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/b8d8487d-ed10-4715-bca4-cdc6cd49eb37"
+  },
+  {
+    "Id": "1b80db68-76d5-45f5-b7a5-6e1757df6ed8",
+    "Environment": "Preview",
+    "Branch": "claude/tamashiro-blog-setup-fkp8nd",
+    "Source": "562da51",
+    "Deployment": "https://1b80db68.tamashiro-blog.pages.dev",
+    "Status": "2 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/1b80db68-76d5-45f5-b7a5-6e1757df6ed8"
+  },
+  {
+    "Id": "0f069775-d05a-4100-8ec6-0d918e03544b",
+    "Environment": "Preview",
+    "Branch": "claude/tamashiro-blog-setup-fkp8nd",
+    "Source": "04e22d1",
+    "Deployment": "https://0f069775.tamashiro-blog.pages.dev",
+    "Status": "2 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/0f069775-d05a-4100-8ec6-0d918e03544b"
+  },
+  {
+    "Id": "588b9f09-edda-4196-a8d4-cc0f72d8b4df",
+    "Environment": "Production",
+    "Branch": "main",
+    "Source": "253e25c",
+    "Deployment": "https://588b9f09.tamashiro-blog.pages.dev",
+    "Status": "3 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/588b9f09-edda-4196-a8d4-cc0f72d8b4df"
+  },
+  {
+    "Id": "b483738d-938e-43ef-b12a-ef2a82239c9c",
+    "Environment": "Production",
+    "Branch": "main",
+    "Source": "8a90eca",
+    "Deployment": "https://b483738d.tamashiro-blog.pages.dev",
+    "Status": "3 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/b483738d-938e-43ef-b12a-ef2a82239c9c"
+  },
+  {
+    "Id": "44c44fd1-723d-400a-b2ef-526df228d33a",
+    "Environment": "Preview",
+    "Branch": "codex-poireshi-ogp-v2-20260823",
+    "Source": "8a90eca",
+    "Deployment": "https://44c44fd1.tamashiro-blog.pages.dev",
+    "Status": "3 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/44c44fd1-723d-400a-b2ef-526df228d33a"
+  },
+  {
+    "Id": "95fbff0c-a793-47f9-8e3f-155e6e2fb1b4",
+    "Environment": "Production",
+    "Branch": "main",
+    "Source": "8a90eca",
+    "Deployment": "https://95fbff0c.tamashiro-blog.pages.dev",
+    "Status": "3 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/95fbff0c-a793-47f9-8e3f-155e6e2fb1b4"
+  },
+  {
+    "Id": "16a37204-a48f-4cc3-a0cb-0d4ace5c98ad",
+    "Environment": "Preview",
+    "Branch": "codex-ogp-uniform-20260822",
+    "Source": "8a90eca",
+    "Deployment": "https://16a37204.tamashiro-blog.pages.dev",
+    "Status": "3 weeks ago",
+    "Build": "https://dash.cloudflare.com/042e5a365510f394d8181f19eb620ea8/pages/view/tamashiro-blog/16a37204-a48f-4cc3-a0cb-0d4ace5c98ad"
+  }
+]

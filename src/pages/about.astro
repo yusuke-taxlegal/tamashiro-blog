@@ -1,11 +1,15 @@
 ---
+import '../styles/journal-pages.css';
 import { Image } from 'astro:assets';
-import currentWorkIllustration from '../assets/about/tamashiro-current-work.webp';
+import currentWorkIllustration from '../assets/about/tamashiro-current-work-right-handed.webp';
 import profilePhoto from '../assets/people/tamashiro-yusuke-profile-black-2048.jpg';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { COMPANY_URL } from '../consts';
+
+const contactUrl = new URL('contact/', COMPANY_URL).href;
+const seminarUrl = `${contactUrl}?type=seminar`;
 ---
 
 <!doctype html>
@@ -13,18 +17,19 @@ import { COMPANY_URL } from '../consts';
 	<head>
 		<BaseHead
 			title="玉城について｜玉城祐輔"
-			description="元・商工会経営指導員11年。沖縄で小さな会社のデジタルとお金の相談に伴走する玉城祐輔のプロフィールです。"
+			description="T&Lサポート株式会社代表取締役・業務DX推進士、玉城祐輔のプロフィール。2026年度の日本青年会議所沖縄地区協議会 規則財政審査局長、宜野湾青年会議所 副理事長、北谷町商工会青年部 監事。JC活動のAI活用や例会・セミナー開催のご相談も承ります。"
 		/>
 	</head>
-	<body class="about-page">
-		<Header />
+	<body class="journal-page about-page">
+		<Header showName />
 		<main id="main-content">
 			<header class="about-hero shell">
 				<div class="about-copy">
-					<p class="about-kicker">沖縄の現場で、相談に向き合う</p>
+					<p class="about-kicker">玉城祐輔｜T&amp;Lサポート株式会社 代表取締役</p>
 					<h1 id="about-title"><span>相談に向き合った、</span><br /><strong>11年。</strong></h1>
-					<p class="lead">元・商工会経営指導員として11年、500社以上の相談に向き合ってきました。いまはT&Lサポート株式会社の代表として、自社でもAIと財務の立て直しを実践しています。</p>
+					<p class="lead">元・商工会経営指導員として11年、500社以上の相談に向き合ってきました。いまはT&Lサポート株式会社の代表取締役として、自社でもAIと財務の立て直しを実践しています。</p>
 					<p class="about-note">成功談だけでなく、試して失敗したことや遠回りしたことも共有します。自分で確かめたことを、現場で使える形にして届けます。</p>
+					<nav class="profile-nav" aria-label="プロフィール内の案内"><a href="#roles">役職・資格を見る</a><a href="#jc-consultation">JC・青年部のAI活用・例会相談へ</a></nav>
 				</div>
 				<figure class="about-photo">
 					<Image
@@ -44,6 +49,44 @@ import { COMPANY_URL } from '../consts';
 					<div><strong>500社以上</strong><span>これまでの支援</span></div>
 					<div><strong>4人</strong><span>子どもたちの父</span></div>
 					<div><strong>沖縄</strong><span>活動の拠点</span></div>
+				</div>
+			</section>
+
+			<section class="roles shell" id="roles" aria-labelledby="roles-title">
+				<header class="section-intro">
+					<p class="about-kicker">玉城祐輔のプロフィール</p>
+					<h2 id="roles-title">役職・資格</h2>
+					<p>会社経営と地域での活動に携わりながら、AI・デジタルの活用を支援しています。</p>
+				</header>
+				<dl class="credential-list">
+					<div><dt>T&amp;Lサポート株式会社</dt><dd>代表取締役</dd></div>
+					<div><dt>資格</dt><dd>業務DX推進士</dd></div>
+				</dl>
+				<div class="jc-roles" aria-labelledby="jc-roles-title">
+					<div class="jc-roles-heading"><h3 id="jc-roles-title">青年会議所（JC）・商工会青年部での役職</h3><span class="term-label">2026年度</span></div>
+					<dl class="jc-role-list">
+						<div><dt>日本青年会議所<br />沖縄地区協議会</dt><dd>規則財政審査局長</dd></div>
+						<div><dt>一般社団法人<br />宜野湾青年会議所</dt><dd>副理事長</dd></div>
+						<div><dt>北谷町商工会<br />青年部</dt><dd>監事</dd></div>
+					</dl>
+				</div>
+			</section>
+
+			<section class="jc-consultation shell" id="jc-consultation" aria-labelledby="jc-consultation-title">
+				<header class="section-intro">
+					<p class="about-kicker">JC・商工会青年部の会員、例会・研修担当者の皆さまへ</p>
+					<h2 id="jc-consultation-title">JC・青年部の活動にも、<br />使えるAIを。</h2>
+					<p>JC・青年部活動でのAI活用や、例会・セミナーの講師依頼をご相談いただけます。所属する青年会議所・商工会青年部や委員会で取り組みたいことから、一緒に内容を考えます。</p>
+				</header>
+				<div class="jc-topic-list">
+					<article><h3>JC・青年部活動の事務・準備に</h3><p>議案の構成整理、会議メモからの議事録づくり、事業計画や案内文のたたき台など、活動に合わせたAIの使い方をご相談いただけます。</p></article>
+					<article><h3>例会・セミナーの企画に</h3><p>AIを初めて使う会員向けの入門講座や、実際に手を動かす体験型の例会・研修など。目的・参加者・開催時間に合わせて内容をご相談いただけます。</p></article>
+				</div>
+				<div class="jc-inquiry">
+					<h3>企画が固まる前でも、ご相談ください。</h3>
+					<p>所属青年会議所・商工会青年部・委員会名、相談したい内容、開催希望時期、参加人数、ご予算を、分かる範囲でお知らせください。未定の項目は「未定」で構いません。</p>
+					<div class="button-row"><a class="button primary" href={seminarUrl}>例会・セミナー開催を相談する</a><a class="button" href={`${contactUrl}?type=ai`}>JC・青年部のAI活用を相談する</a></div>
+					<p class="inquiry-note">T&amp;Lサポート株式会社のお問い合わせフォームが開きます。講師料・支援費用は内容や開催条件に応じてご案内します。</p>
 				</div>
 			</section>
 
@@ -104,7 +147,7 @@ import { COMPANY_URL } from '../consts';
 					<h2 id="contact-title">AI活用と経営の相談は、<br />T&amp;Lサポートへ。</h2>
 					<p>法人としてのAI活用・業務整理・経営伴走のご相談は、T&Lサポート株式会社で承ります。</p>
 				</div>
-				<a class="button contact-button" href={COMPANY_URL} target="_blank" rel="noopener noreferrer">相談内容を確認する</a>
+				<a class="button contact-button" href={contactUrl}>AI活用・経営を相談する</a>
 			</section>
 		</main>
 		<Footer />
@@ -112,318 +155,37 @@ import { COMPANY_URL } from '../consts';
 </html>
 
 <style>
-	:global(body.about-page) {
-		--site-bg: #f4f0e7;
-		--site-surface: #fffdf8;
-		--site-surface-subtle: #e8e1d2;
-		--site-text: #171915;
-		--site-text-soft: #4f5348;
-		--site-muted: #62655b;
-		--site-line: rgba(23, 25, 21, 0.16);
-		--site-accent: #d95f3b;
-		--site-link-hover: #424b32;
-		--site-contact-bg: #66724b;
-		--site-contact-text: #fffdf8;
-		--site-contact-muted: #e4e8d9;
-		--header-bg: color-mix(in srgb, var(--site-bg) 92%, transparent);
-		--footer-bg: #171915;
-		--footer-text: #f4f0e7;
-		--footer-muted: #aaa999;
-		--coral: var(--site-accent);
-		--ink: var(--site-text);
-		--ink-soft: var(--site-text-soft);
-		--paper: var(--site-bg);
-		--paper-deep: var(--site-surface-subtle);
-		--white: var(--site-surface);
-		--line: var(--site-line);
-		--muted: var(--site-muted);
-		background: var(--site-bg);
-		color: var(--site-text);
-	}
-
-	.about-hero {
-		display: grid;
-		grid-template-columns: minmax(0, 1.14fr) minmax(320px, 0.72fr);
-		align-items: center;
-		gap: clamp(3rem, 8vw, 7rem);
-		min-height: calc(100dvh - 72px);
-		padding-block: clamp(3rem, 6vw, 5.5rem);
-	}
-
-	.about-kicker {
-		margin-bottom: 1rem;
-		color: var(--site-link-hover);
-		font-size: 0.78rem;
-		font-weight: 800;
-		letter-spacing: 0.06em;
-	}
-
-	.about-copy h1 {
-		max-width: 760px;
-		margin-bottom: 1.6rem;
-		color: var(--site-text);
-		font-size: clamp(3rem, 4.5vw, 4.5rem);
-		font-weight: 780;
-		line-height: 1.04;
-	}
-
-	.about-copy h1 > span {
-		display: inline-block;
-		white-space: nowrap;
-	}
-
-	.about-copy h1 strong {
-		display: inline-block;
-		color: var(--site-text);
-		font-weight: inherit;
-		text-decoration: underline;
-		text-decoration-color: var(--site-accent);
-		text-decoration-thickness: 0.09em;
-		text-underline-offset: 0.11em;
-		white-space: nowrap;
-	}
-
-	.about-copy .lead {
-		max-width: 650px;
-		margin-bottom: 1.2rem;
-		color: var(--site-text-soft);
-		font-size: clamp(1rem, 1.45vw, 1.14rem);
-		font-weight: 650;
-		line-height: 1.9;
-	}
-
-	.about-note {
-		max-width: 620px;
-		margin: 0;
-		color: var(--site-muted);
-		font-size: 0.9rem;
-	}
-
-	.about-photo {
-		margin: 0;
-		overflow: hidden;
-		border-radius: var(--radius);
-		background: #11130f;
-		box-shadow: 0 26px 70px color-mix(in srgb, var(--site-text) 14%, transparent);
-	}
-
-	.about-photo :global(img) {
-		width: 100%;
-		aspect-ratio: 4 / 4.55;
-		object-fit: cover;
-		object-position: 50% 35%;
-	}
-
-	.profile-band {
-		border-block: 1px solid var(--site-line);
-		background: color-mix(in srgb, var(--site-surface-subtle) 66%, var(--site-bg));
-	}
-
-	.facts {
-		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
-	}
-
-	.facts div {
-		display: grid;
-		gap: 0.15rem;
-		padding: 1.4rem clamp(1rem, 2.5vw, 2rem);
-		border-right: 1px solid var(--site-line);
-	}
-
-	.facts div:last-child { border-right: 0; }
-	.facts strong { color: var(--site-text); font-size: clamp(1.5rem, 2.6vw, 2.2rem); }
-	.facts span { color: var(--site-muted); font-size: 0.72rem; }
-
-	.work {
-		padding-block: clamp(5.5rem, 10vw, 9rem);
-	}
-
-	.work-heading {
-		max-width: 820px;
-		margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
-	}
-
-	.work-heading h2 {
-		margin-bottom: 0.8rem;
-		color: var(--site-text);
-		font-size: clamp(2.2rem, 4vw, 3.6rem);
-	}
-
-	.work-heading p {
-		margin: 0;
-		color: var(--site-text-soft);
-		font-family: var(--font-serif);
-		font-size: clamp(1.65rem, 3vw, 2.75rem);
-		font-weight: 600;
-		line-height: 1.45;
-	}
-
-	.work-layout {
-		display: grid;
-		grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
-		align-items: start;
-		gap: clamp(2.5rem, 6vw, 6rem);
-	}
-
-	.work-photo {
-		margin: 0;
-		overflow: hidden;
-		border-radius: var(--radius);
-		background: var(--site-surface-subtle);
-	}
-
-	.work-photo :global(img) {
-		width: 100%;
-		aspect-ratio: 4 / 3;
-		object-fit: cover;
-	}
-
-	.work-list article {
-		padding: 1.75rem 0;
-		border-top: 1px solid var(--site-line);
-	}
-
-	.work-list article:first-child { padding-top: 0; border-top: 0; }
-	.work-list h3 { margin-bottom: 0.55rem; color: var(--site-text); font-size: 1.45rem; }
-	.work-list p { margin: 0; color: var(--site-muted); font-size: 0.9rem; }
-
-	.pathways {
-		padding-block: clamp(4.5rem, 9vw, 8rem);
-		border-top: 1px solid var(--site-line);
-	}
-
-	.pathways > header {
-		max-width: 780px;
-		margin-bottom: clamp(2.5rem, 5vw, 4rem);
-	}
-
-	.pathways h2 {
-		margin-bottom: 1rem;
-		color: var(--site-text);
-		font-size: clamp(2.2rem, 4.5vw, 4rem);
-	}
-
-	.pathways > header p {
-		max-width: 55ch;
-		margin: 0;
-		color: var(--site-text-soft);
-	}
-
-	.pathway-list {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 1rem;
-	}
-
-	.pathway-list article {
-		display: flex;
-		min-width: 0;
-		min-height: 300px;
-		padding: clamp(1.8rem, 4vw, 3rem);
-		flex-direction: column;
-		border: 1px solid var(--site-line);
-		border-radius: var(--radius);
-		background: var(--site-surface);
-	}
-
-	.pathway-list .company-pathway { background: var(--site-surface-subtle); }
-
-	.pathway-label {
-		margin-bottom: auto;
-		padding-bottom: 2.5rem;
-		color: var(--site-accent);
-		font-size: 0.72rem;
-		font-weight: 800;
-	}
-
-	.pathway-list h3 { margin-bottom: 0.8rem; color: var(--site-text); font-size: clamp(1.7rem, 3vw, 2.35rem); }
-	.pathway-list article > p:not(.pathway-label) { color: var(--site-muted); font-size: 0.88rem; }
-	.text-links { display: flex; flex-wrap: wrap; gap: 0.75rem 1.2rem; margin-top: 1.5rem; }
-	.text-links a { color: var(--site-text); font-size: 0.82rem; font-weight: 800; }
-	.text-links a:hover { color: var(--site-link-hover); }
-
-	.contact {
-		display: grid;
-		grid-template-columns: minmax(0, 1.2fr) auto;
-		align-items: end;
-		gap: clamp(2rem, 6vw, 6rem);
-		margin-top: clamp(1rem, 4vw, 3rem);
-		padding: clamp(2.5rem, 6vw, 5rem);
-		border-radius: var(--radius);
-		background: var(--site-contact-bg);
-		color: var(--site-contact-text);
-	}
-
-	.contact-copy { max-width: 730px; }
-	.contact h2 { margin-bottom: 1rem; color: var(--site-contact-text); font-size: clamp(2rem, 4.2vw, 3.8rem); }
-	.contact p { margin: 0; color: var(--site-contact-muted); }
-
-	.contact-button {
-		justify-self: end;
-		border-color: color-mix(in srgb, var(--site-contact-text) 70%, transparent);
-		color: var(--site-contact-text);
-		white-space: nowrap;
-	}
-
-	.contact-button:hover {
-		background: var(--site-contact-text);
-		color: #171915;
-	}
-
-	.contact-button:active {
-		transform: translateY(-1px) scale(0.98);
-	}
-
-	@media (prefers-color-scheme: dark) {
-		:global(body.about-page) {
-			--site-bg: #11130f;
-			--site-surface: #191d16;
-			--site-surface-subtle: #23291d;
-			--site-text: #f1eee5;
-			--site-text-soft: #c7c9bd;
-			--site-muted: #aeb3a3;
-			--site-line: rgba(241, 238, 229, 0.18);
-			--site-accent: #ef805d;
-			--site-link-hover: #b8c897;
-			--site-contact-bg: #3f4b31;
-			--site-contact-text: #f1eee5;
-			--site-contact-muted: #d7dfc4;
-			--header-bg: color-mix(in srgb, var(--site-bg) 90%, transparent);
-			--footer-bg: #0b0d0a;
-			--footer-text: #f1eee5;
-			--footer-muted: #aeb3a3;
-		}
-	}
-
-	@media (max-width: 860px) {
-		.about-hero,
-		.work-layout { grid-template-columns: 1fr; }
-
-		.about-hero {
-			min-height: auto;
-			padding-block: 3rem 4.5rem;
-		}
-
-		.about-hero > *,
-		.work-layout > * { min-width: 0; }
-		.about-photo { width: min(72vw, 360px); margin-inline: auto; }
-		.work-photo { width: min(100%, 720px); }
-	}
-
-	@media (max-width: 700px) {
-		.about-copy h1 { font-size: clamp(2.1rem, 9.5vw, 3.4rem); }
-		.facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-		.facts div:nth-child(2) { border-right: 0; }
-		.facts div:nth-child(-n+2) { border-bottom: 1px solid var(--site-line); }
-		.pathway-list { grid-template-columns: 1fr; }
-		.pathway-list article { min-height: 260px; }
-		.contact { grid-template-columns: 1fr; align-items: start; }
-		.contact-button { justify-self: start; }
-	}
-
-	@media (max-width: 390px) {
-		.about-copy h1 { font-size: 8.7vw; }
-		.about-photo { width: min(78vw, 330px); }
+	.profile-nav { display:flex; flex-wrap:wrap; gap:8px 24px; margin-top:24px; }
+	.profile-nav a { display:inline-flex; align-items:center; min-height:44px; font-weight:700; text-decoration:underline; text-underline-offset:5px; }
+	.roles { padding-block:56px; scroll-margin-top:96px; }
+	.section-intro { max-width:760px; }
+	.section-intro h2 { margin-bottom:16px; }
+	.section-intro > p:not(.about-kicker) { color:var(--muted); }
+	.credential-list { margin:28px 0 32px; }
+	.credential-list > div { display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:18px 0; border-bottom:1px solid var(--line); }
+	dt { color:var(--muted); }
+	dd { margin:0; font-weight:750; }
+	.jc-roles { padding:32px; background:var(--paper-deep); border-left:4px solid var(--coral); }
+	.jc-roles-heading { display:flex; flex-wrap:wrap; align-items:center; gap:12px 20px; }
+	.jc-roles-heading h3 { font-size:21px; margin:0; }
+	.term-label { background:var(--ink); color:#fff; padding:4px 12px; font-size:14px; font-weight:700; }
+	.jc-role-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; margin:24px 0 0; }
+	.jc-role-list > div + div { border-left:1px solid var(--line); padding-left:32px; }
+	.jc-role-list dd { font-size:clamp(23px,2.3vw,30px); margin-top:12px; }
+	.jc-consultation { padding-block:48px 56px; border-block:1px solid var(--line); scroll-margin-top:96px; }
+	.jc-topic-list { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:28px; }
+	.jc-topic-list h3,.jc-inquiry h3 { font-size:21px; margin-bottom:10px; }
+	.jc-topic-list p,.jc-inquiry > p { color:var(--muted); }
+	.jc-inquiry { margin-top:20px; padding-top:24px; border-top:1px solid var(--line); }
+	.jc-inquiry > p { max-width:800px; }
+	.jc-inquiry .button-row { margin-top:24px; }
+	.jc-inquiry .inquiry-note { margin-top:16px; font-size:14px; }
+	@media(max-width:760px) {
+		.roles,.jc-consultation { padding-block:36px; }
+		.credential-list > div { grid-template-columns:1fr; gap:6px; }
+		.jc-roles { padding:24px 20px; }
+		.jc-role-list,.jc-topic-list { grid-template-columns:1fr; gap:24px; }
+		.jc-role-list > div + div { border-left:0; padding-left:0; border-top:1px solid var(--line); padding-top:24px; }
+		.jc-inquiry .button { width:100%; text-align:center; white-space:normal; }
 	}
 </style>

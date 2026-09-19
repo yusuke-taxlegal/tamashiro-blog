@@ -2,5 +2,37 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "tamashiro-blog",
   "pages_build_output_dir": "./dist",
-  "compatibility_date": "2026-08-11"
+  "compatibility_date": "2026-08-11",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "ysk-life-engagement",
+      "database_id": "b88737c5-a1f5-4dd1-b581-eb0b6bc2d210",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "services": [
+    {
+      "binding": "ANALYTICS_SYNC",
+      "service": "ysk-life-engagement-sync"
+    }
+  ],
+  "env": {
+    "preview": {
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "ysk-life-engagement-preview",
+          "database_id": "c04961d0-05f3-49de-bf60-6b9e7e4de7f8",
+          "migrations_dir": "migrations"
+        }
+      ],
+      "services": [
+        {
+          "binding": "ANALYTICS_SYNC",
+          "service": "ysk-life-engagement-sync-preview"
+        }
+      ]
+    }
+  }
 }

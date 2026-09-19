@@ -1,0 +1,127 @@
+--- about.before.astro
++++ src/pages/about.astro
+@@ -7,6 +7,9 @@
+ import Footer from '../components/Footer.astro';
+ import Header from '../components/Header.astro';
+ import { COMPANY_URL } from '../consts';
++
++const contactUrl = new URL('contact/', COMPANY_URL).href;
++const seminarUrl = `${contactUrl}?type=seminar`;
+ ---
+ 
+ <!doctype html>
+@@ -14,7 +17,7 @@
+ 	<head>
+ 		<BaseHead
+ 			title="玉城について｜玉城祐輔"
+-			description="元・商工会経営指導員11年。沖縄で小さな会社のデジタルとお金の相談に伴走する玉城祐輔のプロフィールです。"
++			description="T&Lサポート株式会社代表取締役・業務DX推進士、玉城祐輔のプロフィール。2026年度の日本青年会議所沖縄地区協議会 規則財政審査局長、宜野湾青年会議所 副理事長。JC活動のAI活用や例会・セミナー開催のご相談も承ります。"
+ 		/>
+ 	</head>
+ 	<body class="journal-page about-page">
+@@ -22,10 +25,11 @@
+ 		<main id="main-content">
+ 			<header class="about-hero shell">
+ 				<div class="about-copy">
+-					<p class="about-kicker">沖縄の現場で、相談に向き合う</p>
++					<p class="about-kicker">玉城祐輔｜T&amp;Lサポート株式会社 代表取締役</p>
+ 					<h1 id="about-title"><span>相談に向き合った、</span><br /><strong>11年。</strong></h1>
+-					<p class="lead">元・商工会経営指導員として11年、500社以上の相談に向き合ってきました。いまはT&Lサポート株式会社の代表として、自社でもAIと財務の立て直しを実践しています。</p>
++					<p class="lead">元・商工会経営指導員として11年、500社以上の相談に向き合ってきました。いまはT&Lサポート株式会社の代表取締役として、自社でもAIと財務の立て直しを実践しています。</p>
+ 					<p class="about-note">成功談だけでなく、試して失敗したことや遠回りしたことも共有します。自分で確かめたことを、現場で使える形にして届けます。</p>
++					<nav class="profile-nav" aria-label="プロフィール内の案内"><a href="#roles">役職・資格を見る</a><a href="#jc-consultation">JCのAI活用・例会相談へ</a></nav>
+ 				</div>
+ 				<figure class="about-photo">
+ 					<Image
+@@ -45,6 +49,44 @@
+ 					<div><strong>500社以上</strong><span>これまでの支援</span></div>
+ 					<div><strong>4人</strong><span>子どもたちの父</span></div>
+ 					<div><strong>沖縄</strong><span>活動の拠点</span></div>
++				</div>
++			</section>
++
++			<section class="roles shell" id="roles" aria-labelledby="roles-title">
++				<header class="section-intro">
++					<p class="about-kicker">玉城祐輔のプロフィール</p>
++					<h2 id="roles-title">役職・資格</h2>
++					<p>会社経営と地域での活動に携わりながら、AI・デジタルの活用を支援しています。</p>
++				</header>
++				<dl class="credential-list">
++					<div><dt>T&amp;Lサポート株式会社</dt><dd>代表取締役</dd></div>
++					<div><dt>資格</dt><dd>業務DX推進士</dd></div>
++					<div><dt>北谷町商工会青年部</dt><dd>監事</dd></div>
++				</dl>
++				<div class="jc-roles" aria-labelledby="jc-roles-title">
++					<div class="jc-roles-heading"><h3 id="jc-roles-title">青年会議所（JC）での役職</h3><span class="term-label">2026年度</span></div>
++					<dl class="jc-role-list">
++						<div><dt>日本青年会議所<br />沖縄地区協議会</dt><dd>規則財政審査局長</dd></div>
++						<div><dt>一般社団法人<br />宜野湾青年会議所</dt><dd>副理事長</dd></div>
++					</dl>
++				</div>
++			</section>
++
++			<section class="jc-consultation shell" id="jc-consultation" aria-labelledby="jc-consultation-title">
++				<header class="section-intro">
++					<p class="about-kicker">JC会員・例会担当者の皆さまへ</p>
++					<h2 id="jc-consultation-title">JC活動にも、<br />使えるAIを。</h2>
++					<p>JC活動でのAI活用や、例会・セミナーの講師依頼をご相談いただけます。所属青年会議所や委員会で取り組みたいことから、一緒に内容を考えます。</p>
++				</header>
++				<div class="jc-topic-list">
++					<article><h3>JC活動の事務・準備に</h3><p>議案の構成整理、会議メモからの議事録づくり、事業計画や案内文のたたき台など、活動に合わせたAIの使い方をご相談いただけます。</p></article>
++					<article><h3>例会・セミナーの企画に</h3><p>AIを初めて使う会員向けの入門講座や、実際に手を動かす体験型の例会・研修など。目的・参加者・開催時間に合わせて内容をご相談いただけます。</p></article>
++				</div>
++				<div class="jc-inquiry">
++					<h3>企画が固まる前でも、ご相談ください。</h3>
++					<p>所属青年会議所・委員会名、相談したい内容、開催希望時期、参加人数、ご予算を、分かる範囲でお知らせください。未定の項目は「未定」で構いません。</p>
++					<div class="button-row"><a class="button primary" href={seminarUrl}>例会・セミナー開催を相談する</a><a class="button" href={`${contactUrl}?type=ai`}>JC活動のAI活用を相談する</a></div>
++					<p class="inquiry-note">T&amp;Lサポート株式会社のお問い合わせフォームが開きます。講師料・支援費用は内容や開催条件に応じてご案内します。</p>
+ 				</div>
+ 			</section>
+ 
+@@ -105,9 +147,45 @@
+ 					<h2 id="contact-title">AI活用と経営の相談は、<br />T&amp;Lサポートへ。</h2>
+ 					<p>法人としてのAI活用・業務整理・経営伴走のご相談は、T&Lサポート株式会社で承ります。</p>
+ 				</div>
+-				<a class="button contact-button" href={COMPANY_URL} target="_blank" rel="noopener noreferrer">相談内容を確認する</a>
++				<a class="button contact-button" href={contactUrl}>AI活用・経営を相談する</a>
+ 			</section>
+ 		</main>
+ 		<Footer />
+ 	</body>
+ </html>
++
++<style>
++	.profile-nav { display:flex; flex-wrap:wrap; gap:8px 24px; margin-top:24px; }
++	.profile-nav a { display:inline-flex; align-items:center; min-height:44px; font-weight:700; text-decoration:underline; text-underline-offset:5px; }
++	.roles { padding-block:56px; scroll-margin-top:96px; }
++	.section-intro { max-width:760px; }
++	.section-intro h2 { margin-bottom:16px; }
++	.section-intro > p:not(.about-kicker) { color:var(--muted); }
++	.credential-list { margin:28px 0 32px; }
++	.credential-list > div { display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:18px 0; border-bottom:1px solid var(--line); }
++	dt { color:var(--muted); }
++	dd { margin:0; font-weight:750; }
++	.jc-roles { padding:32px; background:var(--paper-deep); border-left:4px solid var(--coral); }
++	.jc-roles-heading { display:flex; flex-wrap:wrap; align-items:center; gap:12px 20px; }
++	.jc-roles-heading h3 { font-size:21px; margin:0; }
++	.term-label { background:var(--ink); color:#fff; padding:4px 12px; font-size:14px; font-weight:700; }
++	.jc-role-list { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin:24px 0 0; }
++	.jc-role-list > div + div { border-left:1px solid var(--line); padding-left:32px; }
++	.jc-role-list dd { font-size:clamp(23px,2.3vw,30px); margin-top:12px; }
++	.jc-consultation { padding-block:48px 56px; border-block:1px solid var(--line); scroll-margin-top:96px; }
++	.jc-topic-list { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:28px; }
++	.jc-topic-list h3,.jc-inquiry h3 { font-size:21px; margin-bottom:10px; }
++	.jc-topic-list p,.jc-inquiry > p { color:var(--muted); }
++	.jc-inquiry { margin-top:20px; padding-top:24px; border-top:1px solid var(--line); }
++	.jc-inquiry > p { max-width:800px; }
++	.jc-inquiry .button-row { margin-top:24px; }
++	.jc-inquiry .inquiry-note { margin-top:16px; font-size:14px; }
++	@media(max-width:760px) {
++		.roles,.jc-consultation { padding-block:36px; }
++		.credential-list > div { grid-template-columns:1fr; gap:6px; }
++		.jc-roles { padding:24px 20px; }
++		.jc-role-list,.jc-topic-list { grid-template-columns:1fr; gap:24px; }
++		.jc-role-list > div + div { border-left:0; padding-left:0; border-top:1px solid var(--line); padding-top:24px; }
++		.jc-inquiry .button { width:100%; text-align:center; white-space:normal; }
++	}
++</style>

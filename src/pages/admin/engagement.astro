@@ -1,0 +1,69 @@
+---
+import { getCollection } from 'astro:content';
+const posts = await getCollection('blog');
+const titles = Object.fromEntries(posts.map(post => [post.id, post.data.title]));
+---
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="robots" content="noindex,nofollow" /><meta name="referrer" content="no-referrer" /><title>記事の反応｜玉城祐輔 管理</title></head>
+<body>
+<main data-titles={JSON.stringify(titles)}>
+ <a href="/">← サイトへ</a><h1>記事の反応</h1>
+ <p>昨日までの30日間・日本時間。分析への同意がある閲覧と、ボタンで寄せられた反応を分けて確認します。</p>
+ <form id="login"><label for="token">管理用アクセスキー</label><div class="actions"><input id="token" type="password" autocomplete="current-password" required /><button>ログイン</button></div><p>キーはこのブラウザの保存領域には保管しません。ログインは8時間有効です。</p></form>
+ <p id="status" role="status" aria-live="polite"></p>
+ <section id="dashboard" hidden>
+  <div class="actions"><button id="refresh">表示を更新</button><button id="sync">GA4から再集計</button><button id="logout">ログアウト</button></div>
+  <p id="updated"></p><p id="connection"></p>
+  <div class="summary" id="summary"></div>
+  <p>「参考になった」「試してみたい」は匿名ブラウザ単位の反応です。GA4の閲覧数と対象が異なるため、この件数を閲覧数で割った率は表示していません。</p>
+  <div class="table-wrap"><table><caption>記事別の閲覧・反応</caption><thead><tr><th>記事</th><th>閲覧数<br />GA4</th><th>読了の目安<br />GA4</th><th>共有ボタン<br />GA4</th><th>リンクコピー<br />GA4</th><th>端末共有操作<br />GA4</th><th>参考になった<br />全反応</th><th>試してみたい<br />全反応</th><th>参考になった率<br />同意済閲覧あたり</th></tr></thead><tbody id="rows"></tbody></table></div>
+  <p>読了の目安＝本文を表示・操作できる状態で60秒以上かつ80%以上の位置へ到達。共有操作はSNSへの投稿完了を意味しません。「参考になった率」はGA4に記録できた反応イベント÷GA4閲覧数です。</p>
+  <details><summary>人気記事の表示基準</summary><p>閲覧ランキング：30日間で5閲覧以上。参考になった記事：同期間で3反応以上かつGA4で20閲覧以上。GA4の更新が72時間以上止まった場合はランキングを非表示にします。新着記事は引き続き表示します。</p></details>
+  <div class="table-wrap"><table><caption>日別の推移（GA4・最大30日）</caption><thead><tr><th>日付</th><th>閲覧数</th><th>読了の目安</th><th>共有操作の合計</th></tr></thead><tbody id="trend"></tbody></table></div>
+ </section>
+</main>
+</body>
+</html>
+<script>
+ const titles:Record<string,string>=JSON.parse(document.querySelector<HTMLElement>('main')!.dataset.titles!);
+ const status=document.querySelector<HTMLElement>('#status')!;
+ const dashboard=document.querySelector<HTMLElement>('#dashboard')!;
+ const login=document.querySelector<HTMLFormElement>('#login')!;
+ const token=document.querySelector<HTMLInputElement>('#token')!;
+ async function request(method='GET',body?:unknown) {
+  return fetch('/api/admin',{method,credentials:'same-origin',cache:'no-store',headers:body?{'Content-Type':'application/json'}:{},body:body?JSON.stringify(body):undefined});
+ }
+ function cell(row:HTMLTableRowElement,value:unknown) {const td=document.createElement('td');td.textContent=String(value);row.append(td);return td;}
+ function stat(label:string,value:unknown){const box=document.createElement('div');const strong=document.createElement('strong');strong.textContent=String(value);const span=document.createElement('span');span.textContent=label;box.append(strong,span);return box;}
+ async function load(){
+  try {
+   const res=await request();
+   if(res.status===401){login.hidden=false;dashboard.hidden=true;return;}
+   if(!res.ok)throw new Error();
+   type Row={article:string;views:number;helpful:number;try:number;helpfulEvents:number;[key:string]:string|number};
+   const data=await res.json() as {state:Record<string,string>;fresh:boolean;rows:Row[];trend:Record<string,string|number>[]};login.hidden=true;dashboard.hidden=false;
+   document.querySelector('#updated')!.textContent=data.state.last_success?'GA4最終更新：'+new Date(data.state.last_success).toLocaleString('ja-JP',{timeZone:'Asia/Tokyo'}):'GA4：未接続（閲覧数は未取得）';
+   document.querySelector('#connection')!.textContent=data.fresh?'GA4の集計は更新されています。':'GA4の接続・更新を確認してください。未取得値は「—」で表示します。';
+   const tbody=document.querySelector('#rows')!;tbody.replaceChildren();
+   for(const r of data.rows.sort((a:{views:number},b:{views:number})=>b.views-a.views)){
+    const row=document.createElement('tr');const td=cell(row,'');const a=document.createElement('a');a.href='/blog/'+encodeURIComponent(r.article)+'/';a.textContent=titles[r.article]||r.article;td.append(a);
+    for(const key of ['views','qualifiedReads','shareClicks','linkCopies','nativeShares'])cell(row,data.state.last_success?r[key]:'—');
+    cell(row,r.helpful);cell(row,r.try);cell(row,data.state.last_success&&r.views>=20?(r.helpfulEvents/r.views*100).toFixed(1)+'%':'—');tbody.append(row);
+   }
+   const sums=data.rows.reduce((s:{views:number;helpful:number;try:number},r:{views:number;helpful:number;try:number})=>({views:s.views+r.views,helpful:s.helpful+r.helpful,try:s.try+r.try}),{views:0,helpful:0,try:0});
+   document.querySelector('#summary')!.replaceChildren(stat('GA4閲覧数',data.state.last_success?sums.views:'未取得'),stat('参考になった',sums.helpful),stat('試してみたい',sums.try));
+   const trend=document.querySelector('#trend')!;trend.replaceChildren();
+   for(const r of data.trend){const row=document.createElement('tr');for(const key of ['date','views','qualifiedReads','shareActions'])cell(row,r[key]);trend.append(row);}
+   status.textContent='更新しました。';
+  }catch{status.textContent='読み込めませんでした。時間をおいて再試行してください。';}
+ }
+ login.addEventListener('submit',async(event)=>{event.preventDefault();const button=login.querySelector('button')!;button.disabled=true;try{const res=await request('POST',{token:token.value});token.value='';if(!res.ok){status.textContent=res.status===429?'しばらく待ってから再試行してください。':'アクセスキーを確認してください。';return;}await load();}catch{status.textContent='接続できませんでした。';}finally{button.disabled=false;}});
+ document.querySelector('#refresh')!.addEventListener('click',()=>void load());
+ document.querySelector('#sync')!.addEventListener('click',async(event)=>{const button=event.currentTarget as HTMLButtonElement;button.disabled=true;status.textContent='GA4を集計しています…';try{const res=await request('POST',{action:'sync'});if(!res.ok){status.textContent='集計できませんでした。GA4の接続設定・閲覧権限を確認してください。';return;}await load();}catch{status.textContent='接続できませんでした。';}finally{button.disabled=false;}});
+ document.querySelector('#logout')!.addEventListener('click',async()=>{try{const res=await request('DELETE');if(!res.ok)throw new Error();dashboard.hidden=true;login.hidden=false;status.textContent='ログアウトしました。';}catch{status.textContent='ログアウトできませんでした。再試行してください。';}});
+ void load();
+</script>
+<style>
+ :global(body){margin:0;background:#f6f5ef;color:#20271e;font:16px/1.7 system-ui,sans-serif}main{max-width:1250px;margin:auto;padding:40px 24px}h1{font-size:clamp(28px,5vw,44px)}a{color:#245f43}p{max-width:85ch}button,input{font:inherit;border:1px solid #bbc6b7;border-radius:8px;padding:10px 16px}button{background:#264d36;color:white;cursor:pointer;min-height:44px}button:disabled{opacity:.5}input{min-width:0;flex:1}label{display:block;font-weight:700}.actions{display:flex;gap:12px;flex-wrap:wrap}form{max-width:650px;margin:32px 0}.table-wrap{overflow-x:auto;margin:28px 0}table{border-collapse:collapse;width:100%;min-width:750px;background:white}caption{text-align:left;font-weight:bold;padding:10px 0}th,td{padding:12px;border-bottom:1px solid #e0e4da;text-align:left}th{white-space:nowrap;font-size:13px}td:first-child{min-width:230px}#status{min-height:2em}.summary{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}.summary :global(div){background:white;padding:20px;min-width:160px;border-radius:8px}.summary :global(strong),.summary :global(span){display:block}.summary :global(strong){font-size:30px}[hidden]{display:none!important}@media(max-width:500px){main{padding:24px 16px}.summary{display:grid;grid-template-columns:1fr}.actions{gap:8px}}
+</style>

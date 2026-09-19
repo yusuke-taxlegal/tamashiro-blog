@@ -1,0 +1,306 @@
+<!DOCTYPE html><html lang="ja" data-astro-cid-tldeq5d5> <head><meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta name="theme-color" content="#171915"> <meta name="google-site-verification" content="ZOHyxB9OxiSl2kg7iNFCxDlsYK6K5h7e890uRt8Vyt0"> <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2"> <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.png?v=2"> <link rel="shortcut icon" href="/favicon.ico?v=2"> <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=2"> <link rel="sitemap" href="/sitemap-index.xml"> <link rel="alternate" type="application/rss+xml" title="玉城祐輔｜AIとデジタルを、現場で使える形に。" href="https://ysk.life/rss.xml"> <meta name="generator" content="Astro v7.2.1"> <link rel="canonical" href="https://ysk.life/blog/google-workspace-gmail-gemini-productivity/"> <title>Gmailでメール返信が劇的に軽くなった｜玉城祐輔</title> <meta name="title" content="Gmailでメール返信が劇的に軽くなった｜玉城祐輔"> <meta name="description" content="受信メールの返信欄でGeminiを開き、「返信」のひと言から下書きを即座に作る。Gmailで一つでも操作を減らす使い方を紹介します。"> <meta name="author" content="玉城祐輔"> <meta property="og:type" content="article"> <meta property="og:locale" content="ja_JP"> <meta property="og:site_name" content="玉城祐輔"> <meta property="og:url" content="https://ysk.life/blog/google-workspace-gmail-gemini-productivity/"> <meta property="og:title" content="Gmailでメール返信が劇的に軽くなった｜玉城祐輔"> <meta property="og:description" content="受信メールの返信欄でGeminiを開き、「返信」のひと言から下書きを即座に作る。Gmailで一つでも操作を減らす使い方を紹介します。"> <meta property="og:image" content="https://ysk.life/_astro/hero-tamashiro-yusuke-email-draft.uRBsXRPi.webp"> <meta property="og:image:secure_url" content="https://ysk.life/_astro/hero-tamashiro-yusuke-email-draft.uRBsXRPi.webp"> <meta property="og:image:width" content="1536"> <meta property="og:image:height" content="1024"> <meta property="og:image:alt" content="Gmailでメール返信が劇的に軽くなった"> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="Gmailでメール返信が劇的に軽くなった｜玉城祐輔"> <meta name="twitter:description" content="受信メールの返信欄でGeminiを開き、「返信」のひと言から下書きを即座に作る。Gmailで一つでも操作を減らす使い方を紹介します。"> <meta name="twitter:image" content="https://ysk.life/_astro/hero-tamashiro-yusuke-email-draft.uRBsXRPi.webp"> <meta name="twitter:image:alt" content="Gmailでメール返信が劇的に軽くなった"> <script>
+	(() => {
+		const measurementId = 'G-752CVHZQNC';
+		const consentKey = 'ysk-analytics-consent-v1';
+		const acceptedValue = 'granted';
+		const declinedValue = 'denied';
+
+		const readConsent = () => {
+			try {
+				return window.localStorage.getItem(consentKey);
+			} catch {
+				return null;
+			}
+		};
+
+		const saveConsent = (value) => {
+			try {
+				window.localStorage.setItem(consentKey, value);
+			} catch {
+				// Storage can be unavailable in private browsing or restricted browsers.
+			}
+		};
+
+		const removeConsent = () => {
+			try {
+				window.localStorage.removeItem(consentKey);
+			} catch {
+				// Keep the page usable even when storage is unavailable.
+			}
+		};
+
+		const loadAnalytics = () => {
+			if (window.__yskAnalyticsLoaded) return;
+			window.__yskAnalyticsLoaded = true;
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = function () {
+				window.dataLayer.push(arguments);
+			};
+			window.gtag('js', new Date());
+			window.gtag('config', measurementId, {
+				allow_google_signals: false,
+				allow_ad_personalization_signals: false,
+			});
+
+			const script = document.createElement('script');
+			script.async = true;
+			script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+			document.head.appendChild(script);
+		};
+
+		const removeBanner = () => {
+			document.querySelector('[data-analytics-consent]')?.remove();
+		};
+
+		const showBanner = () => {
+			if (document.querySelector('[data-analytics-consent]')) return;
+
+			const banner = document.createElement('aside');
+			banner.className = 'analytics-consent';
+			banner.dataset.analyticsConsent = '';
+			banner.setAttribute('aria-label', 'アクセス解析の設定');
+			banner.innerHTML = `
+				<div class="analytics-consent__inner">
+					<p><strong>アクセス解析について</strong><span>サイト改善のためGoogle Analyticsを使用します。許可するまで計測は始まりません。<a href="/privacy/#analytics">詳しく見る</a></span></p>
+					<div class="analytics-consent__actions">
+						<button type="button" data-analytics-decline>許可しない</button>
+						<button type="button" class="primary" data-analytics-accept>許可する</button>
+					</div>
+				</div>`;
+			document.body.appendChild(banner);
+
+			banner.querySelector('[data-analytics-accept]')?.addEventListener('click', () => {
+				saveConsent(acceptedValue);
+				removeBanner();
+				loadAnalytics();
+			});
+			banner.querySelector('[data-analytics-decline]')?.addEventListener('click', () => {
+				saveConsent(declinedValue);
+				removeBanner();
+			});
+		};
+
+		const initialize = () => {
+			const consent = readConsent();
+			if (consent === acceptedValue) loadAnalytics();
+			else if (consent !== declinedValue) showBanner();
+
+			document.querySelector('[data-analytics-consent-reset]')?.addEventListener('click', () => {
+				removeConsent();
+				showBanner();
+			});
+		};
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initialize, { once: true });
+		} else {
+			initialize();
+		}
+	})();
+</script><link rel="stylesheet" href="/_astro/Header.vNaMTfFZ.css"><link rel="stylesheet" href="/_astro/BlogGenreNav.-Av1WMRZ.css"><style>.share-panel[data-astro-cid-eqjx2q6l]{flex-direction:column;align-items:flex-start;max-width:100%;display:inline-flex}.share-actions[data-astro-cid-eqjx2q6l]{flex-wrap:nowrap;gap:.55rem;display:flex}.share-button[data-astro-cid-eqjx2q6l]{cursor:pointer;border:1px solid var(--line);background:color-mix(in srgb, var(--white) 72%, transparent);width:2.875rem;height:2.875rem;color:var(--ink);font:inherit;border-radius:999px;justify-content:center;align-items:center;padding:0;text-decoration:none;transition:transform .16s,border-color .16s,background-color .16s,color .16s;display:inline-flex;position:relative;box-shadow:0 1px #fffdf8b8}.share-button[data-astro-cid-eqjx2q6l]:hover{border-color:var(--coral);background:var(--coral);color:var(--white);transform:translateY(-1px)}.share-button[data-astro-cid-eqjx2q6l]:active{transform:translateY(0)scale(.96)}.share-button[data-astro-cid-eqjx2q6l]:focus-visible{outline:3px solid var(--coral);outline-offset:3px}.share-icon[data-astro-cid-eqjx2q6l]{width:1.3rem;height:1.3rem}.share-button[data-astro-cid-eqjx2q6l]:after{background:var(--ink);color:var(--white);content:attr(data-tooltip);opacity:0;pointer-events:none;white-space:nowrap;z-index:1;border-radius:.45rem;padding:.35rem .55rem;font-size:.66rem;font-weight:700;line-height:1.35;transition:opacity .14s,transform .14s;position:absolute;bottom:calc(100% + .55rem);left:50%;transform:translate(-50%,.2rem)}.share-button[data-astro-cid-eqjx2q6l]:hover:after,.share-button[data-astro-cid-eqjx2q6l]:focus-visible:after{opacity:1;transform:translate(-50%)}.share-status[data-astro-cid-eqjx2q6l]{max-width:min(24rem,100vw - 2rem);color:var(--muted);margin:0;font-size:.72rem;line-height:1.6}.share-status[data-astro-cid-eqjx2q6l]:not(:empty){margin-top:.65rem}@media (hover:none){.share-button[data-astro-cid-eqjx2q6l]:after{display:none}}@media (prefers-reduced-motion:reduce){.share-button[data-astro-cid-eqjx2q6l],.share-button[data-astro-cid-eqjx2q6l]:after{transition:none}}
+</style><link rel="stylesheet" href="/_astro/WebApps.Bp6qbTHi.css"><link rel="stylesheet" href="/_astro/_..VrzJgKDI.css"></head> <body data-astro-cid-tldeq5d5> <header class="site-header" data-astro-cid-nen7h5rs> <a class="skip-link" href="#main-content" data-astro-cid-nen7h5rs>本文へ移動</a> <nav class="shell" aria-label="メインナビゲーション" data-astro-cid-nen7h5rs> <a class="brand" href="/" aria-label="玉城祐輔 ホーム" data-astro-cid-nen7h5rs> <span class="brand-mark" aria-hidden="true" data-astro-cid-nen7h5rs> <img src="/images/tamashiro-yusuke-logo.svg?v=3" alt="" width="64" height="64" decoding="async" data-astro-cid-nen7h5rs> </span> </a> <div class="internal-links" data-astro-cid-nen7h5rs> <a href="/blog" class="active" aria-current="page" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 読む </a> <a href="/toolbox" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 道具箱 </a> <a href="/about" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 玉城について </a> </div> </nav> </header> <main id="main-content" data-astro-cid-tldeq5d5> <article data-astro-cid-tldeq5d5> <header class="article-hero" data-astro-cid-tldeq5d5> <div class="shell article-hero-inner" data-astro-cid-tldeq5d5> <div class="article-copy" data-astro-cid-tldeq5d5> <a class="back-link" href="/blog" data-astro-cid-tldeq5d5>記事一覧へ戻る</a> <p class="category" data-astro-cid-tldeq5d5>AIの使い方</p> <h1 data-astro-cid-tldeq5d5>Gmailでメール返信が劇的に軽くなった</h1> <p class="description" data-astro-cid-tldeq5d5>受信メールの返信欄でGeminiを開き、「返信」のひと言から下書きを即座に作る。Gmailで一つでも操作を減らす使い方を紹介します。</p> <div class="article-meta" data-astro-cid-tldeq5d5> <span data-astro-cid-tldeq5d5>公開 <time datetime="2026-08-20T00:00:00.000Z"> 2026年8月20日 </time></span> <span data-astro-cid-tldeq5d5>更新 <time datetime="2026-08-21T00:00:00.000Z"> 2026年8月21日 </time></span> <span data-astro-cid-tldeq5d5>読了 約9分</span> </div> </div> <div class="cover-image" data-astro-cid-tldeq5d5>  <img src="/_astro/hero-tamashiro-yusuke-email-draft.uRBsXRPi_1X1oKX.webp" alt loading="eager" fetchpriority="high" data-astro-cid-tldeq5d5="true" decoding="async" width="900" height="600"> </div> </div> </header> <div class="article-share article-share-top" data-astro-cid-tldeq5d5> <div class="share-panel" role="group" aria-label="この記事を共有" data-share-root data-share-url="https://ysk.life/blog/google-workspace-gmail-gemini-productivity/" data-share-title="Gmailでメール返信が劇的に軽くなった" data-astro-cid-eqjx2q6l> <div class="share-actions" data-astro-cid-eqjx2q6l> <a class="share-button line" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fysk.life%2Fblog%2Fgoogle-workspace-gmail-gemini-productivity%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="LINEで送る" data-tooltip="LINEで送る" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:line-fill">   <symbol id="ai:ri:line-fill"><path fill="currentColor" d="M18.664 10.84a.526.526 0 0 1-.526.525h-1.462v.938h1.463a.525.525 0 1 1 0 1.049H16.15a.526.526 0 0 1-.522-.524V8.852c0-.287.235-.525.525-.525h1.988a.526.526 0 0 1-.002 1.05h-1.463v.938h1.463c.29 0 .524.237.524.525m-4.098 2.485a.5.5 0 0 1-.166.025a.52.52 0 0 1-.425-.208l-2.036-2.764v2.45a.525.525 0 0 1-1.047 0V8.852a.52.52 0 0 1 .52-.523c.162 0 .312.086.412.211l2.052 2.775V8.852c0-.287.235-.525.525-.525c.287 0 .525.238.525.525v3.976a.52.52 0 0 1-.36.497m-4.95.027a.526.526 0 0 1-.523-.524V8.852c0-.287.235-.525.525-.525c.289 0 .524.238.524.525v3.976a.527.527 0 0 1-.526.524m-1.53 0H6.099a.53.53 0 0 1-.525-.524V8.852c0-.287.238-.525.525-.525c.29 0 .525.238.525.525v3.45h1.464a.525.525 0 0 1 0 1.05m3.915-10.78c-5.513 0-10 3.643-10 8.118c0 4.01 3.558 7.369 8.363 8.007c.325.068.769.215.881.492c.1.25.066.638.032.9l-.137.85c-.037.25-.2.988.874.537c1.076-.449 5.764-3.398 7.864-5.812C21.314 14.089 22 12.477 22 10.69c0-4.475-4.488-8.118-10-8.118"/></symbol><use href="#ai:ri:line-fill"></use>  </svg> </a> <a class="share-button facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fysk.life%2Fblog%2Fgoogle-workspace-gmail-gemini-productivity%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="Facebookで共有" data-tooltip="Facebookで共有" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:facebook-fill">   <symbol id="ai:ri:facebook-fill"><path fill="currentColor" d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4z"/></symbol><use href="#ai:ri:facebook-fill"></use>  </svg> </a> <button class="share-button instagram" type="button" aria-label="Instagramで共有" data-tooltip="Instagramで共有" data-share-instagram data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:instagram-line">   <symbol id="ai:ri:instagram-line"><path fill="currentColor" d="M12.001 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6m0-2a5 5 0 1 1 0 10a5 5 0 0 1 0-10m6.5-.25a1.25 1.25 0 0 1-2.5 0a1.25 1.25 0 0 1 2.5 0M12.001 4c-2.474 0-2.878.007-4.029.058c-.784.037-1.31.142-1.798.332a2.9 2.9 0 0 0-1.08.703a2.9 2.9 0 0 0-.704 1.08c-.19.49-.295 1.015-.331 1.798C4.007 9.075 4 9.461 4 12c0 2.475.007 2.878.058 4.029c.037.783.142 1.31.331 1.797c.17.435.37.748.702 1.08c.337.336.65.537 1.08.703c.494.191 1.02.297 1.8.333C9.075 19.994 9.461 20 12 20c2.475 0 2.878-.007 4.029-.058c.782-.037 1.308-.142 1.797-.331a2.9 2.9 0 0 0 1.08-.703c.337-.336.538-.649.704-1.08c.19-.492.296-1.018.332-1.8c.052-1.103.058-1.49.058-4.028c0-2.474-.007-2.878-.058-4.029c-.037-.782-.143-1.31-.332-1.798a2.9 2.9 0 0 0-.703-1.08a2.9 2.9 0 0 0-1.08-.704c-.49-.19-1.016-.295-1.798-.331C14.926 4.006 14.54 4 12 4m0-2c2.717 0 3.056.01 4.123.06c1.064.05 1.79.217 2.427.465c.66.254 1.216.598 1.772 1.153a4.9 4.9 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428c.047 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122s-.218 1.79-.465 2.428a4.9 4.9 0 0 1-1.153 1.772a4.9 4.9 0 0 1-1.772 1.153c-.637.247-1.363.415-2.427.465c-1.067.047-1.406.06-4.123.06s-3.056-.01-4.123-.06c-1.064-.05-1.789-.218-2.427-.465a4.9 4.9 0 0 1-1.772-1.153a4.9 4.9 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.012 15.056 2 14.717 2 12s.01-3.056.06-4.122s.217-1.79.465-2.428a4.9 4.9 0 0 1 1.153-1.772A4.9 4.9 0 0 1 5.45 2.525c.637-.248 1.362-.415 2.427-.465C8.945 2.013 9.284 2 12.001 2"/></symbol><use href="#ai:ri:instagram-line"></use>  </svg> </button> <button class="share-button copy" type="button" aria-label="記事のリンクをコピー" data-tooltip="リンクをコピー" data-share-copy data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:file-copy-line">   <symbol id="ai:ri:file-copy-line"><path fill="currentColor" d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .552-.45 1-1.007 1H4.007A1 1 0 0 1 3 21l.003-14c0-.552.45-1 1.006-1zM5.002 8L5 20h10V8zM9 6h8v10h2V4H9z"/></symbol><use href="#ai:ri:file-copy-line"></use>  </svg> </button> </div> <p class="share-status" aria-live="polite" data-share-status data-astro-cid-eqjx2q6l></p> </div> <script>
+	(() => {
+		if (window.__yskShareButtonsInitialized) return;
+		window.__yskShareButtonsInitialized = true;
+
+		const copyText = async (text) => {
+			if (navigator.clipboard && window.isSecureContext) {
+				await navigator.clipboard.writeText(text);
+				return;
+			}
+
+			const input = document.createElement('textarea');
+			input.value = text;
+			input.setAttribute('readonly', '');
+			input.style.position = 'fixed';
+			input.style.opacity = '0';
+			document.body.appendChild(input);
+			input.select();
+			const copied = document.execCommand('copy');
+			input.remove();
+			if (!copied) throw new Error('Copy failed');
+		};
+
+		document.addEventListener('click', async (event) => {
+			const button = event.target.closest('[data-share-copy], [data-share-instagram]');
+			if (!button) return;
+
+			const root = button.closest('[data-share-root]');
+			if (!root) return;
+
+			const url = root.dataset.shareUrl;
+			const title = root.dataset.shareTitle;
+			const status = root.querySelector('[data-share-status]');
+			if (!url || !title || !status) return;
+
+			status.textContent = '';
+
+			try {
+				if (button.matches('[data-share-instagram]') && navigator.share) {
+					await navigator.share({ title, url });
+					return;
+				}
+
+				await copyText(url);
+				status.textContent = button.matches('[data-share-instagram]')
+					? 'リンクをコピーしました。InstagramのDMなどに貼り付けてください。'
+					: 'リンクをコピーしました。';
+			} catch (error) {
+				if (error && error.name === 'AbortError') return;
+				status.textContent = 'コピーできませんでした。ブラウザのアドレス欄からURLをコピーしてください。';
+			}
+		});
+	})();
+</script> </div> <div class="article-shell" data-astro-cid-tldeq5d5> <aside class="article-aside" data-astro-cid-tldeq5d5> <details class="article-toc" open data-astro-cid-tldeq5d5> <summary data-astro-cid-tldeq5d5>この記事の内容</summary> <nav aria-label="この記事の内容" data-astro-cid-tldeq5d5> <ol data-astro-cid-tldeq5d5> <li data-astro-cid-tldeq5d5><a href="#一番の変化はaiが送信することではなく下書きから始められること" data-astro-cid-tldeq5d5>一番の変化は、AIが送信することではなく、下書きから始められること</a></li><li data-astro-cid-tldeq5d5><a href="#以前はメールを別のaiへ運ぶ作業が必要だった" data-astro-cid-tldeq5d5>以前は、メールを別のAIへ運ぶ作業が必要だった</a></li><li data-astro-cid-tldeq5d5><a href="#返信はまず返信だけで下書きを出す" data-astro-cid-tldeq5d5>返信は、まず「返信」だけで下書きを出す</a></li><li data-astro-cid-tldeq5d5><a href="#新規メールは最低限だけ伝えて下書きを出す" data-astro-cid-tldeq5d5>新規メールは、最低限だけ伝えて下書きを出す</a></li><li data-astro-cid-tldeq5d5><a href="#過去のメールとdriveに情報があるほど下書きは実務に近づく" data-astro-cid-tldeq5d5>過去のメールとDriveに情報があるほど、下書きは実務に近づく</a></li><li data-astro-cid-tldeq5d5><a href="#最後の確認は必ず人が行う" data-astro-cid-tldeq5d5>最後の確認は、必ず人が行う</a></li><li data-astro-cid-tldeq5d5><a href="#中小企業はまず1通の返信から試せばよい" data-astro-cid-tldeq5d5>中小企業は、まず1通の返信から試せばよい</a></li><li data-astro-cid-tldeq5d5><a href="#google-workspaceの便利さはいつもの仕事の中にaiがいること" data-astro-cid-tldeq5d5>Google Workspaceの便利さは、いつもの仕事の中にAIがいること</a></li><li data-astro-cid-tldeq5d5><a href="#公式情報と利用前の確認" data-astro-cid-tldeq5d5>公式情報と利用前の確認</a></li> </ol> </nav> <div class="article-caution" data-astro-cid-tldeq5d5> <p data-astro-cid-tldeq5d5>情報の確認</p> <span data-astro-cid-tldeq5d5>掲載時点の情報です。料金、制度、サービス仕様は、必ず公式情報も確認してください。</span> </div> </details> <div class="article-aside-desktop" data-astro-cid-tldeq5d5> <section class="aside-section" aria-labelledby="aside-genres-heading" data-astro-cid-tldeq5d5> <h2 id="aside-genres-heading" data-astro-cid-tldeq5d5>ジャンルから探す</h2> <nav class="blog-genre-nav compact" aria-label="記事のジャンル" data-astro-cid-3vbq5m5q> <a href="/blog/#genre-ai" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>AIの使い方</strong>  </span> <span class="genre-count" data-astro-cid-3vbq5m5q> → </span> </a><a href="/blog/#genre-tools" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>仕事と暮らしの道具</strong>  </span> <span class="genre-count" data-astro-cid-3vbq5m5q> → </span> </a><a href="/blog/#genre-management" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>経営と仕事の仕組み</strong>  </span> <span class="genre-count" data-astro-cid-3vbq5m5q> → </span> </a> </nav> </section> <section class="aside-section" aria-labelledby="aside-next-heading" data-astro-cid-tldeq5d5> <h2 id="aside-next-heading" data-astro-cid-tldeq5d5>次に読む</h2> <div class="aside-articles" data-astro-cid-tldeq5d5> <a href="/blog/chatgpt-business-nyumon/" data-astro-cid-tldeq5d5>  <img src="/_astro/practical-ai-workshop.DElgcIIz_ZNgoH.webp" alt loading="lazy" data-astro-cid-tldeq5d5="true" decoding="async" width="160" height="106"> <span data-astro-cid-tldeq5d5>ChatGPT・Claude、中小企業での実践的な使い方。セミナーでよく出る質問まとめ</span> </a><a href="/blog/wws-workwear-suit-ankle-pants/" data-astro-cid-tldeq5d5>  <img src="/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1CktzR.webp" alt loading="lazy" data-astro-cid-tldeq5d5="true" decoding="async" width="160" height="106"> <span data-astro-cid-tldeq5d5>毎日履いて、ほつれない。WWSのアンクルパンツ</span> </a> </div> </section> <section class="aside-section" aria-labelledby="aside-apps-heading" data-astro-cid-tldeq5d5> <h2 id="aside-apps-heading" data-astro-cid-tldeq5d5>作ったWebアプリ</h2> <div class="web-apps compact" data-astro-cid-p2qrvzwu> <a class="web-app primary" href="https://jizoka.app/" target="_blank" rel="noopener noreferrer" data-astro-cid-p2qrvzwu> <img src="/images/apps/jizoka-ogp.png" alt="JIZOKA 持続化補助金 計画書づくりサポート" width="1200" height="630" loading="lazy" decoding="async" data-astro-cid-p2qrvzwu> <div class="web-app-copy" data-astro-cid-p2qrvzwu> <strong data-astro-cid-p2qrvzwu>JIZOKA</strong>   </div> </a><a class="web-app" href="https://seminar-flow.com/" target="_blank" rel="noopener noreferrer" data-astro-cid-p2qrvzwu> <img src="/images/apps/seminarflow-ogp.png" alt="SeminarFlow セミナー運営を一か所にまとめる" width="1200" height="630" loading="lazy" decoding="async" data-astro-cid-p2qrvzwu> <div class="web-app-copy" data-astro-cid-p2qrvzwu> <strong data-astro-cid-p2qrvzwu>SeminarFlow</strong>   </div> </a><a class="web-app" href="https://kisoku-zaishin.com/" target="_blank" rel="noopener noreferrer" data-astro-cid-p2qrvzwu> <img src="/images/apps/kisoku-zaishin-ogp.png" alt="JCI規則財審アシスタント リンクを確かめて議案番号を組み立てる" width="1200" height="630" loading="lazy" decoding="async" data-astro-cid-p2qrvzwu> <div class="web-app-copy" data-astro-cid-p2qrvzwu> <strong data-astro-cid-p2qrvzwu>JCI規則財審アシスタント</strong>   </div> </a><a class="web-app" href="https://poireshi.com/" target="_blank" rel="noopener noreferrer" data-astro-cid-p2qrvzwu> <img src="/images/apps/poireshi-ogp.png" alt="ポイレシ 領収書はLINEにポイッ" width="1200" height="630" loading="lazy" decoding="async" data-astro-cid-p2qrvzwu> <div class="web-app-copy" data-astro-cid-p2qrvzwu> <strong data-astro-cid-p2qrvzwu>ポイレシ</strong>   </div> </a> </div> </section> </div> </aside> <div class="prose" data-astro-cid-tldeq5d5>  <!-- product-article-character-sheets: tamashiro-yusuke-business-casual-character-sheet-v3.png -->
+<!-- product-article-character-check: hero-and-body-verified -->
+<p>お客様から届いた問い合わせメールを開き、「どう返そうか」と手が止まる。</p>
+<p>メールの内容は理解できていても、失礼のない書き出し、伝える順番、言い回しを考えているうちに時間が過ぎていきます。特にクレームや確認事項の多いメールは、返信を始めるまでが重い仕事でした。</p>
+<p>Google Workspaceを使うようになって、私が最初に大きな変化を感じたのが、このメール作成と返信です。</p>
+<p><strong>Gmailの中でGeminiに下書きを頼めるようになり、「最初の一文を書く」というハードルが大きく下がりました。</strong></p>
+<p>しかも、返信前にメールを要約したり、伝えたい要件を整理したりする必要はありません。受信メールの返信欄でGeminiを開き、まず「返信」と入れて下書きを出す。私が便利だと感じているのは、この省力化です。</p>
+<h2 id="一番の変化はaiが送信することではなく下書きから始められること">一番の変化は、AIが送信することではなく、下書きから始められること</h2>
+<p>Geminiが作った文章を、そのまま一発で送れるとは限りません。宛先、日付、金額、約束する内容、添付ファイルは、自分で確認する必要があります。</p>
+<p>それでも、白紙の状態から考え始めるのと、たたき台を読んで直すのとでは、負担がまったく違います。</p>
+<p>私にとっての生産性向上は、文字を打つ速度が上がったことではありません。<strong>「どう書き始めよう」と悩む時間が減り、確認と判断に集中できるようになったこと</strong>です。</p>
+<p>AIを使う前の準備も、できる限り増やしたくありません。一つのクリック、一つの入力、一つの画面移動でも減らすことが、毎日の仕事では効いてきます。</p>
+<h2 id="以前はメールを別のaiへ運ぶ作業が必要だった">以前は、メールを別のAIへ運ぶ作業が必要だった</h2>
+<p>これまでも、AIにメールの下書きを作ってもらうことはできました。ただし、実際には次のような作業が発生します。</p>
+<ol>
+<li>Gmailで受信メールを開く</li>
+<li>本文をコピーする</li>
+<li>別のAIツールを開いて貼り付ける</li>
+<li>相手との関係や、これまでの経緯を説明する</li>
+<li>生成された文章をGmailへ戻す</li>
+<li>内容を確認して送信する</li>
+</ol>
+<p>一つひとつは小さな操作ですが、毎日何通も重なると無視できません。画面を行き来するたびに、何を伝えたかったのかも頭の中で組み直す必要があります。</p>
+<p><img alt="玉城祐輔が、複数画面を行き来する以前のメール作成と、Gmail内で下書きを作る流れを比較しているイラスト" loading="lazy" decoding="async" width="1600" height="900" src="/_astro/tamashiro-yusuke-before-after-workflow.CunzsNDl_1stDBS.webp" srcset=""></p>
+<p>GmailのGeminiなら、メールを開いた場所から下書き作成へ進めます。Googleの公式ヘルプでも、Gmailの「Help me write」で新規メールや返信の下書きを作り、既存文面をフォーマルにする、短くする、内容を追加するといった調整ができると案内されています。</p>
+<p>特に返信では、Geminiがスレッド内の過去のメッセージを踏まえて、会話に沿った下書きを作れます。こちらが毎回、メールの経緯をコピーして説明し直す必要はありません。</p>
+<h2 id="返信はまず返信だけで下書きを出す">返信は、まず「返信」だけで下書きを出す</h2>
+<p>正直、AIへ指示するためにメールを要約したり、返信の要件を整理したりすること自体が面倒です。</p>
+<p>AIを使うための下準備が新しい仕事になってしまえば、究極の省力化にはなりません。私が最初に求めるのは、完璧な文章ではなく、<strong>返信のたたき台が即座に出ること</strong>です。</p>
+<h3 id="1-受信メールの返信欄を開く">1. 受信メールの返信欄を開く</h3>
+<p>まず、届いたメールの返信欄を開きます。この時点で、Gmailには相手から届いたメールと、それまでのやり取りがあります。</p>
+<p>本文をコピーして別のAIへ移す必要はありません。返信前に、自分でスレッドを要約する必要もありません。</p>
+<p><img alt="Gmailの返信欄で、玉城祐輔がGeminiのボタンを指し、「返信」と入力する場所を案内している操作イメージ" loading="lazy" decoding="async" width="1600" height="900" src="/_astro/tamashiro-yusuke-gmail-gemini-reply-ui.Bwnct934_Z1bMIle.webp" srcset=""></p>
+<h3 id="2-geminiのボタンを押し返信と入れる">2. Geminiのボタンを押し、「返信」と入れる</h3>
+<p>返信欄にあるGeminiのボタンを押し、私はまず、これだけ入力します。</p>
+<blockquote>
+<p>返信</p>
+</blockquote>
+<p>私の環境では、これでGeminiがメールのやり取りを踏まえた返信の下書きを作ります。</p>
+<p>Googleの公式情報でも、「Help me write」はメールスレッド内の過去のメッセージの文脈を理解し、会話に関連する返信下書きを作ると説明されています。</p>
+<p>利用環境によっては、開いているメールで「このメールへの返信を提案」を選ぶ導線や、スレッド全体を考慮した返信候補が表示される場合もあります。そのボタンが使えるなら、文字を入力する操作さえ減らせます。</p>
+<h3 id="3-必要な修正だけ後から指示する">3. 必要な修正だけ、後から指示する</h3>
+<p>まず出てきた下書きを読みます。そのまま使えそうなら、事実関係を確認して送ります。</p>
+<p>不足があるときだけ、「金曜日までに一次回答すると入れて」「もう少しやわらかく」「短くして」と追加します。</p>
+<p>2026年6月のGoogle公式アップデートでは、最初の下書きに対し、「2行目へ不足情報を加える」「期限を入れる」といった追加指示で文面を更新できる機能も案内されています。</p>
+<p>大事なのは、最初から詳しい指示文を作ろうとしないことです。**まず下書きを出し、その下書きに足りない部分だけを直す。**この順番が、もっとも行動を減らせる使い方だと感じています。</p>
+<h2 id="新規メールは最低限だけ伝えて下書きを出す">新規メールは、最低限だけ伝えて下書きを出す</h2>
+<p>返信メールには、すでに相手とのやり取りがあります。一方、新規メールには返信元となる文脈がありません。そのため、目的だけは短く伝えます。</p>
+<p>たとえば、長い依頼文を考える必要はありません。</p>
+<blockquote>
+<p>昨日の相談のお礼。来週火曜日までに次の進め方を連絡。</p>
+</blockquote>
+<p>まず下書きを出してから、必要な内容を追加します。新規メールでも、指示文をきれいに書くことへ時間を使わないのがポイントです。</p>
+<h2 id="過去のメールとdriveに情報があるほど下書きは実務に近づく">過去のメールとDriveに情報があるほど、下書きは実務に近づく</h2>
+<p>Gmail内でGeminiを使う価値は、文章を生成できることだけではありません。</p>
+<p>Googleの公式ヘルプでは、「Help me write」が他のメールやDriveファイルから関連情報を取り込み、下書きを個別化できると説明されています。参照したメールや文書は「Sources」から確認できます。</p>
+<p>たとえば、過去のメールに打ち合わせの経緯があり、Driveに見積書や議事録が整理されていれば、必要になったときに情報を探してもらえます。</p>
+<p>だから私は、Google Workspaceを単なるメールとファイル保存のセットではなく、<strong>会社の仕事の経緯を、必要な権限の中でAIが参照しやすくする基盤</strong>だと考えています。</p>
+<p>ただし、資料名がばらばらで、古い版と最新版が混在していれば、AIも正しい情報を選びにくくなります。Gmailの活用と並行して、Driveのフォルダ、ファイル名、共有権限を整えることが大切です。</p>
+<h2 id="最後の確認は必ず人が行う">最後の確認は、必ず人が行う</h2>
+<p>AIが作るのは、あくまで下書きです。Googleの公式ヘルプにも、Geminiは不正確な内容を生成する場合があるため、提案内容を確認するよう注意書きがあります。</p>
+<p><img alt="玉城祐輔が、宛先、日付、金額、添付ファイルを確認しながらAIのメール下書きを仕上げているイラスト" loading="lazy" decoding="async" width="1600" height="900" src="/_astro/tamashiro-yusuke-final-review.Bsme4rIn_Z2jsw1e.webp" srcset=""></p>
+<p>私は、送信前に最低でも次の項目を確認します。</p>
+<ul>
+<li>宛先と相手の名前は合っているか</li>
+<li>日付、曜日、時刻は合っているか</li>
+<li>金額や数量に間違いはないか</li>
+<li>約束していないことを断定していないか</li>
+<li>添付すると書いたファイルが付いているか</li>
+<li>相手との関係に合った言葉遣いか</li>
+</ul>
+<p>特にクレーム対応では、きれいな文章を作ることより、事実関係と対応方針を間違えないことが優先です。</p>
+<h2 id="中小企業はまず1通の返信から試せばよい">中小企業は、まず1通の返信から試せばよい</h2>
+<p>Google Workspaceを導入したからといって、最初から社内のすべての仕事をAI化する必要はありません。</p>
+<p>まずは、毎日発生するメールを1通選び、次の順番で試すのがよいと思います。</p>
+<ol>
+<li>受信メールの返信欄を開く</li>
+<li>Geminiのボタンを押し、「返信」と入れて下書きを出す</li>
+<li>足りない内容があるときだけ、追加で指示する</li>
+<li>宛先、固有名詞、日付、金額、添付を確認して送る</li>
+</ol>
+<p>返信候補のボタンが表示される環境なら、それを押して下書きを出すところから始めても構いません。要約や要件整理を挟まず、まず返信案を見ることが大切です。</p>
+<h2 id="google-workspaceの便利さはいつもの仕事の中にaiがいること">Google Workspaceの便利さは、いつもの仕事の中にAIがいること</h2>
+<p>Google Workspaceで最初に実感した大きな効果は、派手な自動化ではありませんでした。</p>
+<p>毎日使うGmailの中で、過去のやり取りを踏まえた返信下書きをすぐに出してもらえること。別のツールへ行き来せず、最後は自分で確認して送れること。</p>
+<p>この「いつもの仕事の中で使える」感覚が、メール作成と返信の生産性を大きく変えました。</p>
+<p>Google Workspaceをこれから活用するなら、まずはGmailから始める。私はそれが、効果を実感しやすい最初の一歩だと思います。</p>
+<h2 id="公式情報と利用前の確認">公式情報と利用前の確認</h2>
+<p>機能は、契約しているGoogle Workspaceのプラン、管理者設定、言語、提供状況によって表示されない場合があります。利用前に自社の環境で確認してください。</p>
+<ul>
+<li><a href="https://support.google.com/mail/answer/13955415?hl=ja">GmailでGeminiを使ってメールの下書きを作成する｜Gmailヘルプ</a></li>
+<li><a href="https://support.google.com/mail/answer/14355636?hl=ja">GmailでGeminiと共同作業する｜Gmailヘルプ</a></li>
+<li><a href="https://support.google.com/mail/answer/16831098?hl=ja">Gmailで利用できるGemini機能を確認する｜Gmailヘルプ</a></li>
+<li><a href="https://workspaceupdates.googleblog.com/2025/04/help-me-write-gmail-language-expansion.html">「Help me write」の日本語対応とスレッド文脈の利用｜Google Workspace Updates</a></li>
+<li><a href="https://workspace.google.com/security/ai-privacy/?hl=ja">Google Workspaceにおける生成AIのセキュリティ、コンプライアンス、プライバシー</a></li>
+<li><a href="https://workspace.google.com/blog/product-announcements/june-2026-workspace-feature-drop">2026年6月のGoogle Workspace機能アップデート｜Google Workspace公式ブログ</a></li>
+</ul>
+<p>Googleは、許可なく顧客のWorkspaceデータをWorkspace外の基盤モデルの学習や改善に使わないと説明しています。一方で、社内の共有権限や利用ルールまで自動で整うわけではありません。誰がどのメールやファイルへアクセスできるかは、導入時に管理者が確認する必要があります。</p>
+<p>機能と公式情報は、2026年8月21日に確認しました。</p>
+  </div> </div> <div class="article-share article-share-bottom" data-astro-cid-tldeq5d5> <div class="share-panel" role="group" aria-label="この記事を共有" data-share-root data-share-url="https://ysk.life/blog/google-workspace-gmail-gemini-productivity/" data-share-title="Gmailでメール返信が劇的に軽くなった" data-astro-cid-eqjx2q6l> <div class="share-actions" data-astro-cid-eqjx2q6l> <a class="share-button line" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fysk.life%2Fblog%2Fgoogle-workspace-gmail-gemini-productivity%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="LINEで送る" data-tooltip="LINEで送る" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:line-fill">   <use href="#ai:ri:line-fill"></use>  </svg> </a> <a class="share-button facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fysk.life%2Fblog%2Fgoogle-workspace-gmail-gemini-productivity%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="Facebookで共有" data-tooltip="Facebookで共有" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:facebook-fill">   <use href="#ai:ri:facebook-fill"></use>  </svg> </a> <button class="share-button instagram" type="button" aria-label="Instagramで共有" data-tooltip="Instagramで共有" data-share-instagram data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:instagram-line">   <use href="#ai:ri:instagram-line"></use>  </svg> </button> <button class="share-button copy" type="button" aria-label="記事のリンクをコピー" data-tooltip="リンクをコピー" data-share-copy data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:file-copy-line">   <use href="#ai:ri:file-copy-line"></use>  </svg> </button> </div> <p class="share-status" aria-live="polite" data-share-status data-astro-cid-eqjx2q6l></p> </div> <script>
+	(() => {
+		if (window.__yskShareButtonsInitialized) return;
+		window.__yskShareButtonsInitialized = true;
+
+		const copyText = async (text) => {
+			if (navigator.clipboard && window.isSecureContext) {
+				await navigator.clipboard.writeText(text);
+				return;
+			}
+
+			const input = document.createElement('textarea');
+			input.value = text;
+			input.setAttribute('readonly', '');
+			input.style.position = 'fixed';
+			input.style.opacity = '0';
+			document.body.appendChild(input);
+			input.select();
+			const copied = document.execCommand('copy');
+			input.remove();
+			if (!copied) throw new Error('Copy failed');
+		};
+
+		document.addEventListener('click', async (event) => {
+			const button = event.target.closest('[data-share-copy], [data-share-instagram]');
+			if (!button) return;
+
+			const root = button.closest('[data-share-root]');
+			if (!root) return;
+
+			const url = root.dataset.shareUrl;
+			const title = root.dataset.shareTitle;
+			const status = root.querySelector('[data-share-status]');
+			if (!url || !title || !status) return;
+
+			status.textContent = '';
+
+			try {
+				if (button.matches('[data-share-instagram]') && navigator.share) {
+					await navigator.share({ title, url });
+					return;
+				}
+
+				await copyText(url);
+				status.textContent = button.matches('[data-share-instagram]')
+					? 'リンクをコピーしました。InstagramのDMなどに貼り付けてください。'
+					: 'リンクをコピーしました。';
+			} catch (error) {
+				if (error && error.name === 'AbortError') return;
+				status.textContent = 'コピーできませんでした。ブラウザのアドレス欄からURLをコピーしてください。';
+			}
+		});
+	})();
+</script> </div> <section class="article-related shell" aria-labelledby="related-heading" data-astro-cid-tldeq5d5> <div class="related-heading" data-astro-cid-tldeq5d5> <h2 id="related-heading" data-astro-cid-tldeq5d5>おすすめの記事</h2> <p data-astro-cid-tldeq5d5>同じジャンルの記事を優先して、次に読みやすい記事を選びました。</p> </div> <div class="related-stage" data-astro-cid-tldeq5d5> <article class="article-card featured stacked" data-astro-cid-7ahxywo7> <a href="/blog/chatgpt-business-nyumon/" aria-label="ChatGPT・Claude、中小企業での実践的な使い方。セミナーでよく出る質問まとめを読む" data-astro-cid-7ahxywo7> <div class="card-visual" data-astro-cid-7ahxywo7>  <img src="/_astro/practical-ai-workshop.DElgcIIz_Z2vlLjP.webp" alt loading="lazy" data-astro-cid-7ahxywo7="true" decoding="async" width="720" height="480"> </div> <div class="card-body" data-astro-cid-7ahxywo7> <div class="card-meta" data-astro-cid-7ahxywo7> <span data-astro-cid-7ahxywo7>AIの使い方</span> <span data-astro-cid-7ahxywo7><time datetime="2026-03-10T00:00:00.000Z"> 2026年3月10日 </time> 約2分</span> </div> <h3 data-astro-cid-7ahxywo7>ChatGPT・Claude、中小企業での実践的な使い方。セミナーでよく出る質問まとめ</h3> <p data-astro-cid-7ahxywo7>AI活用セミナーで参加者からよく出る質問に答えながら、中小企業がすぐに使えるAIの実践例を紹介します。</p> <span class="read-more" data-astro-cid-7ahxywo7>この記事を読む <span aria-hidden="true" data-astro-cid-7ahxywo7>→</span></span> </div> </a> </article> <div class="related-side" data-astro-cid-tldeq5d5> <article class="article-card compact" data-astro-cid-7ahxywo7> <a href="/blog/wws-workwear-suit-ankle-pants/" aria-label="毎日履いて、ほつれない。WWSのアンクルパンツを読む" data-astro-cid-7ahxywo7> <div class="card-visual" data-astro-cid-7ahxywo7>  <img src="/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1sRhMU.webp" alt loading="lazy" data-astro-cid-7ahxywo7="true" decoding="async" width="720" height="480"> </div> <div class="card-body" data-astro-cid-7ahxywo7> <div class="card-meta" data-astro-cid-7ahxywo7> <span data-astro-cid-7ahxywo7>仕事の道具</span> <span data-astro-cid-7ahxywo7><time datetime="2026-08-29T00:00:00.000Z"> 2026年8月29日 </time> 約11分</span> </div> <h3 data-astro-cid-7ahxywo7>毎日履いて、ほつれない。WWSのアンクルパンツ</h3> <p data-astro-cid-7ahxywo7>仕事の日は毎日WWS（ワークウェアスーツ）のアンクルパンツ。動き回っても傷まない持ちの良さと、素材ultimexの機能、洗濯で気をつけること、初回3,000円割引になる紹介コードまでまとめます。</p> <span class="read-more" data-astro-cid-7ahxywo7>この記事を読む <span aria-hidden="true" data-astro-cid-7ahxywo7>→</span></span> </div> </a> </article><article class="article-card compact" data-astro-cid-7ahxywo7> <a href="/blog/hidock-p1-ai-recorder/" aria-label="録音時間を気にしない。HiDock P1を読む" data-astro-cid-7ahxywo7> <div class="card-visual" data-astro-cid-7ahxywo7>  <img src="/_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_ZGgoR4.webp" alt loading="lazy" data-astro-cid-7ahxywo7="true" decoding="async" width="720" height="480"> </div> <div class="card-body" data-astro-cid-7ahxywo7> <div class="card-meta" data-astro-cid-7ahxywo7> <span data-astro-cid-7ahxywo7>家と仕事の道具</span> <span data-astro-cid-7ahxywo7><time datetime="2026-08-21T00:00:00.000Z"> 2026年8月21日 </time> 約13分</span> </div> <h3 data-astro-cid-7ahxywo7>録音時間を気にしない。HiDock P1</h3> <p data-astro-cid-7ahxywo7>相談や会議を録音し、HiNotesで文字起こし・要約まで進めるAIレコーダーHiDock P1。買い切りで使える標準範囲、実際の取り込み画面、仕事での使い方、注意点を紹介します。</p> <span class="read-more" data-astro-cid-7ahxywo7>この記事を読む <span aria-hidden="true" data-astro-cid-7ahxywo7>→</span></span> </div> </a> </article> </div> </div> </section> <section class="article-genres shell" aria-labelledby="article-genres-heading" data-astro-cid-tldeq5d5> <div class="related-heading" data-astro-cid-tldeq5d5> <h2 id="article-genres-heading" data-astro-cid-tldeq5d5>ジャンルから記事を探す</h2> <p data-astro-cid-tldeq5d5>全11本の記事を、3つのジャンルから選べます。</p> </div> <nav class="blog-genre-nav" aria-label="記事のジャンル" data-astro-cid-3vbq5m5q> <a href="/blog/#genre-ai" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>AIの使い方</strong> <small data-astro-cid-3vbq5m5q>AIを仕事に取り入れる方法</small> </span> <span class="genre-count" aria-label="2本" data-astro-cid-3vbq5m5q> 2本 </span> </a><a href="/blog/#genre-tools" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>仕事と暮らしの道具</strong> <small data-astro-cid-3vbq5m5q>実際に使った道具と選び方</small> </span> <span class="genre-count" aria-label="7本" data-astro-cid-3vbq5m5q> 7本 </span> </a><a href="/blog/#genre-management" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>経営と仕事の仕組み</strong> <small data-astro-cid-3vbq5m5q>経営支援と仕組みづくりの実践</small> </span> <span class="genre-count" aria-label="2本" data-astro-cid-3vbq5m5q> 2本 </span> </a> </nav> </section> <section class="after-note narrow" data-astro-cid-tldeq5d5> <h2 data-astro-cid-tldeq5d5>次に見るものを選ぶ</h2> <p data-astro-cid-tldeq5d5>玉城個人が使っている道具は「道具箱」へ。会社の仕事として相談したい場合は、T&Lサポートへお進みください。</p> <div class="button-row" data-astro-cid-tldeq5d5> <a class="button" href="/toolbox/" data-astro-cid-tldeq5d5>道具箱を見る</a> <a class="button primary" href="https://taxlegal.jp/" target="_blank" rel="noopener noreferrer" data-astro-cid-tldeq5d5>相談内容を確認する</a> </div> </section> </article> </main> <footer data-astro-cid-jo6i4kqk> <div class="shell footer-grid" data-astro-cid-jo6i4kqk> <div class="footer-statement" data-astro-cid-jo6i4kqk> <p data-astro-cid-jo6i4kqk>沖縄の現場で、実際に試したことを残します。</p> </div> <div class="footer-links" data-astro-cid-jo6i4kqk> <div data-astro-cid-jo6i4kqk> <strong data-astro-cid-jo6i4kqk>このサイト</strong> <a href="/blog" data-astro-cid-jo6i4kqk>記事を読む</a> <a href="/about" data-astro-cid-jo6i4kqk>玉城について</a> <a href="/privacy" data-astro-cid-jo6i4kqk>プライバシー</a> <a href="/affiliate-disclosure" data-astro-cid-jo6i4kqk>広告・紹介について</a> </div> <div data-astro-cid-jo6i4kqk> <strong data-astro-cid-jo6i4kqk>外部リンク</strong> <a href="/toolbox/" data-astro-cid-jo6i4kqk>玉城祐輔の道具箱 →</a> <a href="https://taxlegal.jp/" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>T&Lサポート株式会社 ↗</a> <a href="https://www.facebook.com/yusuke.tamashiro" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>Facebook ↗</a> <a href="https://www.instagram.com/tamashiro_yusuke_tl/" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>Instagram ↗</a> </div> </div> </div> <div class="shell footer-bottom" data-astro-cid-jo6i4kqk> <span data-astro-cid-jo6i4kqk>&copy; 2026 Yusuke Tamashiro</span> <span data-astro-cid-jo6i4kqk>AIとデジタルを、現場で使える形に。</span> </div> </footer> </body> </html>

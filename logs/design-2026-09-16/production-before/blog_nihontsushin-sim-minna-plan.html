@@ -1,0 +1,327 @@
+<!DOCTYPE html><html lang="ja" data-astro-cid-tldeq5d5> <head><meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta name="theme-color" content="#171915"> <meta name="google-site-verification" content="ZOHyxB9OxiSl2kg7iNFCxDlsYK6K5h7e890uRt8Vyt0"> <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2"> <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.png?v=2"> <link rel="shortcut icon" href="/favicon.ico?v=2"> <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=2"> <link rel="sitemap" href="/sitemap-index.xml"> <link rel="alternate" type="application/rss+xml" title="玉城祐輔｜AIとデジタルを、現場で使える形に。" href="https://ysk.life/rss.xml"> <meta name="generator" content="Astro v7.2.1"> <link rel="canonical" href="https://ysk.life/blog/nihontsushin-sim-minna-plan/"> <title>外の仕事は20GBで足りた。日本通信SIM｜玉城祐輔</title> <meta name="title" content="外の仕事は20GBで足りた。日本通信SIM｜玉城祐輔"> <meta name="description" content="月20GBをスマホとテザリングで使う玉城祐輔が、日本通信SIM 合理的みんなのプランの良い点、速度の注意、申込み前の確認をまとめます。"> <meta name="author" content="玉城祐輔"> <meta property="og:type" content="article"> <meta property="og:locale" content="ja_JP"> <meta property="og:site_name" content="玉城祐輔"> <meta property="og:url" content="https://ysk.life/blog/nihontsushin-sim-minna-plan/"> <meta property="og:title" content="外の仕事は20GBで足りた。日本通信SIM｜玉城祐輔"> <meta property="og:description" content="月20GBをスマホとテザリングで使う玉城祐輔が、日本通信SIM 合理的みんなのプランの良い点、速度の注意、申込み前の確認をまとめます。"> <meta property="og:image" content="https://ysk.life/_astro/hero-tethering-illustration.D-9nUnFE.webp"> <meta property="og:image:secure_url" content="https://ysk.life/_astro/hero-tethering-illustration.D-9nUnFE.webp"> <meta property="og:image:width" content="1600"> <meta property="og:image:height" content="1067"> <meta property="og:image:alt" content="外の仕事は20GBで足りた。日本通信SIM"> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="外の仕事は20GBで足りた。日本通信SIM｜玉城祐輔"> <meta name="twitter:description" content="月20GBをスマホとテザリングで使う玉城祐輔が、日本通信SIM 合理的みんなのプランの良い点、速度の注意、申込み前の確認をまとめます。"> <meta name="twitter:image" content="https://ysk.life/_astro/hero-tethering-illustration.D-9nUnFE.webp"> <meta name="twitter:image:alt" content="外の仕事は20GBで足りた。日本通信SIM"> <script>
+	(() => {
+		const measurementId = 'G-752CVHZQNC';
+		const consentKey = 'ysk-analytics-consent-v1';
+		const acceptedValue = 'granted';
+		const declinedValue = 'denied';
+
+		const readConsent = () => {
+			try {
+				return window.localStorage.getItem(consentKey);
+			} catch {
+				return null;
+			}
+		};
+
+		const saveConsent = (value) => {
+			try {
+				window.localStorage.setItem(consentKey, value);
+			} catch {
+				// Storage can be unavailable in private browsing or restricted browsers.
+			}
+		};
+
+		const removeConsent = () => {
+			try {
+				window.localStorage.removeItem(consentKey);
+			} catch {
+				// Keep the page usable even when storage is unavailable.
+			}
+		};
+
+		const loadAnalytics = () => {
+			if (window.__yskAnalyticsLoaded) return;
+			window.__yskAnalyticsLoaded = true;
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = function () {
+				window.dataLayer.push(arguments);
+			};
+			window.gtag('js', new Date());
+			window.gtag('config', measurementId, {
+				allow_google_signals: false,
+				allow_ad_personalization_signals: false,
+			});
+
+			const script = document.createElement('script');
+			script.async = true;
+			script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+			document.head.appendChild(script);
+		};
+
+		const removeBanner = () => {
+			document.querySelector('[data-analytics-consent]')?.remove();
+		};
+
+		const showBanner = () => {
+			if (document.querySelector('[data-analytics-consent]')) return;
+
+			const banner = document.createElement('aside');
+			banner.className = 'analytics-consent';
+			banner.dataset.analyticsConsent = '';
+			banner.setAttribute('aria-label', 'アクセス解析の設定');
+			banner.innerHTML = `
+				<div class="analytics-consent__inner">
+					<p><strong>アクセス解析について</strong><span>サイト改善のためGoogle Analyticsを使用します。許可するまで計測は始まりません。<a href="/privacy/#analytics">詳しく見る</a></span></p>
+					<div class="analytics-consent__actions">
+						<button type="button" data-analytics-decline>許可しない</button>
+						<button type="button" class="primary" data-analytics-accept>許可する</button>
+					</div>
+				</div>`;
+			document.body.appendChild(banner);
+
+			banner.querySelector('[data-analytics-accept]')?.addEventListener('click', () => {
+				saveConsent(acceptedValue);
+				removeBanner();
+				loadAnalytics();
+			});
+			banner.querySelector('[data-analytics-decline]')?.addEventListener('click', () => {
+				saveConsent(declinedValue);
+				removeBanner();
+			});
+		};
+
+		const initialize = () => {
+			const consent = readConsent();
+			if (consent === acceptedValue) loadAnalytics();
+			else if (consent !== declinedValue) showBanner();
+
+			document.querySelector('[data-analytics-consent-reset]')?.addEventListener('click', () => {
+				removeConsent();
+				showBanner();
+			});
+		};
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initialize, { once: true });
+		} else {
+			initialize();
+		}
+	})();
+</script><link rel="stylesheet" href="/_astro/Header.vNaMTfFZ.css"><link rel="stylesheet" href="/_astro/BlogGenreNav.-Av1WMRZ.css"><style>.share-panel[data-astro-cid-eqjx2q6l]{flex-direction:column;align-items:flex-start;max-width:100%;display:inline-flex}.share-actions[data-astro-cid-eqjx2q6l]{flex-wrap:nowrap;gap:.55rem;display:flex}.share-button[data-astro-cid-eqjx2q6l]{cursor:pointer;border:1px solid var(--line);background:color-mix(in srgb, var(--white) 72%, transparent);width:2.875rem;height:2.875rem;color:var(--ink);font:inherit;border-radius:999px;justify-content:center;align-items:center;padding:0;text-decoration:none;transition:transform .16s,border-color .16s,background-color .16s,color .16s;display:inline-flex;position:relative;box-shadow:0 1px #fffdf8b8}.share-button[data-astro-cid-eqjx2q6l]:hover{border-color:var(--coral);background:var(--coral);color:var(--white);transform:translateY(-1px)}.share-button[data-astro-cid-eqjx2q6l]:active{transform:translateY(0)scale(.96)}.share-button[data-astro-cid-eqjx2q6l]:focus-visible{outline:3px solid var(--coral);outline-offset:3px}.share-icon[data-astro-cid-eqjx2q6l]{width:1.3rem;height:1.3rem}.share-button[data-astro-cid-eqjx2q6l]:after{background:var(--ink);color:var(--white);content:attr(data-tooltip);opacity:0;pointer-events:none;white-space:nowrap;z-index:1;border-radius:.45rem;padding:.35rem .55rem;font-size:.66rem;font-weight:700;line-height:1.35;transition:opacity .14s,transform .14s;position:absolute;bottom:calc(100% + .55rem);left:50%;transform:translate(-50%,.2rem)}.share-button[data-astro-cid-eqjx2q6l]:hover:after,.share-button[data-astro-cid-eqjx2q6l]:focus-visible:after{opacity:1;transform:translate(-50%)}.share-status[data-astro-cid-eqjx2q6l]{max-width:min(24rem,100vw - 2rem);color:var(--muted);margin:0;font-size:.72rem;line-height:1.6}.share-status[data-astro-cid-eqjx2q6l]:not(:empty){margin-top:.65rem}@media (hover:none){.share-button[data-astro-cid-eqjx2q6l]:after{display:none}}@media (prefers-reduced-motion:reduce){.share-button[data-astro-cid-eqjx2q6l],.share-button[data-astro-cid-eqjx2q6l]:after{transition:none}}
+</style><link rel="stylesheet" href="/_astro/WebApps.Bp6qbTHi.css"><link rel="stylesheet" href="/_astro/_..VrzJgKDI.css"></head> <body data-astro-cid-tldeq5d5> <header class="site-header" data-astro-cid-nen7h5rs> <a class="skip-link" href="#main-content" data-astro-cid-nen7h5rs>本文へ移動</a> <nav class="shell" aria-label="メインナビゲーション" data-astro-cid-nen7h5rs> <a class="brand" href="/" aria-label="玉城祐輔 ホーム" data-astro-cid-nen7h5rs> <span class="brand-mark" aria-hidden="true" data-astro-cid-nen7h5rs> <img src="/images/tamashiro-yusuke-logo.svg?v=3" alt="" width="64" height="64" decoding="async" data-astro-cid-nen7h5rs> </span> </a> <div class="internal-links" data-astro-cid-nen7h5rs> <a href="/blog" class="active" aria-current="page" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 読む </a> <a href="/toolbox" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 道具箱 </a> <a href="/about" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 玉城について </a> </div> </nav> </header> <main id="main-content" data-astro-cid-tldeq5d5> <article data-astro-cid-tldeq5d5> <header class="article-hero" data-astro-cid-tldeq5d5> <div class="shell article-hero-inner" data-astro-cid-tldeq5d5> <div class="article-copy" data-astro-cid-tldeq5d5> <a class="back-link" href="/blog" data-astro-cid-tldeq5d5>記事一覧へ戻る</a> <p class="category" data-astro-cid-tldeq5d5>家と仕事の道具</p> <h1 data-astro-cid-tldeq5d5>外の仕事は20GBで足りた。日本通信SIM</h1> <p class="description" data-astro-cid-tldeq5d5>月20GBをスマホとテザリングで使う玉城祐輔が、日本通信SIM 合理的みんなのプランの良い点、速度の注意、申込み前の確認をまとめます。</p> <div class="article-meta" data-astro-cid-tldeq5d5> <span data-astro-cid-tldeq5d5>公開 <time datetime="2026-08-15T00:00:00.000Z"> 2026年8月15日 </time></span>  <span data-astro-cid-tldeq5d5>読了 約11分</span> </div> </div> <div class="cover-image" data-astro-cid-tldeq5d5>  <img src="/_astro/hero-tethering-illustration.D-9nUnFE_1ecfnI.webp" alt loading="eager" fetchpriority="high" data-astro-cid-tldeq5d5="true" decoding="async" width="900" height="600"> </div> </div> </header> <div class="article-share article-share-top" data-astro-cid-tldeq5d5> <div class="share-panel" role="group" aria-label="この記事を共有" data-share-root data-share-url="https://ysk.life/blog/nihontsushin-sim-minna-plan/" data-share-title="外の仕事は20GBで足りた。日本通信SIM" data-astro-cid-eqjx2q6l> <div class="share-actions" data-astro-cid-eqjx2q6l> <a class="share-button line" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fysk.life%2Fblog%2Fnihontsushin-sim-minna-plan%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="LINEで送る" data-tooltip="LINEで送る" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:line-fill">   <symbol id="ai:ri:line-fill"><path fill="currentColor" d="M18.664 10.84a.526.526 0 0 1-.526.525h-1.462v.938h1.463a.525.525 0 1 1 0 1.049H16.15a.526.526 0 0 1-.522-.524V8.852c0-.287.235-.525.525-.525h1.988a.526.526 0 0 1-.002 1.05h-1.463v.938h1.463c.29 0 .524.237.524.525m-4.098 2.485a.5.5 0 0 1-.166.025a.52.52 0 0 1-.425-.208l-2.036-2.764v2.45a.525.525 0 0 1-1.047 0V8.852a.52.52 0 0 1 .52-.523c.162 0 .312.086.412.211l2.052 2.775V8.852c0-.287.235-.525.525-.525c.287 0 .525.238.525.525v3.976a.52.52 0 0 1-.36.497m-4.95.027a.526.526 0 0 1-.523-.524V8.852c0-.287.235-.525.525-.525c.289 0 .524.238.524.525v3.976a.527.527 0 0 1-.526.524m-1.53 0H6.099a.53.53 0 0 1-.525-.524V8.852c0-.287.238-.525.525-.525c.29 0 .525.238.525.525v3.45h1.464a.525.525 0 0 1 0 1.05m3.915-10.78c-5.513 0-10 3.643-10 8.118c0 4.01 3.558 7.369 8.363 8.007c.325.068.769.215.881.492c.1.25.066.638.032.9l-.137.85c-.037.25-.2.988.874.537c1.076-.449 5.764-3.398 7.864-5.812C21.314 14.089 22 12.477 22 10.69c0-4.475-4.488-8.118-10-8.118"/></symbol><use href="#ai:ri:line-fill"></use>  </svg> </a> <a class="share-button facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fysk.life%2Fblog%2Fnihontsushin-sim-minna-plan%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="Facebookで共有" data-tooltip="Facebookで共有" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:facebook-fill">   <symbol id="ai:ri:facebook-fill"><path fill="currentColor" d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4z"/></symbol><use href="#ai:ri:facebook-fill"></use>  </svg> </a> <button class="share-button instagram" type="button" aria-label="Instagramで共有" data-tooltip="Instagramで共有" data-share-instagram data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:instagram-line">   <symbol id="ai:ri:instagram-line"><path fill="currentColor" d="M12.001 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6m0-2a5 5 0 1 1 0 10a5 5 0 0 1 0-10m6.5-.25a1.25 1.25 0 0 1-2.5 0a1.25 1.25 0 0 1 2.5 0M12.001 4c-2.474 0-2.878.007-4.029.058c-.784.037-1.31.142-1.798.332a2.9 2.9 0 0 0-1.08.703a2.9 2.9 0 0 0-.704 1.08c-.19.49-.295 1.015-.331 1.798C4.007 9.075 4 9.461 4 12c0 2.475.007 2.878.058 4.029c.037.783.142 1.31.331 1.797c.17.435.37.748.702 1.08c.337.336.65.537 1.08.703c.494.191 1.02.297 1.8.333C9.075 19.994 9.461 20 12 20c2.475 0 2.878-.007 4.029-.058c.782-.037 1.308-.142 1.797-.331a2.9 2.9 0 0 0 1.08-.703c.337-.336.538-.649.704-1.08c.19-.492.296-1.018.332-1.8c.052-1.103.058-1.49.058-4.028c0-2.474-.007-2.878-.058-4.029c-.037-.782-.143-1.31-.332-1.798a2.9 2.9 0 0 0-.703-1.08a2.9 2.9 0 0 0-1.08-.704c-.49-.19-1.016-.295-1.798-.331C14.926 4.006 14.54 4 12 4m0-2c2.717 0 3.056.01 4.123.06c1.064.05 1.79.217 2.427.465c.66.254 1.216.598 1.772 1.153a4.9 4.9 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428c.047 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122s-.218 1.79-.465 2.428a4.9 4.9 0 0 1-1.153 1.772a4.9 4.9 0 0 1-1.772 1.153c-.637.247-1.363.415-2.427.465c-1.067.047-1.406.06-4.123.06s-3.056-.01-4.123-.06c-1.064-.05-1.789-.218-2.427-.465a4.9 4.9 0 0 1-1.772-1.153a4.9 4.9 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.012 15.056 2 14.717 2 12s.01-3.056.06-4.122s.217-1.79.465-2.428a4.9 4.9 0 0 1 1.153-1.772A4.9 4.9 0 0 1 5.45 2.525c.637-.248 1.362-.415 2.427-.465C8.945 2.013 9.284 2 12.001 2"/></symbol><use href="#ai:ri:instagram-line"></use>  </svg> </button> <button class="share-button copy" type="button" aria-label="記事のリンクをコピー" data-tooltip="リンクをコピー" data-share-copy data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:file-copy-line">   <symbol id="ai:ri:file-copy-line"><path fill="currentColor" d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .552-.45 1-1.007 1H4.007A1 1 0 0 1 3 21l.003-14c0-.552.45-1 1.006-1zM5.002 8L5 20h10V8zM9 6h8v10h2V4H9z"/></symbol><use href="#ai:ri:file-copy-line"></use>  </svg> </button> </div> <p class="share-status" aria-live="polite" data-share-status data-astro-cid-eqjx2q6l></p> </div> <script>
+	(() => {
+		if (window.__yskShareButtonsInitialized) return;
+		window.__yskShareButtonsInitialized = true;
+
+		const copyText = async (text) => {
+			if (navigator.clipboard && window.isSecureContext) {
+				await navigator.clipboard.writeText(text);
+				return;
+			}
+
+			const input = document.createElement('textarea');
+			input.value = text;
+			input.setAttribute('readonly', '');
+			input.style.position = 'fixed';
+			input.style.opacity = '0';
+			document.body.appendChild(input);
+			input.select();
+			const copied = document.execCommand('copy');
+			input.remove();
+			if (!copied) throw new Error('Copy failed');
+		};
+
+		document.addEventListener('click', async (event) => {
+			const button = event.target.closest('[data-share-copy], [data-share-instagram]');
+			if (!button) return;
+
+			const root = button.closest('[data-share-root]');
+			if (!root) return;
+
+			const url = root.dataset.shareUrl;
+			const title = root.dataset.shareTitle;
+			const status = root.querySelector('[data-share-status]');
+			if (!url || !title || !status) return;
+
+			status.textContent = '';
+
+			try {
+				if (button.matches('[data-share-instagram]') && navigator.share) {
+					await navigator.share({ title, url });
+					return;
+				}
+
+				await copyText(url);
+				status.textContent = button.matches('[data-share-instagram]')
+					? 'リンクをコピーしました。InstagramのDMなどに貼り付けてください。'
+					: 'リンクをコピーしました。';
+			} catch (error) {
+				if (error && error.name === 'AbortError') return;
+				status.textContent = 'コピーできませんでした。ブラウザのアドレス欄からURLをコピーしてください。';
+			}
+		});
+	})();
+</script> </div> <div class="article-shell" data-astro-cid-tldeq5d5> <aside class="article-aside" data-astro-cid-tldeq5d5> <details class="article-toc" open data-astro-cid-tldeq5d5> <summary data-astro-cid-tldeq5d5>この記事の内容</summary> <nav aria-label="この記事の内容" data-astro-cid-tldeq5d5> <ol data-astro-cid-tldeq5d5> <li data-astro-cid-tldeq5d5><a href="#先に結論月20gbで足りる人には通信費を抑えやすい" data-astro-cid-tldeq5d5>先に結論。月20GBで足りる人には、通信費を抑えやすい</a></li><li data-astro-cid-tldeq5d5><a href="#私はスマホと外のパソコン仕事を一つの20gbで使っている" data-astro-cid-tldeq5d5>私は、スマホと外のパソコン仕事を一つの20GBで使っている</a></li><li data-astro-cid-tldeq5d5><a href="#料金は安いでも速度は使う場所と時間で変わる" data-astro-cid-tldeq5d5>料金は安い。でも、速度は使う場所と時間で変わる</a></li><li data-astro-cid-tldeq5d5><a href="#20gbを超えてもいきなり使えなくなるわけではない" data-astro-cid-tldeq5d5>20GBを超えても、いきなり使えなくなるわけではない</a></li><li data-astro-cid-tldeq5d5><a href="#申込み前に端末本人確認支払い方法を確認する" data-astro-cid-tldeq5d5>申込み前に、端末・本人確認・支払い方法を確認する</a></li><li data-astro-cid-tldeq5d5><a href="#乗り換え初日にこの順番で試す" data-astro-cid-tldeq5d5>乗り換え初日に、この順番で試す</a></li><li data-astro-cid-tldeq5d5><a href="#困ったときはwi-fi別回線物理simへ戻れるようにする" data-astro-cid-tldeq5d5>困ったときは、Wi-Fi・別回線・物理SIMへ戻れるようにする</a></li><li data-astro-cid-tldeq5d5><a href="#こんな人には合わないかもしれません" data-astro-cid-tldeq5d5>こんな人には合わないかもしれません</a></li><li data-astro-cid-tldeq5d5><a href="#よくある疑問" data-astro-cid-tldeq5d5>よくある疑問</a></li><li data-astro-cid-tldeq5d5><a href="#申込み方法と公式条件を確認する" data-astro-cid-tldeq5d5>申込み方法と公式条件を確認する</a></li> </ol> </nav> <div class="article-caution" data-astro-cid-tldeq5d5> <p data-astro-cid-tldeq5d5>情報の確認</p> <span data-astro-cid-tldeq5d5>掲載時点の情報です。料金、制度、サービス仕様は、必ず公式情報も確認してください。</span> </div> </details> <div class="article-aside-desktop" data-astro-cid-tldeq5d5> <section class="aside-section" aria-labelledby="aside-genres-heading" data-astro-cid-tldeq5d5> <h2 id="aside-genres-heading" data-astro-cid-tldeq5d5>ジャンルから探す</h2> <nav class="blog-genre-nav compact" aria-label="記事のジャンル" data-astro-cid-3vbq5m5q> <a href="/blog/#genre-ai" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>AIの使い方</strong>  </span> <span class="genre-count" data-astro-cid-3vbq5m5q> → </span> </a><a href="/blog/#genre-tools" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>仕事と暮らしの道具</strong>  </span> <span class="genre-count" data-astro-cid-3vbq5m5q> → </span> </a><a href="/blog/#genre-management" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>経営と仕事の仕組み</strong>  </span> <span class="genre-count" data-astro-cid-3vbq5m5q> → </span> </a> </nav> </section> <section class="aside-section" aria-labelledby="aside-next-heading" data-astro-cid-tldeq5d5> <h2 id="aside-next-heading" data-astro-cid-tldeq5d5>次に読む</h2> <div class="aside-articles" data-astro-cid-tldeq5d5> <a href="/blog/wws-workwear-suit-ankle-pants/" data-astro-cid-tldeq5d5>  <img src="/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1CktzR.webp" alt loading="lazy" data-astro-cid-tldeq5d5="true" decoding="async" width="160" height="106"> <span data-astro-cid-tldeq5d5>毎日履いて、ほつれない。WWSのアンクルパンツ</span> </a><a href="/blog/hidock-p1-ai-recorder/" data-astro-cid-tldeq5d5>  <img src="/_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_2lAkut.webp" alt loading="lazy" data-astro-cid-tldeq5d5="true" decoding="async" width="160" height="106"> <span data-astro-cid-tldeq5d5>録音時間を気にしない。HiDock P1</span> </a> </div> </section> <section class="aside-section" aria-labelledby="aside-apps-heading" data-astro-cid-tldeq5d5> <h2 id="aside-apps-heading" data-astro-cid-tldeq5d5>作ったWebアプリ</h2> <div class="web-apps compact" data-astro-cid-p2qrvzwu> <a class="web-app primary" href="https://jizoka.app/" target="_blank" rel="noopener noreferrer" data-astro-cid-p2qrvzwu> <img src="/images/apps/jizoka-ogp.png" alt="JIZOKA 持続化補助金 計画書づくりサポート" width="1200" height="630" loading="lazy" decoding="async" data-astro-cid-p2qrvzwu> <div class="web-app-copy" data-astro-cid-p2qrvzwu> <strong data-astro-cid-p2qrvzwu>JIZOKA</strong>   </div> </a><a class="web-app" href="https://seminar-flow.com/" target="_blank" rel="noopener noreferrer" data-astro-cid-p2qrvzwu> <img src="/images/apps/seminarflow-ogp.png" alt="SeminarFlow セミナー運営を一か所にまとめる" width="1200" height="630" loading="lazy" decoding="async" data-astro-cid-p2qrvzwu> <div class="web-app-copy" data-astro-cid-p2qrvzwu> <strong data-astro-cid-p2qrvzwu>SeminarFlow</strong>   </div> </a><a class="web-app" href="https://kisoku-zaishin.com/" target="_blank" rel="noopener noreferrer" data-astro-cid-p2qrvzwu> <img src="/images/apps/kisoku-zaishin-ogp.png" alt="JCI規則財審アシスタント リンクを確かめて議案番号を組み立てる" width="1200" height="630" loading="lazy" decoding="async" data-astro-cid-p2qrvzwu> <div class="web-app-copy" data-astro-cid-p2qrvzwu> <strong data-astro-cid-p2qrvzwu>JCI規則財審アシスタント</strong>   </div> </a><a class="web-app" href="https://poireshi.com/" target="_blank" rel="noopener noreferrer" data-astro-cid-p2qrvzwu> <img src="/images/apps/poireshi-ogp.png" alt="ポイレシ 領収書はLINEにポイッ" width="1200" height="630" loading="lazy" decoding="async" data-astro-cid-p2qrvzwu> <div class="web-app-copy" data-astro-cid-p2qrvzwu> <strong data-astro-cid-p2qrvzwu>ポイレシ</strong>   </div> </a> </div> </section> </div> </aside> <div class="prose" data-astro-cid-tldeq5d5>  <p>外でパソコンを開くたびに、使えるWi-Fiを探す。</p>
+<p>見つけても、接続方法や安全性が気になる。私はこの手間を減らすために、スマホのテザリングを使っています。</p>
+<p>契約しているのは、**日本通信SIMの「合理的みんなのプラン」**です。メール、LINE、チャット、クラウド上のデータ利用、ウェブ会議まで、私の使い方では月20GBで間に合っています。</p>
+<p>この記事は、私が普段使っている場面と、2026年8月15日に確認した公式仕様を分けてまとめたものです。通信速度は場所、時間帯、端末によって変わるため、「誰にでも十分」とは言い切りません。</p>
+<div class="affiliate-product-card">
+  <a class="affiliate-product-image" href="https://amzn.to/4zgLclg" target="_blank" rel="sponsored noopener noreferrer" aria-label="Amazon.co.jpで日本通信SIM スターターパックを見る">
+    <img src="https://www.nihontsushin.com/plan/images/starterpack_pkg.jpg" width="190" height="300" loading="lazy" referrerpolicy="no-referrer" alt="日本通信SIM スターターパック NT-ST2-P" />
+  </a>
+  <div class="affiliate-product-body">
+    <p class="affiliate-product-store">Amazon.co.jp</p>
+    <h3>日本通信SIM スターターパック</h3>
+    <p>日本通信SIM合理的プランの申込みに使うコードです。SIMカードは同梱されていません。</p>
+    <a class="affiliate-product-button" href="https://amzn.to/4zgLclg" target="_blank" rel="sponsored noopener noreferrer">Amazon.co.jpで申込コードを見る</a>
+    <p class="affiliate-product-disclosure">広告・アフィリエイトリンクです。紹介料は玉城祐輔個人に帰属します。価格、在庫、申込期限、対象プランをAmazonの商品ページで確認し、公式サイトから直接申し込む場合の初期手数料とも比較してください。</p>
+  </div>
+</div>
+<h2 id="先に結論月20gbで足りる人には通信費を抑えやすい">先に結論。月20GBで足りる人には、通信費を抑えやすい</h2>
+<p>合理的みんなのプランは、スマホの通信と短い通話を、分かりやすい料金でまとめたい人に向いています。</p>
+<p>2026年8月15日時点の公式料金は月額1,390円。20GBに加えて、次のどちらかを選べます。</p>
+<ul>
+<li>1回5分までの国内通話かけ放題</li>
+<li>月70分までの無料通話</li>
+</ul>
+<p>私が良いと思っているのは、外出先でパソコンを使うために、別のモバイルルーターを持たなくてよいことです。スマホのテザリングをオンにすれば、普段持っている端末だけで仕事を始められます。</p>
+<p>ただし、平日昼など混雑する時間の通信速度を優先する人には、合わない可能性があります。料金だけで決めず、よく使う場所と時間帯で困らないかを考えることが大切です。</p>
+<h2 id="私はスマホと外のパソコン仕事を一つの20gbで使っている">私は、スマホと外のパソコン仕事を一つの20GBで使っている</h2>
+<p><img alt="玉城祐輔がスマホのテザリングで仕事をし、Riraがメールやクラウドなど20GBの使い道を整理しているイラスト" loading="lazy" decoding="async" width="1600" height="901" src="/_astro/data-usage-20gb-illustration.Cjs6MNwm_1ptRpU.webp" srcset=""></p>
+<p>私がデータ通信を使う場面は、主に次のとおりです。</p>
+<ul>
+<li>スマホでメール、LINE、チャットを確認する</li>
+<li>外出先でパソコンをテザリングへ接続する</li>
+<li>クラウドにある資料を開く</li>
+<li>ウェブ会議へ参加する</li>
+</ul>
+<p>この使い方では、月20GBで間に合っています。外でWi-Fiを探すことも、ほとんどなくなりました。</p>
+<p>一方で、動画を長時間見る人、写真や動画を頻繁に送る人、パソコンの大きな更新までテザリングで行う人は、同じ20GBでも足りなくなる可能性があります。</p>
+<p>私は、スマホの設定画面と日本通信SIMのマイページで使用量を確認しています。自宅や事務所のWi-Fiも使う前提で、外で必要な通信を20GBに収める使い方です。</p>
+<h2 id="料金は安いでも速度は使う場所と時間で変わる">料金は安い。でも、速度は使う場所と時間で変わる</h2>
+<p><img alt="混雑する時間帯に悩める社長へ、RikuがWi-Fiや別回線へ戻る方法を案内しているイラスト" loading="lazy" decoding="async" width="1600" height="901" src="/_astro/busy-time-fallback-illustration.CcYhfFBe_ZK8dFC.webp" srcset=""></p>
+<p>日本通信SIMはドコモのネットワークを利用しています。ただし、ドコモと同じエリアで使えることと、いつでも同じ速度になることは別です。</p>
+<p>公式も、通信はベストエフォート方式で、環境や混雑状況により速度が変わると案内しています。大容量のダウンロードや連続したストリーミングは、時間帯によって制限される場合があります。</p>
+<p>第三者の利用レポートや速度測定も確認しました。料金とデータ量を評価する声が多い一方で、平日昼などに遅さを感じるという声もあります。反対に、同じ時間帯でも問題なく使えたという報告もあり、評価は分かれています。</p>
+<p>私の普段の使い方ではウェブ会議まで利用できていますが、これはすべての場所や時間帯での速度を保証する話ではありません。仕事の会議を絶対に途切れさせたくない場面では、会場のWi-Fiや別回線へ戻れるようにしておきます。</p>
+<h2 id="20gbを超えてもいきなり使えなくなるわけではない">20GBを超えても、いきなり使えなくなるわけではない</h2>
+<p>公式仕様では、20GBを超えた分は1GBあたり220円です。上限は20GBから50GBまで、1GB単位でマイページから設定できます。</p>
+<p>設定した上限へ達すると低速度になります。必要なときは上限を引き上げると、即時反映されます。</p>
+<p>気をつけたいのは、余ったデータ量が翌料金月へ繰り越されないことです。毎月大きく余るなら、もっと小さいプランも比較した方がよいかもしれません。毎月20GBを大きく超えるなら、追加を続けるより50GBプランや他社の大容量プランを比べます。</p>
+<h2 id="申込み前に端末本人確認支払い方法を確認する">申込み前に、端末・本人確認・支払い方法を確認する</h2>
+<p><img alt="悩める経理がスマホ、本人確認、支払い方法を確認し、Riraが申込み前のチェックを案内しているイラスト" loading="lazy" decoding="async" width="1600" height="901" src="/_astro/application-check-illustration.CGEeB0dt_Z2r3y8t.webp" srcset=""></p>
+<p>料金だけを見て申し込むと、手続きで止まりやすいところがあります。</p>
+<h3 id="今の端末で使えるか">今の端末で使えるか</h3>
+<p>日本通信SIMはSIMカードとeSIMを選べます。端末が対応する周波数帯とVoLTEに対応しているか、公式の動作確認情報と端末仕様を確認します。</p>
+<p>eSIMはすぐに始めやすい一方、機種変更時には再発行と再設定が必要です。公式案内では、eSIMの発行・再発行は1年に3回まで無料、4回目以降は1,100円です。</p>
+<h3 id="申込みに必要なものがそろっているか">申込みに必要なものがそろっているか</h3>
+<p>現在の公式案内では、日本通信アプリ、マイナンバーカードと暗証番号、契約者本人名義のクレジットカードなどが必要です。設定用のWi-Fiとメールアドレスも用意します。</p>
+<p>今の電話番号を引き継ぐ場合は、転出元と申込先の契約名義をそろえます。対応事業者ならMNPワンストップで、事前の予約番号なしに手続きを進められます。</p>
+<h3 id="スターターパックと直接申込みを比べたか">スターターパックと直接申込みを比べたか</h3>
+<p>公式サイトから直接申し込む場合、初期手数料は3,300円です。</p>
+<p>Amazonなどで販売されるスターターパックは、合理的プランの申込コードです。これを使うと申込み時の初期手数料は発生しませんが、スターターパック自体の購入代金がかかります。</p>
+<p>スターターパックにはSIMカードが入っていません。購入前に、販売価格、申込期限、対象プランを確認し、直接申込みと比べてください。</p>
+<h2 id="乗り換え初日にこの順番で試す">乗り換え初日に、この順番で試す</h2>
+<ol>
+<li>今の端末が対応しているか、公式情報で確認する</li>
+<li>Wi-Fiが使える場所で、アプリと本人確認書類を準備する</li>
+<li>開通後、スマホ単体で通話、SMS、データ通信を試す</li>
+<li>パソコンをテザリングへつなぎ、普段使うサービスを開く</li>
+<li>よく使う場所と時間帯でも速度を確認する</li>
+<li>前のSIMや契約情報は、移行が終わるまで処分しない</li>
+</ol>
+<p>仕事で使うなら、メールを見るだけでなく、クラウド資料の表示とウェブ会議まで試します。普段の使い方を一度通しておくと、「つながるけれど仕事には足りない」という行き違いを減らせます。</p>
+<h2 id="困ったときはwi-fi別回線物理simへ戻れるようにする">困ったときは、Wi-Fi・別回線・物理SIMへ戻れるようにする</h2>
+<p>通信は、場所や設備の影響を受けます。私は便利さだけでなく、つながらないときにどう戻るかも大事だと思っています。</p>
+<ul>
+<li>会議会場や事務所のWi-Fiを確認しておく</li>
+<li>大事なオンライン会議では、別回線を持つ人や固定回線も頼れるようにする</li>
+<li>eSIMを消してしまった場合は、マイページから再発行する</li>
+<li>端末故障に備え、連絡先と認証手段を別の場所でも確認できるようにする</li>
+</ul>
+<p>SIMカードは新しい端末へ差し替えられます。eSIMは端末を変えると再発行が必要です。機種変更の前に、どちらを使っているか確認します。</p>
+<h2 id="こんな人には合わないかもしれません">こんな人には合わないかもしれません</h2>
+<ul>
+<li>平日昼を含め、いつでも安定した高速通信を最優先する</li>
+<li>動画や大容量ファイルで、毎月20GBを大きく超える</li>
+<li>店頭で初期設定まで手伝ってほしい</li>
+<li>マイナンバーカードを使うオンライン手続きが難しい</li>
+<li>海外でも、そのままデータ通信を使いたい</li>
+</ul>
+<p>日本通信SIMでは、海外での音声通話とSMSは条件付きで利用できますが、海外データ通信は利用できません。海外へ行くときは、現地SIMや海外用eSIMなどを別に用意します。</p>
+<h2 id="よくある疑問">よくある疑問</h2>
+<h3 id="テザリングに追加料金はかかる">テザリングに追加料金はかかる？</h3>
+<p>合理的みんなのプランのデータ量として利用できます。端末側でテザリングに対応しているかは確認してください。</p>
+<h3 id="20gbを超えたらどうなる">20GBを超えたらどうなる？</h3>
+<p>設定した上限までは、1GBあたり220円で追加できます。上限へ達すると低速度になり、マイページで上限を引き上げると解除されます。</p>
+<h3 id="5分かけ放題と月70分無料通話はどちらがよい">5分かけ放題と月70分無料通話は、どちらがよい？</h3>
+<p>短い電話を何度もかける人は5分かけ放題、1回の電話が長くなりやすい人は月70分が選びやすいです。無料通話の対象外となる番号もあるため、公式の通話条件を確認します。</p>
+<h3 id="最低利用期間や解約金はある">最低利用期間や解約金はある？</h3>
+<p>公式案内では、最低利用期間と解約金はありません。ただし、料金月の途中で解約しても月額基本料は日割りされません。SIMカードは利用終了後に返却が必要です。</p>
+<h3 id="スターターパックを買えばsimが届く">スターターパックを買えば、SIMが届く？</h3>
+<p>スターターパックにSIMカードは同梱されていません。中にある申込コードを使い、日本通信アプリから契約手続きを進めます。</p>
+<h2 id="申込み方法と公式条件を確認する">申込み方法と公式条件を確認する</h2>
+<div class="affiliate-product-card">
+  <a class="affiliate-product-image" href="https://amzn.to/4zgLclg" target="_blank" rel="sponsored noopener noreferrer" aria-label="Amazon.co.jpで日本通信SIM スターターパックを見る">
+    <img src="https://www.nihontsushin.com/plan/images/starterpack_pkg.jpg" width="190" height="300" loading="lazy" referrerpolicy="no-referrer" alt="日本通信SIM スターターパック NT-ST2-P" />
+  </a>
+  <div class="affiliate-product-body">
+    <p class="affiliate-product-store">Amazon.co.jp</p>
+    <h3>日本通信SIM スターターパック</h3>
+    <p>日本通信SIM合理的プランの申込みに使うコードです。SIMカードは同梱されていません。</p>
+    <a class="affiliate-product-button" href="https://amzn.to/4zgLclg" target="_blank" rel="sponsored noopener noreferrer">Amazon.co.jpで申込コードを見る</a>
+    <p class="affiliate-product-disclosure">広告・アフィリエイトリンクです。紹介料は玉城祐輔個人に帰属します。価格、在庫、申込期限、対象プランをAmazonの商品ページで確認し、公式サイトから直接申し込む場合の初期手数料とも比較してください。</p>
+  </div>
+</div>
+<ul>
+<li><a href="https://www.nihontsushin.com/plan/planminna.html">合理的みんなのプランの公式ページ</a></li>
+<li><a href="https://www.nihontsushin.com/plan/planminna_detail.html">料金・通話・通信仕様の詳細</a></li>
+<li><a href="https://www.nihontsushin.com/shop/shop.html">スターターパックの公式案内</a></li>
+<li><a href="https://www.nihontsushin.com/support/support_esimguide.html">eSIMの申込み・再発行ガイド</a></li>
+<li><a href="https://www.nihontsushin.com/contract_notice/TermOfUseNotesPanel_NT-GMVC.pdf">日本通信SIMの注意事項</a></li>
+</ul>
+<p>料金・仕様・申込み条件は、2026年8月15日に公式情報を確認しました。</p>
+  </div> </div> <div class="article-share article-share-bottom" data-astro-cid-tldeq5d5> <div class="share-panel" role="group" aria-label="この記事を共有" data-share-root data-share-url="https://ysk.life/blog/nihontsushin-sim-minna-plan/" data-share-title="外の仕事は20GBで足りた。日本通信SIM" data-astro-cid-eqjx2q6l> <div class="share-actions" data-astro-cid-eqjx2q6l> <a class="share-button line" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fysk.life%2Fblog%2Fnihontsushin-sim-minna-plan%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="LINEで送る" data-tooltip="LINEで送る" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:line-fill">   <use href="#ai:ri:line-fill"></use>  </svg> </a> <a class="share-button facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fysk.life%2Fblog%2Fnihontsushin-sim-minna-plan%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="Facebookで共有" data-tooltip="Facebookで共有" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:facebook-fill">   <use href="#ai:ri:facebook-fill"></use>  </svg> </a> <button class="share-button instagram" type="button" aria-label="Instagramで共有" data-tooltip="Instagramで共有" data-share-instagram data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:instagram-line">   <use href="#ai:ri:instagram-line"></use>  </svg> </button> <button class="share-button copy" type="button" aria-label="記事のリンクをコピー" data-tooltip="リンクをコピー" data-share-copy data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:file-copy-line">   <use href="#ai:ri:file-copy-line"></use>  </svg> </button> </div> <p class="share-status" aria-live="polite" data-share-status data-astro-cid-eqjx2q6l></p> </div> <script>
+	(() => {
+		if (window.__yskShareButtonsInitialized) return;
+		window.__yskShareButtonsInitialized = true;
+
+		const copyText = async (text) => {
+			if (navigator.clipboard && window.isSecureContext) {
+				await navigator.clipboard.writeText(text);
+				return;
+			}
+
+			const input = document.createElement('textarea');
+			input.value = text;
+			input.setAttribute('readonly', '');
+			input.style.position = 'fixed';
+			input.style.opacity = '0';
+			document.body.appendChild(input);
+			input.select();
+			const copied = document.execCommand('copy');
+			input.remove();
+			if (!copied) throw new Error('Copy failed');
+		};
+
+		document.addEventListener('click', async (event) => {
+			const button = event.target.closest('[data-share-copy], [data-share-instagram]');
+			if (!button) return;
+
+			const root = button.closest('[data-share-root]');
+			if (!root) return;
+
+			const url = root.dataset.shareUrl;
+			const title = root.dataset.shareTitle;
+			const status = root.querySelector('[data-share-status]');
+			if (!url || !title || !status) return;
+
+			status.textContent = '';
+
+			try {
+				if (button.matches('[data-share-instagram]') && navigator.share) {
+					await navigator.share({ title, url });
+					return;
+				}
+
+				await copyText(url);
+				status.textContent = button.matches('[data-share-instagram]')
+					? 'リンクをコピーしました。InstagramのDMなどに貼り付けてください。'
+					: 'リンクをコピーしました。';
+			} catch (error) {
+				if (error && error.name === 'AbortError') return;
+				status.textContent = 'コピーできませんでした。ブラウザのアドレス欄からURLをコピーしてください。';
+			}
+		});
+	})();
+</script> </div> <section class="article-related shell" aria-labelledby="related-heading" data-astro-cid-tldeq5d5> <div class="related-heading" data-astro-cid-tldeq5d5> <h2 id="related-heading" data-astro-cid-tldeq5d5>おすすめの記事</h2> <p data-astro-cid-tldeq5d5>同じジャンルの記事を優先して、次に読みやすい記事を選びました。</p> </div> <div class="related-stage" data-astro-cid-tldeq5d5> <article class="article-card featured stacked" data-astro-cid-7ahxywo7> <a href="/blog/wws-workwear-suit-ankle-pants/" aria-label="毎日履いて、ほつれない。WWSのアンクルパンツを読む" data-astro-cid-7ahxywo7> <div class="card-visual" data-astro-cid-7ahxywo7>  <img src="/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1sRhMU.webp" alt loading="lazy" data-astro-cid-7ahxywo7="true" decoding="async" width="720" height="480"> </div> <div class="card-body" data-astro-cid-7ahxywo7> <div class="card-meta" data-astro-cid-7ahxywo7> <span data-astro-cid-7ahxywo7>仕事の道具</span> <span data-astro-cid-7ahxywo7><time datetime="2026-08-29T00:00:00.000Z"> 2026年8月29日 </time> 約11分</span> </div> <h3 data-astro-cid-7ahxywo7>毎日履いて、ほつれない。WWSのアンクルパンツ</h3> <p data-astro-cid-7ahxywo7>仕事の日は毎日WWS（ワークウェアスーツ）のアンクルパンツ。動き回っても傷まない持ちの良さと、素材ultimexの機能、洗濯で気をつけること、初回3,000円割引になる紹介コードまでまとめます。</p> <span class="read-more" data-astro-cid-7ahxywo7>この記事を読む <span aria-hidden="true" data-astro-cid-7ahxywo7>→</span></span> </div> </a> </article> <div class="related-side" data-astro-cid-tldeq5d5> <article class="article-card compact" data-astro-cid-7ahxywo7> <a href="/blog/hidock-p1-ai-recorder/" aria-label="録音時間を気にしない。HiDock P1を読む" data-astro-cid-7ahxywo7> <div class="card-visual" data-astro-cid-7ahxywo7>  <img src="/_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_ZGgoR4.webp" alt loading="lazy" data-astro-cid-7ahxywo7="true" decoding="async" width="720" height="480"> </div> <div class="card-body" data-astro-cid-7ahxywo7> <div class="card-meta" data-astro-cid-7ahxywo7> <span data-astro-cid-7ahxywo7>家と仕事の道具</span> <span data-astro-cid-7ahxywo7><time datetime="2026-08-21T00:00:00.000Z"> 2026年8月21日 </time> 約13分</span> </div> <h3 data-astro-cid-7ahxywo7>録音時間を気にしない。HiDock P1</h3> <p data-astro-cid-7ahxywo7>相談や会議を録音し、HiNotesで文字起こし・要約まで進めるAIレコーダーHiDock P1。買い切りで使える標準範囲、実際の取り込み画面、仕事での使い方、注意点を紹介します。</p> <span class="read-more" data-astro-cid-7ahxywo7>この記事を読む <span aria-hidden="true" data-astro-cid-7ahxywo7>→</span></span> </div> </a> </article><article class="article-card compact" data-astro-cid-7ahxywo7> <a href="/blog/avakyo-tank-dishwasher-av-01/" aria-label="食器洗いを任せる。AVAKYO AV-01を読む" data-astro-cid-7ahxywo7> <div class="card-visual" data-astro-cid-7ahxywo7>  <img src="/_astro/hero-tamashiro-yusuke-loading-dishwasher.Bg4ieaFj_197OMr.webp" alt loading="lazy" data-astro-cid-7ahxywo7="true" decoding="async" width="720" height="480"> </div> <div class="card-body" data-astro-cid-7ahxywo7> <div class="card-meta" data-astro-cid-7ahxywo7> <span data-astro-cid-7ahxywo7>家と仕事の道具</span> <span data-astro-cid-7ahxywo7><time datetime="2026-08-15T00:00:00.000Z"> 2026年8月15日 </time> 約13分</span> </div> <h3 data-astro-cid-7ahxywo7>食器洗いを任せる。AVAKYO AV-01</h3> <p data-astro-cid-7ahxywo7>水道工事なしで使えるAVAKYO AV-01。毎日の食器洗いを任せられるか、給水、排水、置き場所、容量、手入れまで実利用をもとにまとめます。</p> <span class="read-more" data-astro-cid-7ahxywo7>この記事を読む <span aria-hidden="true" data-astro-cid-7ahxywo7>→</span></span> </div> </a> </article> </div> </div> </section> <section class="article-genres shell" aria-labelledby="article-genres-heading" data-astro-cid-tldeq5d5> <div class="related-heading" data-astro-cid-tldeq5d5> <h2 id="article-genres-heading" data-astro-cid-tldeq5d5>ジャンルから記事を探す</h2> <p data-astro-cid-tldeq5d5>全11本の記事を、3つのジャンルから選べます。</p> </div> <nav class="blog-genre-nav" aria-label="記事のジャンル" data-astro-cid-3vbq5m5q> <a href="/blog/#genre-ai" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>AIの使い方</strong> <small data-astro-cid-3vbq5m5q>AIを仕事に取り入れる方法</small> </span> <span class="genre-count" aria-label="2本" data-astro-cid-3vbq5m5q> 2本 </span> </a><a href="/blog/#genre-tools" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>仕事と暮らしの道具</strong> <small data-astro-cid-3vbq5m5q>実際に使った道具と選び方</small> </span> <span class="genre-count" aria-label="7本" data-astro-cid-3vbq5m5q> 7本 </span> </a><a href="/blog/#genre-management" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>経営と仕事の仕組み</strong> <small data-astro-cid-3vbq5m5q>経営支援と仕組みづくりの実践</small> </span> <span class="genre-count" aria-label="2本" data-astro-cid-3vbq5m5q> 2本 </span> </a> </nav> </section> <section class="after-note narrow" data-astro-cid-tldeq5d5> <h2 data-astro-cid-tldeq5d5>次に見るものを選ぶ</h2> <p data-astro-cid-tldeq5d5>玉城個人が使っている道具は「道具箱」へ。会社の仕事として相談したい場合は、T&Lサポートへお進みください。</p> <div class="button-row" data-astro-cid-tldeq5d5> <a class="button" href="/toolbox/" data-astro-cid-tldeq5d5>道具箱を見る</a> <a class="button primary" href="https://taxlegal.jp/" target="_blank" rel="noopener noreferrer" data-astro-cid-tldeq5d5>相談内容を確認する</a> </div> </section> </article> </main> <footer data-astro-cid-jo6i4kqk> <div class="shell footer-grid" data-astro-cid-jo6i4kqk> <div class="footer-statement" data-astro-cid-jo6i4kqk> <p data-astro-cid-jo6i4kqk>沖縄の現場で、実際に試したことを残します。</p> </div> <div class="footer-links" data-astro-cid-jo6i4kqk> <div data-astro-cid-jo6i4kqk> <strong data-astro-cid-jo6i4kqk>このサイト</strong> <a href="/blog" data-astro-cid-jo6i4kqk>記事を読む</a> <a href="/about" data-astro-cid-jo6i4kqk>玉城について</a> <a href="/privacy" data-astro-cid-jo6i4kqk>プライバシー</a> <a href="/affiliate-disclosure" data-astro-cid-jo6i4kqk>広告・紹介について</a> </div> <div data-astro-cid-jo6i4kqk> <strong data-astro-cid-jo6i4kqk>外部リンク</strong> <a href="/toolbox/" data-astro-cid-jo6i4kqk>玉城祐輔の道具箱 →</a> <a href="https://taxlegal.jp/" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>T&Lサポート株式会社 ↗</a> <a href="https://www.facebook.com/yusuke.tamashiro" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>Facebook ↗</a> <a href="https://www.instagram.com/tamashiro_yusuke_tl/" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>Instagram ↗</a> </div> </div> </div> <div class="shell footer-bottom" data-astro-cid-jo6i4kqk> <span data-astro-cid-jo6i4kqk>&copy; 2026 Yusuke Tamashiro</span> <span data-astro-cid-jo6i4kqk>AIとデジタルを、現場で使える形に。</span> </div> </footer> </body> </html>

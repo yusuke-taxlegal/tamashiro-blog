@@ -1,0 +1,113 @@
+---
+import '../styles/journal-pages.css';
+import { Image } from 'astro:assets';
+import currentWorkIllustration from '../assets/about/tamashiro-current-work-right-handed.webp';
+import profilePhoto from '../assets/people/tamashiro-yusuke-profile-black-2048.jpg';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { COMPANY_URL } from '../consts';
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead
+			title="玉城について｜玉城祐輔"
+			description="元・商工会経営指導員11年。沖縄で小さな会社のデジタルとお金の相談に伴走する玉城祐輔のプロフィールです。"
+		/>
+	</head>
+	<body class="journal-page about-page">
+		<Header showName />
+		<main id="main-content">
+			<header class="about-hero shell">
+				<div class="about-copy">
+					<p class="about-kicker">沖縄の現場で、相談に向き合う</p>
+					<h1 id="about-title"><span>相談に向き合った、</span><br /><strong>11年。</strong></h1>
+					<p class="lead">元・商工会経営指導員として11年、500社以上の相談に向き合ってきました。いまはT&Lサポート株式会社の代表として、自社でもAIと財務の立て直しを実践しています。</p>
+					<p class="about-note">成功談だけでなく、試して失敗したことや遠回りしたことも共有します。自分で確かめたことを、現場で使える形にして届けます。</p>
+				</div>
+				<figure class="about-photo">
+					<Image
+						src={profilePhoto}
+						alt="黒い背景の前に立つ玉城祐輔"
+						widths={[480, 720, 900]}
+						sizes="(max-width: 760px) 72vw, 36vw"
+						loading="eager"
+						fetchpriority="high"
+					/>
+				</figure>
+			</header>
+
+			<section class="profile-band">
+				<div class="shell facts">
+					<div><strong>11年</strong><span>商工会経営指導員</span></div>
+					<div><strong>500社以上</strong><span>これまでの支援</span></div>
+					<div><strong>4人</strong><span>子どもたちの父</span></div>
+					<div><strong>沖縄</strong><span>活動の拠点</span></div>
+				</div>
+			</section>
+
+			<section class="work shell" id="work" aria-labelledby="work-title">
+				<header class="work-heading">
+					<h2 id="work-title">今、取り組んでいること</h2>
+					<p>制度や技術を、使える形にする。</p>
+				</header>
+				<div class="work-layout">
+					<figure class="work-photo">
+						<Image
+							src={currentWorkIllustration}
+							alt="AIの活用方法をパソコンで試し、チェックリストと研修資料にまとめる玉城祐輔のイラスト"
+							widths={[640, 920, 1280]}
+							sizes="(max-width: 800px) 100vw, 45vw"
+							loading="lazy"
+						/>
+					</figure>
+					<div class="work-list">
+						<article>
+							<h3>小さな会社のAI活用支援</h3>
+							<p>専任のIT担当者を置けない小さな会社に、難しい説明ではなく「明日から使える形」でAIやデジタルを届けます。</p>
+						</article>
+						<article>
+							<h3>経営支援者向けの研修・道具</h3>
+							<p>商工会の中で11年働いた経験を生かし、経営指導員や支援機関が相談対応で使える研修と道具をつくります。</p>
+						</article>
+						<article>
+							<h3>自社で試して確かめる</h3>
+							<p>自分の会社でも、AIと財務を使った改善を実践中です。自分で試していないことを、体験談のようには語りません。</p>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section class="pathways shell" aria-labelledby="pathways-title">
+				<header>
+					<h2 id="pathways-title">個人の発信と、<br />法人の相談。</h2>
+					<p>情報を読む入口と、仕事として相談する入口を混ぜずに案内します。</p>
+				</header>
+				<div class="pathway-list">
+					<article>
+						<p class="pathway-label">玉城祐輔 個人</p>
+						<h3>試したことを読む</h3>
+						<p>このサイトでは、AI、仕事の道具、経営の現場で実際に試したことを残しています。道具箱の紹介活動も個人の発信です。</p>
+						<div class="text-links"><a href="/blog/">記事を読む</a><a href="/toolbox/">道具箱を見る</a></div>
+					</article>
+					<article class="company-pathway">
+						<p class="pathway-label">T&amp;Lサポート株式会社</p>
+						<h3>仕事として相談する</h3>
+						<p>法人としてのAI活用、業務整理、経営伴走は、T&amp;Lサポート株式会社で承ります。</p>
+					</article>
+				</div>
+			</section>
+
+			<section class="contact shell" aria-labelledby="contact-title">
+				<div class="contact-copy">
+					<h2 id="contact-title">AI活用と経営の相談は、<br />T&amp;Lサポートへ。</h2>
+					<p>法人としてのAI活用・業務整理・経営伴走のご相談は、T&Lサポート株式会社で承ります。</p>
+				</div>
+				<a class="button contact-button" href={COMPANY_URL} target="_blank" rel="noopener noreferrer">相談内容を確認する</a>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

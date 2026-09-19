@@ -1,0 +1,13 @@
+
+ ⛅️ wrangler 4.121.0 (update available 4.135.0)
+───────────────────────────────────────────────
+Uploading... (135/161)
+Uploading... (144/161)
+Uploading... (153/161)
+Uploading... (161/161)
+✨ Success! Uploaded 26 files (135 already uploaded) (1.69 sec)
+
+✨ Uploading _headers
+🌎 Deploying...
+✨ Deployment complete! Take a peek over at https://572c8447.tamashiro-blog.pages.dev
+✨ Deployment alias URL: https://codex-organizational-ai-prev.tamashiro-blog.pages.dev

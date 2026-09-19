@@ -1,0 +1,112 @@
+[
+  {
+    "route": "/privacy/",
+    "text_equal": false,
+    "links_equal": false,
+    "image_alts_equal": true,
+    "normalized_equal": true,
+    "note": "Only Cloudflare email obfuscation; decoded public mailto matches source."
+  },
+  {
+    "route": "/affiliate-disclosure/",
+    "text_equal": true,
+    "links_equal": true,
+    "image_alts_equal": true
+  },
+  {
+    "route": "/about/",
+    "text_equal": true,
+    "links_equal": true,
+    "image_alts_equal": true
+  },
+  {
+    "route": "/blog/",
+    "text_equal": true,
+    "links_equal": true,
+    "image_alts_equal": true
+  },
+  {
+    "route": "/blog/healsio-hotcook-kn-hw24g/",
+    "text_equal": true,
+    "links_equal": true,
+    "image_alts_equal": true
+  },
+  {
+    "route": "/blog/hidock-p1-ai-recorder/",
+    "text_equal": true,
+    "links_equal": true,
+    "image_alts_equal": true
+  },
+  {
+    "route": "/blog/jizokuka-hojo-2025/",
+    "text_equal": true,
+    "links_equal": true,
+    "image_alts_equal": true
+  },
+  {
+    "route": "/blog/seminarflow-seminar-operation-sharing/",
+    "text_equal": true,
+    "links_equal": true,
+    "image_alts_equal": true
+  },
+  {
+    "route": "/blog/chatgpt-business-nyumon/",
+    "text_equal": true,
+    "links_equal": true,
+    "image_alts_equal": true
+  },
+  {
+    "route": "/blog/switchbot-lock-pro/",
+    "text_equal": true,
+    "links_equal": true,
+    "image_alts_equal": true
+  },
+  {
+    "route": "/blog/avakyo-tank-dishwasher-av-01/",
+    "text_equal": true,
+    "links_equal": true,
+    "image_alts_equal": true
+  },
+  {
+    "route": "/blog/nihontsushin-sim-minna-plan/",
+    "text_equal": true,
+    "links_equal": true,
+    "image_alts_equal": true
+  },
+  {
+    "route": "/blog/wws-workwear-suit-ankle-pants/",
+    "text_equal": true,
+    "links_equal": true,
+    "image_alts_equal": true
+  },
+  {
+    "route": "/blog/google-workspace-nyumon/",
+    "text_equal": true,
+    "links_equal": true,
+    "image_alts_equal": true
+  },
+  {
+    "route": "/blog/google-workspace-gmail-gemini-productivity/",
+    "text_equal": true,
+    "links_equal": true,
+    "image_alts_equal": true
+  },
+  {
+    "route": "/toolbox/",
+    "text_equal": true,
+    "links_equal": true,
+    "image_alts_equal": true
+  },
+  {
+    "route": "/toolbox/home/",
+    "text_equal": true,
+    "links_equal": true,
+    "image_alts_equal": true
+  },
+  {
+    "route": "/toolbox/work/",
+    "text_equal": true,
+    "links_equal": true,
+    "image_alts_equal": true
+  }
+]

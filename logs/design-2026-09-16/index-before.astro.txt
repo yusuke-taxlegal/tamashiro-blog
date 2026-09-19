@@ -1,0 +1,514 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import practicalAiWork from '../assets/home/tamashiro-practical-ai-work.webp';
+import profilePhoto from '../assets/people/tamashiro-yusuke-profile-black-2048.jpg';
+import ArticleCarousel from '../components/ArticleCarousel.astro';
+import BaseHead from '../components/BaseHead.astro';
+import BlogGenreNav from '../components/BlogGenreNav.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import WebApps from '../components/WebApps.astro';
+import { COMPANY_URL, SITE_DESCRIPTION, SITE_TITLE, TOOLBOX_URL } from '../consts';
+import { countPostsByGenre, orderPostsForDiscovery, sortPostsByRecency } from '../lib/blogNavigation';
+
+const posts = sortPostsByRecency(await getCollection('blog'));
+const discoveryPosts = orderPostsForDiscovery(posts);
+const genreCounts = countPostsByGenre(posts);
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body class="home-page">
+		<Header />
+		<main id="main-content">
+			<section class="hero shell" aria-labelledby="hero-heading">
+				<div class="hero-copy">
+					<p class="hero-kicker">沖縄の小さな会社へ</p>
+					<h1 id="hero-heading">AIとデジタルを、<br /><strong>現場で使える形に。</strong></h1>
+					<p class="lead">
+						元・商工会経営指導員の玉城祐輔が、実際に試して役立ったAI、仕事の道具、経営の工夫を紹介します。
+					</p>
+					<div class="button-row">
+						<a class="button primary" href="/blog">全{posts.length}本の記事を見る</a>
+						<a class="button" href="/about">玉城祐輔について</a>
+					</div>
+				</div>
+				<div class="hero-portrait">
+					<Image
+						src={profilePhoto}
+						alt="黒い背景の前で笑顔を見せる玉城祐輔"
+						width={820}
+						height={900}
+						loading="eager"
+						fetchpriority="high"
+						quality={88}
+					/>
+				</div>
+			</section>
+
+			<section class="experience" aria-label="玉城祐輔の経験">
+				<dl class="shell experience-list">
+					<div><dt>商工会経営指導員</dt><dd>11年</dd></div>
+					<div><dt>これまでの支援</dt><dd>500社以上</dd></div>
+					<div><dt>活動の拠点</dt><dd>沖縄</dd></div>
+				</dl>
+			</section>
+
+			<section class="discover-articles shell" aria-labelledby="discover-heading">
+				<div class="discover-intro">
+					<h2 id="discover-heading">記事を画像から選ぶ</h2>
+					<p>新しい記事を起点に、テーマが続けて偏らないよう並べています。画像を横に送り、気になる記事から読めます。</p>
+				</div>
+				<ArticleCarousel posts={discoveryPosts} label="全記事から選ぶ" />
+			</section>
+
+			<section class="browse-articles shell" aria-labelledby="browse-heading">
+				<div class="browse-intro">
+					<h2 id="browse-heading">ジャンルから絞り込む</h2>
+					<p>{posts.length}本の記事を、3つのジャンルに分けています。気になるテーマから記事一覧へ進めます。</p>
+				</div>
+				<BlogGenreNav counts={genreCounts} />
+			</section>
+
+			<section class="approach shell" aria-labelledby="approach-heading">
+				<div class="approach-grid">
+					<div class="approach-copy">
+						<p class="approach-kicker">このサイトでわかること</p>
+						<h2 id="approach-heading">
+							<span>仕事に役立つ</span>
+							<span>AI・道具・経営のヒント</span>
+						</h2>
+						<p>
+							玉城祐輔が実際に試し、現場で役立った使い方と注意点を、短く具体的に紹介します。
+						</p>
+						<dl class="approach-points">
+							<div><dt>AI活用</dt><dd>小さな会社で使える方法</dd></div>
+							<div><dt>仕事の道具</dt><dd>無理なく続けられる選び方</dd></div>
+							<div><dt>経営の工夫</dt><dd>支援現場で得た実践知</dd></div>
+						</dl>
+					</div>
+					<div class="approach-visual">
+						<Image
+							src={practicalAiWork}
+							alt="ノートパソコンとチェックリストを手に、AIと仕事道具、経営の工夫を検討する玉城祐輔のキャラクターイラスト"
+							loading="lazy"
+							quality={88}
+						/>
+					</div>
+				</div>
+			</section>
+
+			<section class="paths shell" aria-labelledby="paths-heading">
+				<div class="paths-intro">
+					<h2 id="paths-heading">次にできること</h2>
+					<p>個人の紹介活動と、法人としての支援を分けて案内しています。</p>
+				</div>
+				<div class="path-grid">
+					<a class="path-card personal" href={TOOLBOX_URL}>
+						<span>玉城祐輔 個人</span>
+						<h3>実際に使っている<br />道具を見る</h3>
+						<p>仕事と暮らしで使っている道具を、良かった点と購入前の注意点を含めて紹介します。</p>
+						<strong>道具箱を見る <span aria-hidden="true">→</span></strong>
+					</a>
+					<a class="path-card company" href={COMPANY_URL} target="_blank" rel="noopener noreferrer">
+						<span>T&amp;Lサポート株式会社</span>
+						<h3>会社の困りごとを<br />相談する</h3>
+						<p>AI活用、業務整理、経営伴走のご相談は、法人サービスとして承っています。</p>
+						<strong>相談内容を確認する <span aria-hidden="true">↗</span></strong>
+					</a>
+				</div>
+				<p class="separation-note">「道具箱」は玉城祐輔個人の紹介活動です。法人相談はT&amp;Lサポート株式会社が承ります。</p>
+			</section>
+
+			<section class="apps shell" aria-labelledby="apps-heading">
+				<div class="apps-intro">
+					<h2 id="apps-heading">私が作ったWebアプリ</h2>
+					<p>現場で繰り返していた作業を減らすために作りました。各アプリは、そのまま開いて試せます。</p>
+				</div>
+				<WebApps />
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	:global(body.home-page) {
+		--site-bg: #f4f0e7;
+		--site-surface: #fffdf8;
+		--site-surface-subtle: #e8e1d2;
+		--site-text: #171915;
+		--site-text-soft: #4f5348;
+		--site-muted: #62655b;
+		--site-line: rgba(23, 25, 21, 0.16);
+		--site-accent: #d95f3b;
+		--site-accent-dark: #a63d21;
+		--site-link-hover: #424b32;
+		--header-bg: color-mix(in srgb, var(--site-bg) 92%, transparent);
+		--footer-bg: #171915;
+		--footer-text: #f4f0e7;
+		--footer-muted: #aaa999;
+		background: var(--site-bg);
+		color: var(--site-text);
+	}
+
+	.hero {
+		display: grid;
+		grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.72fr);
+		align-items: center;
+		gap: clamp(2.5rem, 7vw, 7rem);
+		min-height: min(760px, calc(100dvh - 74px));
+		padding-block: clamp(2.75rem, 6vw, 5rem);
+	}
+
+	.hero-copy {
+		padding-bottom: clamp(0rem, 3vw, 2rem);
+	}
+
+	.hero-kicker {
+		margin-bottom: 1rem;
+		color: var(--site-link-hover);
+		font-size: 0.78rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+	}
+
+	.hero h1 {
+		max-width: 780px;
+		margin-bottom: 1.4rem;
+		color: var(--site-text);
+		font-size: clamp(2.7rem, 4.5vw, 4.1rem);
+		font-weight: 780;
+		line-height: 1.04;
+	}
+
+	.hero h1 strong {
+		display: inline-block;
+		color: var(--site-text);
+		font-weight: inherit;
+		text-decoration: underline;
+		text-decoration-color: var(--site-accent);
+		text-decoration-thickness: 0.09em;
+		text-underline-offset: 0.11em;
+		white-space: nowrap;
+	}
+
+	.lead {
+		max-width: 600px;
+		margin-bottom: 1.9rem;
+		color: var(--site-text-soft);
+		font-size: clamp(1rem, 1.5vw, 1.14rem);
+		line-height: 1.9;
+	}
+
+	.hero :global(.button) {
+		border-color: var(--site-text);
+		color: var(--site-text);
+	}
+
+	.hero :global(.button:hover) {
+		background: var(--site-text);
+		color: var(--site-bg);
+	}
+
+	.hero :global(.button.primary) {
+		background: var(--site-text);
+		color: var(--site-bg);
+	}
+
+	.hero :global(.button.primary:hover) {
+		background: var(--site-link-hover);
+		color: var(--site-bg);
+	}
+
+	.hero-portrait {
+		position: relative;
+		overflow: hidden;
+		border-radius: var(--radius);
+		background: #11130f;
+		box-shadow: 0 26px 70px color-mix(in srgb, var(--site-text) 14%, transparent);
+	}
+
+	.hero-portrait :global(img) {
+		width: 100%;
+		aspect-ratio: 4 / 4.35;
+		object-fit: cover;
+		object-position: 50% 35%;
+	}
+
+	.experience {
+		border-block: 1px solid var(--site-line);
+		background: color-mix(in srgb, var(--site-surface-subtle) 66%, var(--site-bg));
+	}
+
+	.experience-list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		margin-block: 0;
+	}
+
+	.experience-list div {
+		display: flex;
+		align-items: baseline;
+		justify-content: center;
+		gap: 0.65rem;
+		padding: 1.25rem;
+		border-right: 1px solid var(--site-line);
+	}
+
+	.experience-list div:last-child { border-right: 0; }
+	.experience-list dt { color: var(--site-muted); font-size: 0.76rem; }
+	.experience-list dd { margin: 0; color: var(--site-text); font-size: 1.06rem; font-weight: 800; }
+
+	.approach {
+		padding-block: clamp(5rem, 11vw, 9rem);
+		border-top: 1px solid var(--site-line);
+	}
+
+	.approach-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 0.96fr) minmax(420px, 1.04fr);
+		align-items: center;
+		gap: clamp(2.5rem, 5vw, 4.5rem);
+	}
+
+	.approach-copy {
+		max-width: 620px;
+	}
+
+	.approach-kicker {
+		margin-bottom: 0.9rem;
+		color: var(--site-accent-dark);
+		font-size: 0.76rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+	}
+
+	.approach-copy h2 {
+		margin-bottom: 1.5rem;
+		color: var(--site-text);
+		font-family: var(--font-serif);
+		font-size: clamp(2.25rem, 3.5vw, 3rem);
+		font-weight: 600;
+		line-height: 1.32;
+	}
+
+	.approach-copy h2 span {
+		display: block;
+	}
+
+	.approach-copy p {
+		margin-bottom: 1.65rem;
+		color: var(--site-text-soft);
+	}
+
+	.approach-points {
+		display: grid;
+		gap: 0.6rem;
+		margin: 0;
+		padding: 0;
+	}
+
+	.approach-points div {
+		display: grid;
+		grid-template-columns: minmax(6.5rem, 0.62fr) minmax(0, 1fr);
+		gap: 1rem;
+		align-items: baseline;
+		padding: 0.65rem 0 0.65rem 1rem;
+		border-left: 3px solid var(--site-accent);
+	}
+
+	.approach-points dt {
+		color: var(--site-text);
+		font-size: 0.92rem;
+		font-weight: 800;
+	}
+
+	.approach-points dd {
+		margin: 0;
+		color: var(--site-text-soft);
+		font-size: 0.86rem;
+	}
+
+	.approach-visual {
+		overflow: hidden;
+		border: 1px solid var(--site-line);
+		border-radius: var(--radius);
+		background: #1a211d;
+		box-shadow: 0 24px 64px color-mix(in srgb, var(--site-text) 13%, transparent);
+	}
+
+	.approach-visual :global(img) {
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+	}
+
+	.text-link {
+		color: var(--site-text);
+		font-size: 0.86rem;
+		font-weight: 800;
+	}
+
+	.discover-articles {
+		padding-block: clamp(4.5rem, 10vw, 8rem);
+	}
+
+	.discover-intro,
+	.browse-intro,
+	.apps-intro {
+		max-width: 690px;
+		margin-bottom: clamp(1.5rem, 4vw, 2.4rem);
+	}
+
+	.discover-intro h2,
+	.browse-intro h2,
+	.apps-intro h2 {
+		margin-bottom: 0.7rem;
+		color: var(--site-text);
+		font-size: clamp(2rem, 3.5vw, 3.15rem);
+	}
+
+	.discover-intro p,
+	.browse-intro p,
+	.apps-intro p {
+		margin: 0;
+		color: var(--site-text-soft);
+	}
+
+	.browse-articles {
+		padding-bottom: clamp(4.5rem, 9vw, 7rem);
+	}
+
+	.paths-intro {
+		max-width: 690px;
+		margin-bottom: clamp(2rem, 5vw, 3.25rem);
+	}
+
+	.paths-intro h2 {
+		margin-bottom: 0.7rem;
+		color: var(--site-text);
+		font-size: clamp(2.1rem, 4vw, 3.6rem);
+	}
+
+	.paths-intro p {
+		margin: 0;
+		color: var(--site-text-soft);
+	}
+
+	.paths {
+		padding-top: clamp(4.5rem, 10vw, 8rem);
+	}
+
+	.path-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+		gap: 1rem;
+	}
+
+	.path-card {
+		display: flex;
+		min-height: 360px;
+		padding: clamp(2rem, 5vw, 3.5rem);
+		flex-direction: column;
+		border: 1px solid var(--site-line);
+		border-radius: var(--radius);
+		background: var(--site-surface);
+		color: var(--site-text);
+		text-decoration: none;
+		transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+	}
+
+	.path-card:hover {
+		transform: translateY(-4px);
+		border-color: var(--site-accent);
+		background: color-mix(in srgb, var(--site-surface) 92%, var(--site-accent));
+		color: var(--site-text);
+	}
+
+	.path-card:active { transform: translateY(-1px) scale(0.99); }
+	.path-card > span { color: var(--site-muted); font-size: 0.72rem; font-weight: 800; }
+	.path-card h3 { margin: auto 0 1rem; color: var(--site-text); font-size: clamp(1.9rem, 4vw, 3.15rem); }
+	.path-card p { max-width: 520px; color: var(--site-text-soft); font-size: 0.92rem; }
+	.path-card strong { color: var(--site-text); font-size: 0.86rem; }
+	.path-card.company { border-top: 5px solid var(--site-accent); }
+	.path-card.personal { background: var(--site-surface-subtle); }
+
+	.separation-note {
+		margin: 1rem 0 0;
+		color: var(--site-muted);
+		font-size: 0.75rem;
+	}
+
+	.apps {
+		margin-top: clamp(4.5rem, 10vw, 8rem);
+		padding-block: clamp(4.5rem, 9vw, 7rem);
+		border-top: 1px solid var(--site-line);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:global(body.home-page) {
+			--site-bg: #11130f;
+			--site-surface: #191d16;
+			--site-surface-subtle: #23291d;
+			--site-text: #f1eee5;
+			--site-text-soft: #c7c9bd;
+			--site-muted: #aeb3a3;
+			--site-line: rgba(241, 238, 229, 0.18);
+			--site-accent: #ef805d;
+			--site-accent-dark: #ef805d;
+			--site-link-hover: #b8c897;
+			--header-bg: color-mix(in srgb, var(--site-bg) 90%, transparent);
+			--footer-bg: #0b0d0a;
+			--footer-text: #f1eee5;
+			--footer-muted: #aeb3a3;
+		}
+	}
+
+	@media (max-width: 940px) {
+		.hero {
+			grid-template-columns: minmax(0, 1fr) minmax(270px, 0.62fr);
+			gap: 2rem;
+		}
+
+		.approach-grid {
+			grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+			gap: 2.5rem;
+		}
+
+	}
+
+	@media (max-width: 700px) {
+		.hero {
+			grid-template-columns: 1fr;
+			min-height: auto;
+			padding-top: 2.25rem;
+		}
+
+		.hero h1 { font-size: clamp(1.7rem, 8.5vw, 4.1rem); }
+		.hero-portrait { width: min(64vw, 290px); margin-inline: auto; }
+		.experience-list { grid-template-columns: 1fr; }
+		.experience-list div { justify-content: space-between; border-right: 0; border-bottom: 1px solid var(--site-line); }
+		.experience-list div:last-child { border-bottom: 0; }
+		.approach { padding-block: 4.5rem; }
+		.approach-grid { grid-template-columns: 1fr; gap: 2rem; }
+		.approach-copy h2 { font-size: clamp(1.85rem, 8.3vw, 2.75rem); }
+		.approach-points div { grid-template-columns: 1fr; gap: 0.1rem; }
+		.path-grid { grid-template-columns: 1fr; }
+		.path-card { min-height: 310px; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.path-card { transition: none; }
+		.path-card:hover,
+		.path-card:active { transform: none; }
+	}
+
+	@media (max-width: 360px) {
+		.hero h1 { font-size: 7.5vw; }
+	}
+</style>

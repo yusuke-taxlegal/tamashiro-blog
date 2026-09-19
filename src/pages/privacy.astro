@@ -13,7 +13,7 @@ import { CONTACT_EMAIL } from '../consts';
 	<body>
 		<Header />
 		<main id="main-content">
-			<header class="page-intro narrow legal-intro"><p class="eyebrow">情報の取り扱い</p><h1>プライバシー<br class="mobile-break" />ポリシー</h1><p>このサイトにおける情報の取り扱いについて記載します。</p><span>制定 2026年8月12日／改定 2026年8月21日</span></header>
+			<header class="page-intro narrow legal-intro"><p class="eyebrow">情報の取り扱い</p><h1>プライバシー<br class="mobile-break" />ポリシー</h1><p>このサイトにおける情報の取り扱いについて記載します。</p><span>制定 2026年8月12日／改定 2026年9月19日</span></header>
 			<article class="legal-document shell">
 				<nav class="legal-summary" aria-label="このページの内容">
 					<p>このページの内容</p>
@@ -28,7 +28,12 @@ import { CONTACT_EMAIL } from '../consts';
 				<p>収集された情報はGoogleの方針に基づいて管理されます。詳しくは、<a href="https://policies.google.com/technologies/partner-sites?hl=ja" target="_blank" rel="noopener noreferrer">Googleのサービスを使用するサイトやアプリから収集した情報の利用</a>をご確認ください。</p>
 				<p>アクセス解析を許可しない場合も、当サイトの閲覧には影響しません。選択を変更する場合は、次のボタンを押して、画面下部に表示される設定から選び直してください。</p>
 				<p><button class="button analytics-choice-button" type="button" data-analytics-consent-reset>アクセス解析の選択を変更する</button></p>
-				<h2 id="external-links">外部リンク</h2>
+				<h2 id="reactions">記事への反応と人気記事の表示</h2>
+                <p>「参考になった」「試してみたい」を押すと、記事・反応の種類・日時と、重複を抑えるための匿名識別子をCloudflare上のデータベースに保存します。初回の反応時に、このサイト専用のCookieを最長1年間保存します。氏名やメールアドレスは収集しません。Cookieの削除や別の端末の利用により重複する場合があるため、表示件数は厳密な人数ではありません。</p>
+                <p>反応ボタンはアクセス解析を許可しなくても利用できます。アクセス解析を許可した場合には、反応・共有ボタンの操作・リンクコピー・読了の目安をGoogle Analyticsにも記録します。共有操作数はSNSへの投稿完了数ではありません。</p>
+                <p>不正な連続送信を抑えるため、送信元IPアドレスから短時間ごとに変わる識別値を生成して利用します。独自の集計データベースには生のIPアドレスを保存せず、この制限用データは定期的に削除します。反応は記事の改善・集計のために保存し、個人を直接特定する目的では利用しません。</p>
+                <p>記事別の日次アクセス集計は最長365日保存し、人気記事には昨日までの30日間の集計を使用します。解析への同意や広告ブロックなどにより、すべての閲覧が含まれるわけではありません。CloudflareのWeb Analyticsも、アクセス状況・表示速度の把握に利用しています。</p>
+                <h2 id="external-links">外部リンク</h2>
 				<p>外部サイトで提供される情報やサービスについては、当サイトでは責任を負いかねます。各リンク先の利用条件とプライバシーポリシーをご確認ください。</p>
 				<h2 id="contact">お問い合わせ</h2>
 				<p>本方針に関するお問い合わせは、<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> までご連絡ください。</p>

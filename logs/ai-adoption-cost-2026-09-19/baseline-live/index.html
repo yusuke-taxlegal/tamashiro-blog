@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="ja"> <head><meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta name="theme-color" content="#171915"> <meta name="google-site-verification" content="ZOHyxB9OxiSl2kg7iNFCxDlsYK6K5h7e890uRt8Vyt0"> <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2"> <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.png?v=2"> <link rel="shortcut icon" href="/favicon.ico?v=2"> <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=2"> <link rel="sitemap" href="/sitemap-index.xml"> <link rel="alternate" type="application/rss+xml" title="玉城祐輔｜AIとデジタルを、現場で使える形に。" href="https://ysk.life/rss.xml"> <meta name="generator" content="Astro v7.2.1"> <link rel="canonical" href="https://ysk.life/"> <title>玉城祐輔｜仕事と暮らしの、役立つ実践ノート。</title> <meta name="title" content="玉城祐輔｜仕事と暮らしの、役立つ実践ノート。"> <meta name="description" content="AI、道具、経営の工夫を、玉城祐輔の経験から。沖縄を拠点に、仕事と暮らしで実際に試したことを発信しています。"> <meta name="author" content="玉城祐輔"> <meta property="og:type" content="website"> <meta property="og:locale" content="ja_JP"> <meta property="og:site_name" content="玉城祐輔"> <meta property="og:url" content="https://ysk.life/"> <meta property="og:title" content="玉城祐輔｜仕事と暮らしの、役立つ実践ノート。"> <meta property="og:description" content="AI、道具、経営の工夫を、玉城祐輔の経験から。沖縄を拠点に、仕事と暮らしで実際に試したことを発信しています。"> <meta property="og:image" content="https://ysk.life/images/ysk-life-og.png"> <meta property="og:image:secure_url" content="https://ysk.life/images/ysk-life-og.png"> <meta property="og:image:width" content="1200"> <meta property="og:image:height" content="630"> <meta property="og:image:alt" content="玉城祐輔｜仕事と暮らしの、役立つ実践ノート。"> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="玉城祐輔｜仕事と暮らしの、役立つ実践ノート。"> <meta name="twitter:description" content="AI、道具、経営の工夫を、玉城祐輔の経験から。沖縄を拠点に、仕事と暮らしで実際に試したことを発信しています。"> <meta name="twitter:image" content="https://ysk.life/images/ysk-life-og.png"> <meta name="twitter:image:alt" content="玉城祐輔｜仕事と暮らしの、役立つ実践ノート。"> <script>
+	(() => {
+		const measurementId = 'G-752CVHZQNC';
+		const consentKey = 'ysk-analytics-consent-v1';
+		const acceptedValue = 'granted';
+		const declinedValue = 'denied';
+
+		const readConsent = () => {
+			try {
+				return window.localStorage.getItem(consentKey);
+			} catch {
+				return null;
+			}
+		};
+
+		const saveConsent = (value) => {
+			try {
+				window.localStorage.setItem(consentKey, value);
+			} catch {
+				// Storage can be unavailable in private browsing or restricted browsers.
+			}
+		};
+
+		const removeConsent = () => {
+			try {
+				window.localStorage.removeItem(consentKey);
+			} catch {
+				// Keep the page usable even when storage is unavailable.
+			}
+		};
+
+		const loadAnalytics = () => {
+			if (window.__yskAnalyticsLoaded) return;
+			window.__yskAnalyticsLoaded = true;
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = function () {
+				window.dataLayer.push(arguments);
+			};
+			window.gtag('js', new Date());
+			window.gtag('config', measurementId, {
+				allow_google_signals: false,
+				allow_ad_personalization_signals: false,
+			});
+
+			const script = document.createElement('script');
+			script.async = true;
+			script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+			document.head.appendChild(script);
+		};
+
+		const removeBanner = () => {
+			document.querySelector('[data-analytics-consent]')?.remove();
+		};
+
+		const showBanner = () => {
+			if (document.querySelector('[data-analytics-consent]')) return;
+
+			const banner = document.createElement('aside');
+			banner.className = 'analytics-consent';
+			banner.dataset.analyticsConsent = '';
+			banner.setAttribute('aria-label', 'アクセス解析の設定');
+			banner.innerHTML = `
+				<div class="analytics-consent__inner">
+					<p><strong>アクセス解析について</strong><span>サイト改善のためGoogle Analyticsを使用します。許可するまで計測は始まりません。<a href="/privacy/#analytics">詳しく見る</a></span></p>
+					<div class="analytics-consent__actions">
+						<button type="button" data-analytics-decline>許可しない</button>
+						<button type="button" class="primary" data-analytics-accept>許可する</button>
+					</div>
+				</div>`;
+			document.body.appendChild(banner);
+
+			banner.querySelector('[data-analytics-accept]')?.addEventListener('click', () => {
+				saveConsent(acceptedValue);
+				removeBanner();
+				loadAnalytics();
+			});
+			banner.querySelector('[data-analytics-decline]')?.addEventListener('click', () => {
+				saveConsent(declinedValue);
+				removeBanner();
+			});
+		};
+
+		const initialize = () => {
+			const consent = readConsent();
+			if (consent === acceptedValue) loadAnalytics();
+			else if (consent !== declinedValue) showBanner();
+
+			document.querySelector('[data-analytics-consent-reset]')?.addEventListener('click', () => {
+				removeConsent();
+				showBanner();
+			});
+		};
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initialize, { once: true });
+		} else {
+			initialize();
+		}
+	})();
+</script><link rel="stylesheet" href="/_astro/Header.DnkTOj6x.css"><link rel="stylesheet" href="/_astro/index.ifRBJQOR.css"></head> <body class="journal-home"> <header class="site-header" data-astro-cid-nen7h5rs> <a class="skip-link" href="#main-content" data-astro-cid-nen7h5rs>本文へ移動</a> <nav class="shell" aria-label="メインナビゲーション" data-astro-cid-nen7h5rs> <a class="brand" href="/" aria-label="玉城祐輔 ホーム" data-astro-cid-nen7h5rs> <span class="brand-mark" aria-hidden="true" data-astro-cid-nen7h5rs> <img src="/images/tamashiro-yusuke-logo.svg?v=3" alt="" width="64" height="64" decoding="async" data-astro-cid-nen7h5rs> </span> <span class="brand-name" data-astro-cid-nen7h5rs>玉城祐輔</span> </a> <div class="internal-links" data-astro-cid-nen7h5rs> <a href="/blog" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 読む </a> <a href="/toolbox" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 道具箱 </a> <a href="/about" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 玉城について </a> </div> </nav> </header> <main id="main-content"> <section class="journal-hero" aria-labelledby="hero-heading"> <div class="shell hero-grid"> <div class="hero-copy"> <h1 id="hero-heading">仕事と暮らしの、<br><span>役立つ実践ノート。</span></h1> <p><span>AI、道具、経営の工夫を、</span><span>玉城祐輔の経験から。</span></p> <div class="hero-actions"> <a class="hero-primary" href="/blog/">記事を読む <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:arrow-right-line">   <symbol id="ai:ri:arrow-right-line"><path fill="currentColor" d="m16.172 11l-5.364-5.364l1.414-1.414L20 12l-7.778 7.778l-1.414-1.414L16.172 13H4v-2z"/></symbol><use href="#ai:ri:arrow-right-line"></use>  </svg></a> <a class="text-link" href="/about/">玉城について <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:arrow-right-line">   <use href="#ai:ri:arrow-right-line"></use>  </svg></a> </div> </div>  <img src="/_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_Z15KKgF.webp" srcset="/_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_1zxUVx.webp 320w, /_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_1afmNQ.webp 480w, /_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_Z15KKgF.webp 800w" alt="黒い背景の前で笑顔を見せる玉城祐輔" sizes="(max-width: 720px) 180px, (max-width: 1000px) 32vw, 390px" loading="eager" fetchpriority="high" decoding="async" width="800" height="800" class="hero-photo"> </div> </section> <section class="journal-section shell" aria-labelledby="recent-heading"> <div class="journal-heading"><h2 id="recent-heading">最近書いたこと</h2><a class="text-link" href="/blog/">すべての記事を見る <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:arrow-right-line">   <use href="#ai:ri:arrow-right-line"></use>  </svg></a></div> <div class="journal-three recent-grid"> <article class="journal-story"> <a href="/blog/upsider-staff-card/">  <img src="/_astro/hero-tamashiro-yusuke.DZnAc5iT_14BVYV.webp" srcset="/_astro/hero-tamashiro-yusuke.DZnAc5iT_Zpsr0I.webp 400w, /_astro/hero-tamashiro-yusuke.DZnAc5iT_14BVYV.webp 640w, /_astro/hero-tamashiro-yusuke.DZnAc5iT_ZS0yJb.webp 900w" alt sizes="(max-width: 720px) calc(100vw - 40px), 30vw" loading="lazy" decoding="async" width="640" height="427" class="story-image"> <p class="story-category">仕事と暮らしの道具</p> <div class="story-title"><h3>立替払いを減らす。UPSIDER</h3><svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:arrow-right-line">   <use href="#ai:ri:arrow-right-line"></use>  </svg></div> </a> </article><article class="journal-story"> <a href="/blog/wws-workwear-suit-ankle-pants/">  <img src="/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z20sGJG.webp" srcset="/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1wdLdJ.webp 400w, /_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z20sGJG.webp 640w, /_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1BGRXp.webp 900w" alt sizes="(max-width: 720px) calc(100vw - 40px), 30vw" loading="lazy" decoding="async" width="640" height="427" class="story-image"> <p class="story-category">仕事と暮らしの道具</p> <div class="story-title"><h3>毎日履いて、ほつれない。WWSのアンクルパンツ</h3><svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:arrow-right-line">   <use href="#ai:ri:arrow-right-line"></use>  </svg></div> </a> </article><article class="journal-story"> <a href="/blog/hidock-p1-ai-recorder/">  <img src="/_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_1hKHT1.webp" srcset="/_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_Z2kpjgb.webp 400w, /_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_1hKHT1.webp 640w, /_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_ZGyMx8.webp 900w" alt sizes="(max-width: 720px) calc(100vw - 40px), 30vw" loading="lazy" decoding="async" width="640" height="427" class="story-image"> <p class="story-category">仕事と暮らしの道具</p> <div class="story-title"><h3>録音時間を気にしない。HiDock P1</h3><svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:arrow-right-line">   <use href="#ai:ri:arrow-right-line"></use>  </svg></div> </a> </article> </div> </section> <section class="journal-tinted theme-section" aria-labelledby="themes-heading"> <div class="shell"> <div class="journal-heading"><h2 id="themes-heading">テーマから記事を探す</h2></div> <div class="journal-three genre-grid"> <a href="/blog/#genre-ai" class="genre-link"><div><h3>AIの使い方</h3><p>仕事に取り入れるヒント</p></div><svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:arrow-right-line">   <use href="#ai:ri:arrow-right-line"></use>  </svg></a><a href="/blog/#genre-tools" class="genre-link"><div><h3>仕事と暮らしの道具</h3><p>使ってわかった良さと注意点</p></div><svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:arrow-right-line">   <use href="#ai:ri:arrow-right-line"></use>  </svg></a><a href="/blog/#genre-management" class="genre-link"><div><h3>経営と仕事の仕組み</h3><p>現場で試した仕組みづくり</p></div><svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:arrow-right-line">   <use href="#ai:ri:arrow-right-line"></use>  </svg></a> </div> </div> </section> <section class="journal-section shell" aria-labelledby="tools-heading"> <div class="journal-heading"><h2 id="tools-heading">使ってよかった道具</h2><a class="text-link" href="/toolbox/">道具箱をすべて見る <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:arrow-right-line">   <use href="#ai:ri:arrow-right-line"></use>  </svg></a></div> <div class="journal-three tool-grid"> <article class="journal-tool"><a href="/blog/healsio-hotcook-kn-hw24g/"><div class="tool-photo"><img src="/images/home-tools/hotcook.jpg" alt="シャープ ヘルシオ ホットクック KN-HW24G-R" width="600" height="450" loading="lazy" decoding="async"></div><h3>シャープ ヘルシオ ホットクック KN-HW24G-R</h3><p>夕飯の仕込みを、朝のうちに。</p></a></article><article class="journal-tool"><a href="/blog/avakyo-tank-dishwasher-av-01/"><div class="tool-photo"><img src="/images/home-tools/dishwasher.jpg" alt="AVAKYO タンク式食器洗い乾燥機 AV-01" width="600" height="450" loading="lazy" decoding="async"></div><h3>AVAKYO タンク式食器洗い乾燥機 AV-01</h3><p>毎日の食器洗いを任せる。</p></a></article><article class="journal-tool"><a href="/blog/switchbot-lock-pro/"><div class="tool-photo"><img src="/images/home-tools/switchbot.jpg" alt="SwitchBot ロック Pro＋指紋認証パッド" width="600" height="450" loading="lazy" decoding="async"></div><h3>SwitchBot ロック Pro＋指紋認証パッド</h3><p>鍵を出す手間を減らす。</p></a></article> </div> <p class="journal-disclosure">紹介先にはアフィリエイトリンクを含みます。<a href="/affiliate-disclosure/">広告・紹介について</a></p> </section> <section class="journal-tinted journal-section" aria-labelledby="apps-heading"> <div class="shell"> <div class="journal-heading"><h2 id="apps-heading">自分で作ったアプリ</h2></div> <p class="apps-intro">現場の手間を減らすために、作っています。</p> <div class="journal-app-grid"> <article class="journal-app"><a href="https://seminar-flow.com/" target="_blank" rel="noopener noreferrer" aria-label="SeminarFlowを開く（新しいタブ）"><img src="/images/apps/seminarflow-ogp.png" alt="SeminarFlowの紹介" width="1200" height="630" loading="lazy" decoding="async"><h3>SeminarFlow</h3><p>申込受付から名簿・連絡・共有まで。</p><span class="app-open">アプリを開く <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:arrow-right-up-line">   <symbol id="ai:ri:arrow-right-up-line"><path fill="currentColor" d="m16.004 9.414l-8.607 8.607l-1.414-1.414L14.59 8H7.003V6h11v11h-2z"/></symbol><use href="#ai:ri:arrow-right-up-line"></use>  </svg></span></a></article><article class="journal-app"><a href="https://jizoka.app/" target="_blank" rel="noopener noreferrer" aria-label="JIZOKAを開く（新しいタブ）"><img src="/images/apps/jizoka-ogp.png" alt="JIZOKAの紹介" width="1200" height="630" loading="lazy" decoding="async"><h3>JIZOKA</h3><p>持続化補助金の計画書づくりをサポート。</p><span class="app-open">アプリを開く <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:arrow-right-up-line">   <use href="#ai:ri:arrow-right-up-line"></use>  </svg></span></a></article> </div> <div class="other-apps"><span>その他のアプリ</span><a href="https://poireshi.com/" target="_blank" rel="noopener noreferrer">ポイレシ <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:arrow-right-up-line">   <use href="#ai:ri:arrow-right-up-line"></use>  </svg></a><a href="https://kisoku-zaishin.com/" target="_blank" rel="noopener noreferrer">JCI規則財審アシスタント <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:arrow-right-up-line">   <use href="#ai:ri:arrow-right-up-line"></use>  </svg></a></div> </div> </section> <section class="journal-about shell" aria-labelledby="about-heading"> <div class="journal-heading"><h2 id="about-heading">玉城祐輔について</h2></div> <div><p>沖縄を拠点に、AI活用や業務の仕組みづくりに取り組んでいます。<br>元・商工会経営指導員。仕事と暮らしで試したことを発信しています。</p><div class="about-links"><a class="text-link" href="/about/">玉城について詳しく見る <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:arrow-right-line">   <use href="#ai:ri:arrow-right-line"></use>  </svg></a><a class="text-link" href="https://taxlegal.jp/" target="_blank" rel="noopener noreferrer">仕事のご相談は T&Lサポートへ <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:arrow-right-up-line">   <use href="#ai:ri:arrow-right-up-line"></use>  </svg></a></div></div> </section> </main> <footer class="journal-footer"> <div class="shell footer-top"> <a class="footer-brand" href="/" aria-label="玉城祐輔 ホーム"><img src="/images/tamashiro-yusuke-logo.svg?v=3" alt="" width="48" height="48"><span>玉城祐輔</span></a> <nav aria-label="フッターナビゲーション"><a href="/blog/">記事を読む</a><a href="/toolbox/">道具箱</a><a href="/about/">玉城について</a></nav> <div class="footer-social"><a href="https://www.facebook.com/yusuke.tamashiro" target="_blank" rel="noopener noreferrer"><svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:facebook-circle-fill">   <symbol id="ai:ri:facebook-circle-fill"><path fill="currentColor" d="M12.001 2c-5.523 0-10 4.477-10 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89c1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.344 21.129 22 16.992 22 12c0-5.523-4.477-10-10-10"/></symbol><use href="#ai:ri:facebook-circle-fill"></use>  </svg>Facebook</a><a href="https://www.instagram.com/tamashiro_yusuke_tl/" target="_blank" rel="noopener noreferrer"><svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-icon="ri:instagram-line">   <symbol id="ai:ri:instagram-line"><path fill="currentColor" d="M12.001 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6m0-2a5 5 0 1 1 0 10a5 5 0 0 1 0-10m6.5-.25a1.25 1.25 0 0 1-2.5 0a1.25 1.25 0 0 1 2.5 0M12.001 4c-2.474 0-2.878.007-4.029.058c-.784.037-1.31.142-1.798.332a2.9 2.9 0 0 0-1.08.703a2.9 2.9 0 0 0-.704 1.08c-.19.49-.295 1.015-.331 1.798C4.007 9.075 4 9.461 4 12c0 2.475.007 2.878.058 4.029c.037.783.142 1.31.331 1.797c.17.435.37.748.702 1.08c.337.336.65.537 1.08.703c.494.191 1.02.297 1.8.333C9.075 19.994 9.461 20 12 20c2.475 0 2.878-.007 4.029-.058c.782-.037 1.308-.142 1.797-.331a2.9 2.9 0 0 0 1.08-.703c.337-.336.538-.649.704-1.08c.19-.492.296-1.018.332-1.8c.052-1.103.058-1.49.058-4.028c0-2.474-.007-2.878-.058-4.029c-.037-.782-.143-1.31-.332-1.798a2.9 2.9 0 0 0-.703-1.08a2.9 2.9 0 0 0-1.08-.704c-.49-.19-1.016-.295-1.798-.331C14.926 4.006 14.54 4 12 4m0-2c2.717 0 3.056.01 4.123.06c1.064.05 1.79.217 2.427.465c.66.254 1.216.598 1.772 1.153a4.9 4.9 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428c.047 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122s-.218 1.79-.465 2.428a4.9 4.9 0 0 1-1.153 1.772a4.9 4.9 0 0 1-1.772 1.153c-.637.247-1.363.415-2.427.465c-1.067.047-1.406.06-4.123.06s-3.056-.01-4.123-.06c-1.064-.05-1.789-.218-2.427-.465a4.9 4.9 0 0 1-1.772-1.153a4.9 4.9 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.012 15.056 2 14.717 2 12s.01-3.056.06-4.122s.217-1.79.465-2.428a4.9 4.9 0 0 1 1.153-1.772A4.9 4.9 0 0 1 5.45 2.525c.637-.248 1.362-.415 2.427-.465C8.945 2.013 9.284 2 12.001 2"/></symbol><use href="#ai:ri:instagram-line"></use>  </svg>Instagram</a></div> </div> <div class="shell footer-bottom"><small>© 2026 Yusuke Tamashiro</small><div><a href="/privacy/">プライバシー</a><a href="/affiliate-disclosure/">広告・紹介について</a></div></div> </footer> </body> </html>

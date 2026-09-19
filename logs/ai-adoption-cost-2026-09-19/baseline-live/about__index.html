@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="ja"> <head><meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta name="theme-color" content="#171915"> <meta name="google-site-verification" content="ZOHyxB9OxiSl2kg7iNFCxDlsYK6K5h7e890uRt8Vyt0"> <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2"> <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.png?v=2"> <link rel="shortcut icon" href="/favicon.ico?v=2"> <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=2"> <link rel="sitemap" href="/sitemap-index.xml"> <link rel="alternate" type="application/rss+xml" title="玉城祐輔｜AIとデジタルを、現場で使える形に。" href="https://ysk.life/rss.xml"> <meta name="generator" content="Astro v7.2.1"> <link rel="canonical" href="https://ysk.life/about/"> <title>玉城について｜玉城祐輔</title> <meta name="title" content="玉城について｜玉城祐輔"> <meta name="description" content="元・商工会経営指導員11年。沖縄で小さな会社のデジタルとお金の相談に伴走する玉城祐輔のプロフィールです。"> <meta name="author" content="玉城祐輔"> <meta property="og:type" content="website"> <meta property="og:locale" content="ja_JP"> <meta property="og:site_name" content="玉城祐輔"> <meta property="og:url" content="https://ysk.life/about/"> <meta property="og:title" content="玉城について｜玉城祐輔"> <meta property="og:description" content="元・商工会経営指導員11年。沖縄で小さな会社のデジタルとお金の相談に伴走する玉城祐輔のプロフィールです。"> <meta property="og:image" content="https://ysk.life/images/ysk-life-og.png"> <meta property="og:image:secure_url" content="https://ysk.life/images/ysk-life-og.png"> <meta property="og:image:width" content="1200"> <meta property="og:image:height" content="630"> <meta property="og:image:alt" content="玉城について｜玉城祐輔"> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="玉城について｜玉城祐輔"> <meta name="twitter:description" content="元・商工会経営指導員11年。沖縄で小さな会社のデジタルとお金の相談に伴走する玉城祐輔のプロフィールです。"> <meta name="twitter:image" content="https://ysk.life/images/ysk-life-og.png"> <meta name="twitter:image:alt" content="玉城について｜玉城祐輔"> <script>
+	(() => {
+		const measurementId = 'G-752CVHZQNC';
+		const consentKey = 'ysk-analytics-consent-v1';
+		const acceptedValue = 'granted';
+		const declinedValue = 'denied';
+
+		const readConsent = () => {
+			try {
+				return window.localStorage.getItem(consentKey);
+			} catch {
+				return null;
+			}
+		};
+
+		const saveConsent = (value) => {
+			try {
+				window.localStorage.setItem(consentKey, value);
+			} catch {
+				// Storage can be unavailable in private browsing or restricted browsers.
+			}
+		};
+
+		const removeConsent = () => {
+			try {
+				window.localStorage.removeItem(consentKey);
+			} catch {
+				// Keep the page usable even when storage is unavailable.
+			}
+		};
+
+		const loadAnalytics = () => {
+			if (window.__yskAnalyticsLoaded) return;
+			window.__yskAnalyticsLoaded = true;
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = function () {
+				window.dataLayer.push(arguments);
+			};
+			window.gtag('js', new Date());
+			window.gtag('config', measurementId, {
+				allow_google_signals: false,
+				allow_ad_personalization_signals: false,
+			});
+
+			const script = document.createElement('script');
+			script.async = true;
+			script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+			document.head.appendChild(script);
+		};
+
+		const removeBanner = () => {
+			document.querySelector('[data-analytics-consent]')?.remove();
+		};
+
+		const showBanner = () => {
+			if (document.querySelector('[data-analytics-consent]')) return;
+
+			const banner = document.createElement('aside');
+			banner.className = 'analytics-consent';
+			banner.dataset.analyticsConsent = '';
+			banner.setAttribute('aria-label', 'アクセス解析の設定');
+			banner.innerHTML = `
+				<div class="analytics-consent__inner">
+					<p><strong>アクセス解析について</strong><span>サイト改善のためGoogle Analyticsを使用します。許可するまで計測は始まりません。<a href="/privacy/#analytics">詳しく見る</a></span></p>
+					<div class="analytics-consent__actions">
+						<button type="button" data-analytics-decline>許可しない</button>
+						<button type="button" class="primary" data-analytics-accept>許可する</button>
+					</div>
+				</div>`;
+			document.body.appendChild(banner);
+
+			banner.querySelector('[data-analytics-accept]')?.addEventListener('click', () => {
+				saveConsent(acceptedValue);
+				removeBanner();
+				loadAnalytics();
+			});
+			banner.querySelector('[data-analytics-decline]')?.addEventListener('click', () => {
+				saveConsent(declinedValue);
+				removeBanner();
+			});
+		};
+
+		const initialize = () => {
+			const consent = readConsent();
+			if (consent === acceptedValue) loadAnalytics();
+			else if (consent !== declinedValue) showBanner();
+
+			document.querySelector('[data-analytics-consent-reset]')?.addEventListener('click', () => {
+				removeConsent();
+				showBanner();
+			});
+		};
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initialize, { once: true });
+		} else {
+			initialize();
+		}
+	})();
+</script><link rel="stylesheet" href="/_astro/journal-pages.UktNKsVn.css"><link rel="stylesheet" href="/_astro/Header.DnkTOj6x.css"><style>footer[data-astro-cid-jo6i4kqk]{background:var(--footer-bg,var(--ink));color:var(--footer-text,var(--paper));margin-top:clamp(5rem,10vw,9rem);padding:clamp(4rem,8vw,7rem) 0 2rem}.footer-grid[data-astro-cid-jo6i4kqk]{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:4rem;display:grid}.footer-statement[data-astro-cid-jo6i4kqk] p[data-astro-cid-jo6i4kqk]{max-width:570px;font-family:var(--font-serif);font-size:clamp(1.7rem,3.5vw,3.1rem);line-height:1.45}.footer-links[data-astro-cid-jo6i4kqk]{grid-template-columns:repeat(2,1fr);gap:2rem;display:grid}.footer-links[data-astro-cid-jo6i4kqk] div[data-astro-cid-jo6i4kqk]{flex-direction:column;align-items:flex-start;gap:.65rem;display:flex}.footer-links[data-astro-cid-jo6i4kqk] strong[data-astro-cid-jo6i4kqk]{color:var(--footer-muted,#aaa999);letter-spacing:.12em;margin-bottom:.5rem;font-size:.7rem}.footer-links[data-astro-cid-jo6i4kqk] a[data-astro-cid-jo6i4kqk]{color:var(--footer-text,var(--paper));font-size:.88rem;text-decoration:none}.footer-links[data-astro-cid-jo6i4kqk] a[data-astro-cid-jo6i4kqk]:hover{color:var(--site-accent,var(--coral))}.footer-bottom[data-astro-cid-jo6i4kqk]{color:var(--footer-muted,#aaa999);border-top:1px solid #ffffff29;justify-content:space-between;gap:1rem;margin-top:5rem;padding-top:1.5rem;font-size:.72rem;display:flex}@media (width<=760px){.footer-grid[data-astro-cid-jo6i4kqk]{grid-template-columns:1fr;gap:2.5rem}.footer-bottom[data-astro-cid-jo6i4kqk]{flex-direction:column;align-items:flex-start}}
+</style></head> <body class="journal-page about-page"> <header class="site-header" data-astro-cid-nen7h5rs> <a class="skip-link" href="#main-content" data-astro-cid-nen7h5rs>本文へ移動</a> <nav class="shell" aria-label="メインナビゲーション" data-astro-cid-nen7h5rs> <a class="brand" href="/" aria-label="玉城祐輔 ホーム" data-astro-cid-nen7h5rs> <span class="brand-mark" aria-hidden="true" data-astro-cid-nen7h5rs> <img src="/images/tamashiro-yusuke-logo.svg?v=3" alt="" width="64" height="64" decoding="async" data-astro-cid-nen7h5rs> </span> <span class="brand-name" data-astro-cid-nen7h5rs>玉城祐輔</span> </a> <div class="internal-links" data-astro-cid-nen7h5rs> <a href="/blog" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 読む </a> <a href="/toolbox" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 道具箱 </a> <a href="/about" class="active" aria-current="page" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 玉城について </a> </div> </nav> </header> <main id="main-content"> <header class="about-hero shell"> <div class="about-copy"> <p class="about-kicker">沖縄の現場で、相談に向き合う</p> <h1 id="about-title"><span>相談に向き合った、</span><br><strong>11年。</strong></h1> <p class="lead">元・商工会経営指導員として11年、500社以上の相談に向き合ってきました。いまはT&Lサポート株式会社の代表として、自社でもAIと財務の立て直しを実践しています。</p> <p class="about-note">成功談だけでなく、試して失敗したことや遠回りしたことも共有します。自分で確かめたことを、現場で使える形にして届けます。</p> </div> <figure class="about-photo">  <img src="/_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_2bav9n.webp" srcset="/_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_Z2gIJOz.webp 480w, /_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_1RWFwP.webp 720w, /_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_Z1nrFmu.webp 900w" alt="黒い背景の前に立つ玉城祐輔" sizes="(max-width: 760px) 72vw, 36vw" loading="eager" fetchpriority="high" decoding="async" width="2048" height="2048"> </figure> </header> <section class="profile-band"> <div class="shell facts"> <div><strong>11年</strong><span>商工会経営指導員</span></div> <div><strong>500社以上</strong><span>これまでの支援</span></div> <div><strong>4人</strong><span>子どもたちの父</span></div> <div><strong>沖縄</strong><span>活動の拠点</span></div> </div> </section> <section class="work shell" id="work" aria-labelledby="work-title"> <header class="work-heading"> <h2 id="work-title">今、取り組んでいること</h2> <p>制度や技術を、使える形にする。</p> </header> <div class="work-layout"> <figure class="work-photo">  <img src="/_astro/tamashiro-current-work-right-handed.C8YaVRos_594cC.webp" srcset="/_astro/tamashiro-current-work-right-handed.C8YaVRos_Z16NUOC.webp 640w, /_astro/tamashiro-current-work-right-handed.C8YaVRos_Z1pof5C.webp 920w, /_astro/tamashiro-current-work-right-handed.C8YaVRos_1SLX8T.webp 1280w" alt="AIの活用方法をパソコンで試し、チェックリストと研修資料にまとめる玉城祐輔のイラスト" sizes="(max-width: 800px) 100vw, 45vw" loading="lazy" decoding="async" width="1448" height="1086"> </figure> <div class="work-list"> <article> <h3>小さな会社のAI活用支援</h3> <p>専任のIT担当者を置けない小さな会社に、難しい説明ではなく「明日から使える形」でAIやデジタルを届けます。</p> </article> <article> <h3>経営支援者向けの研修・道具</h3> <p>商工会の中で11年働いた経験を生かし、経営指導員や支援機関が相談対応で使える研修と道具をつくります。</p> </article> <article> <h3>自社で試して確かめる</h3> <p>自分の会社でも、AIと財務を使った改善を実践中です。自分で試していないことを、体験談のようには語りません。</p> </article> </div> </div> </section> <section class="pathways shell" aria-labelledby="pathways-title"> <header> <h2 id="pathways-title">個人の発信と、<br>法人の相談。</h2> <p>情報を読む入口と、仕事として相談する入口を混ぜずに案内します。</p> </header> <div class="pathway-list"> <article> <p class="pathway-label">玉城祐輔 個人</p> <h3>試したことを読む</h3> <p>このサイトでは、AI、仕事の道具、経営の現場で実際に試したことを残しています。道具箱の紹介活動も個人の発信です。</p> <div class="text-links"><a href="/blog/">記事を読む</a><a href="/toolbox/">道具箱を見る</a></div> </article> <article class="company-pathway"> <p class="pathway-label">T&amp;Lサポート株式会社</p> <h3>仕事として相談する</h3> <p>法人としてのAI活用、業務整理、経営伴走は、T&amp;Lサポート株式会社で承ります。</p> </article> </div> </section> <section class="contact shell" aria-labelledby="contact-title"> <div class="contact-copy"> <h2 id="contact-title">AI活用と経営の相談は、<br>T&amp;Lサポートへ。</h2> <p>法人としてのAI活用・業務整理・経営伴走のご相談は、T&Lサポート株式会社で承ります。</p> </div> <a class="button contact-button" href="https://taxlegal.jp/" target="_blank" rel="noopener noreferrer">相談内容を確認する</a> </section> </main> <footer data-astro-cid-jo6i4kqk> <div class="shell footer-grid" data-astro-cid-jo6i4kqk> <div class="footer-statement" data-astro-cid-jo6i4kqk> <p data-astro-cid-jo6i4kqk>沖縄の現場で、実際に試したことを残します。</p> </div> <div class="footer-links" data-astro-cid-jo6i4kqk> <div data-astro-cid-jo6i4kqk> <strong data-astro-cid-jo6i4kqk>このサイト</strong> <a href="/blog" data-astro-cid-jo6i4kqk>記事を読む</a> <a href="/about" data-astro-cid-jo6i4kqk>玉城について</a> <a href="/privacy" data-astro-cid-jo6i4kqk>プライバシー</a> <a href="/affiliate-disclosure" data-astro-cid-jo6i4kqk>広告・紹介について</a> </div> <div data-astro-cid-jo6i4kqk> <strong data-astro-cid-jo6i4kqk>外部リンク</strong> <a href="/toolbox/" data-astro-cid-jo6i4kqk>玉城祐輔の道具箱 →</a> <a href="https://taxlegal.jp/" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>T&Lサポート株式会社 ↗</a> <a href="https://www.facebook.com/yusuke.tamashiro" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>Facebook ↗</a> <a href="https://www.instagram.com/tamashiro_yusuke_tl/" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>Instagram ↗</a> </div> </div> </div> <div class="shell footer-bottom" data-astro-cid-jo6i4kqk> <span data-astro-cid-jo6i4kqk>&copy; 2026 Yusuke Tamashiro</span> <span data-astro-cid-jo6i4kqk>AIとデジタルを、現場で使える形に。</span> </div> </footer> </body> </html>

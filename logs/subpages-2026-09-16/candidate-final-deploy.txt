@@ -1,0 +1,13 @@
+
+ ⛅️ wrangler 4.121.0 (update available 4.132.0)
+───────────────────────────────────────────────
+Uploading... (135/141)
+Uploading... (137/141)
+Uploading... (139/141)
+Uploading... (141/141)
+✨ Success! Uploaded 6 files (135 already uploaded) (1.30 sec)
+
+✨ Uploading _headers
+🌎 Deploying...
+✨ Deployment complete! Take a peek over at https://7c117732.tamashiro-blog.pages.dev
+✨ Deployment alias URL: https://codex-subpages-design-202609.tamashiro-blog.pages.dev

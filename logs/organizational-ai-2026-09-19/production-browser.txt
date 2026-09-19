@@ -1,0 +1,332 @@
+[
+  {
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "title": "私が考える「組織としてのAI活用」｜玉城祐輔",
+    "h1Lines": 2.000206492462117,
+    "images": [
+      {
+        "src": "https://ysk.life/images/tamashiro-yusuke-logo.svg?v=3",
+        "loaded": true
+      },
+      {
+        "src": "https://ysk.life/_astro/hero-tamashiro-yusuke-rira.dcUBkkkA_ZwV3SJ.webp",
+        "loaded": true
+      },
+      {
+        "src": "https://ysk.life/_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT_ZIX9oL.webp",
+        "loaded": true
+      },
+      {
+        "src": "https://ysk.life/_astro/subsidy-application.C1Zk6RM9_thlRi.webp",
+        "loaded": true
+      },
+      {
+        "src": "https://ysk.life/images/apps/jizoka-ogp.png",
+        "loaded": true
+      },
+      {
+        "src": "https://ysk.life/images/apps/seminarflow-ogp.png",
+        "loaded": true
+      },
+      {
+        "src": "https://ysk.life/images/apps/kisoku-zaishin-ogp.png",
+        "loaded": true
+      },
+      {
+        "src": "https://ysk.life/images/apps/poireshi-ogp.png",
+        "loaded": true
+      },
+      {
+        "src": "https://ysk.life/_astro/tamashiro-yusuke-rira-individual-and-team.CdIhIGcP_ZKgb3K.webp",
+        "loaded": true
+      },
+      {
+        "src": "https://ysk.life/_astro/tamashiro-yusuke-rira-repeatable-process.DdmwdRXc_Z2eg4hR.webp",
+        "loaded": true
+      },
+      {
+        "src": "https://ysk.life/_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT_D4wdC.webp",
+        "loaded": true
+      },
+      {
+        "src": "https://ysk.life/_astro/subsidy-application.C1Zk6RM9_ZoyYe5.webp",
+        "loaded": true
+      },
+      {
+        "src": "https://ysk.life/_astro/hero-tamashiro-yusuke-ai-cost.BZqSiptr_DmIy7.webp",
+        "loaded": true
+      }
+    ],
+    "share": [
+      {
+        "url": "https://ysk.life/blog/organizational-ai-repeatable-work/",
+        "text": "",
+        "actions": [
+          {
+            "label": "LINEで送る",
+            "href": "https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fysk.life%2Fblog%2Forganizational-ai-repeatable-work%2F",
+            "rect": {
+              "x": 176.796875,
+              "y": 749.203125,
+              "w": 46,
+              "h": 46
+            }
+          },
+          {
+            "label": "Facebookで共有",
+            "href": "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fysk.life%2Fblog%2Forganizational-ai-repeatable-work%2F",
+            "rect": {
+              "x": 231.59375,
+              "y": 749.203125,
+              "w": 46,
+              "h": 46
+            }
+          },
+          {
+            "label": "Instagramで共有",
+            "rect": {
+              "x": 286.390625,
+              "y": 749.203125,
+              "w": 46,
+              "h": 46
+            }
+          },
+          {
+            "label": "記事のリンクをコピー",
+            "rect": {
+              "x": 341.1875,
+              "y": 749.203125,
+              "w": 46,
+              "h": 46
+            }
+          }
+        ]
+      },
+      {
+        "url": "https://ysk.life/blog/organizational-ai-repeatable-work/",
+        "text": "",
+        "actions": [
+          {
+            "label": "LINEで送る",
+            "href": "https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fysk.life%2Fblog%2Forganizational-ai-repeatable-work%2F",
+            "rect": {
+              "x": 176.796875,
+              "y": 7956.484375,
+              "w": 46,
+              "h": 46
+            }
+          },
+          {
+            "label": "Facebookで共有",
+            "href": "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fysk.life%2Fblog%2Forganizational-ai-repeatable-work%2F",
+            "rect": {
+              "x": 231.59375,
+              "y": 7956.484375,
+              "w": 46,
+              "h": 46
+            }
+          },
+          {
+            "label": "Instagramで共有",
+            "rect": {
+              "x": 286.390625,
+              "y": 7956.484375,
+              "w": 46,
+              "h": 46
+            }
+          },
+          {
+            "label": "記事のリンクをコピー",
+            "rect": {
+              "x": 341.1875,
+              "y": 7956.484375,
+              "w": 46,
+              "h": 46
+            }
+          }
+        ]
+      }
+    ],
+    "proseX": 176.796875,
+    "og": "https://ysk.life/_astro/hero-tamashiro-yusuke-rira.dcUBkkkA.webp",
+    "type": "article",
+    "twitter": "https://ysk.life/_astro/hero-tamashiro-yusuke-rira.dcUBkkkA.webp",
+    "copy": {
+      "value": "https://ysk.life/blog/organizational-ai-repeatable-work/",
+      "status": "リンクをコピーしました。"
+    },
+    "instagram": "リンクをコピーしました。InstagramのDMなどに貼り付けてください。",
+    "ogResponse": {
+      "status": 200,
+      "type": "image/webp"
+    }
+  },
+  {
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "overflow": false,
+    "title": "私が考える「組織としてのAI活用」｜玉城祐輔",
+    "h1Lines": 1.9996972801788375,
+    "images": [
+      {
+        "src": "https://ysk.life/images/tamashiro-yusuke-logo.svg?v=3",
+        "loaded": true
+      },
+      {
+        "src": "https://ysk.life/_astro/hero-tamashiro-yusuke-rira.dcUBkkkA_ZwV3SJ.webp",
+        "loaded": true
+      },
+      {
+        "src": "",
+        "loaded": false
+      },
+      {
+        "src": "",
+        "loaded": false
+      },
+      {
+        "src": "",
+        "loaded": false
+      },
+      {
+        "src": "",
+        "loaded": false
+      },
+      {
+        "src": "",
+        "loaded": false
+      },
+      {
+        "src": "",
+        "loaded": false
+      },
+      {
+        "src": "https://ysk.life/_astro/tamashiro-yusuke-rira-individual-and-team.CdIhIGcP_ZKgb3K.webp",
+        "loaded": true
+      },
+      {
+        "src": "https://ysk.life/_astro/tamashiro-yusuke-rira-repeatable-process.DdmwdRXc_Z2eg4hR.webp",
+        "loaded": true
+      },
+      {
+        "src": "https://ysk.life/_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT_D4wdC.webp",
+        "loaded": true
+      },
+      {
+        "src": "https://ysk.life/_astro/subsidy-application.C1Zk6RM9_ZoyYe5.webp",
+        "loaded": true
+      },
+      {
+        "src": "https://ysk.life/_astro/hero-tamashiro-yusuke-ai-cost.BZqSiptr_DmIy7.webp",
+        "loaded": true
+      }
+    ],
+    "share": [
+      {
+        "url": "https://ysk.life/blog/organizational-ai-repeatable-work/",
+        "text": "",
+        "actions": [
+          {
+            "label": "LINEで送る",
+            "href": "https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fysk.life%2Fblog%2Forganizational-ai-repeatable-work%2F",
+            "rect": {
+              "x": 14,
+              "y": 852.046875,
+              "w": 46,
+              "h": 46
+            }
+          },
+          {
+            "label": "Facebookで共有",
+            "href": "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fysk.life%2Fblog%2Forganizational-ai-repeatable-work%2F",
+            "rect": {
+              "x": 68.796875,
+              "y": 852.046875,
+              "w": 46,
+              "h": 46
+            }
+          },
+          {
+            "label": "Instagramで共有",
+            "rect": {
+              "x": 123.59375,
+              "y": 852.046875,
+              "w": 46,
+              "h": 46
+            }
+          },
+          {
+            "label": "記事のリンクをコピー",
+            "rect": {
+              "x": 178.390625,
+              "y": 852.046875,
+              "w": 46,
+              "h": 46
+            }
+          }
+        ]
+      },
+      {
+        "url": "https://ysk.life/blog/organizational-ai-repeatable-work/",
+        "text": "",
+        "actions": [
+          {
+            "label": "LINEで送る",
+            "href": "https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fysk.life%2Fblog%2Forganizational-ai-repeatable-work%2F",
+            "rect": {
+              "x": 14,
+              "y": 10255.140625,
+              "w": 46,
+              "h": 46
+            }
+          },
+          {
+            "label": "Facebookで共有",
+            "href": "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fysk.life%2Fblog%2Forganizational-ai-repeatable-work%2F",
+            "rect": {
+              "x": 68.796875,
+              "y": 10255.140625,
+              "w": 46,
+              "h": 46
+            }
+          },
+          {
+            "label": "Instagramで共有",
+            "rect": {
+              "x": 123.59375,
+              "y": 10255.140625,
+              "w": 46,
+              "h": 46
+            }
+          },
+          {
+            "label": "記事のリンクをコピー",
+            "rect": {
+              "x": 178.390625,
+              "y": 10255.140625,
+              "w": 46,
+              "h": 46
+            }
+          }
+        ]
+      }
+    ],
+    "proseX": 14,
+    "og": "https://ysk.life/_astro/hero-tamashiro-yusuke-rira.dcUBkkkA.webp",
+    "type": "article",
+    "twitter": "https://ysk.life/_astro/hero-tamashiro-yusuke-rira.dcUBkkkA.webp",
+    "copy": {
+      "value": "https://ysk.life/blog/organizational-ai-repeatable-work/",
+      "status": "リンクをコピーしました。"
+    },
+    "instagram": "リンクをコピーしました。InstagramのDMなどに貼り付けてください。",
+    "ogResponse": {
+      "status": 200,
+      "type": "image/webp"
+    }
+  }
+]

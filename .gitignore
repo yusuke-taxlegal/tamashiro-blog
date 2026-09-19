@@ -24,3 +24,8 @@ pnpm-debug.log*
 .idea/
 .vercel
 .wrangler/
+
+# Local engagement credentials
+.dev.vars*
+worker-configuration.d.ts
+workers/**/worker-configuration.d.ts

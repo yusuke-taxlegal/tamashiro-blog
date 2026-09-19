@@ -1,0 +1,113 @@
+{
+  "canonical": "https://ysk.life/blog/ai-adoption-cost-and-skills/",
+  "og": {
+    "og:type": "article",
+    "og:locale": "ja_JP",
+    "og:site_name": "玉城祐輔",
+    "og:url": "https://ysk.life/blog/ai-adoption-cost-and-skills/",
+    "og:title": "AI導入費用は、スキルで変わる｜玉城祐輔",
+    "og:description": "月額数千円で始めるAI活用と、専門家と作るAI秘書では、必要な費用が変わります。玉城祐輔が、ツール代・導入支援・運用の違いと、小さく試すための判断基準を整理します。",
+    "og:image": "https://ysk.life/_astro/hero-tamashiro-yusuke-ai-cost.BZqSiptr.webp",
+    "og:image:secure_url": "https://ysk.life/_astro/hero-tamashiro-yusuke-ai-cost.BZqSiptr.webp",
+    "og:image:width": "1440",
+    "og:image:height": "960",
+    "og:image:alt": "AI導入費用は、スキルで変わる",
+    "twitter:card": "summary_large_image",
+    "twitter:title": "AI導入費用は、スキルで変わる｜玉城祐輔",
+    "twitter:description": "月額数千円で始めるAI活用と、専門家と作るAI秘書では、必要な費用が変わります。玉城祐輔が、ツール代・導入支援・運用の違いと、小さく試すための判断基準を整理します。",
+    "twitter:image": "https://ysk.life/_astro/hero-tamashiro-yusuke-ai-cost.BZqSiptr.webp",
+    "twitter:image:alt": "AI導入費用は、スキルで変わる"
+  },
+  "local_http": [
+    {
+      "path": "/blog/ai-adoption-cost-and-skills/",
+      "status": 200,
+      "type": "text/html"
+    },
+    {
+      "path": "/_astro/hero-tamashiro-yusuke-ai-cost.BZqSiptr.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/images/tamashiro-yusuke-logo.svg?v=3",
+      "status": 200,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "/_astro/hero-tamashiro-yusuke-ai-cost.BZqSiptr_Z1EVAxJ.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/_astro/hero-tamashiro-yusuke-rira-ai-driven-school-completion.COjjuLFx_7EPCF.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/_astro/hero-tamashiro-yusuke-email-draft.uRBsXRPi_1F4RQs.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/images/apps/jizoka-ogp.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "path": "/images/apps/seminarflow-ogp.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "path": "/images/apps/kisoku-zaishin-ogp.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "path": "/images/apps/poireshi-ogp.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "path": "/_astro/tamashiro-yusuke-one-task.ZavRKCLB_gllDj.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/_astro/tamashiro-yusuke-operation-review.fAwlZu8J_11upXa.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/_astro/hero-tamashiro-yusuke-rira-ai-driven-school-completion.COjjuLFx_9VKDj.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/_astro/hero-tamashiro-yusuke-email-draft.uRBsXRPi_Z15MrDm.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/_astro/hero-tamashiro-yusuke.DZnAc5iT_ooAQ0.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT_Z1TFDKi.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_ZFoVkL.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/_astro/subsidy-application.C1Zk6RM9_Z8X7gJ.webp",
+      "status": 200,
+      "type": "image/webp"
+    }
+  ]
+}

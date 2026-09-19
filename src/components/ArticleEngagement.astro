@@ -1,0 +1,151 @@
+---
+interface Props {
+	postId: string;
+}
+
+const { postId } = Astro.props;
+---
+
+<section class="article-engagement shell" data-article-engagement data-article={postId} aria-labelledby={`engagement-${postId}`}>
+	<div>
+		<h2 id={`engagement-${postId}`}>この記事は役に立ちましたか？</h2>
+		<p>ログイン不要で、このブラウザからそれぞれ1回ずつ送れます。<a href="/privacy/#reactions">反応データの扱い</a></p>
+	</div>
+	<div class="engagement-actions" aria-describedby={`engagement-status-${postId}`}>
+		<button type="button" data-kind="helpful" disabled>
+			参考になった <span data-count="helpful" aria-label="参考になった数">読み込み中</span>
+		</button>
+		<button type="button" data-kind="try" disabled>
+			試してみたい <span data-count="try" aria-label="試してみたい数">読み込み中</span>
+		</button>
+	</div>
+	<p class="engagement-status" id={`engagement-status-${postId}`} data-status aria-live="polite">反応を読み込んでいます。</p>
+</section>
+
+<script>
+	const engagement = document.querySelector('[data-article-engagement]');
+
+	if (engagement instanceof HTMLElement) {
+		const articleId = engagement.dataset.article;
+		const buttons = Array.from(engagement.querySelectorAll<HTMLButtonElement>('button[data-kind]'));
+		const status = engagement.querySelector('[data-status]');
+		const countNodes = {
+			helpful: engagement.querySelector('[data-count="helpful"]'),
+			try: engagement.querySelector('[data-count="try"]'),
+		};
+
+		const setStatus = (message: string) => {
+			if (status) status.textContent = message;
+		};
+
+		type Payload = { counts: {helpful:number;try:number}; reacted:{helpful:boolean;try:boolean}; created?:boolean };
+		const render = (payload: Payload) => {
+			const counts = payload?.counts;
+			const reacted = payload?.reacted;
+			if (!counts || !reacted || typeof counts.helpful !== 'number' || typeof counts.try !== 'number') {
+				throw new Error('Invalid engagement response');
+			}
+
+			countNodes.helpful!.textContent = `${counts.helpful}件`;
+			countNodes.try!.textContent = `${counts.try}件`;
+			buttons.forEach((button) => {
+				const kind = button.dataset.kind;
+				const isReacted = kind === 'helpful' ? reacted.helpful : reacted.try;
+				button.disabled = Boolean(isReacted);
+				button.setAttribute('aria-pressed', String(Boolean(isReacted)));
+				button.classList.toggle('is-reacted', Boolean(isReacted));
+				button.setAttribute('aria-label', isReacted
+					? `${kind === 'helpful' ? '参考になった' : '試してみたい'}。送信済み。`
+					: kind === 'helpful' ? '参考になった' : '試してみたい');
+			});
+		};
+
+		const request = async (options: RequestInit = {}): Promise<Payload> => {
+			const response = await fetch(`/api/engagement?article=${encodeURIComponent(articleId || '')}`, {
+				credentials: 'same-origin',
+				...options,
+			});
+			if (!response.ok) throw new Error('Engagement request failed');
+			return response.json() as Promise<Payload>;
+		};
+
+		const load = async () => {
+			try {
+				render(await request());
+				setStatus('役に立ったと感じたら、ボタンで教えてください。');
+			} catch {
+				buttons.forEach((button) => { button.disabled = false; });
+				Object.values(countNodes).forEach(node => { if (node) node.textContent = "—"; });
+				setStatus('反応を読み込めませんでした。時間をおいてもう一度お試しください。');
+			}
+		};
+
+		buttons.forEach((button) => {
+			button.addEventListener('click', async () => {
+				const kind = button.dataset.kind;
+				if (kind !== 'helpful' && kind !== 'try') return;
+				buttons.forEach((item) => { item.disabled = true; });
+				setStatus('反応を送信しています。');
+				try {
+					const payload = await request({
+						method: 'POST',
+						headers: { 'content-type': 'application/json' },
+						body: JSON.stringify({ article: articleId, kind }),
+					});
+					render(payload);
+					if (payload?.created === true) {
+						window.dispatchEvent(new CustomEvent('ysk:reaction', { detail: { article: articleId, kind } }));
+					}
+					setStatus('反応を受け取りました。ありがとうございます。');
+				} catch {
+					buttons.forEach((item) => { item.disabled = false; });
+					setStatus('反応を送信できませんでした。もう一度お試しください。');
+				}
+			});
+		});
+
+		void load();
+	}
+</script>
+
+<style>
+	.article-engagement {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		align-items: center;
+		gap: 1.25rem 2rem;
+		margin-top: clamp(2.5rem, 6vw, 4rem);
+		padding: clamp(1.25rem, 3vw, 2rem);
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		background: var(--paper-deep);
+	}
+
+	.article-engagement h2 { margin: 0 0 0.35rem; font-size: 1rem; }
+	.article-engagement p { margin: 0; color: var(--muted); font-size: 0.78rem; }
+	.engagement-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+	.engagement-actions button {
+		min-height: 44px;
+		padding: 0.6rem 0.85rem;
+		border: 1px solid var(--ink);
+		border-radius: 999px;
+		background: var(--white);
+		color: var(--ink);
+		font: inherit;
+		font-size: 0.78rem;
+		font-weight: 800;
+		cursor: pointer;
+	}
+	.engagement-actions button:hover:not(:disabled) { border-color: var(--coral); color: var(--coral); }
+	.engagement-actions button.is-reacted { border-color: var(--coral); color: var(--coral); }
+	.engagement-actions button:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+	.engagement-actions button:disabled { opacity: 0.58; cursor: not-allowed; }
+	.engagement-actions span { display: block; margin-top: 0.1rem; color: var(--muted); font-size: 0.68rem; }
+	.engagement-status { grid-column: 1 / -1; }
+
+	@media (max-width: 620px) {
+		.article-engagement { grid-template-columns: 1fr; }
+		.engagement-actions { display: grid; grid-template-columns: 1fr 1fr; }
+		.engagement-actions button { min-width: 0; }
+	}
+</style>

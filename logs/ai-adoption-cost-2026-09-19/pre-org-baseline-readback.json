@@ -1,0 +1,821 @@
+[
+  {
+    "path": "/",
+    "bytes": 20242,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/404.html",
+    "bytes": 11645,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/privacy/",
+    "bytes": 12185,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/affiliate-disclosure/",
+    "bytes": 11195,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/about/",
+    "bytes": 14207,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/blog/",
+    "bytes": 27466,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/toolbox/",
+    "bytes": 35322,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/toolbox/home/",
+    "bytes": 46727,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/toolbox/work/",
+    "bytes": 28637,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/blog/healsio-hotcook-kn-hw24g/",
+    "bytes": 56085,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/blog/upsider-staff-card/",
+    "bytes": 47726,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/blog/hidock-p1-ai-recorder/",
+    "bytes": 53686,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/blog/jizokuka-hojo-2025/",
+    "bytes": 38208,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/blog/seminarflow-seminar-operation-sharing/",
+    "bytes": 46655,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/blog/chatgpt-business-nyumon/",
+    "bytes": 38388,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/blog/switchbot-lock-pro/",
+    "bytes": 54924,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/blog/ai-adoption-cost-and-skills/",
+    "bytes": 49498,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/blog/avakyo-tank-dishwasher-av-01/",
+    "bytes": 55653,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/blog/nihontsushin-sim-minna-plan/",
+    "bytes": 52040,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/blog/wws-workwear-suit-ankle-pants/",
+    "bytes": 54811,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/blog/google-workspace-nyumon/",
+    "bytes": 38950,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/blog/google-workspace-gmail-gemini-productivity/",
+    "bytes": 50608,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/rss.xml",
+    "bytes": 6935,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/sitemap-0.xml",
+    "bytes": 1640,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/images/ysk-life-og.png",
+    "bytes": 984435,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/Header.DnkTOj6x.css",
+    "bytes": 10015,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/index.ifRBJQOR.css",
+    "bytes": 9047,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_Z15KKgF.webp",
+    "bytes": 51668,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-ai-cost.BZqSiptr_Z1dQqIM.webp",
+    "bytes": 20958,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke.DZnAc5iT_14BVYV.webp",
+    "bytes": 28266,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z20sGJG.webp",
+    "bytes": 44134,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/images/home-tools/hotcook.jpg",
+    "bytes": 26816,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/images/home-tools/dishwasher.jpg",
+    "bytes": 60798,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/images/home-tools/switchbot.jpg",
+    "bytes": 87336,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/images/apps/seminarflow-ogp.png",
+    "bytes": 626142,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/images/apps/jizoka-ogp.png",
+    "bytes": 1029817,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/journal-pages.UktNKsVn.css",
+    "bytes": 10264,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-profile-black-2048.BVMwUnk1_2bav9n.webp",
+    "bytes": 123136,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-current-work-right-handed.C8YaVRos_594cC.webp",
+    "bytes": 85690,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/BlogGenreNav.-Av1WMRZ.css",
+    "bytes": 7005,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-ai-cost.BZqSiptr_DmIy7.webp",
+    "bytes": 25216,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-email-draft.uRBsXRPi_1j1rdH.webp",
+    "bytes": 41744,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/practical-ai-workshop.DElgcIIz_Z2vlLjP.webp",
+    "bytes": 29616,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke.DZnAc5iT_2khzUM.webp",
+    "bytes": 34016,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1sRhMU.webp",
+    "bytes": 51908,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_ZGgoR4.webp",
+    "bytes": 30928,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-loading-dishwasher.Bg4ieaFj_197OMr.webp",
+    "bytes": 42762,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-family-dinner.Db4S2BMO_6YhDR.webp",
+    "bytes": 41296,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tethering-illustration.D-9nUnFE_1MMvw7.webp",
+    "bytes": 47488,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-family-entry.BPcjKjna_Z1sFqj2.webp",
+    "bytes": 38648,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/google-workspace-office.DMKWt-uA_ZftRta.webp",
+    "bytes": 25848,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT_D4wdC.webp",
+    "bytes": 18170,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/subsidy-application.C1Zk6RM9_ZoyYe5.webp",
+    "bytes": 29416,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-family-dinner.Db4S2BMO.webp",
+    "bytes": 138624,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/_..AXucdlFT.css",
+    "bytes": 10531,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-family-dinner.Db4S2BMO_6FSXN.webp",
+    "bytes": 51614,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke.DZnAc5iT_uDtEV.webp",
+    "bytes": 4722,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1CktzR.webp",
+    "bytes": 4748,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/images/apps/kisoku-zaishin-ogp.png",
+    "bytes": 623608,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/images/apps/poireshi-ogp.png",
+    "bytes": 809180,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-homework-while-cooking.CsyK5WDM_70ylN.webp",
+    "bytes": 86796,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-clean-removable-parts.0mSbEna3_vNcOw.webp",
+    "bytes": 80160,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-measure-kitchen-space.AN_D4u1P_8CiCH.webp",
+    "bytes": 70614,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke.DZnAc5iT.webp",
+    "bytes": 92260,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke.DZnAc5iT_ZS0yJb.webp",
+    "bytes": 41804,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_2lAkut.webp",
+    "bytes": 4100,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/limits-tamashiro-yusuke.C4Ubs0C-_ZvJGRj.webp",
+    "bytes": 51780,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/receipt-tamashiro-yusuke.B6Klk4pA_Z1uwKbe.webp",
+    "bytes": 63498,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV.webp",
+    "bytes": 146870,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_ZGyMx8.webp",
+    "bytes": 42446,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-upload-review.LvN-msDg_Z1CYdxA.webp",
+    "bytes": 61820,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/images/blog/hidock-p1/hinotes-upload-transcribe-official.gif",
+    "bytes": 260890,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-recording-consent.CT_TuK35_Z1JbSWG.webp",
+    "bytes": 97954,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-referral-10off.CJakyKcC_Bvl0B.webp",
+    "bytes": 74776,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/subsidy-application.C1Zk6RM9.jpg",
+    "bytes": 319241,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/subsidy-application.C1Zk6RM9_Z2r1054.webp",
+    "bytes": 39926,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT_ZIX9oL.webp",
+    "bytes": 2690,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-ai-cost.BZqSiptr_Z1fv47T.webp",
+    "bytes": 3542,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT.webp",
+    "bytes": 67886,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-seminarflow-workflow.DnOL6LnT_29Pd49.webp",
+    "bytes": 23902,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/subsidy-application.C1Zk6RM9_thlRi.webp",
+    "bytes": 3066,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-after-form-work.D9m9E2-I_Z1QpPHW.webp",
+    "bytes": 51312,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-three-values.CET-KVcm_Z1iSeTc.webp",
+    "bytes": 49148,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-free-trial.D0zK0u6Z_mEgbP.webp",
+    "bytes": 37320,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/practical-ai-workshop.DElgcIIz.jpg",
+    "bytes": 342592,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/practical-ai-workshop.DElgcIIz_aoB0U.webp",
+    "bytes": 40604,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-email-draft.uRBsXRPi_1F4RQs.webp",
+    "bytes": 5028,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-family-entry.BPcjKjna.webp",
+    "bytes": 200052,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-family-entry.BPcjKjna_1z4GDU.webp",
+    "bytes": 52592,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/office-entry.CFxzF8RI_ZTGeSp.webp",
+    "bytes": 123340,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/before-install.EX2aHwEN_Z1TFSqR.webp",
+    "bytes": 120450,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-ai-cost.BZqSiptr.webp",
+    "bytes": 72612,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-ai-cost.BZqSiptr_Z1EVAxJ.webp",
+    "bytes": 31410,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/practical-ai-workshop.DElgcIIz_ZNgoH.webp",
+    "bytes": 3454,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-one-task.ZavRKCLB_gllDj.webp",
+    "bytes": 52888,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-operation-review.fAwlZu8J_11upXa.webp",
+    "bytes": 53998,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-loading-dishwasher.Bg4ieaFj.webp",
+    "bytes": 125606,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-loading-dishwasher.Bg4ieaFj_Z1YwdnT.webp",
+    "bytes": 54606,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-family-time.V6sgztUS_29Y5aB.webp",
+    "bytes": 82854,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-measure-installation.B9eNX0WC_ZR1hEH.webp",
+    "bytes": 120598,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-clean-filter.9_k7QH_U_ZgjS1s.webp",
+    "bytes": 95452,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tethering-illustration.D-9nUnFE.webp",
+    "bytes": 145982,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tethering-illustration.D-9nUnFE_1ecfnI.webp",
+    "bytes": 61922,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/data-usage-20gb-illustration.Cjs6MNwm_1ptRpU.webp",
+    "bytes": 66750,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/busy-time-fallback-illustration.CcYhfFBe_ZK8dFC.webp",
+    "bytes": 89490,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/application-check-illustration.CGEeB0dt_Z2r3y8t.webp",
+    "bytes": 73752,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-workday-start.D518SXex.webp",
+    "bytes": 237020,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1BGRXp.webp",
+    "bytes": 73414,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-workday-move.D2ThI91M_NKEPk.webp",
+    "bytes": 121682,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-laundry-care.khZ1H_3__1fT0Mm.webp",
+    "bytes": 96358,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/google-workspace-office.DMKWt-uA.jpg",
+    "bytes": 305033,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/google-workspace-office.DMKWt-uA_1GLwL5.webp",
+    "bytes": 35348,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-email-draft.uRBsXRPi.webp",
+    "bytes": 199372,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/hero-tamashiro-yusuke-email-draft.uRBsXRPi_1X1oKX.webp",
+    "bytes": 55340,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-before-after-workflow.CunzsNDl_1stDBS.webp",
+    "bytes": 55066,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-gmail-gemini-reply-ui.Bwnct934_Z1bMIle.webp",
+    "bytes": 28962,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  },
+  {
+    "path": "/_astro/tamashiro-yusuke-final-review.Bsme4rIn_Z2jsw1e.webp",
+    "bytes": 85450,
+    "matches": true,
+    "exact": true,
+    "normalization": null
+  }
+]

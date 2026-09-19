@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="ja" data-astro-cid-ibpinaeu> <head><meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta name="theme-color" content="#171915"> <meta name="google-site-verification" content="ZOHyxB9OxiSl2kg7iNFCxDlsYK6K5h7e890uRt8Vyt0"> <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2"> <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.png?v=2"> <link rel="shortcut icon" href="/favicon.ico?v=2"> <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=2"> <link rel="sitemap" href="/sitemap-index.xml"> <link rel="alternate" type="application/rss+xml" title="玉城祐輔｜AIとデジタルを、現場で使える形に。" href="https://ysk.life/rss.xml"> <meta name="generator" content="Astro v7.2.1"> <link rel="canonical" href="https://ysk.life/404/"> <title>ページが見つかりません｜玉城祐輔</title> <meta name="title" content="ページが見つかりません｜玉城祐輔"> <meta name="description" content="お探しのページは見つかりませんでした。"> <meta name="author" content="玉城祐輔"> <meta property="og:type" content="website"> <meta property="og:locale" content="ja_JP"> <meta property="og:site_name" content="玉城祐輔"> <meta property="og:url" content="https://ysk.life/404/"> <meta property="og:title" content="ページが見つかりません｜玉城祐輔"> <meta property="og:description" content="お探しのページは見つかりませんでした。"> <meta property="og:image" content="https://ysk.life/images/ysk-life-og.png"> <meta property="og:image:secure_url" content="https://ysk.life/images/ysk-life-og.png"> <meta property="og:image:width" content="1200"> <meta property="og:image:height" content="630"> <meta property="og:image:alt" content="ページが見つかりません｜玉城祐輔"> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="ページが見つかりません｜玉城祐輔"> <meta name="twitter:description" content="お探しのページは見つかりませんでした。"> <meta name="twitter:image" content="https://ysk.life/images/ysk-life-og.png"> <meta name="twitter:image:alt" content="ページが見つかりません｜玉城祐輔"> <script>
+	(() => {
+		const measurementId = 'G-752CVHZQNC';
+		const consentKey = 'ysk-analytics-consent-v1';
+		const acceptedValue = 'granted';
+		const declinedValue = 'denied';
+
+		const readConsent = () => {
+			try {
+				return window.localStorage.getItem(consentKey);
+			} catch {
+				return null;
+			}
+		};
+
+		const saveConsent = (value) => {
+			try {
+				window.localStorage.setItem(consentKey, value);
+			} catch {
+				// Storage can be unavailable in private browsing or restricted browsers.
+			}
+		};
+
+		const removeConsent = () => {
+			try {
+				window.localStorage.removeItem(consentKey);
+			} catch {
+				// Keep the page usable even when storage is unavailable.
+			}
+		};
+
+		const loadAnalytics = () => {
+			if (window.__yskAnalyticsLoaded) return;
+			window.__yskAnalyticsLoaded = true;
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = function () {
+				window.dataLayer.push(arguments);
+			};
+			window.gtag('js', new Date());
+			window.gtag('config', measurementId, {
+				allow_google_signals: false,
+				allow_ad_personalization_signals: false,
+			});
+
+			const script = document.createElement('script');
+			script.async = true;
+			script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+			document.head.appendChild(script);
+		};
+
+		const removeBanner = () => {
+			document.querySelector('[data-analytics-consent]')?.remove();
+		};
+
+		const showBanner = () => {
+			if (document.querySelector('[data-analytics-consent]')) return;
+
+			const banner = document.createElement('aside');
+			banner.className = 'analytics-consent';
+			banner.dataset.analyticsConsent = '';
+			banner.setAttribute('aria-label', 'アクセス解析の設定');
+			banner.innerHTML = `
+				<div class="analytics-consent__inner">
+					<p><strong>アクセス解析について</strong><span>サイト改善のためGoogle Analyticsを使用します。許可するまで計測は始まりません。<a href="/privacy/#analytics">詳しく見る</a></span></p>
+					<div class="analytics-consent__actions">
+						<button type="button" data-analytics-decline>許可しない</button>
+						<button type="button" class="primary" data-analytics-accept>許可する</button>
+					</div>
+				</div>`;
+			document.body.appendChild(banner);
+
+			banner.querySelector('[data-analytics-accept]')?.addEventListener('click', () => {
+				saveConsent(acceptedValue);
+				removeBanner();
+				loadAnalytics();
+			});
+			banner.querySelector('[data-analytics-decline]')?.addEventListener('click', () => {
+				saveConsent(declinedValue);
+				removeBanner();
+			});
+		};
+
+		const initialize = () => {
+			const consent = readConsent();
+			if (consent === acceptedValue) loadAnalytics();
+			else if (consent !== declinedValue) showBanner();
+
+			document.querySelector('[data-analytics-consent-reset]')?.addEventListener('click', () => {
+				removeConsent();
+				showBanner();
+			});
+		};
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initialize, { once: true });
+		} else {
+			initialize();
+		}
+	})();
+</script><link rel="stylesheet" href="/_astro/Header.DnkTOj6x.css"><style>footer[data-astro-cid-jo6i4kqk]{background:var(--footer-bg,var(--ink));color:var(--footer-text,var(--paper));margin-top:clamp(5rem,10vw,9rem);padding:clamp(4rem,8vw,7rem) 0 2rem}.footer-grid[data-astro-cid-jo6i4kqk]{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:4rem;display:grid}.footer-statement[data-astro-cid-jo6i4kqk] p[data-astro-cid-jo6i4kqk]{max-width:570px;font-family:var(--font-serif);font-size:clamp(1.7rem,3.5vw,3.1rem);line-height:1.45}.footer-links[data-astro-cid-jo6i4kqk]{grid-template-columns:repeat(2,1fr);gap:2rem;display:grid}.footer-links[data-astro-cid-jo6i4kqk] div[data-astro-cid-jo6i4kqk]{flex-direction:column;align-items:flex-start;gap:.65rem;display:flex}.footer-links[data-astro-cid-jo6i4kqk] strong[data-astro-cid-jo6i4kqk]{color:var(--footer-muted,#aaa999);letter-spacing:.12em;margin-bottom:.5rem;font-size:.7rem}.footer-links[data-astro-cid-jo6i4kqk] a[data-astro-cid-jo6i4kqk]{color:var(--footer-text,var(--paper));font-size:.88rem;text-decoration:none}.footer-links[data-astro-cid-jo6i4kqk] a[data-astro-cid-jo6i4kqk]:hover{color:var(--site-accent,var(--coral))}.footer-bottom[data-astro-cid-jo6i4kqk]{color:var(--footer-muted,#aaa999);border-top:1px solid #ffffff29;justify-content:space-between;gap:1rem;margin-top:5rem;padding-top:1.5rem;font-size:.72rem;display:flex}@media (width<=760px){.footer-grid[data-astro-cid-jo6i4kqk]{grid-template-columns:1fr;gap:2.5rem}.footer-bottom[data-astro-cid-jo6i4kqk]{flex-direction:column;align-items:flex-start}}
+.not-found[data-astro-cid-ibpinaeu]{grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);align-items:end;gap:clamp(3rem,8vw,8rem);padding-block:clamp(5rem,12vw,10rem);display:grid}.code[data-astro-cid-ibpinaeu]{color:var(--coral);letter-spacing:.15em;margin:0;font-size:.8rem;font-weight:800}.not-found[data-astro-cid-ibpinaeu] h1[data-astro-cid-ibpinaeu]{font-size:clamp(3rem,6vw,4.8rem)}.not-found-copy[data-astro-cid-ibpinaeu]>p[data-astro-cid-ibpinaeu]:not(.code){max-width:620px;color:var(--muted)}.route-list[data-astro-cid-ibpinaeu]{border-top:4px solid var(--ink)}.route-list[data-astro-cid-ibpinaeu] a[data-astro-cid-ibpinaeu]{border-bottom:1px solid var(--line);gap:.25rem;padding:1.25rem 0;text-decoration:none;display:grid}.route-list[data-astro-cid-ibpinaeu] strong[data-astro-cid-ibpinaeu]{font-size:1rem}.route-list[data-astro-cid-ibpinaeu] span[data-astro-cid-ibpinaeu]{color:var(--muted);font-size:.75rem}@media (width<=760px){.not-found[data-astro-cid-ibpinaeu]{grid-template-columns:1fr;align-items:start}.not-found[data-astro-cid-ibpinaeu] h1[data-astro-cid-ibpinaeu]{font-size:clamp(2.55rem,12vw,3.4rem)}}
+</style></head> <body data-astro-cid-ibpinaeu> <header class="site-header" data-astro-cid-nen7h5rs> <a class="skip-link" href="#main-content" data-astro-cid-nen7h5rs>本文へ移動</a> <nav class="shell" aria-label="メインナビゲーション" data-astro-cid-nen7h5rs> <a class="brand" href="/" aria-label="玉城祐輔 ホーム" data-astro-cid-nen7h5rs> <span class="brand-mark" aria-hidden="true" data-astro-cid-nen7h5rs> <img src="/images/tamashiro-yusuke-logo.svg?v=3" alt="" width="64" height="64" decoding="async" data-astro-cid-nen7h5rs> </span>  </a> <div class="internal-links" data-astro-cid-nen7h5rs> <a href="/blog" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 読む </a> <a href="/toolbox" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 道具箱 </a> <a href="/about" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 玉城について </a> </div> </nav> </header> <main id="main-content" class="not-found shell" data-astro-cid-ibpinaeu> <div class="not-found-copy" data-astro-cid-ibpinaeu> <p class="code" data-astro-cid-ibpinaeu>404</p> <h1 data-astro-cid-ibpinaeu>ページが、<br data-astro-cid-ibpinaeu>見つかりません。</h1> <p data-astro-cid-ibpinaeu>URLが変わったか、ページが移動した可能性があります。次の入口からお探しください。</p> <a class="button primary" href="/" data-astro-cid-ibpinaeu>ホームへ戻る</a> </div> <nav class="route-list" aria-label="主なページ" data-astro-cid-ibpinaeu> <a href="/blog/" data-astro-cid-ibpinaeu><strong data-astro-cid-ibpinaeu>記事を読む</strong><span data-astro-cid-ibpinaeu>AI、仕事の道具、経営の現場</span></a> <a href="/toolbox/" data-astro-cid-ibpinaeu><strong data-astro-cid-ibpinaeu>道具箱を見る</strong><span data-astro-cid-ibpinaeu>実際に使っている仕事と暮らしの道具</span></a> <a href="/about/" data-astro-cid-ibpinaeu><strong data-astro-cid-ibpinaeu>玉城について</strong><span data-astro-cid-ibpinaeu>これまでの経験と、今取り組んでいること</span></a> </nav> </main> <footer data-astro-cid-jo6i4kqk> <div class="shell footer-grid" data-astro-cid-jo6i4kqk> <div class="footer-statement" data-astro-cid-jo6i4kqk> <p data-astro-cid-jo6i4kqk>沖縄の現場で、実際に試したことを残します。</p> </div> <div class="footer-links" data-astro-cid-jo6i4kqk> <div data-astro-cid-jo6i4kqk> <strong data-astro-cid-jo6i4kqk>このサイト</strong> <a href="/blog" data-astro-cid-jo6i4kqk>記事を読む</a> <a href="/about" data-astro-cid-jo6i4kqk>玉城について</a> <a href="/privacy" data-astro-cid-jo6i4kqk>プライバシー</a> <a href="/affiliate-disclosure" data-astro-cid-jo6i4kqk>広告・紹介について</a> </div> <div data-astro-cid-jo6i4kqk> <strong data-astro-cid-jo6i4kqk>外部リンク</strong> <a href="/toolbox/" data-astro-cid-jo6i4kqk>玉城祐輔の道具箱 →</a> <a href="https://taxlegal.jp/" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>T&Lサポート株式会社 ↗</a> <a href="https://www.facebook.com/yusuke.tamashiro" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>Facebook ↗</a> <a href="https://www.instagram.com/tamashiro_yusuke_tl/" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>Instagram ↗</a> </div> </div> </div> <div class="shell footer-bottom" data-astro-cid-jo6i4kqk> <span data-astro-cid-jo6i4kqk>&copy; 2026 Yusuke Tamashiro</span> <span data-astro-cid-jo6i4kqk>AIとデジタルを、現場で使える形に。</span> </div> </footer> </body> </html>

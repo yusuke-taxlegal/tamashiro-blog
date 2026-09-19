@@ -1,7 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 import { getCollection, type CollectionEntry } from 'astro:content';
-import ArticleCard from '../components/ArticleCard.astro';
+import ArticleCarousel from '../components/ArticleCarousel.astro';
+import ArticleEngagement from '../components/ArticleEngagement.astro';
 import BaseHead from '../components/BaseHead.astro';
 import BlogGenreNav from '../components/BlogGenreNav.astro';
 import Footer from '../components/Footer.astro';
@@ -10,7 +11,7 @@ import Header from '../components/Header.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import WebApps from '../components/WebApps.astro';
 import { COMPANY_URL, TOOLBOX_URL } from '../consts';
-import { countPostsByGenre, getBlogGenre } from '../lib/blogNavigation';
+import { countPostsByGenre, getRecommendedPosts, sortPostsByRecency } from '../lib/blogNavigation';
 
 type PostData = CollectionEntry<'blog'>['data'];
 type ArticleHeading = { depth: number; slug: string; text: string };
@@ -18,15 +19,8 @@ type Props = PostData & { postId: string; readingMinutes: number; headings: Arti
 
 const { title, description, pubDate, updatedDate, category, postId, readingMinutes, heroImage, headings } = Astro.props;
 const articleHeadings = headings.filter((heading) => heading.depth === 2);
-const allPosts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
-const currentGenre = getBlogGenre(category);
-const otherPosts = allPosts.filter((post) => post.id !== postId);
-const recommendedPosts = [
-	...otherPosts.filter((post) => getBlogGenre(post.data.category) === currentGenre),
-	...otherPosts.filter((post) => getBlogGenre(post.data.category) !== currentGenre),
-].slice(0, 3);
+const allPosts = sortPostsByRecency(await getCollection('blog'));
+const recommendedPosts = getRecommendedPosts(allPosts, postId, category, 6);
 const genreCounts = countPostsByGenre(allPosts);
 ---
 
@@ -106,6 +100,7 @@ const genreCounts = countPostsByGenre(allPosts);
 					</aside>
 					<div class="prose">
 						<slot />
+						<ArticleEngagement postId={postId} />
 					</div>
 				</div>
 
@@ -116,15 +111,10 @@ const genreCounts = countPostsByGenre(allPosts);
 				{recommendedPosts.length > 0 && (
 					<section class="article-related shell" aria-labelledby="related-heading">
 						<div class="related-heading">
-							<h2 id="related-heading">おすすめの記事</h2>
-							<p>同じジャンルの記事を優先して、次に読みやすい記事を選びました。</p>
+							<h2 id="related-heading">次に読む記事</h2>
+							<p>同じジャンルの記事を先に、ほかのテーマも混ぜています。画像を横に送って選べます。</p>
 						</div>
-						<div class="related-stage">
-							{recommendedPosts[0] && <ArticleCard post={recommendedPosts[0]} featured stacked />}
-							<div class="related-side">
-								{recommendedPosts.slice(1).map((post) => <ArticleCard post={post} compact />)}
-							</div>
-						</div>
+						<ArticleCarousel posts={recommendedPosts} label="次に読む記事を選ぶ" />
 					</section>
 				)}
 
@@ -352,18 +342,6 @@ const genreCounts = countPostsByGenre(allPosts);
 		font-size: 0.9rem;
 	}
 
-	.related-stage {
-		display: grid;
-		grid-template-columns: minmax(0, 1.28fr) minmax(330px, 0.72fr);
-		align-items: start;
-		gap: clamp(1rem, 2.5vw, 2rem);
-	}
-
-	.related-side {
-		display: grid;
-		gap: 1rem;
-	}
-
 	.after-note {
 		margin-bottom: clamp(4rem, 8vw, 7rem);
 		padding: clamp(2rem, 5vw, 4rem);
@@ -394,14 +372,11 @@ const genreCounts = countPostsByGenre(allPosts);
 			max-height: none;
 			overflow: visible;
 		}
-		.related-stage { grid-template-columns: 1fr; }
-		.related-side { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 	}
 
 	@media (max-width: 700px) {
 		.article-related,
 		.article-genres { padding-block: 3.5rem; }
 		.article-genres { padding-top: 0; }
-		.related-side { grid-template-columns: 1fr; }
 	}
 </style>

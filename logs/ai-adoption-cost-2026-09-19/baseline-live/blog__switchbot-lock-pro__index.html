@@ -1,0 +1,382 @@
+<!DOCTYPE html><html lang="ja" data-astro-cid-tldeq5d5> <head><meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta name="theme-color" content="#171915"> <meta name="google-site-verification" content="ZOHyxB9OxiSl2kg7iNFCxDlsYK6K5h7e890uRt8Vyt0"> <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2"> <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.png?v=2"> <link rel="shortcut icon" href="/favicon.ico?v=2"> <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=2"> <link rel="sitemap" href="/sitemap-index.xml"> <link rel="alternate" type="application/rss+xml" title="玉城祐輔｜AIとデジタルを、現場で使える形に。" href="https://ysk.life/rss.xml"> <meta name="generator" content="Astro v7.2.1"> <link rel="canonical" href="https://ysk.life/blog/switchbot-lock-pro/"> <title>鍵なしで玄関へ。SwitchBot Lock Pro｜玉城祐輔</title> <meta name="title" content="鍵なしで玄関へ。SwitchBot Lock Pro｜玉城祐輔"> <meta name="description" content="子育て家庭や小さな会社で役立つSwitchBot ロックPro。指紋認証、オートロック、ハブの違いから、導入前と設置初日に確認したいことまでまとめます。"> <meta name="author" content="玉城祐輔"> <meta property="og:type" content="article"> <meta property="og:locale" content="ja_JP"> <meta property="og:site_name" content="玉城祐輔"> <meta property="og:url" content="https://ysk.life/blog/switchbot-lock-pro/"> <meta property="og:title" content="鍵なしで玄関へ。SwitchBot Lock Pro｜玉城祐輔"> <meta property="og:description" content="子育て家庭や小さな会社で役立つSwitchBot ロックPro。指紋認証、オートロック、ハブの違いから、導入前と設置初日に確認したいことまでまとめます。"> <meta property="og:image" content="https://ysk.life/_astro/hero-family-entry.BPcjKjna.webp"> <meta property="og:image:secure_url" content="https://ysk.life/_astro/hero-family-entry.BPcjKjna.webp"> <meta property="og:image:width" content="1536"> <meta property="og:image:height" content="1024"> <meta property="og:image:alt" content="鍵なしで玄関へ。SwitchBot Lock Pro"> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="鍵なしで玄関へ。SwitchBot Lock Pro｜玉城祐輔"> <meta name="twitter:description" content="子育て家庭や小さな会社で役立つSwitchBot ロックPro。指紋認証、オートロック、ハブの違いから、導入前と設置初日に確認したいことまでまとめます。"> <meta name="twitter:image" content="https://ysk.life/_astro/hero-family-entry.BPcjKjna.webp"> <meta name="twitter:image:alt" content="鍵なしで玄関へ。SwitchBot Lock Pro"> <script>
+	(() => {
+		const measurementId = 'G-752CVHZQNC';
+		const consentKey = 'ysk-analytics-consent-v1';
+		const acceptedValue = 'granted';
+		const declinedValue = 'denied';
+
+		const readConsent = () => {
+			try {
+				return window.localStorage.getItem(consentKey);
+			} catch {
+				return null;
+			}
+		};
+
+		const saveConsent = (value) => {
+			try {
+				window.localStorage.setItem(consentKey, value);
+			} catch {
+				// Storage can be unavailable in private browsing or restricted browsers.
+			}
+		};
+
+		const removeConsent = () => {
+			try {
+				window.localStorage.removeItem(consentKey);
+			} catch {
+				// Keep the page usable even when storage is unavailable.
+			}
+		};
+
+		const loadAnalytics = () => {
+			if (window.__yskAnalyticsLoaded) return;
+			window.__yskAnalyticsLoaded = true;
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = function () {
+				window.dataLayer.push(arguments);
+			};
+			window.gtag('js', new Date());
+			window.gtag('config', measurementId, {
+				allow_google_signals: false,
+				allow_ad_personalization_signals: false,
+			});
+
+			const script = document.createElement('script');
+			script.async = true;
+			script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+			document.head.appendChild(script);
+		};
+
+		const removeBanner = () => {
+			document.querySelector('[data-analytics-consent]')?.remove();
+		};
+
+		const showBanner = () => {
+			if (document.querySelector('[data-analytics-consent]')) return;
+
+			const banner = document.createElement('aside');
+			banner.className = 'analytics-consent';
+			banner.dataset.analyticsConsent = '';
+			banner.setAttribute('aria-label', 'アクセス解析の設定');
+			banner.innerHTML = `
+				<div class="analytics-consent__inner">
+					<p><strong>アクセス解析について</strong><span>サイト改善のためGoogle Analyticsを使用します。許可するまで計測は始まりません。<a href="/privacy/#analytics">詳しく見る</a></span></p>
+					<div class="analytics-consent__actions">
+						<button type="button" data-analytics-decline>許可しない</button>
+						<button type="button" class="primary" data-analytics-accept>許可する</button>
+					</div>
+				</div>`;
+			document.body.appendChild(banner);
+
+			banner.querySelector('[data-analytics-accept]')?.addEventListener('click', () => {
+				saveConsent(acceptedValue);
+				removeBanner();
+				loadAnalytics();
+			});
+			banner.querySelector('[data-analytics-decline]')?.addEventListener('click', () => {
+				saveConsent(declinedValue);
+				removeBanner();
+			});
+		};
+
+		const initialize = () => {
+			const consent = readConsent();
+			if (consent === acceptedValue) loadAnalytics();
+			else if (consent !== declinedValue) showBanner();
+
+			document.querySelector('[data-analytics-consent-reset]')?.addEventListener('click', () => {
+				removeConsent();
+				showBanner();
+			});
+		};
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initialize, { once: true });
+		} else {
+			initialize();
+		}
+	})();
+</script><link rel="stylesheet" href="/_astro/Header.DnkTOj6x.css"><link rel="stylesheet" href="/_astro/BlogGenreNav.-Av1WMRZ.css"><style>footer[data-astro-cid-jo6i4kqk]{background:var(--footer-bg,var(--ink));color:var(--footer-text,var(--paper));margin-top:clamp(5rem,10vw,9rem);padding:clamp(4rem,8vw,7rem) 0 2rem}.footer-grid[data-astro-cid-jo6i4kqk]{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:4rem;display:grid}.footer-statement[data-astro-cid-jo6i4kqk] p[data-astro-cid-jo6i4kqk]{max-width:570px;font-family:var(--font-serif);font-size:clamp(1.7rem,3.5vw,3.1rem);line-height:1.45}.footer-links[data-astro-cid-jo6i4kqk]{grid-template-columns:repeat(2,1fr);gap:2rem;display:grid}.footer-links[data-astro-cid-jo6i4kqk] div[data-astro-cid-jo6i4kqk]{flex-direction:column;align-items:flex-start;gap:.65rem;display:flex}.footer-links[data-astro-cid-jo6i4kqk] strong[data-astro-cid-jo6i4kqk]{color:var(--footer-muted,#aaa999);letter-spacing:.12em;margin-bottom:.5rem;font-size:.7rem}.footer-links[data-astro-cid-jo6i4kqk] a[data-astro-cid-jo6i4kqk]{color:var(--footer-text,var(--paper));font-size:.88rem;text-decoration:none}.footer-links[data-astro-cid-jo6i4kqk] a[data-astro-cid-jo6i4kqk]:hover{color:var(--site-accent,var(--coral))}.footer-bottom[data-astro-cid-jo6i4kqk]{color:var(--footer-muted,#aaa999);border-top:1px solid #ffffff29;justify-content:space-between;gap:1rem;margin-top:5rem;padding-top:1.5rem;font-size:.72rem;display:flex}@media (width<=760px){.footer-grid[data-astro-cid-jo6i4kqk]{grid-template-columns:1fr;gap:2.5rem}.footer-bottom[data-astro-cid-jo6i4kqk]{flex-direction:column;align-items:flex-start}}
+.share-panel[data-astro-cid-eqjx2q6l]{flex-direction:column;align-items:flex-start;max-width:100%;display:inline-flex}.share-actions[data-astro-cid-eqjx2q6l]{flex-wrap:nowrap;gap:.55rem;display:flex}.share-button[data-astro-cid-eqjx2q6l]{cursor:pointer;border:1px solid var(--line);background:color-mix(in srgb, var(--white) 72%, transparent);width:2.875rem;height:2.875rem;color:var(--ink);font:inherit;border-radius:999px;justify-content:center;align-items:center;padding:0;text-decoration:none;transition:transform .16s,border-color .16s,background-color .16s,color .16s;display:inline-flex;position:relative;box-shadow:0 1px #fffdf8b8}.share-button[data-astro-cid-eqjx2q6l]:hover{border-color:var(--coral);background:var(--coral);color:var(--white);transform:translateY(-1px)}.share-button[data-astro-cid-eqjx2q6l]:active{transform:translateY(0)scale(.96)}.share-button[data-astro-cid-eqjx2q6l]:focus-visible{outline:3px solid var(--coral);outline-offset:3px}.share-icon[data-astro-cid-eqjx2q6l]{width:1.3rem;height:1.3rem}.share-button[data-astro-cid-eqjx2q6l]:after{background:var(--ink);color:var(--white);content:attr(data-tooltip);opacity:0;pointer-events:none;white-space:nowrap;z-index:1;border-radius:.45rem;padding:.35rem .55rem;font-size:.66rem;font-weight:700;line-height:1.35;transition:opacity .14s,transform .14s;position:absolute;bottom:calc(100% + .55rem);left:50%;transform:translate(-50%,.2rem)}.share-button[data-astro-cid-eqjx2q6l]:hover:after,.share-button[data-astro-cid-eqjx2q6l]:focus-visible:after{opacity:1;transform:translate(-50%)}.share-status[data-astro-cid-eqjx2q6l]{max-width:min(24rem,100vw - 2rem);color:var(--muted);margin:0;font-size:.72rem;line-height:1.6}.share-status[data-astro-cid-eqjx2q6l]:not(:empty){margin-top:.65rem}@media (hover:none){.share-button[data-astro-cid-eqjx2q6l]:after{display:none}}@media (prefers-reduced-motion:reduce){.share-button[data-astro-cid-eqjx2q6l],.share-button[data-astro-cid-eqjx2q6l]:after{transition:none}}
+</style><link rel="stylesheet" href="/_astro/_..AXucdlFT.css"></head> <body data-astro-cid-tldeq5d5> <header class="site-header" data-astro-cid-nen7h5rs> <a class="skip-link" href="#main-content" data-astro-cid-nen7h5rs>本文へ移動</a> <nav class="shell" aria-label="メインナビゲーション" data-astro-cid-nen7h5rs> <a class="brand" href="/" aria-label="玉城祐輔 ホーム" data-astro-cid-nen7h5rs> <span class="brand-mark" aria-hidden="true" data-astro-cid-nen7h5rs> <img src="/images/tamashiro-yusuke-logo.svg?v=3" alt="" width="64" height="64" decoding="async" data-astro-cid-nen7h5rs> </span>  </a> <div class="internal-links" data-astro-cid-nen7h5rs> <a href="/blog" class="active" aria-current="page" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 読む </a> <a href="/toolbox" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 道具箱 </a> <a href="/about" data-astro-cid-nen7h5rs="true" data-astro-cid-evkijfd6> 玉城について </a> </div> </nav> </header> <main id="main-content" data-astro-cid-tldeq5d5> <article data-astro-cid-tldeq5d5> <header class="article-hero" data-astro-cid-tldeq5d5> <div class="shell article-hero-inner" data-astro-cid-tldeq5d5> <div class="article-copy" data-astro-cid-tldeq5d5> <a class="back-link" href="/blog" data-astro-cid-tldeq5d5>記事一覧へ戻る</a> <p class="category" data-astro-cid-tldeq5d5>家と仕事の道具</p> <h1 data-astro-cid-tldeq5d5>鍵なしで玄関へ。SwitchBot Lock Pro</h1> <p class="description" data-astro-cid-tldeq5d5>子育て家庭や小さな会社で役立つSwitchBot ロックPro。指紋認証、オートロック、ハブの違いから、導入前と設置初日に確認したいことまでまとめます。</p> <div class="article-meta" data-astro-cid-tldeq5d5> <span data-astro-cid-tldeq5d5>公開 <time datetime="2026-08-15T00:00:00.000Z"> 2026年8月15日 </time></span>  <span data-astro-cid-tldeq5d5>読了 約13分</span> </div> </div> <div class="cover-image" data-astro-cid-tldeq5d5>  <img src="/_astro/hero-family-entry.BPcjKjna_1z4GDU.webp" alt loading="eager" fetchpriority="high" data-astro-cid-tldeq5d5="true" decoding="async" width="900" height="600"> </div> </div> </header> <div class="article-share article-share-top" data-astro-cid-tldeq5d5> <div class="share-panel" role="group" aria-label="この記事を共有" data-share-root data-share-url="https://ysk.life/blog/switchbot-lock-pro/" data-share-title="鍵なしで玄関へ。SwitchBot Lock Pro" data-astro-cid-eqjx2q6l> <div class="share-actions" data-astro-cid-eqjx2q6l> <a class="share-button line" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fysk.life%2Fblog%2Fswitchbot-lock-pro%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="LINEで送る" data-tooltip="LINEで送る" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:line-fill">   <symbol id="ai:ri:line-fill"><path fill="currentColor" d="M18.664 10.84a.526.526 0 0 1-.526.525h-1.462v.938h1.463a.525.525 0 1 1 0 1.049H16.15a.526.526 0 0 1-.522-.524V8.852c0-.287.235-.525.525-.525h1.988a.526.526 0 0 1-.002 1.05h-1.463v.938h1.463c.29 0 .524.237.524.525m-4.098 2.485a.5.5 0 0 1-.166.025a.52.52 0 0 1-.425-.208l-2.036-2.764v2.45a.525.525 0 0 1-1.047 0V8.852a.52.52 0 0 1 .52-.523c.162 0 .312.086.412.211l2.052 2.775V8.852c0-.287.235-.525.525-.525c.287 0 .525.238.525.525v3.976a.52.52 0 0 1-.36.497m-4.95.027a.526.526 0 0 1-.523-.524V8.852c0-.287.235-.525.525-.525c.289 0 .524.238.524.525v3.976a.527.527 0 0 1-.526.524m-1.53 0H6.099a.53.53 0 0 1-.525-.524V8.852c0-.287.238-.525.525-.525c.29 0 .525.238.525.525v3.45h1.464a.525.525 0 0 1 0 1.05m3.915-10.78c-5.513 0-10 3.643-10 8.118c0 4.01 3.558 7.369 8.363 8.007c.325.068.769.215.881.492c.1.25.066.638.032.9l-.137.85c-.037.25-.2.988.874.537c1.076-.449 5.764-3.398 7.864-5.812C21.314 14.089 22 12.477 22 10.69c0-4.475-4.488-8.118-10-8.118"/></symbol><use href="#ai:ri:line-fill"></use>  </svg> </a> <a class="share-button facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fysk.life%2Fblog%2Fswitchbot-lock-pro%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="Facebookで共有" data-tooltip="Facebookで共有" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:facebook-fill">   <symbol id="ai:ri:facebook-fill"><path fill="currentColor" d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4z"/></symbol><use href="#ai:ri:facebook-fill"></use>  </svg> </a> <button class="share-button instagram" type="button" aria-label="Instagramで共有" data-tooltip="Instagramで共有" data-share-instagram data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:instagram-line">   <symbol id="ai:ri:instagram-line"><path fill="currentColor" d="M12.001 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6m0-2a5 5 0 1 1 0 10a5 5 0 0 1 0-10m6.5-.25a1.25 1.25 0 0 1-2.5 0a1.25 1.25 0 0 1 2.5 0M12.001 4c-2.474 0-2.878.007-4.029.058c-.784.037-1.31.142-1.798.332a2.9 2.9 0 0 0-1.08.703a2.9 2.9 0 0 0-.704 1.08c-.19.49-.295 1.015-.331 1.798C4.007 9.075 4 9.461 4 12c0 2.475.007 2.878.058 4.029c.037.783.142 1.31.331 1.797c.17.435.37.748.702 1.08c.337.336.65.537 1.08.703c.494.191 1.02.297 1.8.333C9.075 19.994 9.461 20 12 20c2.475 0 2.878-.007 4.029-.058c.782-.037 1.308-.142 1.797-.331a2.9 2.9 0 0 0 1.08-.703c.337-.336.538-.649.704-1.08c.19-.492.296-1.018.332-1.8c.052-1.103.058-1.49.058-4.028c0-2.474-.007-2.878-.058-4.029c-.037-.782-.143-1.31-.332-1.798a2.9 2.9 0 0 0-.703-1.08a2.9 2.9 0 0 0-1.08-.704c-.49-.19-1.016-.295-1.798-.331C14.926 4.006 14.54 4 12 4m0-2c2.717 0 3.056.01 4.123.06c1.064.05 1.79.217 2.427.465c.66.254 1.216.598 1.772 1.153a4.9 4.9 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428c.047 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122s-.218 1.79-.465 2.428a4.9 4.9 0 0 1-1.153 1.772a4.9 4.9 0 0 1-1.772 1.153c-.637.247-1.363.415-2.427.465c-1.067.047-1.406.06-4.123.06s-3.056-.01-4.123-.06c-1.064-.05-1.789-.218-2.427-.465a4.9 4.9 0 0 1-1.772-1.153a4.9 4.9 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.012 15.056 2 14.717 2 12s.01-3.056.06-4.122s.217-1.79.465-2.428a4.9 4.9 0 0 1 1.153-1.772A4.9 4.9 0 0 1 5.45 2.525c.637-.248 1.362-.415 2.427-.465C8.945 2.013 9.284 2 12.001 2"/></symbol><use href="#ai:ri:instagram-line"></use>  </svg> </button> <button class="share-button copy" type="button" aria-label="記事のリンクをコピー" data-tooltip="リンクをコピー" data-share-copy data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:file-copy-line">   <symbol id="ai:ri:file-copy-line"><path fill="currentColor" d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .552-.45 1-1.007 1H4.007A1 1 0 0 1 3 21l.003-14c0-.552.45-1 1.006-1zM5.002 8L5 20h10V8zM9 6h8v10h2V4H9z"/></symbol><use href="#ai:ri:file-copy-line"></use>  </svg> </button> </div> <p class="share-status" aria-live="polite" data-share-status data-astro-cid-eqjx2q6l></p> </div> <script>
+	(() => {
+		if (window.__yskShareButtonsInitialized) return;
+		window.__yskShareButtonsInitialized = true;
+
+		const copyText = async (text) => {
+			if (navigator.clipboard && window.isSecureContext) {
+				await navigator.clipboard.writeText(text);
+				return;
+			}
+
+			const input = document.createElement('textarea');
+			input.value = text;
+			input.setAttribute('readonly', '');
+			input.style.position = 'fixed';
+			input.style.opacity = '0';
+			document.body.appendChild(input);
+			input.select();
+			const copied = document.execCommand('copy');
+			input.remove();
+			if (!copied) throw new Error('Copy failed');
+		};
+
+		document.addEventListener('click', async (event) => {
+			const button = event.target.closest('[data-share-copy], [data-share-instagram]');
+			if (!button) return;
+
+			const root = button.closest('[data-share-root]');
+			if (!root) return;
+
+			const url = root.dataset.shareUrl;
+			const title = root.dataset.shareTitle;
+			const status = root.querySelector('[data-share-status]');
+			if (!url || !title || !status) return;
+
+			status.textContent = '';
+
+			try {
+				if (button.matches('[data-share-instagram]') && navigator.share) {
+					await navigator.share({ title, url });
+					return;
+				}
+
+				await copyText(url);
+				status.textContent = button.matches('[data-share-instagram]')
+					? 'リンクをコピーしました。InstagramのDMなどに貼り付けてください。'
+					: 'リンクをコピーしました。';
+			} catch (error) {
+				if (error && error.name === 'AbortError') return;
+				status.textContent = 'コピーできませんでした。ブラウザのアドレス欄からURLをコピーしてください。';
+			}
+		});
+	})();
+</script> </div> <div class="article-shell" data-astro-cid-tldeq5d5> <aside class="article-aside" data-astro-cid-tldeq5d5> <details class="article-toc" open data-astro-cid-tldeq5d5> <summary data-astro-cid-tldeq5d5>この記事の内容</summary> <nav aria-label="この記事の内容" data-astro-cid-tldeq5d5> <ol data-astro-cid-tldeq5d5> <li data-astro-cid-tldeq5d5><a href="#先に結論便利さは指紋認証パッドと予備の鍵で完成する" data-astro-cid-tldeq5d5>先に結論。便利さは、指紋認証パッドと予備の鍵で完成する</a></li><li data-astro-cid-tldeq5d5><a href="#ロックproで変わるのは鍵より玄関での動き" data-astro-cid-tldeq5d5>ロックProで変わるのは「鍵」より「玄関での動き」</a></li><li data-astro-cid-tldeq5d5><a href="#子育て家庭では家族全員が開けられることが大切" data-astro-cid-tldeq5d5>子育て家庭では、家族全員が開けられることが大切</a></li><li data-astro-cid-tldeq5d5><a href="#小さな会社では合鍵を増やす前にルールを作る" data-astro-cid-tldeq5d5>小さな会社では、合鍵を増やす前にルールを作る</a></li><li data-astro-cid-tldeq5d5><a href="#購入前はドア人もしもの3つを確認する" data-astro-cid-tldeq5d5>購入前は、ドア・人・もしもの3つを確認する</a></li><li data-astro-cid-tldeq5d5><a href="#設置初日にこの順番で試す" data-astro-cid-tldeq5d5>設置初日に、この順番で試す</a></li><li data-astro-cid-tldeq5d5><a href="#ハブが必要なのは外から見たい操作したいとき" data-astro-cid-tldeq5d5>ハブが必要なのは、外から見たい・操作したいとき</a></li><li data-astro-cid-tldeq5d5><a href="#こんな人には合わないかもしれません" data-astro-cid-tldeq5d5>こんな人には合わないかもしれません</a></li><li data-astro-cid-tldeq5d5><a href="#よくある疑問" data-astro-cid-tldeq5d5>よくある疑問</a></li><li data-astro-cid-tldeq5d5><a href="#商品と公式情報を確認する" data-astro-cid-tldeq5d5>商品と公式情報を確認する</a></li> </ol> </nav> <div class="article-caution" data-astro-cid-tldeq5d5> <p data-astro-cid-tldeq5d5>情報の確認</p> <span data-astro-cid-tldeq5d5>掲載時点の情報です。料金、制度、サービス仕様は、必ず公式情報も確認してください。</span> </div> </details> <div class="article-aside-desktop" data-astro-cid-tldeq5d5> <section class="aside-section" aria-labelledby="aside-genres-heading" data-astro-cid-tldeq5d5> <h2 id="aside-genres-heading" data-astro-cid-tldeq5d5>ジャンルから探す</h2> <nav class="blog-genre-nav compact" aria-label="記事のジャンル" data-astro-cid-3vbq5m5q> <a href="/blog/#genre-ai" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>AIの使い方</strong>  </span> <span class="genre-count" data-astro-cid-3vbq5m5q> → </span> </a><a href="/blog/#genre-tools" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>仕事と暮らしの道具</strong>  </span> <span class="genre-count" data-astro-cid-3vbq5m5q> → </span> </a><a href="/blog/#genre-management" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>経営と仕事の仕組み</strong>  </span> <span class="genre-count" data-astro-cid-3vbq5m5q> → </span> </a> </nav> </section> <section class="aside-section" aria-labelledby="aside-next-heading" data-astro-cid-tldeq5d5> <h2 id="aside-next-heading" data-astro-cid-tldeq5d5>次に読む</h2> <div class="aside-articles" data-astro-cid-tldeq5d5> <a href="/blog/upsider-staff-card/" data-astro-cid-tldeq5d5>  <img src="/_astro/hero-tamashiro-yusuke.DZnAc5iT_uDtEV.webp" alt loading="lazy" data-astro-cid-tldeq5d5="true" decoding="async" width="160" height="106"> <span data-astro-cid-tldeq5d5>立替払いを減らす。UPSIDER</span> </a><a href="/blog/wws-workwear-suit-ankle-pants/" data-astro-cid-tldeq5d5>  <img src="/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1CktzR.webp" alt loading="lazy" data-astro-cid-tldeq5d5="true" decoding="async" width="160" height="106"> <span data-astro-cid-tldeq5d5>毎日履いて、ほつれない。WWSのアンクルパンツ</span> </a> </div> </section> <section class="aside-section" aria-labelledby="aside-apps-heading" data-astro-cid-tldeq5d5> <h2 id="aside-apps-heading" data-astro-cid-tldeq5d5>作ったWebアプリ</h2> <div class="web-apps compact" data-astro-cid-p2qrvzwu> <a class="web-app primary" href="https://jizoka.app/" target="_blank" rel="noopener noreferrer" data-astro-cid-p2qrvzwu> <img src="/images/apps/jizoka-ogp.png" alt="JIZOKA 持続化補助金 計画書づくりサポート" width="1200" height="630" loading="lazy" decoding="async" data-astro-cid-p2qrvzwu> <div class="web-app-copy" data-astro-cid-p2qrvzwu> <strong data-astro-cid-p2qrvzwu>JIZOKA</strong>   </div> </a><a class="web-app" href="https://seminar-flow.com/" target="_blank" rel="noopener noreferrer" data-astro-cid-p2qrvzwu> <img src="/images/apps/seminarflow-ogp.png" alt="SeminarFlow セミナー運営を一か所にまとめる" width="1200" height="630" loading="lazy" decoding="async" data-astro-cid-p2qrvzwu> <div class="web-app-copy" data-astro-cid-p2qrvzwu> <strong data-astro-cid-p2qrvzwu>SeminarFlow</strong>   </div> </a><a class="web-app" href="https://kisoku-zaishin.com/" target="_blank" rel="noopener noreferrer" data-astro-cid-p2qrvzwu> <img src="/images/apps/kisoku-zaishin-ogp.png" alt="JCI規則財審アシスタント リンクを確かめて議案番号を組み立てる" width="1200" height="630" loading="lazy" decoding="async" data-astro-cid-p2qrvzwu> <div class="web-app-copy" data-astro-cid-p2qrvzwu> <strong data-astro-cid-p2qrvzwu>JCI規則財審アシスタント</strong>   </div> </a><a class="web-app" href="https://poireshi.com/" target="_blank" rel="noopener noreferrer" data-astro-cid-p2qrvzwu> <img src="/images/apps/poireshi-ogp.png" alt="ポイレシ 領収書はLINEにポイッ" width="1200" height="630" loading="lazy" decoding="async" data-astro-cid-p2qrvzwu> <div class="web-app-copy" data-astro-cid-p2qrvzwu> <strong data-astro-cid-p2qrvzwu>ポイレシ</strong>   </div> </a> </div> </section> </div> </aside> <div class="prose" data-astro-cid-tldeq5d5>  <p>子どもの荷物と買い物袋で、両手がふさがっている。</p>
+<p>玄関まで帰ってきてから、鞄の底にある鍵を探す。会社では、最初に来る人と最後に帰る人のために、合鍵を増やしていく。</p>
+<p>ひとつひとつは小さな手間です。でも、毎日くり返すと、ちゃんと面倒です。</p>
+<p>SwitchBot ロックProは、その手間を減らす後付け型のスマートロックです。派手なスマートホームを作るためというより、<strong>玄関で鍵を出す回数を減らすための道具</strong>として紹介します。</p>
+<p>この記事では公式仕様を確認したうえで、子育て家庭と小さな会社で使うなら何を決めておきたいか、私なりの運用目線でまとめました。</p>
+<div class="affiliate-product-card">
+  <a class="affiliate-product-image" href="https://amzn.to/4hszTQF" target="_blank" rel="sponsored noopener noreferrer" aria-label="Amazon.co.jpでSwitchBot ロックProと指紋認証パッドのセットを見る">
+    <img src="https://m.media-amazon.com/images/I/61lQHV7vkFL._AC_SL1500_.jpg" width="1420" height="1421" loading="lazy" alt="SwitchBot ロックProと指紋認証パッドのセット" />
+  </a>
+  <div class="affiliate-product-body">
+    <p class="affiliate-product-store">Amazon.co.jp</p>
+    <h3>SwitchBot ロックPro＋指紋認証パッド</h3>
+    <p>ロックPro本体と、指紋・暗証番号などで解錠できるパッドのセットです。</p>
+    <a class="affiliate-product-button" href="https://amzn.to/4hszTQF" target="_blank" rel="sponsored noopener noreferrer">Amazon.co.jpで商品を見る</a>
+    <p class="affiliate-product-disclosure">広告・アフィリエイトリンクです。価格、在庫、カラー、付属品はAmazonの商品ページでご確認ください。</p>
+  </div>
+</div>
+<h2 id="先に結論便利さは指紋認証パッドと予備の鍵で完成する">先に結論。便利さは、指紋認証パッドと予備の鍵で完成する</h2>
+<p>SwitchBot ロックProは、室内側のサムターンに取り付けて、鍵の開け閉めを自動化する製品です。大がかりな工事をせずに設置でき、取り付け後も今までの物理鍵を使えます。</p>
+<p>私は、次のような人に合う道具だと思います。</p>
+<ul>
+<li>荷物や抱っこで、玄関前では片手しか使えない</li>
+<li>子どもへ物理鍵を持たせることに不安がある</li>
+<li>会社の合鍵を増やさず、利用者ごとに権限を管理したい</li>
+<li>鍵の閉め忘れを減らしたい</li>
+</ul>
+<p>一方で、ロックPro本体だけでは、玄関の外から指紋や暗証番号で開けられません。鍵を出さない運用を目指すなら、指紋認証パッドとのセットが分かりやすい選択です。</p>
+<p>もうひとつ大事なのが、物理鍵を手放さないことです。</p>
+<p><strong>普段は指紋などで入り、機器や電池に問題があれば物理鍵へ戻る。</strong> この二段構えなら、便利さだけに寄りかからずに使えます。メーカーも、電池切れによる締め出しを防ぐため、従来の鍵を持ち歩くよう案内しています。</p>
+<h2 id="ロックproで変わるのは鍵より玄関での動き">ロックProで変わるのは「鍵」より「玄関での動き」</h2>
+<p>公式ページでは、ロックProは幅広いサムターンへ対応する無段階可変構造、単3電池4本、室内側から押して操作できるクイックキーなどが特徴として案内されています。</p>
+<p>ただ、暮らしの中で分かりやすい変化は、細かな仕様よりも玄関での動きです。</p>
+<p>帰宅したら、鍵を探さず指を置く。外出するときは、閉め忘れをオートロックで補う。会社なら、スタッフごとに解錠方法を登録し、退職時に削除する。</p>
+<p>スマートロックを選ぶときは、機能の数よりも、<strong>家族や社員が毎日どの方法で開けるか</strong>を先に決めると迷いにくくなります。</p>
+<table>
+<thead>
+<tr>
+<th>開け方</th>
+<th>向いている人・場面</th>
+<th>先に決めたいこと</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>指紋</td>
+<td>荷物が多い家族、日常的に出入りする社員</td>
+<td>一人ずつ登録し、実際の指で何度か試す</td>
+</tr>
+<tr>
+<td>暗証番号</td>
+<td>指紋が使いにくい人、一時的な利用者</td>
+<td>共通番号を使い回さず、不要になったら削除する</td>
+</tr>
+<tr>
+<td>対応カード</td>
+<td>スマホを持たない家族</td>
+<td>紛失時に誰が停止するか決める</td>
+</tr>
+<tr>
+<td>スマホ・Apple Watch</td>
+<td>自分の端末を管理できる大人</td>
+<td>充電切れに備えて別の開け方も用意する</td>
+</tr>
+<tr>
+<td>物理鍵</td>
+<td>電池切れや機器不調などの非常時</td>
+<td>家へ入れない場所に置かない</td>
+</tr>
+</tbody>
+</table>
+<h2 id="子育て家庭では家族全員が開けられることが大切">子育て家庭では、家族全員が開けられることが大切</h2>
+<p>子育て中の玄関は、思っている以上に忙しい場所です。</p>
+<ul>
+<li>抱っこや荷物で両手がふさがる</li>
+<li>雨の日に、外で鍵を探したくない</li>
+<li>子どもが先に帰る日に、鍵を持たせるのが心配</li>
+<li>外出後に「ちゃんと閉めたかな」と気になる</li>
+</ul>
+<p>指紋で開けられれば、鍵やスマホを取り出す動作をひとつ減らせます。スマホを持たせていない子どもにも使いやすい方法です。</p>
+<p>ただし、家族全員が同じ方法でうまく開けられるとは限りません。指紋が安定しないときのために、暗証番号や対応カードなど、本人が使える第二の方法も用意しておきます。</p>
+<p>私なら、オートロックは最後に設定します。</p>
+<p>まず物理鍵を持ったまま外へ出て、家族全員の指紋や暗証番号で開けられるか試す。その確認が終わってから、自動施錠を有効にします。便利な機能ほど、戻れる状態を作ってから使う方が安心です。</p>
+<p>公式サポートによると、ロックProは電池残量が20％以下になると自動施錠を行いません。設定したから終わりではなく、電池残量を見る人も決めておきます。</p>
+<h2 id="小さな会社では合鍵を増やす前にルールを作る">小さな会社では、合鍵を増やす前にルールを作る</h2>
+<p><img alt="小さな会社の入口で総務担当者が指紋認証パッドを使い、社長が安心して見守っているイメージイラスト" loading="lazy" decoding="async" width="1672" height="941" src="/_astro/office-entry.CFxzF8RI_ZTGeSp.webp" srcset=""></p>
+<p>社員数が少ない会社では、鍵の管理が総務担当者ひとりに集まりがちです。</p>
+<p>「今日は誰が最後に帰るのか」</p>
+<p>「新人へ合鍵を渡してよいか」</p>
+<p>「退職した人から、鍵を返してもらったか」</p>
+<p>ロックProと指紋認証パッドを使えば、物理的な合鍵を増やさず、利用者ごとに指紋や暗証番号を登録できます。来客や短期利用には、期間限定パスワードやワンタイムパスワードも選べます。</p>
+<p>ただし、製品を付けただけでは鍵の管理は完成しません。私なら、導入前に次の5点を一枚の台帳へまとめます。</p>
+<ol>
+<li>会社用のSwitchBotアカウントを誰が管理するか</li>
+<li>誰に、どの解錠方法を、いつ登録したか</li>
+<li>入社、異動、退職時に誰が登録と削除をするか</li>
+<li>電池交換と月ごとの動作確認を誰が担当するか</li>
+<li>不具合時の物理鍵を、どこで誰が管理するか</li>
+</ol>
+<p>個人のメールアドレスだけに管理を寄せると、担当者が休んだ日や退職時に困ります。会社として引き継げる管理方法にしておくことが大切です。</p>
+<p>遠隔での権限管理には、解錠方法ごとに違いがあります。公式サポートでは、ハブ製品へ接続するとパスコードを遠隔で追加・削除できます。一方、指紋とNFCカードは遠隔追加に対応しておらず、ハブ接続時の遠隔削除に対応しています。会社で使うなら、入社時は現地登録、退職時はその日のうちに削除する流れまで確認しておきます。</p>
+<p>なお、ロックProは一般的な入退室管理システムそのものではありません。厳格な監査記録、複雑な権限設定、警備会社との連携が必要な事業所では、専用システムを含めて検討した方がよい場合があります。</p>
+<h2 id="購入前はドア人もしもの3つを確認する">購入前は、ドア・人・もしもの3つを確認する</h2>
+<p><img alt="玉城祐輔がドアのサムターン周辺を採寸し、予備電池と物理鍵を準備しているイメージイラスト" loading="lazy" decoding="async" width="1672" height="941" src="/_astro/before-install.EX2aHwEN_Z1TFSqR.webp" srcset=""></p>
+<h3 id="ドアを確認する">ドアを確認する</h3>
+<p>公式ページには、サムターンの形や大きさ、つまみの中心からドア枠までの距離など、購入前の確認項目があります。</p>
+<p>「約99％のドアロックに対応」という案内があっても、自宅や会社のドアに付くかは別の話です。先に玄関錠の写真を撮り、必要な寸法を測ります。サムターン周辺に段差がある場合や、ドア枠との距離が近い場合は、貼り付ける場所まで確認します。</p>
+<p>賃貸住宅なら管理会社、会社なら建物管理者への確認も忘れないようにします。後付け型ですが、粘着テープや固定部品を使います。</p>
+<h3 id="使う人を確認する">使う人を確認する</h3>
+<p>家族や社員ごとに、普段の解錠方法と予備の方法を決めます。指紋だけ、スマホだけと、ひとつに絞りすぎないことがポイントです。</p>
+<p>また、商品名が似ていても、セットに含まれるパッドや対応カードは同じとは限りません。購入画面で本体、指紋認証パッド、付属品の組み合わせを確認します。</p>
+<h3 id="もしものときを確認する">もしものときを確認する</h3>
+<p>ロックPro本体は電池で動きます。家庭なら大人、会社なら総務担当者など、残量確認と交換をする人を決めます。</p>
+<p>物理鍵も使える状態で残します。電池切れ、機器の不調、スマホの故障が同時に起きても家へ入れるか。そこまで想像しておくと、導入後の不安が減ります。</p>
+<h2 id="設置初日にこの順番で試す">設置初日に、この順番で試す</h2>
+<p>取り付け記事では、貼り付け作業に目が向きがちです。けれども、私が大事だと思うのは貼ったあとの確認です。</p>
+<ol>
+<li>テープを剥がす前に、サムターンと本体の位置を仮合わせする</li>
+<li>取扱説明書どおりに固定し、アプリで施錠・解錠位置を校正する</li>
+<li>物理鍵を持って外へ出て、指紋、暗証番号などを一人ずつ試す</li>
+<li>家族や社員が困ったときの連絡先を決める</li>
+<li>最後にオートロックや通知を設定する</li>
+</ol>
+<p>最初から完全なキーレスを目指さなくて大丈夫です。数日は物理鍵も持ち歩き、解錠方法と電池表示に問題がないことを確認してから、日常の運用へ移します。</p>
+<h2 id="ハブが必要なのは外から見たい操作したいとき">ハブが必要なのは、外から見たい・操作したいとき</h2>
+<p>玄関の前で指紋や暗証番号を使って開けることと、外出先から状態を確認したり操作したりすることは別です。</p>
+<p>公式サポートでは、ロックProを外出先から遠隔で施錠・解錠するには、SwitchBotハブ製品が必要と案内されています。会社でパスコードを遠隔管理したい場合にもハブが必要です。</p>
+<p>まずは目的を二つに分けます。</p>
+<ul>
+<li>玄関で鍵を出す回数を減らしたい</li>
+<li>外出先から確認、通知、操作、権限管理までしたい</li>
+</ul>
+<p>前者が目的なら、ロックProと指紋認証パッドから始める。後者まで必要なら、対応するハブを加える。この順番なら、必要のない機器まで一度に買うことを防げます。</p>
+<h2 id="こんな人には合わないかもしれません">こんな人には合わないかもしれません</h2>
+<ul>
+<li>ドアやサムターンが適合しない</li>
+<li>電池交換やアプリ設定を管理する人が決まらない</li>
+<li>物理鍵を持つこと自体を完全になくしたい</li>
+<li>会社で専用の入退室管理や警備連携が必要</li>
+<li>粘着テープを含め、ドアへ何も取り付けられない</li>
+</ul>
+<p>便利な道具は、買えば自動的に暮らしを整えてくれるものではありません。</p>
+<p><strong>誰が使い、困ったときにどう戻すか。</strong> そこまで決めて初めて、毎日の手間を減らしてくれます。</p>
+<h2 id="よくある疑問">よくある疑問</h2>
+<h3 id="ロックproを付けたあとも今の鍵は使える">ロックProを付けたあとも、今の鍵は使える？</h3>
+<p>使えます。ロックProは室内側へ後付けする製品なので、従来の物理鍵は非常時の手段として残せます。</p>
+<h3 id="指紋認証パッドは必須">指紋認証パッドは必須？</h3>
+<p>ロックPro本体をアプリなどで操作するだけなら必須ではありません。ただ、子どもや社員が玄関の外からスマホを出さずに開ける運用なら、指紋認証パッドとのセットが分かりやすいです。</p>
+<h3 id="オートロックを最初から使ってもよい">オートロックを最初から使ってもよい？</h3>
+<p>機能としては設定できます。ただし、物理鍵を持ち、家族や社員の解錠方法をすべて試したあとに有効にする方が安心です。電池残量が20％以下では自動施錠されない点にも注意します。</p>
+<h3 id="会社ならハブも一緒に買うべき">会社なら、ハブも一緒に買うべき？</h3>
+<p>外出先からの施錠・解錠や、パスコードの遠隔追加・削除まで行うなら必要です。現地での解錠だけが目的なら、まずロックProと指紋認証パッドで運用を試す考え方もあります。</p>
+<h2 id="商品と公式情報を確認する">商品と公式情報を確認する</h2>
+<div class="affiliate-product-card">
+  <a class="affiliate-product-image" href="https://amzn.to/4hszTQF" target="_blank" rel="sponsored noopener noreferrer" aria-label="Amazon.co.jpでSwitchBot ロックProと指紋認証パッドのセットを見る">
+    <img src="https://m.media-amazon.com/images/I/61lQHV7vkFL._AC_SL1500_.jpg" width="1420" height="1421" loading="lazy" alt="SwitchBot ロックProと指紋認証パッドのセット" />
+  </a>
+  <div class="affiliate-product-body">
+    <p class="affiliate-product-store">Amazon.co.jp</p>
+    <h3>SwitchBot ロックPro＋指紋認証パッド</h3>
+    <p>ロックPro本体と、指紋・暗証番号などで解錠できるパッドのセットです。</p>
+    <a class="affiliate-product-button" href="https://amzn.to/4hszTQF" target="_blank" rel="sponsored noopener noreferrer">Amazon.co.jpで商品を見る</a>
+    <p class="affiliate-product-disclosure">広告・アフィリエイトリンクです。価格、在庫、カラー、付属品はAmazonの商品ページでご確認ください。</p>
+  </div>
+</div>
+<ul>
+<li><a href="https://www.switchbot.jp/products/switchbot-lock-pro">SwitchBot ロックProの公式製品情報</a></li>
+<li><a href="https://support.switch-bot.com/hc/ja/articles/19927262382999-%E3%83%AD%E3%83%83%E3%82%AFPro%E3%82%92%E3%81%94%E8%B3%BC%E5%85%A5%E5%89%8D%E3%81%AE%E7%A2%BA%E8%AA%8D%E4%BA%8B%E9%A0%85">ロックProの購入前確認事項</a></li>
+<li><a href="https://support.switch-bot.com/hc/ja/articles/20339592012055-%E3%83%AD%E3%83%83%E3%82%AFPro-%E8%87%AA%E5%8B%95%E6%96%BD%E9%8C%A0-%E3%82%AA%E3%83%BC%E3%83%88%E3%83%AD%E3%83%83%E3%82%AF">ロックProのオートロック設定と注意点</a></li>
+<li><a href="https://support.switch-bot.com/hc/ja/articles/20695154903575-%E3%83%AD%E3%83%83%E3%82%AFPro%E3%81%AE%E9%81%A0%E9%9A%94%E6%96%BD%E9%8C%A0-%E8%A7%A3%E9%8C%A0-%E3%83%8F%E3%83%96%E3%81%AB%E6%8E%A5%E7%B6%9A%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">遠隔施錠・解錠とハブ接続の案内</a></li>
+<li><a href="https://support.switch-bot.com/hc/ja/articles/18489033073431-%E6%8C%87%E7%B4%8B-NFC%E3%82%AB%E3%83%BC%E3%83%89%E3%81%AE%E9%81%A0%E9%9A%94%E8%BF%BD%E5%8A%A0-%E5%89%8A%E9%99%A4%E3%81%8C%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B">指紋・NFCカードの遠隔追加と削除</a></li>
+<li><a href="https://support.switch-bot.com/hc/ja/articles/13280021958423-%E3%83%91%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E9%81%A0%E9%9A%94%E8%BF%BD%E5%8A%A0-%E5%89%8A%E9%99%A4%E3%81%8C%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%81%8B">パスコードの遠隔追加と削除</a></li>
+<li><a href="https://support.switch-bot.com/hc/ja/articles/7615796100247-SwitchBot%E3%83%AD%E3%83%83%E3%82%AF%E8%A3%BD%E5%93%81%E3%81%AE%E5%AE%89%E5%85%A8%E4%B8%8A%E3%81%A8%E4%BD%BF%E7%94%A8%E4%B8%8A%E3%81%AE%E3%81%94%E6%B3%A8%E6%84%8F">スマートロック製品の安全上・使用上の注意</a></li>
+</ul>
+<p>この記事の製品仕様は、2026年8月15日に公式情報を確認しました。</p>
+  </div> </div> <div class="article-share article-share-bottom" data-astro-cid-tldeq5d5> <div class="share-panel" role="group" aria-label="この記事を共有" data-share-root data-share-url="https://ysk.life/blog/switchbot-lock-pro/" data-share-title="鍵なしで玄関へ。SwitchBot Lock Pro" data-astro-cid-eqjx2q6l> <div class="share-actions" data-astro-cid-eqjx2q6l> <a class="share-button line" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fysk.life%2Fblog%2Fswitchbot-lock-pro%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="LINEで送る" data-tooltip="LINEで送る" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:line-fill">   <use href="#ai:ri:line-fill"></use>  </svg> </a> <a class="share-button facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fysk.life%2Fblog%2Fswitchbot-lock-pro%2F" target="_blank" rel="noopener noreferrer nofollow" aria-label="Facebookで共有" data-tooltip="Facebookで共有" data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:facebook-fill">   <use href="#ai:ri:facebook-fill"></use>  </svg> </a> <button class="share-button instagram" type="button" aria-label="Instagramで共有" data-tooltip="Instagramで共有" data-share-instagram data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:instagram-line">   <use href="#ai:ri:instagram-line"></use>  </svg> </button> <button class="share-button copy" type="button" aria-label="記事のリンクをコピー" data-tooltip="リンクをコピー" data-share-copy data-astro-cid-eqjx2q6l> <svg width="1em" height="1em" viewBox="0 0 24 24" class="share-icon" aria-hidden="true" data-astro-cid-eqjx2q6l="true" data-icon="ri:file-copy-line">   <use href="#ai:ri:file-copy-line"></use>  </svg> </button> </div> <p class="share-status" aria-live="polite" data-share-status data-astro-cid-eqjx2q6l></p> </div> <script>
+	(() => {
+		if (window.__yskShareButtonsInitialized) return;
+		window.__yskShareButtonsInitialized = true;
+
+		const copyText = async (text) => {
+			if (navigator.clipboard && window.isSecureContext) {
+				await navigator.clipboard.writeText(text);
+				return;
+			}
+
+			const input = document.createElement('textarea');
+			input.value = text;
+			input.setAttribute('readonly', '');
+			input.style.position = 'fixed';
+			input.style.opacity = '0';
+			document.body.appendChild(input);
+			input.select();
+			const copied = document.execCommand('copy');
+			input.remove();
+			if (!copied) throw new Error('Copy failed');
+		};
+
+		document.addEventListener('click', async (event) => {
+			const button = event.target.closest('[data-share-copy], [data-share-instagram]');
+			if (!button) return;
+
+			const root = button.closest('[data-share-root]');
+			if (!root) return;
+
+			const url = root.dataset.shareUrl;
+			const title = root.dataset.shareTitle;
+			const status = root.querySelector('[data-share-status]');
+			if (!url || !title || !status) return;
+
+			status.textContent = '';
+
+			try {
+				if (button.matches('[data-share-instagram]') && navigator.share) {
+					await navigator.share({ title, url });
+					return;
+				}
+
+				await copyText(url);
+				status.textContent = button.matches('[data-share-instagram]')
+					? 'リンクをコピーしました。InstagramのDMなどに貼り付けてください。'
+					: 'リンクをコピーしました。';
+			} catch (error) {
+				if (error && error.name === 'AbortError') return;
+				status.textContent = 'コピーできませんでした。ブラウザのアドレス欄からURLをコピーしてください。';
+			}
+		});
+	})();
+</script> </div> <section class="article-related shell" aria-labelledby="related-heading" data-astro-cid-tldeq5d5> <div class="related-heading" data-astro-cid-tldeq5d5> <h2 id="related-heading" data-astro-cid-tldeq5d5>おすすめの記事</h2> <p data-astro-cid-tldeq5d5>同じジャンルの記事を優先して、次に読みやすい記事を選びました。</p> </div> <div class="related-stage" data-astro-cid-tldeq5d5> <article class="article-card featured stacked" data-astro-cid-7ahxywo7> <a href="/blog/upsider-staff-card/" aria-label="立替払いを減らす。UPSIDERを読む" data-astro-cid-7ahxywo7> <div class="card-visual" data-astro-cid-7ahxywo7>  <img src="/_astro/hero-tamashiro-yusuke.DZnAc5iT_2khzUM.webp" alt loading="lazy" data-astro-cid-7ahxywo7="true" decoding="async" width="720" height="480"> </div> <div class="card-body" data-astro-cid-7ahxywo7> <div class="card-meta" data-astro-cid-7ahxywo7> <span data-astro-cid-7ahxywo7>仕事の道具</span> <span data-astro-cid-7ahxywo7><time datetime="2026-09-18T00:00:00.000Z"> 2026年9月18日 </time> 約7分</span> </div> <h3 data-astro-cid-7ahxywo7>立替払いを減らす。UPSIDER</h3> <p data-astro-cid-7ahxywo7>地方の小さな会社で、代表やスタッフの立替精算を減らすために。年会費無料のUPSIDERを法人で契約した理由と、スタッフ用カードの上限・利用先設定、レシート撮影、明細共有の使い方を紹介します。</p> <span class="read-more" data-astro-cid-7ahxywo7>この記事を読む <span aria-hidden="true" data-astro-cid-7ahxywo7>→</span></span> </div> </a> </article> <div class="related-side" data-astro-cid-tldeq5d5> <article class="article-card compact" data-astro-cid-7ahxywo7> <a href="/blog/wws-workwear-suit-ankle-pants/" aria-label="毎日履いて、ほつれない。WWSのアンクルパンツを読む" data-astro-cid-7ahxywo7> <div class="card-visual" data-astro-cid-7ahxywo7>  <img src="/_astro/hero-tamashiro-yusuke-workday-start.D518SXex_Z1sRhMU.webp" alt loading="lazy" data-astro-cid-7ahxywo7="true" decoding="async" width="720" height="480"> </div> <div class="card-body" data-astro-cid-7ahxywo7> <div class="card-meta" data-astro-cid-7ahxywo7> <span data-astro-cid-7ahxywo7>仕事の道具</span> <span data-astro-cid-7ahxywo7><time datetime="2026-08-29T00:00:00.000Z"> 2026年8月29日 </time> 約11分</span> </div> <h3 data-astro-cid-7ahxywo7>毎日履いて、ほつれない。WWSのアンクルパンツ</h3> <p data-astro-cid-7ahxywo7>仕事の日は毎日WWS（ワークウェアスーツ）のアンクルパンツ。動き回っても傷まない持ちの良さと、素材ultimexの機能、洗濯で気をつけること、初回3,000円割引になる紹介コードまでまとめます。</p> <span class="read-more" data-astro-cid-7ahxywo7>この記事を読む <span aria-hidden="true" data-astro-cid-7ahxywo7>→</span></span> </div> </a> </article><article class="article-card compact" data-astro-cid-7ahxywo7> <a href="/blog/hidock-p1-ai-recorder/" aria-label="録音時間を気にしない。HiDock P1を読む" data-astro-cid-7ahxywo7> <div class="card-visual" data-astro-cid-7ahxywo7>  <img src="/_astro/hero-tamashiro-yusuke-consultation.Dd2yWVQV_ZGgoR4.webp" alt loading="lazy" data-astro-cid-7ahxywo7="true" decoding="async" width="720" height="480"> </div> <div class="card-body" data-astro-cid-7ahxywo7> <div class="card-meta" data-astro-cid-7ahxywo7> <span data-astro-cid-7ahxywo7>家と仕事の道具</span> <span data-astro-cid-7ahxywo7><time datetime="2026-08-21T00:00:00.000Z"> 2026年8月21日 </time> 約13分</span> </div> <h3 data-astro-cid-7ahxywo7>録音時間を気にしない。HiDock P1</h3> <p data-astro-cid-7ahxywo7>相談や会議を録音し、HiNotesで文字起こし・要約まで進めるAIレコーダーHiDock P1。買い切りで使える標準範囲、実際の取り込み画面、仕事での使い方、注意点を紹介します。</p> <span class="read-more" data-astro-cid-7ahxywo7>この記事を読む <span aria-hidden="true" data-astro-cid-7ahxywo7>→</span></span> </div> </a> </article> </div> </div> </section> <section class="article-genres shell" aria-labelledby="article-genres-heading" data-astro-cid-tldeq5d5> <div class="related-heading" data-astro-cid-tldeq5d5> <h2 id="article-genres-heading" data-astro-cid-tldeq5d5>ジャンルから記事を探す</h2> <p data-astro-cid-tldeq5d5>全12本の記事を、3つのジャンルから選べます。</p> </div> <nav class="blog-genre-nav" aria-label="記事のジャンル" data-astro-cid-3vbq5m5q> <a href="/blog/#genre-ai" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>AIの使い方</strong> <small data-astro-cid-3vbq5m5q>AIを仕事に取り入れる方法</small> </span> <span class="genre-count" aria-label="2本" data-astro-cid-3vbq5m5q> 2本 </span> </a><a href="/blog/#genre-tools" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>仕事と暮らしの道具</strong> <small data-astro-cid-3vbq5m5q>実際に使った道具と選び方</small> </span> <span class="genre-count" aria-label="8本" data-astro-cid-3vbq5m5q> 8本 </span> </a><a href="/blog/#genre-management" data-astro-cid-3vbq5m5q> <span class="genre-copy" data-astro-cid-3vbq5m5q> <strong data-astro-cid-3vbq5m5q>経営と仕事の仕組み</strong> <small data-astro-cid-3vbq5m5q>経営支援と仕組みづくりの実践</small> </span> <span class="genre-count" aria-label="2本" data-astro-cid-3vbq5m5q> 2本 </span> </a> </nav> </section> <section class="after-note narrow" data-astro-cid-tldeq5d5> <h2 data-astro-cid-tldeq5d5>次に見るものを選ぶ</h2> <p data-astro-cid-tldeq5d5>玉城個人が使っている道具は「道具箱」へ。会社の仕事として相談したい場合は、T&Lサポートへお進みください。</p> <div class="button-row" data-astro-cid-tldeq5d5> <a class="button" href="/toolbox/" data-astro-cid-tldeq5d5>道具箱を見る</a> <a class="button primary" href="https://taxlegal.jp/" target="_blank" rel="noopener noreferrer" data-astro-cid-tldeq5d5>相談内容を確認する</a> </div> </section> </article> </main> <footer data-astro-cid-jo6i4kqk> <div class="shell footer-grid" data-astro-cid-jo6i4kqk> <div class="footer-statement" data-astro-cid-jo6i4kqk> <p data-astro-cid-jo6i4kqk>沖縄の現場で、実際に試したことを残します。</p> </div> <div class="footer-links" data-astro-cid-jo6i4kqk> <div data-astro-cid-jo6i4kqk> <strong data-astro-cid-jo6i4kqk>このサイト</strong> <a href="/blog" data-astro-cid-jo6i4kqk>記事を読む</a> <a href="/about" data-astro-cid-jo6i4kqk>玉城について</a> <a href="/privacy" data-astro-cid-jo6i4kqk>プライバシー</a> <a href="/affiliate-disclosure" data-astro-cid-jo6i4kqk>広告・紹介について</a> </div> <div data-astro-cid-jo6i4kqk> <strong data-astro-cid-jo6i4kqk>外部リンク</strong> <a href="/toolbox/" data-astro-cid-jo6i4kqk>玉城祐輔の道具箱 →</a> <a href="https://taxlegal.jp/" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>T&Lサポート株式会社 ↗</a> <a href="https://www.facebook.com/yusuke.tamashiro" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>Facebook ↗</a> <a href="https://www.instagram.com/tamashiro_yusuke_tl/" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>Instagram ↗</a> </div> </div> </div> <div class="shell footer-bottom" data-astro-cid-jo6i4kqk> <span data-astro-cid-jo6i4kqk>&copy; 2026 Yusuke Tamashiro</span> <span data-astro-cid-jo6i4kqk>AIとデジタルを、現場で使える形に。</span> </div> </footer> </body> </html>
