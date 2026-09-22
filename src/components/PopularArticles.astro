@@ -1,12 +1,33 @@
 ---
+import { getImage } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
+import { BLOG_GENRES, getBlogGenre } from '../lib/blogNavigation';
 
 interface Props {
 	posts: CollectionEntry<'blog'>[];
 }
 
 const { posts } = Astro.props;
-const articleMetadata = Object.fromEntries(posts.map((post) => [post.id, { title: post.data.title, href: `/blog/${post.id}/` }]));
+
+// ランキングはブラウザ側で組み立てるため、サムネイルもビルド時に用意して渡す。
+// heroImage を持たない記事があるので、画像は任意として扱う。
+const articleEntries = await Promise.all(
+	posts.map(async (post) => {
+		const thumbnail = post.data.heroImage
+			? await getImage({ src: post.data.heroImage, width: 320, height: 213, format: 'webp' })
+			: null;
+		return [
+			post.id,
+			{
+				title: post.data.title,
+				href: `/blog/${post.id}/`,
+				category: BLOG_GENRES.find((genre) => genre.id === getBlogGenre(post.data.category))?.label ?? '',
+				image: thumbnail ? { src: thumbnail.src, width: 320, height: 213 } : null,
+			},
+		] as const;
+	}),
+);
+const articleMetadata = Object.fromEntries(articleEntries);
 ---
 
 <section class="popular-articles journal-section shell" data-popular-articles data-articles={JSON.stringify(articleMetadata)} hidden aria-labelledby="popular-heading">
@@ -29,7 +50,8 @@ const articleMetadata = Object.fromEntries(posts.map((post) => [post.id, { title
 	const popularSection = document.querySelector('[data-popular-articles]');
 
 	if (popularSection instanceof HTMLElement) {
-		const knownArticles:Record<string,{title:string;href:string}> = JSON.parse(popularSection.dataset.articles || '{}');
+		type ArticleMeta = {title:string;href:string;category:string;image:{src:string;width:number;height:number}|null};
+		const knownArticles:Record<string,ArticleMeta> = JSON.parse(popularSection.dataset.articles || '{}');
 		const viewsList = popularSection.querySelector('[data-popular-list="views"]');
 		const helpfulList = popularSection.querySelector('[data-popular-list="helpful"]');
 		const makeItems = (entries: {article:string}[] | undefined, list: Element | null) => {
@@ -42,7 +64,36 @@ const articleMetadata = Object.fromEntries(posts.map((post) => [post.id, { title
 				const item = document.createElement('li');
 				const link = document.createElement('a');
 				link.href = article.href;
-				link.textContent = article.title;
+
+				if (article.image) {
+					const image = document.createElement('img');
+					image.src = article.image.src;
+					image.width = article.image.width;
+					image.height = article.image.height;
+					image.alt = '';
+					image.loading = 'lazy';
+					image.decoding = 'async';
+					link.append(image);
+				} else {
+					const placeholder = document.createElement('span');
+					placeholder.className = 'popular-thumb-placeholder';
+					link.append(placeholder);
+				}
+
+				const body = document.createElement('span');
+				body.className = 'popular-body';
+				if (article.category) {
+					const category = document.createElement('span');
+					category.className = 'popular-category';
+					category.textContent = article.category;
+					body.append(category);
+				}
+				const heading = document.createElement('span');
+				heading.className = 'popular-title';
+				heading.textContent = article.title;
+				body.append(heading);
+				link.append(body);
+
 				item.append(link);
 				fragment.append(item);
 				count += 1;
@@ -74,8 +125,22 @@ const articleMetadata = Object.fromEntries(posts.map((post) => [post.id, { title
 	.popular-columns section { padding-top: 1rem; border-top: 3px solid var(--journal-accent, var(--coral)); }
 	.popular-columns h3 { margin: 0; font-size: 1.1rem; }
 	.popular-columns p { margin: 0.35rem 0 1rem; color: var(--site-muted, var(--muted)); font-size: 0.78rem; }
-	.popular-columns ol { display: grid; gap: 0.8rem; margin: 0; padding-left: 1.3rem; }
-	.popular-columns li { padding-left: 0.2rem; }
-	.popular-columns a { color: inherit; font-size: 0.92rem; font-weight: 700; line-height: 1.55; }
-	@media (max-width: 620px) { .popular-columns { grid-template-columns: 1fr; } }
+	/* li から下はブラウザ側で組み立てるため、Astroのスコープ属性が付かない。
+	   :global() を付けないと、この指定は生成された要素に当たらない。 */
+	/* 既定のマーカーは画像の下端に揃ってしまうため、順位を自前の列にして上で揃える。 */
+	.popular-columns ol { display: grid; gap: 1.1rem; margin: 0; padding-left: 0; list-style: none; counter-reset: popular; }
+	.popular-columns :global(li) { counter-increment: popular; }
+	.popular-columns :global(li a) { display: grid; grid-template-columns: 1.4rem 112px minmax(0, 1fr); gap: 0.9rem; align-items: start; color: inherit; text-decoration: none; }
+	.popular-columns :global(li a)::before { content: counter(popular) "."; color: var(--site-muted, var(--muted)); font-size: 0.8rem; font-weight: 700; line-height: 1.4; text-align: right; }
+	.popular-columns :global(li img),
+	.popular-columns :global(.popular-thumb-placeholder) { display: block; width: 112px; height: auto; aspect-ratio: 3 / 2; object-fit: contain; background: #f6f3ed; border-radius: 4px; }
+	.popular-columns :global(.popular-category) { display: block; margin-bottom: 0.25rem; color: var(--journal-accent, var(--coral)); font-size: 0.72rem; font-weight: 700; }
+	.popular-columns :global(.popular-title) { display: block; font-size: 0.92rem; font-weight: 700; line-height: 1.55; }
+	.popular-columns :global(li a:hover .popular-title) { text-decoration: underline; }
+	@media (max-width: 620px) {
+		.popular-columns { grid-template-columns: 1fr; }
+		.popular-columns :global(li a) { grid-template-columns: 1.2rem 96px minmax(0, 1fr); gap: 0.6rem; }
+		.popular-columns :global(li img),
+		.popular-columns :global(.popular-thumb-placeholder) { width: 96px; }
+	}
 </style>
