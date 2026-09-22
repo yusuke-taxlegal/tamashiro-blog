@@ -61,7 +61,8 @@ const genreCounts = countPostsByGenre(allPosts);
 				<div class="article-shell">
 					<aside class="article-aside">
 						{articleHeadings.length > 0 && (
-							<details class="article-toc" open>
+							<Fragment>
+							<details class="article-toc">
 								<summary>この記事の内容</summary>
 								<nav aria-label="この記事の内容">
 									<ol>
@@ -73,6 +74,19 @@ const genreCounts = countPostsByGenre(allPosts);
 									<span>掲載時点の情報です。料金、制度、サービス仕様は、必ず公式情報も確認してください。</span>
 								</div>
 							</details>
+							<script is:inline>
+								(() => {
+									const toc = document.currentScript.previousElementSibling;
+									if (!toc || toc.tagName !== 'DETAILS') return;
+									const wide = window.matchMedia('(min-width: 1081px)');
+									let userToggled = false;
+									const sync = () => { if (!userToggled) toc.open = wide.matches; };
+									sync();
+									toc.querySelector('summary')?.addEventListener('click', () => { userToggled = true; });
+									wide.addEventListener('change', sync);
+								})();
+							</script>
+							</Fragment>
 						)}
 						<div class="article-aside-desktop">
 							<section class="aside-section" aria-labelledby="aside-genres-heading">
