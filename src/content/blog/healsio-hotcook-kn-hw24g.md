@@ -17,14 +17,14 @@ heroImage: '../../assets/blog/healsio-hotcook-kn-hw24g/hero-tamashiro-yusuke-fam
 ヘルシオ ホットクックは、材料を入れた後の加熱とかきまぜを任せられる自動調理鍋です。料理が一瞬で完成する機械ではありません。**鍋の前に立つ時間を、家族のための時間へ移す道具**として考えると、役割が分かりやすくなります。
 
 <div class="affiliate-product-card">
-  <a class="affiliate-product-image" href="https://amzn.asia/d/077N50rI" target="_blank" rel="sponsored noopener noreferrer" aria-label="Amazon.co.jpでシャープ ヘルシオ ホットクック KN-HW24G-Rを見る">
+  <a class="affiliate-product-image" href="https://amzn.to/4qfDzYe" target="_blank" rel="sponsored noopener noreferrer" aria-label="Amazon.co.jpでシャープ ヘルシオ ホットクック KN-HW24G-Rを見る">
     <img src="https://jp.sharp/hotcook/products/knhw24g/images/gallery-1.jpg" width="1000" height="1000" loading="lazy" referrerpolicy="no-referrer" alt="シャープ ヘルシオ ホットクック KN-HW24G-R レッドの公式商品画像" />
   </a>
   <div class="affiliate-product-body">
     <p class="affiliate-product-store">Amazon.co.jp</p>
     <h3>ヘルシオ ホットクック KN-HW24G-R</h3>
     <p>2.4L、2～6人用の2021年モデル。無線LANと、付属トレイによる2段同時調理に対応します。</p>
-    <a class="affiliate-product-button" href="https://amzn.asia/d/077N50rI" target="_blank" rel="sponsored noopener noreferrer">Amazon.co.jpで商品を見る</a>
+    <a class="affiliate-product-button" href="https://amzn.to/4qfDzYe" target="_blank" rel="sponsored noopener noreferrer">Amazon.co.jpで商品を見る</a>
     <p class="affiliate-product-disclosure">広告・商品リンクです。紹介料が発生する場合は玉城祐輔個人に帰属します。商品画像はシャープ公式のKN-HW24G-R画像です。価格、在庫、販売元、保証内容、付属品はAmazonの商品ページでご確認ください。</p>
   </div>
 </div>
@@ -194,14 +194,14 @@ KN-HW24Gは電気圧力鍋ではありません。完成までの時間より、
 ## 商品と公式情報を確認する
 
 <div class="affiliate-product-card">
-  <a class="affiliate-product-image" href="https://amzn.asia/d/077N50rI" target="_blank" rel="sponsored noopener noreferrer" aria-label="Amazon.co.jpでシャープ ヘルシオ ホットクック KN-HW24G-Rを見る">
+  <a class="affiliate-product-image" href="https://amzn.to/4qfDzYe" target="_blank" rel="sponsored noopener noreferrer" aria-label="Amazon.co.jpでシャープ ヘルシオ ホットクック KN-HW24G-Rを見る">
     <img src="https://jp.sharp/hotcook/products/knhw24g/images/gallery-1.jpg" width="1000" height="1000" loading="lazy" referrerpolicy="no-referrer" alt="シャープ ヘルシオ ホットクック KN-HW24G-R レッドの公式商品画像" />
   </a>
   <div class="affiliate-product-body">
     <p class="affiliate-product-store">Amazon.co.jp</p>
     <h3>ヘルシオ ホットクック KN-HW24G-R</h3>
     <p>購入前に、2021年モデルであること、販売元、保証、付属品、新しい2.4Lモデルとの違いをご確認ください。</p>
-    <a class="affiliate-product-button" href="https://amzn.asia/d/077N50rI" target="_blank" rel="sponsored noopener noreferrer">Amazon.co.jpで商品を見る</a>
+    <a class="affiliate-product-button" href="https://amzn.to/4qfDzYe" target="_blank" rel="sponsored noopener noreferrer">Amazon.co.jpで商品を見る</a>
     <p class="affiliate-product-disclosure">広告・商品リンクです。紹介料が発生する場合は玉城祐輔個人に帰属します。商品画像はシャープ公式のKN-HW24G-R画像です。価格、在庫、販売元、保証内容、付属品はAmazonの商品ページでご確認ください。</p>
   </div>
 </div>

@@ -38,12 +38,11 @@ export interface StoreConfig {
 export const AMAZON_ASSOCIATE_TAG = 'tamashirotool-22';
 
 /**
- * 楽天アフィリエイトID。
- * 楽天アフィリエイトの管理画面で ysk.life をサイト登録すると発行される。
- * 記入したら `stores.rakuten.enabled` を true にする。
- * （リンク自体は管理画面からコピーして貼るため、この値は表示と照合のためだけに使う）
+ * 楽天にはAmazonの `tag=` のような「固定のアフィリエイトID」が無い。
+ * 管理画面が発行するリンクは `hb.afl.rakuten.co.jp/ichiba/<毎回変わる文字列>/` の形で、
+ * 商品ごとにIDが変わる（2026-09-22に実機で2本発行して確認済み）。
+ * そのため照合はIDではなくホスト名で行う（`linkHosts` と `isTrackedAffiliateLink` を参照）。
  */
-export const RAKUTEN_AFFILIATE_ID = '';
 
 export const stores: Record<StoreId, StoreConfig> = {
 	amazon: {
@@ -64,8 +63,8 @@ export const stores: Record<StoreId, StoreConfig> = {
 		linkHosts: ['hb.afl.rakuten.co.jp', 'a.r10.to'],
 		imagePolicy: 'download',
 		disclosureSentence: '楽天アフィリエイトのパートナーとして、玉城祐輔は楽天市場へのリンク経由の売上により紹介料を受け取ることがあります。',
-		// 楽天アフィリエイトのサイト登録が完了し、RAKUTEN_AFFILIATE_ID を記入したら true にする
-		enabled: false,
+		// 2026-09-22: 楽天アフィリエイトに https://ysk.life をサイト登録済み
+		enabled: true,
 	},
 };
 
