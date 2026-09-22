@@ -118,7 +118,23 @@ Amazonで買うか公式サイトで名入れするかを判断してもらう�
 - スキル同梱のテスト `test_check_product_article.py` は4件すべて成功
 - 既存の商品記事5本で回帰確認。`switchbot-lock-pro.md` のみ失敗するが、修正前のスクリプトでも同じ6件が出るため、この修正とは無関係（キャラクター証跡の運用より前に書かれた記事）
 
+## リリース
+
+2026-09-23にcommit・main統合・push・本番反映まで実施した。
+
+- commit（作業ブランチ `claude/basketball-bibs-blog-post-f75d67`、3本）
+  - `d071be6` feat: バスケ部のビブス記事を追加する
+  - `e05afca` docs: Claude Codeでの画像生成をCodex CLI前提に切り替える
+  - `d9163e0` chore: 記事マニフェストを再生成する
+- mainへfast-forwardマージ後、`origin/main` へpush。local / origin/main / live remote の3つとも `d9163e0` で一致
+- マージ後のmainで検証: build成功（27ページ）、`test:engagement` 8/8、`check:api` 成功、`check:affiliate` 問題なし、記事の機械検査OK
+- Cloudflare Pages（プロジェクト `tamashiro-blog`、production branch `main`）のGitHub連携で自動デプロイ。push後およそ1分で反映
+- 本番readback: `https://ysk.life/blog/fungoal-bibs-number-basketball/` がHTTP 200。
+  title・canonical・og:image、記事一覧とsitemapへの掲載、ヒーローと挿絵3枚のアセット、Amazon商品画像、購入枠2か所のリンク一致と広告表記、
+  共有4種、390pxで横はみ出しなし、コンソールエラーなしを確認
+
 ## 残っている判断事項
 
-1. Git操作と公開は未実施（明示依頼待ち）
-2. `switchbot-lock-pro.md` はキャラクター証跡コメントと画像ファイル名が現行ルールに合っていない。別作業として対応するか要判断
+1. `switchbot-lock-pro.md` はキャラクター証跡コメントと画像ファイル名が現行ルールに合っていない。別作業として対応するか要判断
+2. mainに未追跡のまま残っている `migrations/0001_engagement.sql` と `tsconfig.functions.json` は、
+   `npm run test:engagement` と `npm run check:api` が実際に参照している。cloneした環境では両方失敗するため、コミットするか要判断
