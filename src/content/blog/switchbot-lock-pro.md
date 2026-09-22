@@ -4,8 +4,11 @@ description: '子育て家庭や小さな会社で役立つSwitchBot ロックPr
 pubDate: '2026-08-15'
 category: '家と仕事の道具'
 accent: 'olive'
-heroImage: '../../assets/blog/switchbot-lock-pro/hero-family-entry.webp'
+heroImage: '../../assets/blog/switchbot-lock-pro/hero-tamashiro-yusuke-family-entry.webp'
 ---
+
+<!-- product-article-character-sheets: tamashiro-yusuke-business-casual-character-sheet-v3.png, accounting-staff-character-sheet-v1.png, worried-business-owner-character-sheet-v1.png -->
+<!-- product-article-character-check: hero-and-body-verified -->
 
 子どもの荷物と買い物袋で、両手がふさがっている。
 
@@ -86,7 +89,7 @@ SwitchBot ロックProは、室内側のサムターンに取り付けて、鍵�
 
 ## 小さな会社では、合鍵を増やす前にルールを作る
 
-![小さな会社の入口で総務担当者が指紋認証パッドを使い、社長が安心して見守っているイメージイラスト](../../assets/blog/switchbot-lock-pro/office-entry.webp)
+![小さな会社の入口で総務・経理担当者が指紋認証パッドを使い、悩める社長が安心して見守っているイメージイラスト](../../assets/blog/switchbot-lock-pro/accounting-staff-office-entry.webp)
 
 社員数が少ない会社では、鍵の管理が総務担当者ひとりに集まりがちです。
 
@@ -114,7 +117,7 @@ SwitchBot ロックProは、室内側のサムターンに取り付けて、鍵�
 
 ## 購入前は、ドア・人・もしもの3つを確認する
 
-![玉城祐輔がドアのサムターン周辺を採寸し、予備電池と物理鍵を準備しているイメージイラスト](../../assets/blog/switchbot-lock-pro/before-install.webp)
+![玉城祐輔がドアのサムターン周辺を採寸し、予備電池と物理鍵を準備しているイメージイラスト](../../assets/blog/switchbot-lock-pro/tamashiro-yusuke-before-install.webp)
 
 ### ドアを確認する
 
