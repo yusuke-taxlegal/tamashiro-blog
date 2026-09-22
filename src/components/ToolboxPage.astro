@@ -4,6 +4,7 @@ import BaseHead from './BaseHead.astro';
 import Footer from './Footer.astro';
 import Header from './Header.astro';
 import ShareButtons from './ShareButtons.astro';
+import { disclosureNotice } from '../lib/affiliate';
 
 interface Props {
 	view?: 'index' | 'work' | 'home';
@@ -11,7 +12,34 @@ interface Props {
 
 const { view = 'index' } = Astro.props;
 
-const tools = [
+/** 道具箱に載せる1品の形。楽天の項目を足すと購入ボタンが1つ増える */
+interface Tool {
+	id: string;
+	group: string;
+	category: string;
+	channel: string;
+	title: string;
+	statement: string;
+	lead: string;
+	details: string[][];
+	/** 主な購入リンク（いまはAmazonかメーカー公式の紹介リンク） */
+	url: string;
+	button: string;
+	note: string;
+	image: string;
+	imageAlt: string;
+	tone: string;
+	articleHref?: string;
+	officialUrl?: string;
+	officialLabel?: string;
+	featured?: boolean;
+	/** 楽天アフィリエイトのリンク。入れると2つ目の購入ボタンが出る */
+	rakutenUrl?: string;
+	/** 省略時は「楽天市場で商品を見る」 */
+	rakutenButton?: string;
+}
+
+const tools: Tool[] = [
 	{
 		id: 'hidock-p1',
 		group: 'work',
@@ -431,6 +459,7 @@ const pageCopy = {
 											</a>
 										)}
 										<a class="product-link" href={tool.url} target="_blank" rel="sponsored noopener noreferrer">{tool.button}<span aria-hidden="true">↗</span></a>
+										{'rakutenUrl' in tool && <a class="product-link" href={tool.rakutenUrl} target="_blank" rel="sponsored noopener noreferrer">{tool.rakutenButton ?? '楽天市場で商品を見る'}<span aria-hidden="true">↗</span></a>}
 										{'officialUrl' in tool && <a class="official-link" href={tool.officialUrl} target="_blank" rel="noopener noreferrer">{tool.officialLabel}<span aria-hidden="true">↗</span></a>}
 										<p class="affiliate-note">{tool.note}</p>
 									<details class="tool-notes" open={view !== 'index'}>
@@ -470,7 +499,7 @@ const pageCopy = {
 			<aside class="disclosure" aria-label="広告に関する表示">
 				<div class="shell disclosure-inner">
 					<strong>広告</strong>
-					<p>このページにはアフィリエイトリンクが含まれます。Amazonのアソシエイトとして、玉城祐輔は適格販売により収入を得ています。</p>
+					<p>{disclosureNotice}</p>
 				</div>
 			</aside>
 		</main>

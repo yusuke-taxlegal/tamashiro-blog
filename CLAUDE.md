@@ -48,7 +48,21 @@ heroImage: '../../assets/blog/<slug>/hero-xxx.webp'   # 任意。画像が実在
 
 - 形式は `.webp`、実寸は横1500〜1700px程度（ヒーローは 1536x1024 実績あり）。表示は Astro の `<Image>` が最適化する。
 - 商品写真は Amazon 提供元のリモートURLを直接使い、自サイトへ再アップロードしない。
+- **楽天は逆**。楽天の商品画像はダウンロードして自サイトに置く（`src/assets/blog/<slug>/` または `public/toolbox/`）。楽天サーバーからの直接読み込みはしない。
 - 挿絵は実物写真ではなく「利用場面を伝えるイメージイラスト」とする。
+
+---
+
+## アフィリエイト（Amazon・楽天）
+
+- 設定の正本は `src/lib/affiliate.ts`。広告表記の文章、許可するリンクのホスト、画像の扱いをここに集約している。**表示文言を各ページに直接書かない。**
+- 楽天アフィリエイトの手順・リンク形式・記事への貼り方は `docs/rakuten-affiliate.md` を参照する。
+- 使ってよいリンクの形は次のとおり。素の商品ページURLを貼ると紹介料が出ない。
+  - Amazon: `https://amzn.to/...` または `tag=tamashirotool-22` 付きの商品URL
+  - 楽天: `https://hb.afl.rakuten.co.jp/...` または `https://a.r10.to/...`
+- 購入リンクの `<a>` には必ず `target="_blank" rel="sponsored noopener noreferrer"` を付け、すぐ下に「広告・アフィリエイトリンクです」と明記する。
+- 貼り間違いは `npm run check:affiliate` で検出できる。記事を書いたら実行する。
+- 楽天は**掲載サイトの事前登録が必須**。`src/lib/affiliate.ts` の `stores.rakuten.enabled` が `false` のうちは、楽天リンクを本番に出さない。
 
 ---
 

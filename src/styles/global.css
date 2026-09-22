@@ -315,6 +315,23 @@ a {
 	outline-offset: 3px;
 }
 
+.prose .affiliate-buy-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+}
+
+.prose .affiliate-product-button.secondary {
+	background: var(--white);
+	color: var(--ink);
+	box-shadow: inset 0 0 0 2px var(--ink);
+}
+
+.prose .affiliate-product-button.secondary:hover {
+	background: var(--ink);
+	color: var(--white);
+}
+
 .prose .affiliate-product-disclosure {
 	margin-top: 0.75rem;
 	color: var(--muted);
@@ -352,6 +369,10 @@ a {
 
 	.prose .affiliate-product-button {
 		width: 100%;
+	}
+
+	.prose .affiliate-buy-row {
+		flex-direction: column;
 	}
 }
 

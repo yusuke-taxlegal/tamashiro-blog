@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import { enabledStores } from '../lib/affiliate';
 ---
 
 <!doctype html>
@@ -21,6 +22,9 @@ import Header from '../components/Header.astro';
 				<div class="prose legal-body">
 				<h2 id="affiliate">アフィリエイトリンク</h2>
 				<p>当サイトおよび「玉城祐輔の道具箱」には、商品やサービスの購入・申込みにより、玉城祐輔個人が紹介料を受け取るリンクが含まれる場合があります。</p>
+				<p>現在参加しているプログラムは次のとおりです。</p>
+				<ul>{enabledStores.map((store) => <li>{store.disclosureSentence}</li>)}</ul>
+				<p>紹介リンクを載せるときは、そのリンクの近くに「広告」または「アフィリエイトリンク」であることを明記します。</p>
 				<h2 id="standard">紹介の基準</h2>
 				<p>原則として、玉城本人が実際に使用・確認したものを、良い点だけでなく注意点も含めて紹介します。広告報酬の有無だけを理由に評価を変えることはありません。</p>
 				<h2 id="company">法人サービスとの区別</h2>
