@@ -23,12 +23,12 @@ ChatGPTで GPT Image 2 を選び、記載の正本シートを画像添付のう
 
 ## 1. ヒーロー画像
 
-- 保存先パス: `src/assets/blog/wws-workwear-suit-ankle-pants/hero-workday-start.webp`
+- 保存先パス: `src/assets/blog/wws-workwear-suit-ankle-pants/hero-tamashiro-yusuke-workday-start.webp`
 - 用途: 記事のヒーロー画像（フロントマターの `heroImage`）
 - alt文言: 記事本文には書かず、フロントマターの `heroImage` に指定する
 - 添付する正本シート: `tamashiro-yusuke-business-casual-character-sheet-v3.png`
 - アスペクト比: 3:2（1536x1024 実績）
-- 完了: - [ ]
+- 完了: - [x]（設置済み。2026-09-23に点検して確認）
 
 ```text
 Use the attached tamashiro-yusuke-business-casual-character-sheet-v3.png as the canonical illustration identity and outfit reference. Do not use a portrait photo to regenerate his face.
@@ -44,12 +44,12 @@ Aspect ratio: 3:2
 
 ## 2. 本文｜1日の仕事を動き回る場面
 
-- 保存先パス: `src/assets/blog/wws-workwear-suit-ankle-pants/workday-move.webp`
+- 保存先パス: `src/assets/blog/wws-workwear-suit-ankle-pants/tamashiro-yusuke-workday-move.webp`
 - 用途: 本文「私の使い方。移動と現場と相談窓口を、一本で回す」の冒頭
 - alt文言: `玉城祐輔が資料の箱を持って車から降り、相談窓口へ向かうイメージイラスト`
 - 添付する正本シート: `tamashiro-yusuke-business-casual-character-sheet-v3.png`
 - アスペクト比: 16:9（1672x941 実績）
-- 完了: - [ ]
+- 完了: - [x]（設置済み。2026-09-23に点検して確認）
 
 ```text
 Use the attached tamashiro-yusuke-business-casual-character-sheet-v3.png as the canonical illustration identity and outfit reference. Do not use a portrait photo to regenerate his face.
@@ -65,12 +65,12 @@ Aspect ratio: 16:9
 
 ## 3. 本文｜洗濯とお手入れの場面
 
-- 保存先パス: `src/assets/blog/wws-workwear-suit-ankle-pants/laundry-care.webp`
+- 保存先パス: `src/assets/blog/wws-workwear-suit-ankle-pants/tamashiro-yusuke-laundry-care.webp`
 - 用途: 本文「「ほつれない」と感じている理由と、私が気をつけていること」の冒頭
 - alt文言: `玉城祐輔が洗濯ネットに入れたパンツを洗濯機へ入れ、部屋干しの準備をしているイメージイラスト`
 - 添付する正本シート: `tamashiro-yusuke-business-casual-character-sheet-v3.png`
 - アスペクト比: 16:9（1672x941 実績）
-- 完了: - [ ]
+- 完了: - [x]（設置済み。2026-09-23に点検して確認）
 
 ```text
 Use the attached tamashiro-yusuke-business-casual-character-sheet-v3.png as the canonical illustration identity and outfit reference. Do not use a portrait photo to regenerate his face.
@@ -87,7 +87,7 @@ Aspect ratio: 16:9
 ## 画像がそろった後の手順
 
 1. 画像を `src/assets/blog/wws-workwear-suit-ankle-pants/` に配置する。
-2. フロントマターに `heroImage: '../../assets/blog/wws-workwear-suit-ankle-pants/hero-workday-start.webp'` を追加する。
+2. フロントマターに `heroImage: '../../assets/blog/wws-workwear-suit-ankle-pants/hero-tamashiro-yusuke-workday-start.webp'` を追加する。
 3. 本文2か所のプレースホルダーコメントを `![alt](../../assets/blog/wws-workwear-suit-ankle-pants/xxx.webp)` へ置換する。
 4. このファイルのチェックボックスを埋める。
 5. `npm run build` を実行し、成功を確認してからコミットする。
