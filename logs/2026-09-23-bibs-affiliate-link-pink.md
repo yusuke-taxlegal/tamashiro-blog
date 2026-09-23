@@ -69,3 +69,41 @@ Codex CLIの画像生成は利用枠切れ（回復は2026-09-24 6:10）だっ�
 - 実ブラウザ（1440px）で確認。購入枠2か所とも画像が実表示、画像リンクと購入ボタンのURLが一致、
   `target="_blank" rel="sponsored noopener noreferrer"` と広告表記あり。
   画像の読み込み失敗0件、横はみ出しなし
+
+
+---
+
+## 追記: ヒーロー画像も差し替え（同日）
+
+色の節の挿絵だけ直して、**ヒーロー画像が青のままだったのを見落としていた**。
+記事の1画面目で青いビブスを広げている絵なので、いちばん目につく食い違いだった。
+
+同じくElevenLabsの `creative_edit_image`（gpt-image-2）で、本番のヒーロー画像を参照に編集した。
+
+- 参照URL: `https://ysk.life/_astro/hero-tamashiro-yusuke-gym-bibs.Y87AWur1.webp`
+- 参照ノード: `cu0gtJiouVlqwn9cTZw2` / 生成ノード: `11HZor1Swr5FoqU4RLGb`
+- 手に持つ1枚、床の5枚、畳んだ束、収納袋をすべてピンクへ
+
+### アスペクト比の制約と対処
+
+**この連携ではアスペクト比を変更できない。** `gpt-image-2` のノード設定 `aspect_ratio` の既定は 16:9 で、
+`creative_update_node` に `model_parameters` を渡しても反映されず、`creative_edit_image` /
+`creative_generate_in_flow` にも設定を渡す引数が無い（`parameters` も `model_parameters` も拒否される）。
+出力は常に 1280x720 / 1K / medium になる。
+
+ヒーローは3:2でなければならない。`BlogPost.astro` が `width={900} height={600}` で描画し、
+CSSで `aspect-ratio: 3 / 2; object-fit: cover` を当てているため、16:9を渡すと左右が切り取られる。
+
+そこでプロンプトで「人物とビブスを中央75%に収め、左右に余白を残す。あとで3:2へ切り出せるように」と指示し、
+生成後にローカルで中央 1080x720 を切り出して 1536x1024 へ拡大した（sharp / lanczos3）。
+切り出しで欠けたものは無い（人物・5枚・束・袋がすべて内側に収まっている）。
+
+- 2案生成し、人物が大きく元の構図に近いほうを採用
+- 目視照合: 顔・髪・眉・目・笑顔、紺ジャケット＋白Tシャツ＋紺パンツ、黒の紐付き革靴、約2頭身、
+  余分な人物・文字・ロゴ・写真調の混入なし
+- 最終 1536x1024 / 115KB。元のヒーローと同じ寸法
+
+### 次に画像を作るときのメモ
+
+3:2が必要な画像は、アスペクト比を指定できる **Codex CLI（`generate_character_image.sh`）を使うほうが素直**。
+ElevenLabs連携を使う場合は16:9固定になるため、左右余白を指示して切り出す前提で組み立てる。
