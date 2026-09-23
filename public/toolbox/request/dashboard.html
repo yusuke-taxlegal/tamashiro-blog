@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <title>お願い箱の状況｜道具箱お願い箱</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      main { max-width: 980px; }
+      header.page { max-width: 980px; }
+    </style>
+    <script src="dashboard.js" type="module" defer></script>
+  </head>
+  <body>
+    <header class="page">
+      <h1>お願い箱の状況</h1>
+      <p class="lead">
+        届いたリクエストと、そのうち何件を紹介ページにできたか。数字はこの窓口に届いた分だけで、Amazon側の売上や購入者の情報は含みません。
+      </p>
+    </header>
+
+    <main>
+      <div id="message" class="notice" role="status" aria-live="polite" hidden></div>
+
+      <form id="auth" class="card">
+        <div class="field" style="margin-bottom: 12px">
+          <label for="token">閲覧トークン</label>
+          <span class="hint" id="token-hint">
+            Pages secret に設定した ADMIN_TOKEN。このタブを閉じるまで保持します。
+          </span>
+          <input type="password" id="token" autocomplete="current-password"
+                 aria-describedby="token-hint" />
+        </div>
+        <div class="actions"><button type="submit">開く</button></div>
+      </form>
+
+      <section id="content" hidden>
+        <div class="stats" id="stats"></div>
+
+        <h2>誰から届いているか</h2>
+        <div class="card scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>依頼者</th><th class="num">リクエスト</th>
+                <th class="num">掲載</th><th class="num">掲載率</th>
+              </tr>
+            </thead>
+            <tbody id="by-requester"></tbody>
+          </table>
+        </div>
+
+        <h2>月ごとの動き</h2>
+        <div class="card scroll">
+          <table>
+            <thead>
+              <tr><th>月</th><th class="num">リクエスト</th><th class="num">掲載</th></tr>
+            </thead>
+            <tbody id="by-month"></tbody>
+          </table>
+        </div>
+
+        <h2>リクエスト一覧</h2>
+        <div class="card scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>受付</th><th>状態</th><th>依頼者</th>
+                <th>商品</th><th>掲載ページ</th><th></th>
+              </tr>
+            </thead>
+            <tbody id="records"></tbody>
+          </table>
+        </div>
+
+        <div class="disclosure">
+          <p>
+            Amazonアソシエイトのレポートは「誰が買ったか」を返しません。個人ごとの購入額は取得できないため、この画面では扱っていません。
+            詳しくは <code>README.md</code> の「見える化でできること・できないこと」を参照してください。
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

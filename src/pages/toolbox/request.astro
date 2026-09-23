@@ -1,0 +1,262 @@
+---
+import '../../styles/journal-pages.css';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { disclosureNotice } from '../../lib/affiliate';
+
+const title = 'この商品、道具箱で紹介して｜玉城祐輔の道具箱';
+const description = '玉城祐輔の道具箱に載せてほしいAmazonの商品をリクエストできるページです。実際に使って良い点も合わない点も書けるものを紹介します。';
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={title} description={description} />
+		<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+	</head>
+	<body class="journal-page toolbox-page request-page">
+		<Header showName />
+		<main id="main-content">
+			<section class="toolbox-hero shell">
+				<div class="hero-copy">
+					<a class="back-link" href="/toolbox/">道具箱へ戻る</a>
+					<p class="eyebrow">玉城祐輔の道具箱</p>
+					<h1>この商品、<strong>道具箱で紹介して。</strong></h1>
+					<p class="hero-lead">
+						気になっているAmazonの商品URLを送ってください。玉城が実際に使っていて、良い点も合わない点も書けるものは、道具箱のページに紹介を載せます。
+					</p>
+				</div>
+			</section>
+
+			<section class="request-layout shell">
+				<div class="request-inner">
+				<div class="request-notice">
+					<p>
+						<strong>先にお伝えしておきます。</strong>
+						道具箱に載せているのは、玉城が自分で買って実際に使ったものだけです。使っていない商品は「今回は見送り」とお返事します。リクエストいただいた商品を必ず載せるお約束はできません。
+					</p>
+					<p class="small">掲載ページには広告（アフィリエイトリンク）が含まれます。購入をお願いするものではありません。</p>
+				</div>
+
+				<form id="request-form" class="request-card" novalidate>
+					<div class="field">
+						<label for="productUrl">Amazonの商品URL<span aria-hidden="true">（必須）</span></label>
+						<span class="hint" id="productUrl-hint">
+							商品ページを開いて、共有またはアドレスバーからコピーしたURLを貼ってください。amzn.asia の短縮URLでも大丈夫です。
+						</span>
+						<input
+							type="url" id="productUrl" name="productUrl" required
+							inputmode="url" autocomplete="off" spellcheck="false"
+							aria-describedby="productUrl-hint"
+							placeholder="https://www.amazon.co.jp/dp/..."
+						/>
+					</div>
+
+					<div class="field">
+						<label for="requesterName">お名前<span aria-hidden="true">（必須）</span></label>
+						<span class="hint" id="name-hint">ニックネームでも構いません。誰からのリクエストか分かる呼び方で。</span>
+						<input type="text" id="requesterName" name="requesterName" required maxlength="60"
+							autocomplete="name" aria-describedby="name-hint" />
+					</div>
+
+					<div class="field">
+						<label for="requesterEmail">メールアドレス<span aria-hidden="true">（必須）</span></label>
+						<span class="hint" id="email-hint">お返事を送る先です。これ以外の目的には使いません。</span>
+						<input type="email" id="requesterEmail" name="requesterEmail" required maxlength="254"
+							autocomplete="email" inputmode="email" aria-describedby="email-hint" />
+					</div>
+
+					<div class="field">
+						<label for="productNote">ひとこと<span aria-hidden="true">（任意）</span></label>
+						<span class="hint" id="note-hint">
+							どこが気になっているか、何に使いたいかがあると、紹介を書くときに助かります。500文字まで。
+						</span>
+						<textarea id="productNote" name="productNote" maxlength="500" aria-describedby="note-hint"></textarea>
+					</div>
+
+					<div class="honeypot" aria-hidden="true">
+						<label for="website">ここは入力しないでください</label>
+						<input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+					</div>
+
+					<div class="field">
+						<label class="checkbox" for="consent">
+							<input type="checkbox" id="consent" name="consent" required />
+							<span>お名前・メールアドレス・入力内容を、このリクエストへの返信のために玉城祐輔が使うことに同意します。</span>
+						</label>
+					</div>
+
+					<div class="field" id="turnstile-slot"></div>
+
+					<div id="message" class="request-message" role="status" aria-live="polite" hidden></div>
+
+					<div class="actions">
+						<button class="button primary" type="submit" id="submit">この商品をお願いする</button>
+					</div>
+				</form>
+
+				<p class="request-note">
+					このリクエスト窓口は玉城祐輔個人が運営しています（T&Lサポート株式会社の業務ではありません）。
+					いただいたお名前・メールアドレス・入力内容は、このリクエストへのお返事にだけ使います。取り扱いは<a href="/privacy/">プライバシーポリシー</a>をご覧ください。
+				</p>
+				</div>
+			</section>
+
+			<aside class="disclosure" aria-label="広告に関する表示">
+				<div class="shell disclosure-inner">
+					<strong>広告</strong>
+					<p>{disclosureNotice}</p>
+				</div>
+			</aside>
+		</main>
+		<Footer />
+
+		<script>
+			// お願いフォーム。受付番号（requestId）は送信が通るまで使い回す。
+			// 通信が途中で切れて再送しても、サーバー側で同じ1件として扱われる。
+			const form = document.getElementById('request-form') as HTMLFormElement;
+			const submit = document.getElementById('submit') as HTMLButtonElement;
+			const message = document.getElementById('message') as HTMLElement;
+			const slot = document.getElementById('turnstile-slot') as HTMLElement;
+			const value = (id: string) => (document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement).value;
+
+			let requestId = crypto.randomUUID();
+			let widgetId: string | null = null;
+			let config: { ready?: boolean; turnstileSitekey?: string } | null = null;
+
+			const show = (kind: string, text: string) => {
+				message.className = `request-message ${kind}`;
+				message.textContent = text;
+				message.hidden = false;
+			};
+			const hide = () => { message.hidden = true; };
+			const turnstile = () => (window as any).turnstile;
+
+			function renderTurnstile() {
+				if (!config?.turnstileSitekey || !turnstile()) return;
+				slot.replaceChildren();
+				widgetId = turnstile().render(slot, { sitekey: config.turnstileSitekey, language: 'ja' });
+			}
+
+			function resetChallenge() {
+				if (widgetId !== null && turnstile()) turnstile().reset(widgetId);
+			}
+
+			async function boot() {
+				try {
+					const response = await fetch('/api/request-box/config', { headers: { Accept: 'application/json' } });
+					config = await response.json();
+				} catch {
+					show('error', '画面の準備に失敗しました。通信環境を確認して開き直してください。');
+					submit.disabled = true;
+					return;
+				}
+				if (!config?.ready) {
+					show('info', 'いまは受付を準備中です。少し時間をおいてから開き直してください。');
+					submit.disabled = true;
+					return;
+				}
+				// Turnstile のスクリプトは defer なので、読み込み後に描画する。
+				if (turnstile()) renderTurnstile();
+				else window.addEventListener('load', renderTurnstile, { once: true });
+			}
+
+			form.addEventListener('submit', async (event) => {
+				event.preventDefault();
+				hide();
+
+				const consent = document.getElementById('consent') as HTMLInputElement;
+				if (!consent.checked) {
+					show('error', '取り扱いへの同意にチェックを入れてください。');
+					consent.focus();
+					return;
+				}
+
+				const token = widgetId !== null && turnstile() ? turnstile().getResponse(widgetId) : '';
+				if (!token) {
+					show('error', '「あなたは人間ですか？」の確認を終えてから送信してください。');
+					return;
+				}
+
+				submit.disabled = true;
+				submit.textContent = '送信中…';
+
+				const payload = {
+					requestId,
+					productUrl: value('productUrl'),
+					requesterName: value('requesterName'),
+					requesterEmail: value('requesterEmail'),
+					productNote: value('productNote'),
+					website: value('website'),
+					consent: true,
+					turnstileToken: token,
+				};
+
+				let result: any = null;
+				try {
+					const response = await fetch('/api/request-box/requests', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify(payload),
+					});
+					result = await response.json().catch(() => null);
+					if (!response.ok) throw new Error(result?.error || 'failed');
+				} catch (error) {
+					show('error', result?.error || (error as Error).message || '送信できませんでした。もう一度お試しください。');
+					if (result?.resetChallenge) resetChallenge();
+					submit.disabled = false;
+					submit.textContent = 'この商品をお願いする';
+					return;
+				}
+
+				form.reset();
+				resetChallenge();
+				// 次のリクエストは別の1件として受け付ける。
+				requestId = crypto.randomUUID();
+				submit.disabled = false;
+				submit.textContent = 'この商品をお願いする';
+				show('ok', `受け付けました。受付番号は ${result.reference} です。掲載できるかどうか、玉城からメールでお返事します。`);
+			});
+
+			boot();
+		</script>
+
+		<style>
+			.request-layout { padding-block: 8px 56px; }
+			/* 本文はヒーローの左端にそろえ、読みやすい幅で止める */
+			.request-inner { max-width: 760px; }
+			.request-notice { background: #f7f5f0; border-left: 3px solid #bf4a2f; padding: 20px 24px; margin-bottom: 32px; }
+			.request-notice p { margin: 0; font-size: 15px; line-height: 1.9; }
+			.request-notice p + p { margin-top: 10px; }
+			.request-notice .small { font-size: 13px; color: #5c6259; }
+			.request-card { display: flex; flex-direction: column; gap: 28px; }
+			.field { display: flex; flex-direction: column; gap: 8px; }
+			.field label { font-weight: 750; font-size: 15px; }
+			.field label span[aria-hidden] { color: #bf4a2f; font-size: 13px; margin-left: 6px; }
+			.hint { color: #5c6259; font-size: 13px; line-height: 1.8; }
+			input[type='url'], input[type='text'], input[type='email'], textarea {
+				width: 100%; min-height: 48px; padding: 12px 14px; font: inherit; font-size: 16px;
+				color: #141914; background: #fff; border: 1px solid #bfc3b9; border-radius: 8px;
+			}
+			textarea { min-height: 120px; resize: vertical; line-height: 1.9; }
+			input:focus-visible, textarea:focus-visible { outline: 2px solid #bf4a2f; outline-offset: 1px; border-color: #bf4a2f; }
+			.checkbox { display: flex; gap: 12px; align-items: flex-start; font-weight: 400; font-size: 15px; line-height: 1.8; cursor: pointer; }
+			.checkbox input { width: 20px; height: 20px; margin-top: 3px; flex: none; accent-color: #bf4a2f; }
+			/* 自動投稿よけ。人には見せず、読み上げからも外す */
+			.honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+			.request-message { padding: 16px 20px; border-radius: 8px; font-size: 15px; line-height: 1.9; background: #f7f5f0; }
+			.request-message.ok { background: #eef3ea; border-left: 3px solid #4a7c37; }
+			.request-message.error { background: #fbeee9; border-left: 3px solid #bf4a2f; }
+			.request-message.info { background: #f7f5f0; border-left: 3px solid #bfc3b9; }
+			.actions { display: flex; }
+			.actions .button { min-width: 240px; justify-content: center; }
+			.request-note { margin-top: 32px; padding-top: 24px; border-top: 1px solid #dcded7; color: #5c6259; font-size: 13px; line-height: 1.9; }
+			@media (max-width: 700px) {
+				.request-layout { padding-bottom: 40px; }
+				.request-notice { padding: 16px 18px; }
+				.actions .button { width: 100%; }
+			}
+		</style>
+	</body>
+</html>

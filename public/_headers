@@ -6,3 +6,12 @@
 
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+# 道具箱お願い箱の管理画面。検索避けとキャッシュ無効を明示する
+/toolbox/request/admin
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+
+/toolbox/request/dashboard
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <title>リクエストに対応する｜道具箱お願い箱</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="admin.js" type="module" defer></script>
+  </head>
+  <body>
+    <header class="page">
+      <h1>リクエストに対応する</h1>
+      <p class="lead">
+        紹介ページを用意できたら掲載ページのURLを、載せないと決めたら理由を入れて、依頼者へお返事を送ります。
+      </p>
+    </header>
+
+    <main>
+      <div id="message" class="notice" role="status" aria-live="polite" hidden></div>
+
+      <section id="record" class="card" hidden>
+        <h2 style="margin-top: 0">リクエストの中身</h2>
+        <dl class="meta">
+          <dt>状態</dt><dd><span id="r-status" class="tag"></span></dd>
+          <dt>依頼者</dt><dd id="r-name"></dd>
+          <dt>メール</dt><dd id="r-email"></dd>
+          <dt>商品</dt><dd><a id="r-url" href="#" target="_blank" rel="noopener noreferrer"></a></dd>
+          <dt>ASIN</dt><dd id="r-asin"></dd>
+          <dt>ひとこと</dt><dd id="r-note" style="white-space: pre-wrap"></dd>
+          <dt>受付</dt><dd id="r-created"></dd>
+          <dt>受付番号</dt><dd class="small" id="r-id"></dd>
+        </dl>
+      </section>
+
+      <div class="notice info" id="workflow" hidden>
+        <p><strong>アフィリエイトリンクの置き場所</strong></p>
+        <p class="small">
+          アソシエイトリンクは、Amazonへ登録済みの<strong>公開ページ</strong>に貼ります。この画面に入れるのは、リンクを貼り終えた<strong>紹介ページのURL</strong>です。
+          アソシエイトリンクそのものをメールへ載せることはアソシエイト運営規約で認められていないため、入力されても送信前に止まります。
+        </p>
+      </div>
+
+      <form id="form" class="card" hidden novalidate>
+        <div class="field">
+          <label for="articleUrl">掲載した紹介ページのURL</label>
+          <span class="hint" id="article-hint">
+            道具箱ページの該当箇所（#付きでも可）、note記事など。「今回は見送る」ときは空のままで構いません。
+          </span>
+          <input type="url" id="articleUrl" name="articleUrl" inputmode="url"
+                 autocomplete="off" spellcheck="false" aria-describedby="article-hint"
+                 placeholder="https://ysk.life/toolbox/#..." />
+        </div>
+
+        <div class="field">
+          <label for="msg">依頼者へのひとこと<span aria-hidden="true">（任意）</span></label>
+          <span class="hint" id="msg-hint">
+            そのままメール本文に入ります。1000文字まで。ここにもAmazonのリンクは貼れません。
+          </span>
+          <textarea id="msg" name="message" maxlength="1000" aria-describedby="msg-hint"></textarea>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="preview" class="secondary">送る前に本文を見る</button>
+          <button type="button" id="publish">掲載したと知らせる</button>
+          <button type="button" id="decline" class="secondary">今回は見送ると伝える</button>
+        </div>
+      </form>
+
+      <section id="preview-box" class="card" hidden>
+        <h2 style="margin-top: 0">送られるメール</h2>
+        <dl class="meta">
+          <dt>宛先</dt><dd id="p-to"></dd>
+          <dt>件名</dt><dd id="p-subject"></dd>
+        </dl>
+        <pre id="p-text" style="white-space: pre-wrap; overflow-wrap: anywhere; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 14px; font: inherit; margin: 16px 0 0"></pre>
+      </section>
+    </main>
+  </body>
+</html>

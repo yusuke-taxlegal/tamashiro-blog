@@ -112,6 +112,12 @@ body.toolbox-detail .product-link,body.toolbox-detail .article-link,body.toolbox
 body.toolbox-detail .affiliate-note { font-size:12px; }
 body.toolbox-detail .tool-notes { border-bottom:1px solid #dcded7; }
 body.toolbox-detail .tool-notes summary,body.toolbox-detail .tool-notes dl { font-size:14px; }
+/* 道具箱へのリクエスト導線（/toolbox/request/） */
+.journal-page .request-cta { display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; background:#f7f5f0; padding:32px; margin-block:8px 40px; border-radius:8px; }
+.journal-page .request-cta h2 { font-size:clamp(22px,2.2vw,30px); margin:8px 0 10px; }
+.journal-page .request-cta p:last-child { margin:0; max-width:620px; color:#5c6259; font-size:15px; }
+.journal-page .request-cta .button { white-space:nowrap; }
+@media(max-width:700px) { .journal-page .request-cta { padding:24px; } .journal-page .request-cta .button { width:100%; justify-content:center; } }
 .journal-page .back-link { display:inline-block; min-height:44px; color:#5c6259; font-size:14px; }
 .journal-page .closing { padding-block:40px; }
 .journal-page .closing>p { font-size:22px; font-weight:750; max-width:780px; }

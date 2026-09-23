@@ -9,6 +9,14 @@
       "database_name": "ysk-life-engagement",
       "database_id": "b88737c5-a1f5-4dd1-b581-eb0b6bc2d210",
       "migrations_dir": "migrations"
+    },
+    {
+      // 道具箱お願い箱の受付台帳。記事の反応用（DB）とは別のデータベース。
+      // 2026-09-22 作成・0001 適用ずみ。移設にあたりデータはそのまま引き継ぐ。
+      "binding": "REQUESTS_DB",
+      "database_name": "toolbox-request-box",
+      "database_id": "1e01e390-2484-43f1-b93c-58fc2155a29a",
+      "migrations_dir": "migrations-request-box"
     }
   ],
   "services": [
@@ -17,6 +25,20 @@
       "service": "ysk-life-engagement-sync"
     }
   ],
+  "vars": {
+    // ---- 道具箱お願い箱（lib/request-box）。秘密の値は Pages secret 側に置く
+    "SITE_MODE": "production",
+    // 受付を開く公開オリジン。カンマ区切り・空白なし。ここに無い入口では受付が開かない
+    "ALLOWED_ORIGINS": "https://ysk.life,https://www.ysk.life",
+    // 掲載先の公開ページ（Amazonアソシエイトに登録済みの媒体）
+    "TOOLBOX_URL": "https://ysk.life/toolbox/",
+    "TURNSTILE_SITEKEY": "0x4AAAAAAE_mwhv1laNpohmf",
+    // Resend（玉城個人アカウント）で認証済みの ysk.life から送る
+    "NOTIFY_FROM": "玉城祐輔の道具箱 <toolbox@ysk.life>",
+    "NOTIFY_TO": "tamashiro@taxlegal.jp",
+    // Amazonアソシエイト運営規約の判断。false から変えない（docs参照）
+    "ALLOW_AFFILIATE_LINK_IN_EMAIL": "false"
+  },
   "env": {
     "preview": {
       "d1_databases": [
@@ -25,8 +47,25 @@
           "database_name": "ysk-life-engagement-preview",
           "database_id": "c04961d0-05f3-49de-bf60-6b9e7e4de7f8",
           "migrations_dir": "migrations"
+        },
+        {
+          // プレビューでも束縛だけはそろえる。ALLOWED_ORIGINS を空にしてあるので
+          // プレビューURLからは受付が開かない（本番の台帳へ書き込ませない）。
+          "binding": "REQUESTS_DB",
+          "database_name": "toolbox-request-box",
+          "database_id": "1e01e390-2484-43f1-b93c-58fc2155a29a",
+          "migrations_dir": "migrations-request-box"
         }
       ],
+      "vars": {
+        "SITE_MODE": "production",
+        "ALLOWED_ORIGINS": "",
+        "TOOLBOX_URL": "https://ysk.life/toolbox/",
+        "TURNSTILE_SITEKEY": "0x4AAAAAAE_mwhv1laNpohmf",
+        "NOTIFY_FROM": "玉城祐輔の道具箱 <toolbox@ysk.life>",
+        "NOTIFY_TO": "tamashiro@taxlegal.jp",
+        "ALLOW_AFFILIATE_LINK_IN_EMAIL": "false"
+      },
       "services": [
         {
           "binding": "ANALYTICS_SYNC",
