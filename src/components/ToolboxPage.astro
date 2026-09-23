@@ -373,7 +373,6 @@ function orderTools(items: Tool[]): Tool[] {
 const countOf = (group: string) => tools.filter((tool) => tool.group === group).length;
 const workCount = countOf('work');
 const homeCount = countOf('home');
-const totalCount = tools.length;
 
 const visibleDefinitions = isDetail
 	? collectionDefinitions.filter((collection) => collection.group === view)
@@ -386,10 +385,10 @@ const toolCollections = visibleDefinitions.map((collection) => {
 
 const pageCopy = {
 	index: {
-		title: `玉城祐輔の道具箱｜仕事と家で実際に使っている${totalCount}品`,
-		description: `玉城祐輔が仕事と家で実際に使い続けている道具${totalCount}品を一覧にしました。使う場面、良かった点、買う前の注意点まで添えています。`,
+		title: '玉城祐輔の道具箱｜仕事と家で実際に使っている道具',
+		description: '玉城祐輔が仕事と家で実際に使い続けている道具を一覧にしました。使う場面、良かった点、買う前の注意点まで添えています。',
 		eyebrow: '玉城祐輔の道具箱',
-		lead: `仕事で${workCount}品、家で${homeCount}品。いま実際に使い続けているものだけを並べました。気になる道具は「使い方と注意点」を開くと、買う前に確認したいことまで読めます。`,
+		lead: 'いま実際に使い続けているものだけを並べました。気になる道具は「使い方と注意点」を開くと、買う前に確認したいことまで読めます。',
 	},
 	work: {
 		title: '仕事で使っている道具｜玉城祐輔の道具箱',
