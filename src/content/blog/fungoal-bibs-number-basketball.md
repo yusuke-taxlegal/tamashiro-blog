@@ -18,17 +18,17 @@ heroImage: '../../assets/blog/fungoal-bibs-number-basketball/hero-tamashiro-yusu
 
 数が足りないことと、使い回しに抵抗があること。この2つは、別々の問題に見えて、実は同じ打ち手で解けます。
 
-買うことにしたのは、Amazonで買えるFungoalの番号入りビブス、青の21枚セットです。この記事では、なぜこの組み合わせにしたのかを順番に書きます。
+買うことにしたのは、Amazonで買えるFungoalの番号入りビブス、ピンクの21枚セットです。この記事では、なぜこの組み合わせにしたのかを順番に書きます。
 
 <div class="affiliate-product-card">
-  <a class="affiliate-product-image" href="https://amzn.to/3TePjyn" target="_blank" rel="sponsored noopener noreferrer" aria-label="Amazon.co.jpでFungoal 番号入りビブスを見る">
-    <img src="https://m.media-amazon.com/images/I/71tIgJKCDoL._AC_SL1200_.jpg" width="1196" height="1131" loading="lazy" referrerpolicy="no-referrer" alt="Fungoal 番号入りビブス スカイブルー 1番から21番までの21枚セットと収納袋" />
+  <a class="affiliate-product-image" href="https://amzn.to/4yXmZzQ" target="_blank" rel="sponsored noopener noreferrer" aria-label="Amazon.co.jpでFungoal 番号入りビブスを見る">
+    <img src="https://m.media-amazon.com/images/I/71BHfpJFfBL._AC_SL1200_.jpg" width="1195" height="1165" loading="lazy" referrerpolicy="no-referrer" alt="Fungoal 番号入りビブス ピンク 1番から21番までの21枚セットと収納袋" />
   </a>
   <div class="affiliate-product-body">
     <p class="affiliate-product-store">Amazon.co.jp</p>
     <h3>Fungoal ビブス 番号入り ゼッケン</h3>
     <p>前後に番号が入ったメッシュのビブスです。番号のセット、サイズ、色を選んで買います。</p>
-    <a class="affiliate-product-button" href="https://amzn.to/3TePjyn" target="_blank" rel="sponsored noopener noreferrer">Amazon.co.jpで商品を見る</a>
+    <a class="affiliate-product-button" href="https://amzn.to/4yXmZzQ" target="_blank" rel="sponsored noopener noreferrer">Amazon.co.jpで商品を見る</a>
     <p class="affiliate-product-disclosure">広告・アフィリエイトリンクです。紹介料は玉城祐輔個人に帰属します。価格、在庫、カラー、サイズ、番号のセット内容、付属品はAmazonの商品ページでご確認ください。</p>
   </div>
 </div>
@@ -68,9 +68,9 @@ Amazonでは番号のセットが4通りから選べます。
 
 ## 色は「今あるビブスと並べて」決める
 
-![玉城祐輔が体育館の床に白と緑と青のビブスを並べ、色の見分けやすさを確かめているイメージイラスト](../../assets/blog/fungoal-bibs-number-basketball/tamashiro-yusuke-color-sort.webp)
+![玉城祐輔が体育館の床に白と緑とピンクのビブスを並べ、色の見分けやすさを確かめているイメージイラスト](../../assets/blog/fungoal-bibs-number-basketball/tamashiro-yusuke-color-sort.webp)
 
-青にしたのは、うちに白と緑があるからです。3色そろえば、対戦の組み合わせが増えます。
+ピンクにしたのは、うちに白と緑があるからです。3色そろえば、対戦の組み合わせが増えます。
 
 Fungoalは11色から選べますが、公式サイトには、色分けに向かない組み合わせが名指しで書かれています。
 
@@ -79,9 +79,9 @@ Fungoalは11色から選べますが、公式サイトには、色分けに向�
 - レッドとピンク
 - グレーとホワイト
 
-白と緑に足すなら、この一覧に引っかからない色を選ぶことになります。青は問題ありません。
+この一覧は「どの2色を並べると紛らわしいか」を示したものです。**大事なのは、今ある色と並べて見分けがつくか**。白と緑に足すなら、その2つから離れた色を選ぶことになります。ピンクは白とも緑とも離れているので問題ありません。
 
-**注意したいのは、同じ「青」でもブルーとスカイブルーは別の色として並んでいる**ことです。すでに水色系のビブスを持っているチームは、濃いブルーを選ばないと体育館の照明の下で見分けがつきにくくなります。
+逆に言えば、**すでにレッドを持っているチームは、ピンクを選ばないほうがいい**ということです。同じことが、水色系を持っているチームとブルーの組み合わせにも言えます。一覧のどれに当てはまるかは、チームごとに違います。
 
 もうひとつ、**チームの練習着やユニフォームと同じ色を避ける**ことも確認してください。色分けした意味がなくなります。
 
@@ -220,14 +220,14 @@ Amazonで買えるものには入れられません。名入れはFungoalの公�
 ## この商品を見る
 
 <div class="affiliate-product-card">
-  <a class="affiliate-product-image" href="https://amzn.to/3TePjyn" target="_blank" rel="sponsored noopener noreferrer" aria-label="Amazon.co.jpでFungoal 番号入りビブスを見る">
-    <img src="https://m.media-amazon.com/images/I/71tIgJKCDoL._AC_SL1200_.jpg" width="1196" height="1131" loading="lazy" referrerpolicy="no-referrer" alt="Fungoal 番号入りビブス スカイブルー 1番から21番までの21枚セットと収納袋" />
+  <a class="affiliate-product-image" href="https://amzn.to/4yXmZzQ" target="_blank" rel="sponsored noopener noreferrer" aria-label="Amazon.co.jpでFungoal 番号入りビブスを見る">
+    <img src="https://m.media-amazon.com/images/I/71BHfpJFfBL._AC_SL1200_.jpg" width="1195" height="1165" loading="lazy" referrerpolicy="no-referrer" alt="Fungoal 番号入りビブス ピンク 1番から21番までの21枚セットと収納袋" />
   </a>
   <div class="affiliate-product-body">
     <p class="affiliate-product-store">Amazon.co.jp</p>
     <h3>Fungoal ビブス 番号入り ゼッケン</h3>
     <p>注文前に、番号のセット、サイズ、色の3つがそろっているかご確認ください。</p>
-    <a class="affiliate-product-button" href="https://amzn.to/3TePjyn" target="_blank" rel="sponsored noopener noreferrer">Amazon.co.jpで商品を見る</a>
+    <a class="affiliate-product-button" href="https://amzn.to/4yXmZzQ" target="_blank" rel="sponsored noopener noreferrer">Amazon.co.jpで商品を見る</a>
     <p class="affiliate-product-disclosure">広告・アフィリエイトリンクです。紹介料は玉城祐輔個人に帰属します。価格、在庫、カラー、サイズ、番号のセット内容、付属品はAmazonの商品ページでご確認ください。</p>
   </div>
 </div>
@@ -238,4 +238,4 @@ Amazonで買えるものには入れられません。名入れはFungoalの公�
 
 - [Fungoal公式サイト。番号入りビブスの仕様、サイズ表、素材、名入れ](https://fungoal.com/products/bib)
 - [Fungoal公式サイト。ビブスの選び方ガイド](https://fungoal.com/blogs/bib/00_bib-guide_pillar)
-- [Amazon.co.jpの商品ページ。ASIN B0FTSFJQ8N](https://www.amazon.co.jp/dp/B0FTSFJQ8N)
+- [Amazon.co.jpの商品ページ。ASIN B0FTSFHS3L](https://www.amazon.co.jp/dp/B0FTSFHS3L)
