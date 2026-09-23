@@ -4,7 +4,11 @@ description: 'オンライン個別指導のそら塾に、中学2年の長男�
 pubDate: '2026-08-29'
 category: '家と仕事の道具'
 accent: 'coral'
+heroImage: '../../assets/blog/sorajuku-online-juku/hero-tamashiro-yusuke-desk-setup.webp'
 ---
+
+<!-- product-article-character-sheets: tamashiro-yusuke-business-casual-character-sheet-v3.png -->
+<!-- product-article-character-check: hero-and-body-verified -->
 
 部活から帰ってくるのは、だいたい19時前です。
 
@@ -15,11 +19,6 @@ accent: 'coral'
 先日、英語の点数が30点上がりました。
 
 うれしかったので「なにが良かったの？」と聞いてみたら、思っていたより具体的な答えが返ってきました。この記事は、その息子の言葉を軸に、親の私が見ていたことを足したものです。
-
-<!-- 画像プレースホルダー: 夜の自宅ダイニングで、玉城祐輔がオンライン授業用の机を準備している場面
-     生成後の保存先: src/assets/blog/sorajuku-online-juku/hero-desk-setup.webp
-     alt: 玉城祐輔が夜の自宅で、タブレットとイヤホンとノートを机に並べてオンライン授業の準備をしているイメージイラスト
-     → 画像設置後、この行は削除し、フロントマターに heroImage を追加する -->
 
 > **そら塾（オンライン個別指導）**
 >
@@ -110,10 +109,7 @@ accent: 'coral'
 
 ## 親の私から見て、良かったこと
 
-<!-- 画像プレースホルダー: 自宅の学習コーナーで、玉城祐輔がWi-Fiルーターと机の位置を確認している場面
-     生成後の保存先: src/assets/blog/sorajuku-online-juku/study-corner-check.webp
-     alt: 玉城祐輔が自宅の学習コーナーでWi-Fiルーターと机の位置を確認しているイメージイラスト
-     → 画像設置後、この行を ![玉城祐輔が自宅の学習コーナーでWi-Fiルーターと机の位置を確認しているイメージイラスト](../../assets/blog/sorajuku-online-juku/study-corner-check.webp) に置き換える -->
+![玉城祐輔が自宅の学習コーナーでWi-Fiルーターと机の位置を確認しているイメージイラスト](../../assets/blog/sorajuku-online-juku/tamashiro-yusuke-study-corner-check.webp)
 
 息子が挙げなかったところで、親として助かったことを3つ書きます。
 
@@ -185,10 +181,7 @@ accent: 'coral'
 
 ## 費用は「月謝」ではなく「1年分」で見る
 
-<!-- 画像プレースホルダー: 自宅の机でノートとカレンダーを広げ、1年分の塾費用を書き出している場面
-     生成後の保存先: src/assets/blog/sorajuku-online-juku/yearly-cost.webp
-     alt: 玉城祐輔がノートとカレンダーを広げ、1年分の塾費用を書き出して確認しているイメージイラスト
-     → 画像設置後、この行を ![玉城祐輔がノートとカレンダーを広げ、1年分の塾費用を書き出して確認しているイメージイラスト](../../assets/blog/sorajuku-online-juku/yearly-cost.webp) に置き換える -->
+![玉城祐輔がノートとカレンダーを広げ、1年分の塾費用を書き出して確認しているイメージイラスト](../../assets/blog/sorajuku-online-juku/tamashiro-yusuke-yearly-cost.webp)
 
 塾を比べるとき、月謝だけを並べると必ず判断を誤ります。仕事で見積書を比べるときと同じです。
 

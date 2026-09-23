@@ -24,12 +24,12 @@ ChatGPTで GPT Image 2 を選び、記載の正本シートを画像添付のう
 
 ## 1. ヒーロー画像
 
-- 保存先パス: `src/assets/blog/sorajuku-online-juku/hero-desk-setup.webp`
+- 保存先パス: `src/assets/blog/sorajuku-online-juku/hero-tamashiro-yusuke-desk-setup.webp`
 - 用途: 記事のヒーロー画像（フロントマターの `heroImage`）
 - alt文言: 記事本文には書かず、フロントマターの `heroImage` に指定する
 - 添付する正本シート: `tamashiro-yusuke-business-casual-character-sheet-v3.png`
 - アスペクト比: 3:2（1536x1024 実績）
-- 完了: - [ ]
+- 完了: - [x]（2026-09-23 記事へ設置）
 
 ```text
 Use the attached tamashiro-yusuke-business-casual-character-sheet-v3.png as the canonical illustration identity and outfit reference. Do not use a portrait photo to regenerate his face.
@@ -45,12 +45,12 @@ Aspect ratio: 3:2
 
 ## 2. 本文｜自宅の学習環境を確認する場面
 
-- 保存先パス: `src/assets/blog/sorajuku-online-juku/study-corner-check.webp`
+- 保存先パス: `src/assets/blog/sorajuku-online-juku/tamashiro-yusuke-study-corner-check.webp`
 - 用途: 本文「親の私から見て、良かったこと」の冒頭
 - alt文言: `玉城祐輔が自宅の学習コーナーでWi-Fiルーターと机の位置を確認しているイメージイラスト`
 - 添付する正本シート: `tamashiro-yusuke-business-casual-character-sheet-v3.png`
 - アスペクト比: 16:9（1672x941 実績）
-- 完了: - [ ]
+- 完了: - [x]（2026-09-23 記事へ設置）
 
 ```text
 Use the attached tamashiro-yusuke-business-casual-character-sheet-v3.png as the canonical illustration identity and outfit reference. Do not use a portrait photo to regenerate his face.
@@ -66,12 +66,12 @@ Aspect ratio: 16:9
 
 ## 3. 本文｜1年分の費用を書き出す場面
 
-- 保存先パス: `src/assets/blog/sorajuku-online-juku/yearly-cost.webp`
+- 保存先パス: `src/assets/blog/sorajuku-online-juku/tamashiro-yusuke-yearly-cost.webp`
 - 用途: 本文「費用は「月謝」ではなく「1年分」で見る」の冒頭
 - alt文言: `玉城祐輔がノートとカレンダーを広げ、1年分の塾費用を書き出して確認しているイメージイラスト`
 - 添付する正本シート: `tamashiro-yusuke-business-casual-character-sheet-v3.png`
 - アスペクト比: 16:9（1672x941 実績）
-- 完了: - [ ]
+- 完了: - [x]（2026-09-23 記事へ設置）
 
 ```text
 Use the attached tamashiro-yusuke-business-casual-character-sheet-v3.png as the canonical illustration identity and outfit reference. Do not use a portrait photo to regenerate his face.
@@ -88,7 +88,7 @@ Aspect ratio: 16:9
 ## 画像がそろった後の手順
 
 1. 画像を `src/assets/blog/sorajuku-online-juku/` に配置する。
-2. フロントマターに `heroImage: '../../assets/blog/sorajuku-online-juku/hero-desk-setup.webp'` を追加する。
+2. フロントマターに `heroImage: '../../assets/blog/sorajuku-online-juku/hero-tamashiro-yusuke-desk-setup.webp'` を追加する。
 3. 本文のプレースホルダーコメントを差し替える。
    - ヒーロー用（記事冒頭）のコメントは**削除する**（本文には貼らない）。
    - 本文2か所は `![alt](../../assets/blog/sorajuku-online-juku/xxx.webp)` へ置換する。
