@@ -25,6 +25,8 @@ interface Tool {
 	/** 主な購入リンク（いまはAmazonかメーカー公式の紹介リンク） */
 	url: string;
 	button: string;
+	/** 一覧のカードで使う短い文言。省略時は button をそのまま使う */
+	shortButton?: string;
 	note: string;
 	image: string;
 	imageAlt: string;
@@ -83,6 +85,7 @@ const tools: Tool[] = [
 		image: 'https://www.nihontsushin.com/plan/images/starterpack_pkg.jpg',
 		imageAlt: '日本通信SIM スターターパック NT-ST2-P',
 		button: 'Amazonでスターターパックを見る',
+		shortButton: 'Amazonで見る',
 		note: 'リンク先は申込用スターターパックです。SIMカードは同梱されていません。価格、申込期限、対象プランを確認し、公式サイトから直接申し込む場合の初期手数料3,300円とも比較してください。',
 		tone: 'olive',
 		featured: true,
@@ -107,6 +110,7 @@ const tools: Tool[] = [
 		button: 'Amazonで商品を見る',
 		note: '価格や在庫はAmazonの商品ページでご確認ください。',
 		tone: 'olive',
+		featured: true,
 	},
 	{
 		id: 'sparkling-water',
@@ -291,6 +295,7 @@ const tools: Tool[] = [
 		button: 'Amazonで商品を見る',
 		note: '設置寸法、給排水方法、電源条件、容量、対応食器、洗剤、価格、在庫をご確認ください。',
 		tone: 'paper',
+		featured: true,
 	},
 	{
 		id: 'hotcook',
@@ -337,54 +342,54 @@ const tools: Tool[] = [
 	},
 ];
 
+
 const collectionDefinitions = [
 	{
 		id: 'work-tools',
 		group: 'work',
-		label: 'まず見てほしい2品',
 		title: '仕事の道具',
 		intro: '相談や会議の記録、外出先での通信に使っています。仕事の手間を減らし、目の前の相手に集中するための道具です。',
 		href: '/toolbox/work/',
-		linkLabel: '仕事の道具を詳しく見る',
+		linkLabel: '仕事の道具を詳しく読む',
 	},
 	{
 		id: 'home-tools',
 		group: 'home',
-		label: 'まず見てほしい3品',
 		title: '家の道具',
 		intro: '鍵、掃除、食器、洗濯、飲み物、子どもとの時間。家事の負担を減らし、家族と過ごす時間をつくるための道具です。',
 		href: '/toolbox/home/',
-		linkLabel: '家の道具をすべて見る',
+		linkLabel: '家の道具を詳しく読む',
 	},
 ];
 
-const selectedIds = {
-	work: ['hidock-p1', 'nihontsushin-sim'],
-	home: ['hotcook', 'dishwasher', 'switchbot-lock'],
-};
+/** 一覧は「詳しい版」ではなくカタログ。詳細ページ（work / home）だけ読み物の並びにする */
+const isDetail = view !== 'index';
 
-const visibleDefinitions = view === 'index'
-	? collectionDefinitions
-	: collectionDefinitions.filter((collection) => collection.group === view);
+/** おすすめ（featured）を各グループの先頭に寄せる。それ以外は書いた順のまま */
+function orderTools(items: Tool[]): Tool[] {
+	return [...items].sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
+}
+
+const countOf = (group: string) => tools.filter((tool) => tool.group === group).length;
+const workCount = countOf('work');
+const homeCount = countOf('home');
+const totalCount = tools.length;
+
+const visibleDefinitions = isDetail
+	? collectionDefinitions.filter((collection) => collection.group === view)
+	: collectionDefinitions;
 
 const toolCollections = visibleDefinitions.map((collection) => {
-	const allItems = tools.filter((tool) => tool.group === collection.group);
-	return {
-		...collection,
-		label: view === 'index' ? collection.label : `${allItems.length}品を掲載`,
-		items: view === 'index'
-			? allItems.filter((tool) => selectedIds[collection.group as keyof typeof selectedIds].includes(tool.id))
-			: allItems,
-		count: allItems.length,
-	};
+	const items = orderTools(tools.filter((tool) => tool.group === collection.group));
+	return { ...collection, items, count: items.length };
 });
 
 const pageCopy = {
 	index: {
-		title: '玉城祐輔の道具箱｜仕事用2品と家庭用3品を厳選',
-		description: '玉城祐輔が実際に使っている道具から、仕事用2品と家庭用3品を厳選。ほかの道具は分野ごとの一覧で紹介します。',
+		title: `玉城祐輔の道具箱｜仕事と家で実際に使っている${totalCount}品`,
+		description: `玉城祐輔が仕事と家で実際に使い続けている道具${totalCount}品を一覧にしました。使う場面、良かった点、買う前の注意点まで添えています。`,
 		eyebrow: '玉城祐輔の道具箱',
-		lead: '仕事用2品と家庭用3品を厳選しました。ほかの道具は、分野ごとのページで見られます。',
+		lead: `仕事で${workCount}品、家で${homeCount}品。いま実際に使い続けているものだけを並べました。気になる道具は「使い方と注意点」を開くと、買う前に確認したいことまで読めます。`,
 	},
 	work: {
 		title: '仕事で使っている道具｜玉城祐輔の道具箱',
@@ -410,23 +415,17 @@ const pageCopy = {
 			description={pageCopy.description}
 		/>
 	</head>
-	<body class:list={['journal-page', 'toolbox-page', `toolbox-${view}`]}>
+	<body class:list={['journal-page', 'toolbox-page', `toolbox-${view}`, { 'toolbox-detail': isDetail }]}>
 		<Header showName />
 		<main id="main-content">
 			<section class="toolbox-hero shell">
 				<div class="hero-copy">
-					{view !== 'index' && <a class="back-link" href="/toolbox/">道具箱の入口へ戻る</a>}
+					{isDetail && <a class="back-link" href="/toolbox/">道具箱の入口へ戻る</a>}
 					<p class="eyebrow">{pageCopy.eyebrow}</p>
-					{view === 'index' && <h1>まずは、<strong>この5品から。</strong></h1>}
-					{view === 'work' && <h1>仕事で使う、<strong>2つの道具。</strong></h1>}
-					{view === 'home' && <h1>家事を減らす、<strong>12の道具。</strong></h1>}
+					{view === 'index' && <h1>使ってよかった<strong>道具を、ぜんぶ。</strong></h1>}
+					{view === 'work' && <h1>仕事で使う、<strong>{workCount}つの道具。</strong></h1>}
+					{view === 'home' && <h1>家事を減らす、<strong>{homeCount}の道具。</strong></h1>}
 					<p class="hero-lead">{pageCopy.lead}</p>
-					<div class="button-row">
-						{view === 'index' && <a class="button primary" href="#work-tools">仕事用2品を見る</a>}
-						{view === 'index' && <a class="button" href="#home-tools">家庭用3品を見る</a>}
-						{view === 'work' && <a class="button primary" href="#work-tools">2品を見る</a>}
-						{view === 'home' && <a class="button primary" href="#home-tools">12品を見る</a>}
-					</div>
 				</div>
 			</section>
 
@@ -438,43 +437,52 @@ const pageCopy = {
 				{toolCollections.map((collection) => (
 					<section id={collection.id} class="tool-collection" aria-labelledby={`${collection.id}-title`}>
 						<header class="collection-heading">
-							<p>{collection.label}</p>
-							<h2 id={`${collection.id}-title`}>{collection.title}</h2>
-							<span>{collection.intro}</span>
+							<div>
+								<h2 id={`${collection.id}-title`}>{collection.title}</h2>
+								<p>{collection.intro}</p>
+							</div>
+							<span class="collection-count">{collection.count}品</span>
 						</header>
 						<div class="tool-grid">
 							{collection.items.map((tool) => (
-								<article id={tool.id} class:list={['tool-card', tool.tone, { featured: view === 'index' ? tool.id === 'hotcook' : tool.featured, wide: view !== 'index' && tool.id === 'toy-cleaner' }]}>
+								<article id={tool.id} class:list={['tool-card', tool.tone, { featured: tool.featured }]}>
 									<a class="tool-image" href={tool.url} target="_blank" rel="sponsored noopener noreferrer" aria-label={`${tool.title}の商品ページを開く`}>
 										<img src={tool.image} alt={tool.imageAlt} loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+										{tool.featured && <span class="tool-badge">おすすめ</span>}
 									</a>
 									<div class="tool-copy">
-										<div class="tool-meta"><span>{tool.category}</span><span>{tool.channel}</span></div>
+										<p class="tool-category">{tool.category}</p>
 										<h3>{tool.title}</h3>
 										<p class="tool-statement">{tool.statement}</p>
-										<p class="tool-lead">{tool.lead}</p>
-										{'articleHref' in tool && (
-											<a class="article-link" href={tool.articleHref} aria-label={`${tool.title}の紹介記事を読む`}>
-												紹介記事を読む<span aria-hidden="true">→</span>
-											</a>
-										)}
-										<a class="product-link" href={tool.url} target="_blank" rel="sponsored noopener noreferrer">{tool.button}<span aria-hidden="true">↗</span></a>
-										{'rakutenUrl' in tool && <a class="product-link" href={tool.rakutenUrl} target="_blank" rel="sponsored noopener noreferrer">{tool.rakutenButton ?? '楽天市場で商品を見る'}<span aria-hidden="true">↗</span></a>}
-										{'officialUrl' in tool && <a class="official-link" href={tool.officialUrl} target="_blank" rel="noopener noreferrer">{tool.officialLabel}<span aria-hidden="true">↗</span></a>}
-										<p class="affiliate-note">{tool.note}</p>
-									<details class="tool-notes" open={view !== 'index'}>
+										{isDetail && <p class="tool-lead">{tool.lead}</p>}
+										<div class="tool-links">
+											{tool.articleHref && (
+												<a class="article-link" href={tool.articleHref} aria-label={`${tool.title}の紹介記事を読む`}>
+													紹介記事を読む<span aria-hidden="true">→</span>
+												</a>
+											)}
+											<a class="product-link" href={tool.url} target="_blank" rel="sponsored noopener noreferrer">{isDetail ? tool.button : tool.shortButton ?? tool.button}<span aria-hidden="true">↗</span></a>
+											{tool.rakutenUrl && <a class="product-link" href={tool.rakutenUrl} target="_blank" rel="sponsored noopener noreferrer">{tool.rakutenButton ?? '楽天市場で商品を見る'}<span aria-hidden="true">↗</span></a>}
+											<p class="affiliate-note">広告・アフィリエイトリンクです。</p>
+										</div>
+										<details class="tool-notes" open={isDetail}>
 											<summary>使い方と注意点</summary>
-											<dl>
-												{tool.details.map(([label, value]) => (
-													<div><dt>{label}</dt><dd>{value}</dd></div>
-												))}
-											</dl>
+											<div class="tool-notes-body">
+												{!isDetail && <p class="tool-lead">{tool.lead}</p>}
+												<dl>
+													{tool.details.map(([label, value]) => (
+														<div><dt>{label}</dt><dd>{value}</dd></div>
+													))}
+												</dl>
+												{tool.officialUrl && <a class="official-link" href={tool.officialUrl} target="_blank" rel="noopener noreferrer">{tool.officialLabel}<span aria-hidden="true">↗</span></a>}
+												<p class="tool-caution">{tool.note}</p>
+											</div>
 										</details>
 									</div>
 								</article>
 							))}
 						</div>
-						{view === 'index' && (
+						{!isDetail && (
 							<a class="collection-action" href={collection.href}>
 								<span>{collection.linkLabel}</span>
 								<strong>{collection.count}品</strong>
