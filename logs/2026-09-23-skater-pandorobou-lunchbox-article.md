@@ -135,3 +135,88 @@ Codex CLIではなくElevenLabsを使うのはユーザー指示による。
 - 共有欄はLINE・Facebook・Instagram・リンクコピーの4つ。記事上下の2か所
 - 1440px: 横スクロールなし。共有アイコン列と本文左端の座標差0px
 - 375px: 横スクロールなし。共有ボタン46x46px。表2つとも347pxに収まる
+
+---
+
+## 追記: 挿絵4枚をGPT Image 2.5で作り直した（同日）
+
+ユーザー指示で、gemini-3-pro-image版を `gpt-image-2.5-sunburst` 版へ全面差し替えた。
+正本シート3枚は同じものを参照している（アップロード済みのアセットを再利用）。
+
+### 結果
+
+| ファイル | 生成回数 |
+|---|---|
+| hero-tamashiro-yusuke-morning-bento.webp | 1回 |
+| tamashiro-yusuke-size-compare.webp | 1回 |
+| tamashiro-yusuke-lid-check.webp | 1回 |
+| tamashiro-yusuke-wash-gasket.webp | 1回 |
+
+**4枚とも1回で正本に一致した。** Gemini版で繰り返した半ズボン・2コマ分割・髪が黒くなる、
+の3つはいずれも発生しなかった。解像度は1280x720（Gemini版は1376x768）。
+
+### 記事の説明が絵で読み取れるようになった
+
+- 容量くらべ: 2つの箱の大小差がはっきり付いた。Gemini版は差がほぼ見えなかった
+- パッキン洗い: フタから外したゴムの輪が別パーツとして明確に見え、
+  本体・中子・仕切りが水切りかごに別々に並んでいる
+- 留め具: 片側だけ跳ね上がり反対側は閉じたまま。人物が中央に来て余白の偏りがない
+
+### 費用の比較
+
+| | 1枚あたり | 生成回数 | 概算 |
+|---|---|---|---|
+| gemini-3-pro-image | 約3,045クレジット（約0.67ドル） | 10回 | 約6.7ドル |
+| gpt-image-2.5-sunburst | 約918クレジット（約0.20ドル） | 4回 | 約0.81ドル |
+
+**この用途（正本キャラクター＋説明的な小物）では GPT Image 2.5 を既定にする。**
+`flare` と `sunburst` は同額。`sunburst` のほうが処理時間が長い（32秒 / 22秒）ので
+`sunburst` を選んだ。費用は `estimate_only: true` で事前に確認できる。
+
+### プロンプトの書き方（GPT Image 2.5）
+
+モデルガイドの推奨構造 `[背景/場面] > [被写体] > [要点] > [制約]` に沿って、
+SUBJECT / OUTFIT / SCENE / DETAILS / STYLE / CONSTRAINTS の見出しで書いた。
+Gemini版で学んだ次の3点は、最初から入れておく。
+
+1. `One single continuous scene, one room, exactly one person` と
+   `They are multi-pose model sheets — take the character from them, never their grid layout`
+2. `trousers whose hems reach his ankles` `not shorts, no bare legs`
+3. `medium dark brown, not black` `a few soft lighter-brown highlight patches`
+
+---
+
+## 作業環境についての注意（この記事の作業で2回事故りかけた）
+
+このリポジトリは**単一の作業ツリーを複数セッションで共有している**。
+今日だけで「メールだより」「お願い箱」「この記事」の3つが並行して動き、
+**コミットの直前にブランチとHEADが予告なく変わった**。
+
+- 1回目: 記事用に切ったブランチに別セッションが別件をコミットし、さらにmainへ切り替えた。
+  結果、記事の3コミットがmainへ直に乗った。
+- 2回目: 画像差し替えのコミットが、別セッションが切った
+  `feature/toolbox-request-box` の上に乗った。
+
+### 対策
+
+- **コミットの直前に必ず `git branch --show-current` を見る。**
+  `git status` を見た時点のブランチが、コミット時点で同じとは限らない。
+- **他セッションのHEADを動かさない。** `git checkout` でブランチを移すと、
+  相手の作業ツリーごと動いてしまう。
+- **HEADを動かさずにmainへ載せるには、コミットを直接pushする。**
+
+  ```bash
+  git push origin <commit>:main   # 親が origin/main なら早送りで載る
+  git branch -f main <commit>     # ローカルmainを追従させる（未チェックアウトなら安全）
+  ```
+
+- **mainの作業ファイルを触るときは worktree を分ける。**
+  この追記自体も、共有ツリーに触らないよう別ディレクトリのworktreeで行った。
+
+  ```bash
+  git worktree add /path/to/main-wt main
+  # 編集・コミット・push
+  git worktree remove /path/to/main-wt
+  ```
+
+- 根本的には、**作業ごとに `git worktree` でディレクトリを分けて始める**のが安全。
