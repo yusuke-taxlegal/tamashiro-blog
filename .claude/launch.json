@@ -4,8 +4,26 @@
     {
       "name": "ysk-life-preview",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["astro", "preview", "--port", "4331"],
+      "runtimeArgs": [
+        "astro",
+        "preview",
+        "--port",
+        "4331"
+      ],
       "port": 4331
+    },
+    {
+      "name": "ysk-life-pages",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "wrangler",
+        "pages",
+        "dev",
+        "./dist",
+        "--port",
+        "4332"
+      ],
+      "port": 4332
     }
   ]
 }

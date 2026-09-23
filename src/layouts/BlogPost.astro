@@ -8,6 +8,7 @@ import BlogGenreNav from '../components/BlogGenreNav.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import WebApps from '../components/WebApps.astro';
 import { COMPANY_URL, TOOLBOX_URL } from '../consts';
@@ -121,6 +122,8 @@ const genreCounts = countPostsByGenre(allPosts);
 				<div class="article-share article-share-bottom">
 					<ShareButtons title={title} label="この記事を共有" />
 				</div>
+
+				<NewsletterSignup />
 
 				{recommendedPosts.length > 0 && (
 					<section class="article-related shell" aria-labelledby="related-heading">

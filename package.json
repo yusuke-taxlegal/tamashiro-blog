@@ -15,6 +15,7 @@
     "test:engagement": "esbuild tests/engagement.test.ts --bundle --platform=node --format=esm --target=node22 --outfile=.wrangler/engagement-test.mjs && node --test .wrangler/engagement-test.mjs",
     "check": "astro check",
     "check:affiliate": "node scripts/check-affiliate-links.mjs",
+    "newsletter": "esbuild scripts/send-newsletter.ts --bundle --platform=node --format=esm --target=node22 --outfile=.wrangler/send-newsletter.mjs && node .wrangler/send-newsletter.mjs",
     "check:api": "tsc -p tsconfig.functions.json && tsc -p workers/engagement-sync/tsconfig.json",
     "test:engagement:sync": "esbuild tests/sync.integration.test.ts --bundle --platform=node --format=esm --target=node22 --outfile=.wrangler/engagement-sync-test.mjs && node --test .wrangler/engagement-sync-test.mjs"
   },

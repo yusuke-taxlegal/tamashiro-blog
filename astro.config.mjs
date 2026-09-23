@@ -11,7 +11,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://ysk.life',
   compressHTML: true,
-  integrations: [mdx(), sitemap({ filter: (page) => !new URL(page).pathname.startsWith("/admin/") }), icon()],
+  integrations: [mdx(), sitemap({ filter: (page) => { const path = new URL(page).pathname; return !path.startsWith("/admin/") && !path.startsWith("/newsletter/confirmed") && !path.startsWith("/newsletter/unsubscribed") && !path.startsWith("/newsletter/link-expired"); } }), icon()],
 
   fonts: [
       {

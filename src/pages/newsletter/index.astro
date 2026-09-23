@@ -1,0 +1,66 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import NewsletterSignup from '../../components/NewsletterSignup.astro';
+import { NEWSLETTER } from '../../../lib/newsletter/config';
+import { CONTACT_EMAIL } from '../../consts';
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead
+			title={`${NEWSLETTER.title}｜玉城祐輔`}
+			description={`${NEWSLETTER.promise}、沖縄の現場で試して残った道具と仕組みをメールでお送りします。`}
+		/>
+	</head>
+	<body>
+		<Header />
+		<main id="main-content">
+			<header class="page-intro narrow">
+				<p class="eyebrow">メールで受け取る</p>
+				<h1>{NEWSLETTER.title}</h1>
+				<p>検索で見つけた1本きりで終わらせず、次に使えそうなものだけ手元に届く形にしました。{NEWSLETTER.promise}お送りします。</p>
+			</header>
+
+			<div class="narrow">
+				<NewsletterSignup variant="page" heading="メールアドレスを登録する" />
+			</div>
+
+			<section class="narrow newsletter-faq">
+				<h2>届くもの、届かないもの</h2>
+				<p><strong>届くもの。</strong>新しく公開した記事のお知らせと、その記事を書いた理由の短い補足です。実際に自分で使って残ったものだけを扱います。</p>
+				<p><strong>届かないもの。</strong>セールの通知だけを並べたメール、読んでいない商品の紹介、他社への名簿の提供はしません。いただいたメールアドレスは、このメールの配信と、その問い合わせへの回答にだけ使います。</p>
+				<p><strong>頻度。</strong>{NEWSLETTER.promise}です。記事が出なかった月は送りません。</p>
+
+				<h2>登録の流れ</h2>
+				<p>アドレスを入力すると、確認メールが届きます。その中のリンクを押して初めて登録完了です（本人以外が勝手に登録できないようにする「ダブルオプトイン」という方式です）。リンクの有効期間は{NEWSLETTER.confirmHours}時間です。届かないときは、迷惑メールフォルダと入力したアドレスをご確認ください。</p>
+
+				<h2>配信停止</h2>
+				<p>メール下部の「配信停止」のリンクを押すだけで止まります。手続きの理由を聞いたり、引き止めたりはしません。このメールへ返信いただいても止めます。</p>
+
+				<h2>広告について</h2>
+				<p>記事には広告・アフィリエイトリンク（紹介から購入されると紹介料が入る仕組みのリンク）を含みます。詳しくは<a href="/affiliate-disclosure/">広告・紹介について</a>をご覧ください。メール1通ごとに、送信者の氏名・住所と配信停止の方法を記載します。</p>
+
+				<h2>送信者</h2>
+				<p>{NEWSLETTER.sender}（{NEWSLETTER.address}）。お問い合わせは <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> までご連絡ください。</p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.newsletter-faq {
+		margin-top: clamp(2.5rem, 6vw, 4rem);
+	}
+
+	.newsletter-faq h2 {
+		margin: 2.2rem 0 0.6rem;
+		font-size: 1rem;
+	}
+
+	.newsletter-faq h2:first-child { margin-top: 0; }
+	.newsletter-faq p { margin: 0 0 0.9rem; font-size: 0.9rem; }
+</style>

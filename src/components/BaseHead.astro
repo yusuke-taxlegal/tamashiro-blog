@@ -9,10 +9,11 @@ interface Props {
 	image?: ImageMetadata | string;
 	imageAlt?: string;
 	type?: 'website' | 'article';
+	noindex?: boolean;
 }
 
 const defaultImage = '/images/ysk-life-og.png';
-const { title, description, image, imageAlt = title, type = 'website' } = Astro.props;
+const { title, description, image, imageAlt = title, type = 'website', noindex = false } = Astro.props;
 const resolvedImage = image || defaultImage;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const imageURL = new URL(typeof resolvedImage === 'string' ? resolvedImage : resolvedImage.src, Astro.site);
@@ -33,6 +34,7 @@ const imageHeight = typeof resolvedImage === 'string' ? (resolvedImage === defau
 <meta name="generator" content={Astro.generator} />
 
 <link rel="canonical" href={canonicalURL} />
+{noindex && <meta name="robots" content="noindex,follow" />}
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
