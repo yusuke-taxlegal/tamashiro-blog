@@ -43,7 +43,7 @@ AIに渡した情報が漏れることは、あり得ます。ただ、よく心
 
 つまり、**AIを怖がって使わないより、学習をオフにし、ログインを固め、共有の仕方を見直すほうが、実際の安全性は上がる**というのが私の見方です。
 
-![総務・経理担当者がAIで作った資料をチャットのグループへ送信しようとして手を止め、公開リンクと注意マークに気づき、玉城祐輔が「ちょっと待って」と優しく声をかけているイラスト](../../assets/blog/ai-business-data-sharing/tamashiro-yusuke-accounting-staff-send-check.webp)
+![玉城祐輔が、漏洩の起きやすい順に大きさを変えて並べた1〜4番の絵のうち、いちばん大きい「人の送信ミス」を指し、いちばん小さい「AIの学習」の横で悩める社長が驚いているイラスト](../../assets/blog/ai-business-data-sharing/tamashiro-yusuke-worried-business-owner-leak-routes.webp)
 
 ## 必ずやってほしいこと：学習オフと、法人プラン
 
