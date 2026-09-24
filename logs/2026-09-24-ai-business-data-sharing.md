@@ -24,3 +24,7 @@
 ## 公開（2026-09-24）
 - main へ --no-ff マージ（a70fb2f）し push。Cloudflare Pages で本番反映
 - 本番確認: https://ysk.life/blog/ai-business-data-sharing/ が200、og:image（ヒーロー）も200 image/webp
+
+## 追記（2026-09-24 午後）
+- ユーザー意見を反映し「出てきた答えを、そのまま流さない」節を追加（出力の固有名詞混入、カスタム指示／プロジェクト指示での事前設定、人の最終確認、AIリテラシー）
+- 「今日やる3つ」を4つに拡張、冒頭の結論と締め・descriptionにも出力確認を反映
