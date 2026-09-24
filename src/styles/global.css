@@ -418,6 +418,13 @@ a {
 	background: transparent;
 }
 
+/* プロンプト例など日本語の長文をスマホで横スクロールさせない */
+.prose pre.astro-code {
+	white-space: pre-wrap;
+	overflow-wrap: anywhere;
+	line-height: 1.7;
+}
+
 .legal-intro {
 	padding-bottom: clamp(3rem, 6vw, 5rem);
 }
