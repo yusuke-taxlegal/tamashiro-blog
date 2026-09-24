@@ -35,3 +35,7 @@
   - tamashiro-yusuke-worried-business-owner-service-compare.webp（クラウド会計との違いの節）
   - rira-worried-business-owner-output-check.webp（出力確認の節：Rira v3 使用）
 - 証跡コメントに rira-character-sheet-v3.png を追記。本文挿絵は計5枚
+
+## Gemini追記（2026-09-24）
+- 個人向けGemini: 「アクティビティ」→保存をオフ（myactivity.google.com/product/gemini）。オフでも72時間保存、オン中は人のレビューあり、オフにすると履歴も残らない点を明記（Geminiアプリのプライバシーハブで確認）
+- 法人: Google WorkspaceのGeminiは既定で学習なし・人のレビューなし（Workspace生成AIプライバシーハブで確認）
