@@ -20,3 +20,7 @@
 ## 検証
 - check_product_article.py: OK / check:affiliate: 本記事OK / npm run build: 成功
 - ビルド成果物プレビュー: 画像3枚 naturalWidth>0、375px 横はみ出しなし、og:image にヒーロー画像
+
+## 公開（2026-09-24）
+- main へ --no-ff マージ（a70fb2f）し push。Cloudflare Pages で本番反映
+- 本番確認: https://ysk.life/blog/ai-business-data-sharing/ が200、og:image（ヒーロー）も200 image/webp
