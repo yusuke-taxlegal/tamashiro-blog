@@ -38,6 +38,10 @@ heroImage: '../../assets/blog/<slug>/hero-xxx.webp'   # 任意。画像が実在
 ```
 
 - `updatedDate` は任意。
+
+### 本文の書き出し
+
+- 記事冒頭に「T&Lサポート株式会社の玉城祐輔です。」などの自己紹介を**入れない**（ysk.lifeは本人のサイトで、名乗りは不要。法人名を出すとブランドの区別も崩れる）。
 - `heroImage` は `z.optional(image())`。**未指定でもビルドは通り、記事も一覧も正常に表示される**（`ArticleCard.astro` / `BlogPost.astro` は `&&` でガード済み）。
 
 ### 本文中の画像
