@@ -34,3 +34,12 @@
 ## 自己紹介の削除（2026-09-25）
 - ユーザー指示で、記事冒頭の「T&Lサポート株式会社の玉城祐輔です。」を削除（本記事＋公開済み3記事: ai-adoption-cost-and-skills / ai-business-data-sharing / organizational-ai-repeatable-work）
 - 再発防止として CLAUDE.md と tamashiro-product-article の article-template.md 推敲チェックに禁止ルールを追記
+
+## 公開（2026-09-25）
+- 3コミット（記事／コードブロックCSS／自己紹介削除）を main へ --no-ff マージ（8b9c8e9）し push。Cloudflare Pages で本番反映
+- 本番確認: https://ysk.life/blog/ai-flyer-remove-ai-look/ が200、og:image（ヒーロー）200 image/webp、公開済み3記事から自己紹介が消えたことを確認
+
+## 表現の調整（2026-09-25）
+- ユーザー指示: 玉城自身も業務効率化でAIデザインのチラシ・スライドを作るため、AIデザインを批判的に見る表現を避ける
+- 冒頭の「手抜きに見える」「気持ち悪さ」を削除し、「私自身もAIでよく作っている」前提の中立的な書き方に変更
+- 「見抜かれる」→「感じられる」、原因4の「誰も確認していない」「不信感」、信頼業種の段落の「損をする」を前向きな表現へ
