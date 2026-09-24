@@ -7,7 +7,7 @@ accent: 'coral'
 heroImage: '../../assets/blog/ai-business-data-sharing/hero-tamashiro-yusuke-worried-business-owner.webp'
 ---
 
-<!-- product-article-character-sheets: tamashiro-yusuke-character-sheet-v5.png, tl-four-character-style-master-v2.png, worried-business-owner-character-sheet-v1.png, accounting-staff-character-sheet-v1.png -->
+<!-- product-article-character-sheets: tamashiro-yusuke-character-sheet-v5.png, tl-four-character-style-master-v2.png, worried-business-owner-character-sheet-v1.png, accounting-staff-character-sheet-v1.png, rira-character-sheet-v3.png -->
 <!-- product-article-character-check: hero-and-body-verified -->
 
 「AIにお客さんの名前や書類を渡しても、大丈夫なんですか？」
@@ -37,6 +37,8 @@ AIに渡した情報が漏れることは、あり得ます。ただ、よく心
 
 つまり、**AIを怖がって使わないより、学習をオフにし、ログインを固め、共有の仕方を見直すほうが、実際の安全性は上がる**というのが私の見方です。
 
+![総務・経理担当者がAIで作った資料をチャットのグループへ送信しようとして手を止め、公開リンクと注意マークに気づき、玉城祐輔が「ちょっと待って」と優しく声をかけているイラスト](../../assets/blog/ai-business-data-sharing/tamashiro-yusuke-accounting-staff-send-check.webp)
+
 ## ネットショップやクラウド会計と、何が違うのか
 
 「ネットショップにも住所やカード番号を入れているし、クラウド会計には帳簿を丸ごと預けている。AIと何が違うの？」という質問もよく受けます。とても良い視点です。
@@ -50,6 +52,8 @@ AIに渡した情報が漏れることは、あり得ます。ただ、よく心
 これがいちばん大きな違いです。ネットショップは注文情報を配送に使うだけで、それが別のお客さんへの回答に出てくることはありません。AIは、設定によっては入力内容が学習に使われ、製品そのものの材料になります。
 
 これはセキュリティの強さとは別の話です。どれだけ対策がしっかりした会社でも、学習に使うこと自体は規約どおりの正規の利用だからです。だからこそ、**ここだけは会社を信頼するかではなく、自分で設定と契約を確認する**必要があります。
+
+![玉城祐輔が、ネットショップ・クラウド会計・AIの3つを並べ、AIだけが学習へつながる矢印をスイッチでオフにできることを説明し、悩める社長が考え込んでいるイラスト](../../assets/blog/ai-business-data-sharing/tamashiro-yusuke-worried-business-owner-service-compare.webp)
 
 ### 2. 渡す量と中身を、使う人が自由に決めてしまう
 
@@ -69,16 +73,21 @@ AIに渡した情報が漏れることは、あり得ます。ただ、よく心
 
 ### 個人向けプランなら、学習への利用をオフにする
 
-ChatGPTやClaudeの個人向けプラン（無料版や、月額の個人プラン）は、入力内容を学習に使うかどうかを利用者が選べます。業務で使うなら、必ずオフにしておきます。
+ChatGPT、Claude、Geminiの個人向けプラン（無料版や、月額の個人プラン）は、入力内容を学習に使うかどうかを利用者が選べます。業務で使うなら、必ずオフにしておきます。
 
 - **ChatGPT**：設定の「データコントロール」にある「すべての人のためにモデルを改善する」をオフにする。[OpenAIのデータ管理の説明](https://help.openai.com/en/articles/7730893-data-controls-faq)
 - **Claude**：設定の「プライバシー」にある、Claudeの改善にデータを使うかどうかの項目をオフにする。
+- **Gemini**：Geminiアプリのメニューから「アクティビティ」を開き、アクティビティの保存をオフにする。パソコンなら [Geminiのアクティビティのページ](https://myactivity.google.com/product/gemini) からも設定できます。
 
 画面の表記は変わることがあるので、見つからないときは各社のヘルプで「学習」「データ」などと検索してください。**社長だけでなく、AIを使っている社員全員のアカウントで確認する**のがポイントです。
 
+Geminiだけは少し仕組みが違います。ChatGPTやClaudeは「会話の履歴は残したまま、学習だけ止める」ことができますが、個人向けのGeminiは、アクティビティの保存をオフにすると、学習に使われなくなる代わりに、過去の会話を後から見返すこともできなくなります（オフにしても、応答や安全確保のために会話は72時間保存されます）。また、保存をオンにしている間は、人のレビュアーが会話の一部を確認することがあると案内されています。[Geminiアプリのプライバシーハブ](https://support.google.com/gemini/answer/13594961?hl=ja)
+
+履歴を残しながら安心して使いたい場合は、次に紹介するGoogle WorkspaceのGeminiを選ぶのが現実的です。
+
 ### できれば法人向けプランを契約する
 
-ChatGPTのBusiness・Enterprise、ClaudeのTeam・Enterpriseといった法人向けプランは、**既定で入力内容を学習に使いません**。個人の設定漏れに頼らずに済むのが、いちばんの利点です。
+ChatGPTのBusiness・Enterprise、ClaudeのTeam・Enterprise、そして会社のGoogle Workspaceで使うGeminiといった法人向けプランは、**既定で入力内容を学習に使いません**。Google Workspaceの場合は、会話の内容を人のレビュアーが確認することもないと説明されています。個人の設定漏れに頼らずに済むのが、いちばんの利点です。[Google Workspaceの生成AIプライバシーハブ](https://support.google.com/a/answer/15706919?hl=ja)
 
 加えて、管理者が社員のアカウントをまとめて管理でき、退職者のアカウントを止めることもできます。個人のアカウントを仕事に使っていると、社員が辞めたあとも、その人のアカウントに会社の会話が残り続けます。
 
@@ -144,6 +153,8 @@ AIは、同じ会話の中で渡した情報や、添付した資料の中身を
 - 「会話の中で出てきた固有名詞を答えに含める場合は、最後に一覧で示してください」
 
 2つ目のように、固有名詞を一覧で出させておくと、確認する人が見落としにくくなります。とはいえ、設定はあくまで補助です。**最後に人が目で見て、「この資料に、この名前が載っていて良いか」を確かめる**。この一手間は省かないでください。
+
+![AI秘書のRiraが、名前をAやBに置き換えた資料の下書きを差し出し、悩める社長が虫眼鏡で確認しているイラスト](../../assets/blog/ai-business-data-sharing/rira-worried-business-owner-output-check.webp)
 
 ### 過度に怖がらず、AIリテラシーを育てる
 

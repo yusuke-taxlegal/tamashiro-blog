@@ -28,3 +28,14 @@
 ## 追記（2026-09-24 午後）
 - ユーザー意見を反映し「出てきた答えを、そのまま流さない」節を追加（出力の固有名詞混入、カスタム指示／プロジェクト指示での事前設定、人の最終確認、AIリテラシー）
 - 「今日やる3つ」を4つに拡張、冒頭の結論と締め・descriptionにも出力確認を反映
+
+## 挿絵追加（2026-09-24）
+- 追加3枚（Codex CLI生成・正本と目視照合済み）
+  - tamashiro-yusuke-accounting-staff-send-check.webp（漏洩経路の節：送信前に手を止める場面）
+  - tamashiro-yusuke-worried-business-owner-service-compare.webp（クラウド会計との違いの節）
+  - rira-worried-business-owner-output-check.webp（出力確認の節：Rira v3 使用）
+- 証跡コメントに rira-character-sheet-v3.png を追記。本文挿絵は計5枚
+
+## Gemini追記（2026-09-24）
+- 個人向けGemini: 「アクティビティ」→保存をオフ（myactivity.google.com/product/gemini）。オフでも72時間保存、オン中は人のレビューあり、オフにすると履歴も残らない点を明記（Geminiアプリのプライバシーハブで確認）
+- 法人: Google WorkspaceのGeminiは既定で学習なし・人のレビューなし（Workspace生成AIプライバシーハブで確認）
