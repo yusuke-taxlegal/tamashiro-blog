@@ -5,7 +5,7 @@
  *
  * 見ているのは次の3つ。
  *  1. 楽天・Amazonのリンクが「紹介料の出る形」になっているか
- *     （楽天は hb.afl.rakuten.co.jp か a.r10.to、Amazonは amzn.to か tag= 付きURL）
+ *     （楽天は hb.afl.rakuten.co.jp か a.r10.to、Amazonは amzn.to / link.amazon か tag= 付きURL）
  *  2. そのリンクの <a> タグに rel="sponsored" が付いているか
  *  3. 楽天の商品画像を楽天のサーバーから直接読み込んでいないか
  *     （楽天は画像をダウンロードして自サイトに置く運用にしている）
@@ -44,7 +44,7 @@ function targetFiles() {
 }
 
 /** 販売店に関係するURLかどうか（アフィリエイト形式でないものも拾う） */
-const STORE_HOST_PATTERN = /(^|\.)(amazon\.co\.jp|amzn\.to|amzn\.asia|rakuten\.co\.jp|r10\.to)$/;
+const STORE_HOST_PATTERN = /(^|\.)(amazon\.co\.jp|amzn\.to|amzn\.asia|link\.amazon|rakuten\.co\.jp|r10\.to)$/;
 
 /** 買い物ページではないホスト（規約ページ・管理画面など）。出典として貼ってよい */
 const NON_SHOPPING_HOSTS = /^(affiliate|associates|developers|webservice)\./;

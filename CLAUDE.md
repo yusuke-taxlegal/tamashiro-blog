@@ -62,7 +62,7 @@ heroImage: '../../assets/blog/<slug>/hero-xxx.webp'   # 任意。画像が実在
 - 設定の正本は `src/lib/affiliate.ts`。広告表記の文章、許可するリンクのホスト、画像の扱いをここに集約している。**表示文言を各ページに直接書かない。**
 - 楽天アフィリエイトの手順・リンク形式・記事への貼り方は `docs/rakuten-affiliate.md` を参照する。
 - 使ってよいリンクの形は次のとおり。素の商品ページURLを貼ると紹介料が出ない。
-  - Amazon: `https://amzn.to/...` または `tag=tamashirotool-22` 付きの商品URL
+  - Amazon: `https://amzn.to/...`、`https://link.amazon/...`（2026年9月以降SiteStripeが発行する新形式）、または `tag=tamashirotool-22` 付きの商品URL
   - 楽天: `https://hb.afl.rakuten.co.jp/...` または `https://a.r10.to/...`
 - 購入リンクの `<a>` には必ず `target="_blank" rel="sponsored noopener noreferrer"` を付け、すぐ下に「広告・アフィリエイトリンクです」と明記する。
 - 貼り間違いは `npm run check:affiliate` で検出できる。記事を書いたら実行する。

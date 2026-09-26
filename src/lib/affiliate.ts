@@ -38,6 +38,13 @@ export interface StoreConfig {
 export const AMAZON_ASSOCIATE_TAG = 'tamashirotool-22';
 
 /**
+ * Amazonの短縮リンクのホスト。短縮リンクは `tag=` を含まないが、遷移先で自動的にタグが付く。
+ * - amzn.to     … 従来のSiteStripeが発行する形
+ * - link.amazon … 2026-09-26に確認した新しい形（amzlinks.in を経由して tag= 付きの商品ページへ到達する）
+ */
+export const AMAZON_SHORT_LINK_HOSTS = ['amzn.to', 'link.amazon'];
+
+/**
  * 楽天にはAmazonの `tag=` のような「固定のアフィリエイトID」が無い。
  * 管理画面が発行するリンクは `hb.afl.rakuten.co.jp/ichiba/<毎回変わる文字列>/` の形で、
  * 商品ごとにIDが変わる（2026-09-22に実機で2本発行して確認済み）。
@@ -50,7 +57,7 @@ export const stores: Record<StoreId, StoreConfig> = {
 		shortName: 'Amazon',
 		buttonLabel: 'Amazon.co.jpで商品を見る',
 		note: '広告・アフィリエイトリンクです。価格、在庫、カラー、付属品はAmazonの商品ページでご確認ください。',
-		linkHosts: ['amzn.to', 'amazon.co.jp', 'www.amazon.co.jp'],
+		linkHosts: ['amzn.to', 'link.amazon', 'amazon.co.jp', 'www.amazon.co.jp'],
 		imagePolicy: 'remote-only',
 		disclosureSentence: 'Amazonのアソシエイトとして、玉城祐輔は適格販売により収入を得ています。',
 		enabled: true,
@@ -100,7 +107,7 @@ export function affiliateStoreOf(href: string): StoreId | null {
 
 /**
  * 紹介料が発生する形のリンクになっているかを確認する。
- * - Amazon: 短縮URL（amzn.to）か、`tag=` にアソシエイトタグが入っている商品URL
+ * - Amazon: 短縮URL（amzn.to / link.amazon）か、`tag=` にアソシエイトタグが入っている商品URL
  * - 楽天  : 管理画面が発行する hb.afl.rakuten.co.jp か短縮URL（a.r10.to）
  */
 export function isTrackedAffiliateLink(href: string): boolean {
@@ -108,7 +115,7 @@ export function isTrackedAffiliateLink(href: string): boolean {
 	if (!store) return false;
 	if (store === 'amazon') {
 		const url = new URL(href);
-		if (url.hostname.toLowerCase() === 'amzn.to') return true;
+		if (AMAZON_SHORT_LINK_HOSTS.includes(url.hostname.toLowerCase())) return true;
 		return url.searchParams.get('tag') === AMAZON_ASSOCIATE_TAG;
 	}
 	return true;
