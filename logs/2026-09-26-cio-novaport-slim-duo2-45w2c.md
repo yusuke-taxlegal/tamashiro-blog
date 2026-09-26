@@ -91,3 +91,11 @@ CIO公式 製品延長保証サービス（2023-07-12発表）: 標準1年、会
 - Amazonリンクを、アソシエイトツールバー「リンク生成」の短縮URL（amzn.to）へ差し替えるか（現状はASIN＋tag付きURLで紹介料は出る形）
 - トップページ「使ってよかった道具」へ追加するか（別コミットで行う）
 - 実際に使った感想（会場での使い勝手、発熱の体感など）を本人の言葉で追記するか
+
+## マージ・公開（2026-09-26 追記）
+
+- ユーザーの依頼で `main` へマージし公開した。
+- 先に `origin/main`（dc90892、ケーブル記事・日本通信SIMリライトなどのマージ後）を作業ブランチへ取り込んだ。衝突は `lib/engagement/articles.json` のみで、`scripts/generate-article-manifest.mjs` を再実行して解消（22記事）。
+- 取り込み後に `npm run build`（32ページ）、機械検査、アフィリエイト検査を再実行して問題なし。
+- `main` へ `--no-ff` でマージ（16cdbbc）し、`origin/main` へ push。
+- Cloudflare Pages の自動デプロイ後、約40秒で本番 https://ysk.life/blog/cio-novaport-slim-duo2-45w2c/ が HTTP 200。canonical、`og:type=article`、`og:image`（HTTP 200 / image/webp / 92,072 bytes）、tag 付き Amazon リンク4本を本番HTMLで確認。
