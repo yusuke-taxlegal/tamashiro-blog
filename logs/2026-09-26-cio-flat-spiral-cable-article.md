@@ -78,10 +78,20 @@ Scene/Expression/Background/Aspect ratio を記入。スケーター記事の学
 - console error は `/api/popular` と `/api/engagement` の404のみ（静的プレビューでPages Functionsが動かないため。記事の不具合ではない）
 - H1はデスクトップで5行。既存のスケーター記事も同じ5行で、この記事レイアウトの仕様どおり
 
-## 公開・Git
+## 公開・Git（同日、ユーザーの「mainにマージしてデプロイまで」の指示で実施）
 
-- ブランチ `article/cio-flat-spiral-cable` にコミットのみ。push・mainへのマージ・デプロイは未実施。
-- worktree `../tamashiro-blog-cio-cable` は残してある（`git worktree remove` は統合後に）。
+- worktree側で `main` を取り出し、`git merge --no-ff article/cio-flat-spiral-cable` → マージコミット `0f2c134`。
+  競合なし。マージ後に `npm run build`、`check:affiliate`、機械検査を再実行して通過。
+- push直前に再fetchし `origin/main` が `874527a` のまま（HiDock記事公開後）であることを確認してから一度だけpush。
+  push後の読み戻し: local main / origin/main / GitHub live main いずれも `0f2c134`。
+- Cloudflare Pages（GitHub連携、production branch `main`）の自動デプロイが起動。
+  Production deployment `c88af648-3ab1-4851-a8f0-41a2d62d3081`（source `0f2c134`）。
+  固定URL `https://c88af648.tamashiro-blog.pages.dev/` と `https://ysk.life/` の記事HTMLが同一ハッシュ（1f1b36bd…）、
+  両方HTTP 200、canonical `https://ysk.life/blog/cio-flat-spiral-cable/`、`og:image` は HTTP 200 image/webp 106104 bytes。
+  トップページと記事一覧にも新記事が載っている。
+- wranglerからの直接デプロイはしていない（自動デプロイと二重にしない）。
+- 共有フォルダ `~/Cursor/tamashiro-blog` は別セッションが `article/cio-novaport-slim-duo2-45w` で作業中のため、
+  HEADもファイルも触っていない。
 
 ## 残っている判断事項
 
