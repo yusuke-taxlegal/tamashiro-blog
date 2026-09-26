@@ -60,4 +60,4 @@
 
 ## 5. Git
 
-- `article/nihontsushin-sim-rewrite` に1コミット（記事・画像5枚・旧画像4枚の削除・作業ログ）。main へのマージ・push は未実施。
+- `article/nihontsushin-sim-rewrite` に1コミット（記事・画像5枚・旧画像4枚の削除・作業ログ）。ユーザーの「マージして公開して」を受け、一時的な main 用 worktree（`../tamashiro-blog-main-tmp`）で `--no-ff` マージし origin へ push（05eabc6）。本体フォルダは別セッションが CIO ブランチで使用中のため触れていない。作業後に worktree を両方とも削除。
