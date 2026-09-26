@@ -67,4 +67,5 @@
 
 ## 4. Git
 
-- ブランチ `article/hidock-p1-rewrite` にコミット2件（トップページ変更と記事変更を分離）。main へのマージ・push は未実施。
+- ブランチ `article/hidock-p1-rewrite` にコミット2件（トップページ変更と記事変更を分離）。ユーザーの「マージして公開して」を受け、`--no-ff` で main へマージし origin へ push（d6c63ed）。
+- 注意: 同時刻に別セッションが同リポジトリで `article/cio-novaport-slim-duo2-45w` へ checkout していたため、2コミットは一度そのブランチ上に乗った。コミット内容はHiDock関連ファイルのみだったので、`article/hidock-p1-rewrite` を 54c55fb へ付け直してからマージした。CIO側の未コミット変更（launch.json・CIO記事）には触れていない。
