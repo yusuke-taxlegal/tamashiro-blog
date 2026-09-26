@@ -99,3 +99,9 @@ CIO公式 製品延長保証サービス（2023-07-12発表）: 標準1年、会
 - 取り込み後に `npm run build`（32ページ）、機械検査、アフィリエイト検査を再実行して問題なし。
 - `main` へ `--no-ff` でマージ（16cdbbc）し、`origin/main` へ push。
 - Cloudflare Pages の自動デプロイ後、約40秒で本番 https://ysk.life/blog/cio-novaport-slim-duo2-45w2c/ が HTTP 200。canonical、`og:type=article`、`og:image`（HTTP 200 / image/webp / 92,072 bytes）、tag 付き Amazon リンク4本を本番HTMLで確認。
+
+## トップページ「使ってよかった道具」への追加（2026-09-26 追記）
+
+- ブランチ `home/cio-novaport-slim-duo2-tool` で `src/pages/index.astro` の `tools` 配列に追加（HiDock P1 の次、2番目）。画像は Amazon 提供のリモートURL（`m.media-amazon.com/images/I/61AaI2Z+mkL._AC_SL1500_.jpg`）を直接参照し、再アップロードしない。
+- ビルド成果物を 1440px / 390px で確認。7件目として画像（678x945）が読み込まれ、横はみ出しなし。3列グリッドのため 3+3+1 の並びになる。
+- `main` へ `--no-ff` でマージ（cf116c6）し push。本番トップページに7件目として反映済み。
