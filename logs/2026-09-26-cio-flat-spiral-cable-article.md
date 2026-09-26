@@ -98,3 +98,13 @@ Scene/Expression/Background/Aspect ratio を記入。スケーター記事の学
 - Amazonリンクを `amzn.to` 短縮リンクに差し替えるか（現状は `tag=` 付き商品URLで紹介料は出る形）
 - 玉城本人がこのケーブルを使っているなら、使用体験（重さの感じ方、ポーチでの収まり）を追記できる
 - トップページ「使ってよかった道具」へ追加するかは別作業（本コミットには含めていない）
+
+## 追記: Amazonリンクを短縮リンクへ差し替え（同日）
+
+- ユーザーがSiteStripeで発行した `https://link.amazon/B0ghAzKXZ` に差し替えた（記事の購入枠2か所×2リンク、道具箱1か所）。
+- 最終遷移先を確認: `link.amazon` → `amzlinks.in` → `amazon.co.jp/dp/B0G6K4STRT?…&tag=tamashirotool-22&…`（HTTP 200）。
+  ASINとタグが一致する。
+- `amzn.to` ではなく `link.amazon` が発行される新形式だったため、`src/lib/affiliate.ts` の許可ホストと
+  `isTrackedAffiliateLink`、`scripts/check-affiliate-links.mjs` の店舗ホスト判定、CLAUDE.md の許可リンク形式に
+  `link.amazon` を追加した。既存の `amzn.to` リンクの扱いは変えていない。
+- 最初に届いた `link.amazon/B09LmCTkq` は404だった（発行し直した2本目が有効）。

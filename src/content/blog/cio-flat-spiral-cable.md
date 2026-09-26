@@ -19,14 +19,14 @@ heroImage: '../../assets/blog/cio-flat-spiral-cable/hero-tamashiro-yusuke-cowork
 CIOのフラットスパイラルケーブルは、この「巻く・留める・ほどく」を減らすためのUSB-Cケーブルです。ケーブルの中に磁石が入っていて、**手を離すと自分で平たい渦巻きに戻ります。**
 
 <div class="affiliate-product-card">
-  <a class="affiliate-product-image" href="https://www.amazon.co.jp/dp/B0G6K4STRT?tag=tamashirotool-22" target="_blank" rel="sponsored noopener noreferrer" aria-label="Amazon.co.jpでCIO フラットスパイラルケーブル CtoC 1.5m モスグリーンを見る">
+  <a class="affiliate-product-image" href="https://link.amazon/B0ghAzKXZ" target="_blank" rel="sponsored noopener noreferrer" aria-label="Amazon.co.jpでCIO フラットスパイラルケーブル CtoC 1.5m モスグリーンを見る">
     <img src="https://m.media-amazon.com/images/I/71rGWfVeHyL._AC_SL1500_.jpg" width="1431" height="1225" loading="lazy" referrerpolicy="no-referrer" alt="CIO フラットスパイラルケーブル CtoC モスグリーン。平たいケーブルが渦巻き状にまとまり、両端にUSB-Cコネクタが付いている" />
   </a>
   <div class="affiliate-product-body">
     <p class="affiliate-product-store">Amazon.co.jp</p>
     <h3>CIO フラットスパイラルケーブル CtoC PD240W 480Mbps（モスグリーン 1.5m）</h3>
     <p>両端USB-Cの平型ケーブル。磁石内蔵で渦巻き状にまとまり、最大240Wの充電に対応します。1mと1.5m、6色があります。</p>
-    <a class="affiliate-product-button" href="https://www.amazon.co.jp/dp/B0G6K4STRT?tag=tamashirotool-22" target="_blank" rel="sponsored noopener noreferrer">Amazon.co.jpで商品を見る</a>
+    <a class="affiliate-product-button" href="https://link.amazon/B0ghAzKXZ" target="_blank" rel="sponsored noopener noreferrer">Amazon.co.jpで商品を見る</a>
     <p class="affiliate-product-disclosure">広告・アフィリエイトリンクです。紹介料は玉城祐輔個人に帰属します。価格、在庫、カラー、長さはAmazonの商品ページでご確認ください。</p>
   </div>
 </div>
@@ -170,14 +170,14 @@ USB-C端子のiPhone（iPhone 15以降）なら使えます。Lightning端子の
 ## 商品と公式情報を確認する
 
 <div class="affiliate-product-card">
-  <a class="affiliate-product-image" href="https://www.amazon.co.jp/dp/B0G6K4STRT?tag=tamashirotool-22" target="_blank" rel="sponsored noopener noreferrer" aria-label="Amazon.co.jpでCIO フラットスパイラルケーブル CtoC 1.5m モスグリーンを見る">
+  <a class="affiliate-product-image" href="https://link.amazon/B0ghAzKXZ" target="_blank" rel="sponsored noopener noreferrer" aria-label="Amazon.co.jpでCIO フラットスパイラルケーブル CtoC 1.5m モスグリーンを見る">
     <img src="https://m.media-amazon.com/images/I/71rGWfVeHyL._AC_SL1500_.jpg" width="1431" height="1225" loading="lazy" referrerpolicy="no-referrer" alt="CIO フラットスパイラルケーブル CtoC モスグリーン。平たいケーブルが渦巻き状にまとまり、両端にUSB-Cコネクタが付いている" />
   </a>
   <div class="affiliate-product-body">
     <p class="affiliate-product-store">Amazon.co.jp</p>
     <h3>CIO フラットスパイラルケーブル CtoC PD240W 480Mbps（モスグリーン 1.5m）</h3>
     <p>両端USB-Cの平型ケーブル。磁石内蔵で渦巻き状にまとまり、最大240Wの充電に対応します。1mと1.5m、6色があります。</p>
-    <a class="affiliate-product-button" href="https://www.amazon.co.jp/dp/B0G6K4STRT?tag=tamashirotool-22" target="_blank" rel="sponsored noopener noreferrer">Amazon.co.jpで商品を見る</a>
+    <a class="affiliate-product-button" href="https://link.amazon/B0ghAzKXZ" target="_blank" rel="sponsored noopener noreferrer">Amazon.co.jpで商品を見る</a>
     <p class="affiliate-product-disclosure">広告・アフィリエイトリンクです。紹介料は玉城祐輔個人に帰属します。価格、在庫、カラー、長さはAmazonの商品ページでご確認ください。</p>
   </div>
 </div>
