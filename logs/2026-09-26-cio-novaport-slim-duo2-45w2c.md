@@ -105,3 +105,9 @@ CIO公式 製品延長保証サービス（2023-07-12発表）: 標準1年、会
 - ブランチ `home/cio-novaport-slim-duo2-tool` で `src/pages/index.astro` の `tools` 配列に追加（HiDock P1 の次、2番目）。画像は Amazon 提供のリモートURL（`m.media-amazon.com/images/I/61AaI2Z+mkL._AC_SL1500_.jpg`）を直接参照し、再アップロードしない。
 - ビルド成果物を 1440px / 390px で確認。7件目として画像（678x945）が読み込まれ、横はみ出しなし。3列グリッドのため 3+3+1 の並びになる。
 - `main` へ `--no-ff` でマージ（cf116c6）し push。本番トップページに7件目として反映済み。
+
+## トップページ「使ってよかった道具」を3点に絞る（2026-09-26 追記）
+
+- ユーザーの指示で、一覧を HiDock P1・ホットクック KN-HW24G-R・SwitchBot ロック Pro＋指紋認証パッド の3点にした（ブランチ `home/tools-three`）。
+- 外したもの: CIO NovaPort SLIM DUOII 45W2C、CIO フラットスパイラルケーブル、日本通信SIM、AVAKYO 食洗機。記事本体と道具箱ページは変更していない。
+- `main` へ `--no-ff` でマージ（833c507）し push。本番トップページで3件のみ表示されることを確認。
