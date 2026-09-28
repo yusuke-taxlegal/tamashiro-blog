@@ -10,3 +10,4 @@
 - 検証: check_product_article.py OK（警告0）/ npm run build 成功 / astro preview で1024px・390px表示、本文画像の読込、og:image・canonical、横はみ出しなしを確認。
 - 公開: 2026-09-28 玉城さんの指示で article/shokokai-miryoku-3 ブランチからmainへマージしてpush（Cloudflare Pagesで本番反映）。
 - 補足: build により lib/engagement/articles.json が自動更新される（新記事の追加分）。
+- 2026-09-28 追記: 相談室の挿絵で悩める社長の腕が不自然だったため、両手でメモを持つポーズで再生成し差し替え（同じファイル名・正本v5/悩める社長v1で目視照合済み）。
