@@ -49,12 +49,12 @@ function serviceAccount() {
 
 const metadata = { timeZone: 'Asia/Tokyo' };
 const views = { metadata, rowCount: 2, rows: [
-	{ dimensionValues: [{ value: '20260918' }, { value: '/blog/chatgpt-business-nyumon/' }], metricValues: [{ value: '7' }] },
-	{ dimensionValues: [{ value: '20260918' }, { value: '/blog/google-workspace-nyumon' }], metricValues: [{ value: '5' }] },
+	{ dimensionValues: [{ value: '20260918' }, { value: '/blog/chatgpt-desktop-work-setup/' }], metricValues: [{ value: '7' }] },
+	{ dimensionValues: [{ value: '20260918' }, { value: '/blog/google-workspace-gmail-gemini-productivity' }], metricValues: [{ value: '5' }] },
 ] };
 const events = { metadata, rowCount: 2, rows: [
-	{ dimensionValues: [{ value: '20260918' }, { value: '/blog/chatgpt-business-nyumon' }, { value: 'article_helpful' }], metricValues: [{ value: '3' }] },
-	{ dimensionValues: [{ value: '20260918' }, { value: '/blog/google-workspace-nyumon/' }, { value: 'article_try' }], metricValues: [{ value: '2' }] },
+	{ dimensionValues: [{ value: '20260918' }, { value: '/blog/chatgpt-desktop-work-setup' }, { value: 'article_helpful' }], metricValues: [{ value: '3' }] },
+	{ dimensionValues: [{ value: '20260918' }, { value: '/blog/google-workspace-gmail-gemini-productivity/' }, { value: 'article_try' }], metricValues: [{ value: '2' }] },
 ] };
 
 function stubFetch(mode: 'data' | 'empty' | 'failure') {
@@ -73,8 +73,8 @@ function stubFetch(mode: 'data' | 'empty' | 'failure') {
 
 test('actual local D1 accepts populated and empty json_each inserts', () => {
 	execFileSync('npx', ['wrangler', 'd1', 'execute', 'ysk-life-engagement', '--local', '--persist-to', localState, '--file', migration], { cwd, stdio: 'ignore' });
-	const insert = "INSERT INTO ga_daily(date,article,views,qualified_reads,share_clicks,link_copies,native_shares,helpful_events,try_events) SELECT json_extract(value,'$[0]'),json_extract(value,'$[1]'),json_extract(value,'$[2]'),json_extract(value,'$[3]'),json_extract(value,'$[4]'),json_extract(value,'$[5]'),json_extract(value,'$[6]'),json_extract(value,'$[7]'),json_extract(value,'$[8]') FROM json_each('[[\"2026-09-18\",\"chatgpt-business-nyumon\",7,0,0,0,0,3,0]]')";
-	const output = execFileSync('npx', ['wrangler', 'd1', 'execute', 'ysk-life-engagement', '--local', '--persist-to', localState, '--command', `DELETE FROM ga_daily; ${insert}; SELECT views,helpful_events FROM ga_daily WHERE article='chatgpt-business-nyumon'; SELECT count(*) AS empty_rows FROM json_each('[]');`], { cwd, encoding: 'utf8' });
+	const insert = "INSERT INTO ga_daily(date,article,views,qualified_reads,share_clicks,link_copies,native_shares,helpful_events,try_events) SELECT json_extract(value,'$[0]'),json_extract(value,'$[1]'),json_extract(value,'$[2]'),json_extract(value,'$[3]'),json_extract(value,'$[4]'),json_extract(value,'$[5]'),json_extract(value,'$[6]'),json_extract(value,'$[7]'),json_extract(value,'$[8]') FROM json_each('[[\"2026-09-18\",\"chatgpt-desktop-work-setup\",7,0,0,0,0,3,0]]')";
+	const output = execFileSync('npx', ['wrangler', 'd1', 'execute', 'ysk-life-engagement', '--local', '--persist-to', localState, '--command', `DELETE FROM ga_daily; ${insert}; SELECT views,helpful_events FROM ga_daily WHERE article='chatgpt-desktop-work-setup'; SELECT count(*) AS empty_rows FROM json_each('[]');`], { cwd, encoding: 'utf8' });
 	assert.match(output, /"views": 7/);
 	assert.match(output, /"helpful_events": 3/);
 	assert.match(output, /"empty_rows": 0/);
@@ -83,22 +83,22 @@ test('actual local D1 accepts populated and empty json_each inserts', () => {
 test('sync imports GA data atomically, accepts an empty snapshot, and preserves data on failure', async () => {
 	const { sqlite, db } = createDatabase();
 	const runtime = { DB: db, GA4_PROPERTY_ID: '550976520', GA4_SERVICE_ACCOUNT_JSON: serviceAccount() } as any;
-	sqlite.prepare("INSERT INTO ga_daily(date,article,views) VALUES('2026-08-18','chatgpt-business-nyumon',9)").run();
+	sqlite.prepare("INSERT INTO ga_daily(date,article,views) VALUES('2026-08-18','chatgpt-desktop-work-setup',9)").run();
 	let restore = stubFetch('data');
 	try {
 		const result = await sync(runtime);
 		assert.deepEqual(result, { ok: true, rows: 2 });
 	} finally { restore(); }
 	assert.deepEqual(Array.from(sqlite.prepare("SELECT article,views,helpful_events,try_events FROM ga_daily WHERE date='2026-09-18' ORDER BY article").all(), (row) => ({ ...row })), [
-		{ article: 'chatgpt-business-nyumon', views: 7, helpful_events: 3, try_events: 0 },
-		{ article: 'google-workspace-nyumon', views: 5, helpful_events: 0, try_events: 2 },
+		{ article: 'chatgpt-desktop-work-setup', views: 7, helpful_events: 3, try_events: 0 },
+		{ article: 'google-workspace-gmail-gemini-productivity', views: 5, helpful_events: 0, try_events: 2 },
 	]);
 	assert.equal(sqlite.prepare("SELECT views FROM ga_daily WHERE date='2026-08-18'").get().views, 9);
 	restore = stubFetch('empty');
 	try { assert.deepEqual(await sync(runtime), { ok: true, rows: 0 }); } finally { restore(); }
 	assert.equal(sqlite.prepare("SELECT count(*) AS count FROM ga_daily WHERE date='2026-09-18'").get().count, 0);
 	const emptySuccess = sqlite.prepare("SELECT value FROM sync_state WHERE key='last_success'").get().value;
-	sqlite.prepare("INSERT INTO ga_daily(date,article,views) VALUES('2026-09-18','chatgpt-business-nyumon',11)").run();
+	sqlite.prepare("INSERT INTO ga_daily(date,article,views) VALUES('2026-09-18','chatgpt-desktop-work-setup',11)").run();
 	restore = stubFetch('failure');
 	try { assert.deepEqual(await sync(runtime), { ok: false, status: 'ga4_http_500' }); } finally { restore(); }
 	assert.equal(sqlite.prepare("SELECT views FROM ga_daily WHERE date='2026-09-18'").get().views, 11);
