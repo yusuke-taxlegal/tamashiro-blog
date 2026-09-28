@@ -81,13 +81,13 @@ test('engagement rejects malformed, unknown, invalid-kind, and cross-origin writ
 	const runtime = env();
 	assert.equal((await engagement({ request: request('/api/engagement?article=nope'), env: runtime } as any)).status, 404);
 	assert.equal((await engagement({ request: request('/api/engagement', { method: 'POST', headers: { Origin: origin, 'Content-Type': 'application/json' }, body: '{' }), env: runtime } as any)).status, 400);
-	assert.equal((await engagement({ request: request('/api/engagement', { method: 'POST', headers: { Origin: origin, 'Content-Type': 'application/json' }, body: JSON.stringify({ article: 'chatgpt-business-nyumon', kind: 'nope' }) }), env: runtime } as any)).status, 400);
-	assert.equal((await engagement({ request: request('/api/engagement', { method: 'POST', headers: { Origin: 'https://evil.example', 'Content-Type': 'application/json' }, body: JSON.stringify({ article: 'chatgpt-business-nyumon', kind: 'helpful' }) }), env: runtime } as any)).status, 403);
+	assert.equal((await engagement({ request: request('/api/engagement', { method: 'POST', headers: { Origin: origin, 'Content-Type': 'application/json' }, body: JSON.stringify({ article: 'chatgpt-desktop-work-setup', kind: 'nope' }) }), env: runtime } as any)).status, 400);
+	assert.equal((await engagement({ request: request('/api/engagement', { method: 'POST', headers: { Origin: 'https://evil.example', 'Content-Type': 'application/json' }, body: JSON.stringify({ article: 'chatgpt-desktop-work-setup', kind: 'helpful' }) }), env: runtime } as any)).status, 403);
 });
 
 test('engagement is one vote per browser and kind; a tampered cookie is not reused', async () => {
 	const runtime = env();
-	const post = async (kind: string, cookie?: string) => engagement({ request: request('/api/engagement', { method: 'POST', headers: { Origin: origin, 'Content-Type': 'application/json', ...(cookie ? { Cookie: cookie } : {}) }, body: JSON.stringify({ article: 'chatgpt-business-nyumon', kind }) }), env: runtime } as any);
+	const post = async (kind: string, cookie?: string) => engagement({ request: request('/api/engagement', { method: 'POST', headers: { Origin: origin, 'Content-Type': 'application/json', ...(cookie ? { Cookie: cookie } : {}) }, body: JSON.stringify({ article: 'chatgpt-desktop-work-setup', kind }) }), env: runtime } as any);
 	const first = await post('helpful');
 	const cookie = setCookie(first);
 	assert.equal((await body(first)).created, true);
@@ -99,17 +99,17 @@ test('engagement is one vote per browser and kind; a tampered cookie is not reus
 	assert.deepEqual(other.counts, { helpful: 1, try: 1 });
 	const tampered = await post('helpful', `${cookie}x`);
 	assert.equal((await body(tampered)).created, true);
-	const read = await engagement({ request: request('/api/engagement?article=chatgpt-business-nyumon', { headers: { Cookie: cookie } }), env: runtime } as any);
+	const read = await engagement({ request: request('/api/engagement?article=chatgpt-desktop-work-setup', { headers: { Cookie: cookie } }), env: runtime } as any);
 	assert.deepEqual((await body(read)).counts, { helpful: 2, try: 1 });
 });
 
 test('engagement rate limit blocks the thirteenth write from an IP', async () => {
 	const runtime = env();
 	for (let index = 0; index < 12; index += 1) {
-		const response = await engagement({ request: request('/api/engagement', { method: 'POST', headers: { Origin: origin, 'Content-Type': 'application/json' }, body: JSON.stringify({ article: 'chatgpt-business-nyumon', kind: 'helpful' }) }), env: runtime } as any);
+		const response = await engagement({ request: request('/api/engagement', { method: 'POST', headers: { Origin: origin, 'Content-Type': 'application/json' }, body: JSON.stringify({ article: 'chatgpt-desktop-work-setup', kind: 'helpful' }) }), env: runtime } as any);
 		assert.equal(response.status, 200);
 	}
-	const blocked = await engagement({ request: request('/api/engagement', { method: 'POST', headers: { Origin: origin, 'Content-Type': 'application/json' }, body: JSON.stringify({ article: 'chatgpt-business-nyumon', kind: 'helpful' }) }), env: runtime } as any);
+	const blocked = await engagement({ request: request('/api/engagement', { method: 'POST', headers: { Origin: origin, 'Content-Type': 'application/json' }, body: JSON.stringify({ article: 'chatgpt-desktop-work-setup', kind: 'helpful' }) }), env: runtime } as any);
 	assert.equal(blocked.status, 429);
 });
 
@@ -131,23 +131,23 @@ test('public ranking hides stale and empty data, then applies its view and helpf
 	assert.deepEqual((await body(response)).popular, []);
 	db.state.set('last_success', new Date().toISOString());
 	db.gaRows = [
-		{ article: 'chatgpt-business-nyumon', views: 5, qualifiedReads: 0, shareClicks: 0, linkCopies: 0, nativeShares: 0, helpfulEvents: 0, tryEvents: 0 },
-		{ article: 'google-workspace-nyumon', views: 20, qualifiedReads: 0, shareClicks: 0, linkCopies: 0, nativeShares: 0, helpfulEvents: 0, tryEvents: 0 },
+		{ article: 'chatgpt-desktop-work-setup', views: 5, qualifiedReads: 0, shareClicks: 0, linkCopies: 0, nativeShares: 0, helpfulEvents: 0, tryEvents: 0 },
+		{ article: 'google-workspace-gmail-gemini-productivity', views: 20, qualifiedReads: 0, shareClicks: 0, linkCopies: 0, nativeShares: 0, helpfulEvents: 0, tryEvents: 0 },
 	];
-	for (let index = 0; index < 3; index += 1) db.reactions.set(`google-workspace-nyumon:helpful:${index}`, { article: 'google-workspace-nyumon', kind: 'helpful', hash: String(index), createdAt: new Date().toISOString() });
+	for (let index = 0; index < 3; index += 1) db.reactions.set(`google-workspace-gmail-gemini-productivity:helpful:${index}`, { article: 'google-workspace-gmail-gemini-productivity', kind: 'helpful', hash: String(index), createdAt: new Date().toISOString() });
 	response = await popular({ request: request('/api/popular'), env: env(db) } as any);
 	const payload = await body(response);
-	assert.deepEqual(payload.popular, [{ article: 'google-workspace-nyumon', views: 20 }, { article: 'chatgpt-business-nyumon', views: 5 }]);
-	assert.deepEqual(payload.helpful, [{ article: 'google-workspace-nyumon', count: 3 }]);
+	assert.deepEqual(payload.popular, [{ article: 'google-workspace-gmail-gemini-productivity', views: 20 }, { article: 'chatgpt-desktop-work-setup', views: 5 }]);
+	assert.deepEqual(payload.helpful, [{ article: 'google-workspace-gmail-gemini-productivity', count: 3 }]);
 });
 
 test('GA paths are normalized and aggregate sums trailing-slash variants', () => {
-	assert.equal(normalizeArticle('/blog/chatgpt-business-nyumon/'), 'chatgpt-business-nyumon');
-	assert.equal(normalizeArticle('/blog/chatgpt-business-nyumon?x=1'), null);
+	assert.equal(normalizeArticle('/blog/chatgpt-desktop-work-setup/'), 'chatgpt-desktop-work-setup');
+	assert.equal(normalizeArticle('/blog/chatgpt-desktop-work-setup?x=1'), null);
 	assert.equal(normalizeArticle('/blog/unknown/'), null);
 	const rows = aggregate(
-		{ rows: [{ dimensionValues: [{ value: '20260918' }, { value: '/blog/chatgpt-business-nyumon' }], metricValues: [{ value: '2' }] }, { dimensionValues: [{ value: '20260918' }, { value: '/blog/chatgpt-business-nyumon/' }], metricValues: [{ value: '3' }] }] },
-		{ rows: [{ dimensionValues: [{ value: '20260918' }, { value: '/blog/chatgpt-business-nyumon/' }, { value: 'article_helpful' }], metricValues: [{ value: '4' }] }] },
+		{ rows: [{ dimensionValues: [{ value: '20260918' }, { value: '/blog/chatgpt-desktop-work-setup' }], metricValues: [{ value: '2' }] }, { dimensionValues: [{ value: '20260918' }, { value: '/blog/chatgpt-desktop-work-setup/' }], metricValues: [{ value: '3' }] }] },
+		{ rows: [{ dimensionValues: [{ value: '20260918' }, { value: '/blog/chatgpt-desktop-work-setup/' }, { value: 'article_helpful' }], metricValues: [{ value: '4' }] }] },
 	);
 	assert.deepEqual(rows[0].values, [5, 0, 0, 0, 0, 4, 0]);
 });

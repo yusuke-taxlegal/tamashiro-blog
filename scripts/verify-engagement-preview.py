@@ -20,12 +20,12 @@ with tempfile.TemporaryDirectory(prefix='ysk-preview-test-') as tmp:
  def check(name,condition):
   results.append({'test':name,'passed':bool(condition)})
   if not condition: raise AssertionError(name)
- status,data=request('/api/engagement?article=chatgpt-business-nyumon');check('GET counts',status==200 and 'counts' in data)
+ status,data=request('/api/engagement?article=chatgpt-desktop-work-setup');check('GET counts',status==200 and 'counts' in data)
  before=data['counts']['helpful']
- status,data=request('/api/engagement','POST',{'article':'chatgpt-business-nyumon','kind':'helpful'});check('first vote committed',status==200 and data.get('created') is True and data['counts']['helpful']==before+1)
- status,data=request('/api/engagement','POST',{'article':'chatgpt-business-nyumon','kind':'helpful'});check('retry idempotent',status==200 and data.get('created') is False and data['counts']['helpful']==before+1)
- status,data=request('/api/engagement?article=chatgpt-business-nyumon');check('readback cookie',status==200 and data['reacted']['helpful'])
- status,data=request('/api/engagement','POST',{'article':'chatgpt-business-nyumon','kind':'try'},origin='https://evil.example');check('CSRF rejected',status==403)
+ status,data=request('/api/engagement','POST',{'article':'chatgpt-desktop-work-setup','kind':'helpful'});check('first vote committed',status==200 and data.get('created') is True and data['counts']['helpful']==before+1)
+ status,data=request('/api/engagement','POST',{'article':'chatgpt-desktop-work-setup','kind':'helpful'});check('retry idempotent',status==200 and data.get('created') is False and data['counts']['helpful']==before+1)
+ status,data=request('/api/engagement?article=chatgpt-desktop-work-setup');check('readback cookie',status==200 and data['reacted']['helpful'])
+ status,data=request('/api/engagement','POST',{'article':'chatgpt-desktop-work-setup','kind':'try'},origin='https://evil.example');check('CSRF rejected',status==403)
  status,data=request('/api/engagement','POST',{'article':'ai-driven-school-completion','kind':'try'});check('unpublished rejected',status==404)
  status,data=request('/api/admin',cookies=False);check('private report protected',status==401)
  status,data=request('/api/admin','POST',{'token':'wrong'});check('wrong key rejected',status==401)
