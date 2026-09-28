@@ -59,5 +59,6 @@
   - /api/engagement の404は静的プレビューのため（Pages Functions未起動）
 - `lib/engagement/articles.json` は prebuild が自動で新しいslugを追記
 
-## 未実施
-- コミット、mainへのマージ、push、本番反映は行っていない
+## 公開（2026-09-28）
+- ユーザーの「公開して」の指示で、main へ --no-ff マージ（1389913）し push。Cloudflare Pages で本番反映
+- 本番確認: https://ysk.life/blog/chatgpt-desktop-work-setup/ が200、og:image（ヒーロー）200 image/webp、本文挿絵3枚も200 image/webp、記事一覧に掲載を確認
