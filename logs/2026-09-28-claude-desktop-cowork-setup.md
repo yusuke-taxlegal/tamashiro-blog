@@ -67,5 +67,8 @@
   - 記事内リンク（ChatGPT版記事、AI業務情報の記事）はビルド済みページに存在
   - 404は /api/engagement のみ（静的プレビューのため）
 
-## 未実施
-- コミット、mainへのマージ、push、本番反映は行っていない（この記事についての公開指示は未受領）
+## 公開（2026-09-28）
+- ユーザーの「公開して」の指示で、main へ --no-ff マージ（91cec64）し push。Cloudflare Pages で本番反映
+- 本番確認: https://ysk.life/blog/claude-desktop-cowork-setup/ が200、og:image（ヒーロー）200 image/webp、本文挿絵3枚も200 image/webp、記事一覧に掲載、canonical 正常
+- 反映直後の約1分間、ヒーローとRikuの挿絵の2枚だけ404を返した（配信の切り替わり途中）。再確認で200を確認済み
+- ChatGPT版の作業ログへの公開記録の追記（cccc7f9）も同じマージに含めた
