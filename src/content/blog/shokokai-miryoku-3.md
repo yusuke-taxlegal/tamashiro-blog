@@ -115,6 +115,8 @@ heroImage: '../../assets/blog/shokokai-miryoku-3/hero-tamashiro-yusuke-worried-b
 
 人が誰かに仕事を頼むまでには、順番があると私は考えています。
 
+![知る、好きになる、信頼する、頼むの4段の階段で、玉城祐輔と事業者さんが握手しているイラスト](../../assets/blog/shokokai-miryoku-3/tamashiro-yusuke-worried-business-owner-four-steps.webp)
+
 1. 知る
 2. 好きになる
 3. 信頼する

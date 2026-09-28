@@ -11,3 +11,4 @@
 - 公開: 2026-09-28 玉城さんの指示で article/shokokai-miryoku-3 ブランチからmainへマージしてpush（Cloudflare Pagesで本番反映）。
 - 補足: build により lib/engagement/articles.json が自動更新される（新記事の追加分）。
 - 2026-09-28 追記: 相談室の挿絵で悩める社長の腕が不自然だったため、両手でメモを持つポーズで再生成し差し替え（同じファイル名・正本v5/悩める社長v1で目視照合済み）。
+- 2026-09-28 追記: 「人が仕事を頼むまでの4段階」に階段の図解挿絵を追加（tamashiro-yusuke-worried-business-owner-four-steps.webp・正本v5/悩める社長v1で目視照合、日本語ラベル4つの表記も確認）。
