@@ -85,7 +85,7 @@ heroImage: '../../assets/blog/shokokai-miryoku-3/hero-tamashiro-yusuke-worried-b
 
 ## 魅力3：一緒に汗をかくと、営業しなくても思い出してもらえる
 
-![セミナーで話す玉城祐輔と、うなずきながらメモを取る事業者さんのイラスト](../../assets/blog/shokokai-miryoku-3/tamashiro-yusuke-worried-business-owner-seminar.webp)
+![地域の祭りの準備で、玉城祐輔と事業者さんが一緒にテントの骨組みを運んで汗をかいているイラスト](../../assets/blog/shokokai-miryoku-3/hero-tamashiro-yusuke-worried-business-owner-festival-tent.webp)
 
 ここからが、私がいちばん伝えたい話です。
 
@@ -104,6 +104,11 @@ heroImage: '../../assets/blog/shokokai-miryoku-3/hero-tamashiro-yusuke-worried-b
 
 すると、その商工会が補助金やAI活用のセミナーを企画するときに、私を思い出してくれます。
 講師として呼んでいただく機会が、今どんどん増えています。
+
+![セミナー講師として話す玉城祐輔と、うなずきながらメモを取る事業者さんのイラスト](../../assets/blog/shokokai-miryoku-3/tamashiro-yusuke-worried-business-owner-seminar.webp)
+
+一緒に汗をかいた時間が、あとからセミナー講師という仕事になって返ってきた。
+私にとっては、まさにこの流れです。
 
 こちらから売り込んだことは一度もありません。
 必要なときに名前が浮かぶ人になっていた。それだけです。
