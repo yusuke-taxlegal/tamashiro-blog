@@ -24,3 +24,11 @@
 - check_product_article.py: OK / check:affiliate: 本記事の問題なし / npm run build: 成功
 - astro preview（4331）: 記事内3画像の naturalWidth=1536、375px幅で横はみ出しなし、共有UIあり、canonical・og:image出力
 - 404は /api/engagement（静的プレビューではPages Functionsが動かないため、既知）
+
+## 追記：アフィリエイトリンクの追加（同日）
+- Typelessアフィリエイト（Rewardful、2026-03-03登録済み）のリンク `https://www.typeless.com/?via=dfbad3` を取得（ユーザーがブラウザでログイン）
+- 条件: 初年度25%の継続報酬、USD支払い、最低支払額$50、デスクトップ決済のみ対象、有料広告・ブランド名入札は禁止
+- 管理画面に「支払先情報の登録が必要」の表示あり → ユーザー側で対応
+- 記事の冒頭（結論の直後）と末尾（公式情報の前）にHiDock記事と同じ `affiliate-product-card` を追加。rel="sponsored noopener noreferrer"・広告表記あり
+- カード画像はヒーローを切らずに白背景で正方形へ余白追加（public/images/blog/typeless-ai-voice-typing/card-tamashiro-yusuke-rira.webp）
+- affiliate.ts には追加しない（typeless.com は公式情報リンクと同じホストのため、ホスト判定の仕組みに合わない。HiDockの前例に合わせた）
