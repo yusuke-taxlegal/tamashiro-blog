@@ -31,6 +31,19 @@ Typelessが向いているのは、次のような人です。
 
 一方で、話した声はTypelessのサーバー（インターネットの向こう側のコンピューター）で処理されます。お客様の個人情報や社外秘の内容を話す前には、会社としてのルールを決めておく必要があります。ここは後半でくわしく書きます。
 
+<div class="affiliate-product-card">
+  <a class="affiliate-product-image" href="https://www.typeless.com/?via=dfbad3" target="_blank" rel="sponsored noopener noreferrer" aria-label="Typeless公式サイトを紹介リンクで開く">
+    <img src="/images/blog/typeless-ai-voice-typing/card-tamashiro-yusuke-rira.webp" width="720" height="720" loading="lazy" alt="玉城祐輔とAI秘書のRiraが、話した言葉が整った文章になるノートパソコンの画面を示しているイラスト" />
+  </a>
+  <div class="affiliate-product-body">
+    <p class="affiliate-product-store">Typeless公式サイト・紹介リンク</p>
+    <h3>Typelessを無料で試す</h3>
+    <p>まずは無料プランで、明日送るメールを1通話してみてください。有料プランは、毎日使うと分かってからで十分です。</p>
+    <a class="affiliate-product-button" href="https://www.typeless.com/?via=dfbad3" target="_blank" rel="sponsored noopener noreferrer">紹介リンクで公式サイトを開く</a>
+    <p class="affiliate-product-disclosure">広告・アフィリエイトリンクです。このリンクから有料プランを申し込むと、玉城祐輔個人に紹介料が入る場合があります。料金や無料プランの内容は、公式サイトでご確認ください。</p>
+  </div>
+</div>
+
 ## 普通の音声入力と何が違うのか
 
 ### 口ぐせと言い直しを、自動で消してくれる
@@ -183,6 +196,19 @@ Proプランには、メンバーの管理と請求書のまとめ払いの機�
 Typelessは、速く打つための道具というより、**考えを文章にする面倒な部分を、AIに任せるための道具**です。キーボードに向かうと手が止まる人ほど、効果を感じやすいはずです。
 
 一方で、声はクラウドで処理されます。便利さと情報の扱いの両方を見て、話してよい範囲を決めてから使い始めてください。無料で試せるので、まずは明日送るメール1通から始めてみるのがおすすめです。
+
+<div class="affiliate-product-card">
+  <a class="affiliate-product-image" href="https://www.typeless.com/?via=dfbad3" target="_blank" rel="sponsored noopener noreferrer" aria-label="Typeless公式サイトを紹介リンクで開く">
+    <img src="/images/blog/typeless-ai-voice-typing/card-tamashiro-yusuke-rira.webp" width="720" height="720" loading="lazy" alt="玉城祐輔とAI秘書のRiraが、話した言葉が整った文章になるノートパソコンの画面を示しているイラスト" />
+  </a>
+  <div class="affiliate-product-body">
+    <p class="affiliate-product-store">Typeless公式サイト・紹介リンク</p>
+    <h3>Typelessの公式サイトを見る</h3>
+    <p>対応端末、料金、無料プランの範囲を確認してから始めてください。</p>
+    <a class="affiliate-product-button" href="https://www.typeless.com/?via=dfbad3" target="_blank" rel="sponsored noopener noreferrer">紹介リンクで公式サイトを開く</a>
+    <p class="affiliate-product-disclosure">広告・アフィリエイトリンクです。このリンクから有料プランを申し込むと、玉城祐輔個人に紹介料が入る場合があります。料金や無料プランの内容は、公式サイトでご確認ください。</p>
+  </div>
+</div>
 
 ## 公式情報
 
