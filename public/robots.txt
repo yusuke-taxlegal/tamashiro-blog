@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+# 管理画面と裏側の窓口は検索に出す必要がない
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://ysk.life/sitemap-index.xml
