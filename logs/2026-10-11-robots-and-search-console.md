@@ -9,6 +9,9 @@
 ## やったこと
 - `public/robots.txt` を追加（全体を許可・/admin/ と /api/ は除外・Sitemap の場所）
 - サーチコンソールで `sitemap-0.xml` を直接送信し、主な記事の登録を依頼（玉城さんの了承済み）
+  - 依頼済み（6本）：claude-desktop-cowork-setup・chatgpt-desktop-work-setup・ai-flyer-remove-ai-look・ai-business-data-sharing・ai-adoption-cost-and-skills・shokokai-miryoku-3
+  - 7本目で「割り当て量を超えています」（1日の上限はアカウント全体で10件前後）。残り4本（cio-novaport-slim-duo2-45w2c・hidock-p1-ai-recorder・switchbot-lock-pro・healsio-hotcook-kn-hw24g）は翌日以降
+  - `sitemap-0.xml` は送信直後「取得できませんでした」。数日後に再確認
 
 ## このあと
 - 1週間ほどで「ページ」の登録済み数が増えたか、`site:ysk.life` に記事が並ぶかを見る
