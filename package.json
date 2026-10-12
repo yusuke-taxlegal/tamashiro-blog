@@ -26,6 +26,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.2.1",
     "astro-icon": "^1.2.0",
+    "budoux": "^0.9.3",
     "sharp": "^0.35.3",
     "tailwindcss": "^4.3.3"
   },
