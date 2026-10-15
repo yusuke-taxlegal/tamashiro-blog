@@ -1,0 +1,38 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="icons.js"></script>
+<style>.stage{width:1010px;height:700px}.call{width:300px!important;left:690px!important}.call small{font-size:12.5px}.pin{filter:grayscale(1);opacity:.6}</style></head><body><div class="stage">
+<div class="cap">エクスプローラーの左側に「デスクトップ」が2つある<small>バックアップがオンのとき、画面のデスクトップは ① を開いています</small></div>
+<div class="win" style="width:640px">
+ <div class="tabbar"><div class="tab"><i data-i="desktop:16"></i>デスクトップ<span class="x">✕</span></div><div class="wbtn"><span>—</span><span>☐</span><span>✕</span></div></div>
+ <div class="addr"><div class="navbtns"><span>←</span><span>→</span><span>↑</span><span>⟳</span></div>
+  <div class="crumb"><i data-i="desktop:15"></i><span class="sep">›</span>OneDrive - 個人用<span class="sep">›</span>デスクトップ<span class="sep">›</span></div></div>
+ <div class="body">
+  <div class="nav" style="width:300px">
+   <div class="ni"><span class="chev"></span><i data-i="home"></i>ホーム</div>
+   <div class="ni"><span class="chev"></span><i data-i="gallery"></i>ギャラリー</div>
+   <div class="ni"><span class="chev">⌄</span><i data-i="onedrive"></i>OneDrive - 個人用</div>
+   <div class="ni hl" id="od" style="--d:1;background:#FDECEC"><span class="chev">›</span><i data-i="desktop"></i>デスクトップ</div>
+   <div class="ni" style="--d:1"><span class="chev">›</span><i data-i="doc"></i>ドキュメント</div>
+   <div class="ni" style="--d:1"><span class="chev">›</span><i data-i="pic"></i>画像</div>
+   <div class="hr"></div>
+   <div class="ni sel" id="qa"><span class="chev"></span><i data-i="desktop"></i>デスクトップ<span class="pin">📌</span></div>
+   <div class="ni"><span class="chev"></span><i data-i="download"></i>ダウンロード<span class="pin">📌</span></div>
+   <div class="ni"><span class="chev"></span><i data-i="doc"></i>ドキュメント<span class="pin">📌</span></div>
+   <div class="hr"></div>
+   <div class="ni"><span class="chev">⌄</span><i data-i="pc"></i>PC</div>
+   <div class="ni" style="--d:1"><span class="chev">⌄</span><i data-i="drive"></i>ローカル ディスク (C:)</div>
+   <div class="ni" style="--d:2"><span class="chev">⌄</span><i data-i="folder"></i>ユーザー</div>
+   <div class="ni" style="--d:3"><span class="chev">⌄</span><i data-i="folder"></i>taro</div>
+   <div class="ni hl" id="pcd" style="--d:4;outline-color:#2563EB;background:#E7EEFC"><span class="chev">›</span><i data-i="desktop"></i>デスクトップ</div>
+  </div>
+  <div class="main">
+   <div class="row head" style="grid-template-columns:1fr 50px"><span>名前</span><span>状態</span></div>
+   <div class="row" style="grid-template-columns:1fr 50px"><span class="nm"><i data-i="folder"></i>議案_地区大会</span><span class="st"><i data-i="st_avail:16"></i></span></div>
+   <div class="row" style="grid-template-columns:1fr 50px"><span class="nm"><i data-i="folder"></i>写真</span><span class="st"><i data-i="st_cloud:16"></i></span></div>
+   <div class="row" style="grid-template-columns:1fr 50px"><span class="nm"><i data-i="xlsx"></i>名簿.xlsx</span><span class="st"><i data-i="st_avail:16"></i></span></div>
+  </div>
+ </div>
+</div>
+<div class="call" id="c1" style="left:690px;top:190px;width:250px"><span class="num">1</span><div>OneDriveのデスクトップ<small>C:\Users\taro\OneDrive\Desktop<br>OneDriveとつながる</small></div></div>
+<div class="call" id="c2" style="left:690px;top:340px;width:250px;border-color:#888"><span class="num" style="background:#888">=</span><div style="font-size:15px">上の「デスクトップ」も ① と同じ場所<small>バックアップがオンのとき</small></div></div>
+<div class="call blue" id="c3" style="left:690px;top:530px;width:250px"><span class="num">2</span><div>パソコンのデスクトップ<small>C:\Users\taro\Desktop<br>パソコンの中だけ</small></div></div>
+</div><script>fill();link('c1','od');link('c2','qa','#888',true);link('c3','pcd','#2563EB')</script></body></html>

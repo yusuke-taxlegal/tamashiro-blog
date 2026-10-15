@@ -1,0 +1,41 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="icons.js"></script>
+<style>.stage{width:1010px;height:600px}
+.br{position:absolute;width:458px;background:#fff;border-radius:10px;box-shadow:0 10px 26px rgba(20,30,50,.16),0 0 0 1px rgba(0,0,0,.08);overflow:hidden}
+.btab{height:34px;background:#DEE3EA;display:flex;align-items:flex-end;padding-left:8px}
+.btab div{background:#fff;height:28px;border-radius:7px 7px 0 0;padding:0 12px;display:flex;align-items:center;font-size:12px;width:180px}
+.burl{height:38px;display:flex;align-items:center;gap:10px;padding:0 10px;border-bottom:1px solid #e5e7eb;font-size:12px;color:#444}
+.burl .u{flex:1;background:#F1F3F4;border-radius:16px;height:26px;display:flex;align-items:center;padding:0 12px;white-space:nowrap;overflow:hidden}
+.pg{padding:16px 16px 70px;font-size:12.5px}
+.pg h4{font-size:13px;margin-bottom:8px;letter-spacing:.2em}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #333;padding:6px 6px;font-size:12px}
+th{font-weight:600;background:#fafafa}
+td.n{text-align:right}
+a{color:#1a0dab}
+.cur{position:absolute;width:22px}
+.sb{position:absolute;left:0;bottom:0;max-width:440px;background:#F1F3F4;border:1px solid #d0d4da;border-radius:0 8px 0 0;padding:5px 10px;font-size:12px;color:#222;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.verdict{position:absolute;font-size:18px;font-weight:800;display:flex;gap:10px;align-items:center}
+.verdict .num{width:34px;height:34px;font-size:20px}
+.ex{position:absolute;width:458px;font-size:13.5px;line-height:1.55;color:#374151;word-break:auto-phrase}
+</style></head><body><div class="stage">
+<div class="cap">見積書のリンクにマウスを乗せて、左下の住所を見る<small>議案の予算書は、ブラウザで開いてから確かめます</small></div>
+<script>
+function page(){return `<div class="pg"><h4>（費用明細書）</h4><table><tr><th>科目</th><th>細目</th><th>摘要</th><th>予算額</th><th>No</th></tr>
+<tr><td>会場設営費</td><td>会場費</td><td>ホール 9:00〜17:00</td><td class="n">76,984</td><td style="text-align:center"><a href="#" style="text-decoration:underline">1</a></td></tr>
+<tr><td></td><td>消耗品費</td><td>リストバンド</td><td class="n">9,900</td><td style="text-align:center"><a href="#">2</a></td></tr>
+<tr><td>広報費</td><td>作成費</td><td>B2ポスター</td><td class="n">24,200</td><td style="text-align:center"><a href="#">3</a></td></tr></table></div>`}
+</script>
+<div class="verdict" style="left:32px;top:108px;color:#DC2626"><span class="num" style="background:#DC2626">✕</span>開けない例</div>
+<div class="br" style="left:32px;top:152px" id="b1"><div class="btab"><div>議案本文</div></div><div class="burl"><span>←</span><span>→</span><span>⟳</span><div class="u">ag.jaycee.or.jp/…/data/…/yosan/hoseiyosan.htm</div></div><div id="p1"></div>
+ <div class="sb" style="border-color:#DC2626;background:#FEF2F2;outline:3px solid #DC2626">https://d.docs.live.net/xxxx/Desktop/…/yosan/01見積書.pdf</div></div>
+<div class="verdict" style="left:520px;top:108px;color:#15803D"><span class="num" style="background:#15803D">○</span>開ける例</div>
+<div class="br" style="left:520px;top:152px" id="b2"><div class="btab"><div>議案本文</div></div><div class="burl"><span>←</span><span>→</span><span>⟳</span><div class="u">ag.jaycee.or.jp/…/data/…/yosan/hoseiyosan.htm</div></div><div id="p2"></div>
+ <div class="sb" style="border-color:#15803D;background:#F0FDF4;outline:3px solid #15803D">https://ag.jaycee.or.jp/…/data/…/yosan/01見積書.pdf</div></div>
+<div class="ex" style="left:32px;top:490px"><b style="color:#DC2626">d.docs.live.net</b> は、作った人の個人用OneDriveの住所です。作った本人のパソコンでは開けますが、ほかの人は中に入れません。</div>
+<div class="ex" style="left:520px;top:490px">アジェンダに上げた<b style="color:#15803D">議案フォルダの中の yosan フォルダ</b>を指しています。誰が押しても見積書が開きます。</div>
+<div class="note" style="position:absolute;left:32px;top:556px">※ 図は画面のイメージです。住所の一部を「…」「xxxxxxxx」で伏せています。</div>
+</div><script>
+document.getElementById('p1').innerHTML=page();document.getElementById('p2').innerHTML=page();
+const cur=`<svg class="cur" viewBox="0 0 24 24" width="24" height="24"><path d="M5 2l14 11h-7l4 8-3 1.4-4-8.2L5 19z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg>`;
+['b1','b2'].forEach(b=>{const br=document.getElementById(b);const a=br.querySelector('table a');const r=a.getBoundingClientRect(),R=br.getBoundingClientRect();br.insertAdjacentHTML('beforeend',`<div style="position:absolute;left:${r.left-R.left+4}px;top:${r.top-R.top+6}px">${cur}</div>`)});
+</script></body></html>
