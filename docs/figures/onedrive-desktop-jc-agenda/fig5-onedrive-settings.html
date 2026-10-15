@@ -1,0 +1,51 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="icons.js"></script>
+<style>.stage{width:1010px;height:590px}
+.task{position:absolute;left:32px;top:470px;width:330px;height:48px;background:#EEF1F5;border-radius:0 0 10px 10px;border:1px solid #cfd6df;display:flex;align-items:center;justify-content:flex-end;gap:14px;padding:0 14px;font-size:12px;color:#333;box-shadow:0 6px 16px rgba(0,0,0,.1)}
+.fly{position:absolute;left:32px;top:110px;width:330px;height:350px;background:#fff;border-radius:10px;box-shadow:0 10px 26px rgba(20,30,50,.18),0 0 0 1px rgba(0,0,0,.08);padding:14px}
+.fly .top{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600}
+.fly .gearbox{margin-left:auto;padding:5px;border-radius:6px}
+.menu{position:absolute;left:96px;top:160px;width:258px;background:#fff;border-radius:8px;box-shadow:0 8px 22px rgba(0,0,0,.18),0 0 0 1px rgba(0,0,0,.08);padding:6px;font-size:13.5px}
+.menu div{padding:7px 10px;border-radius:5px}
+.set{position:absolute;left:410px;top:110px;width:568px;height:408px;background:#fff;border-radius:10px;box-shadow:0 10px 26px rgba(20,30,50,.18),0 0 0 1px rgba(0,0,0,.08);overflow:hidden;display:flex;flex-direction:column}
+.set .tt{height:38px;display:flex;align-items:center;gap:8px;padding:0 12px;font-size:12.5px;background:#F3F5F8}
+.set .in{display:flex;flex:1}
+.set .side{width:170px;background:#F3F5F8;padding:8px;font-size:13.5px}
+.set .side div{display:flex;align-items:center;gap:8px;height:34px;padding:0 10px;border-radius:6px}
+.set .side .on{background:#E3EAF3;font-weight:600;position:relative}
+.set .side .on:before{content:"";position:absolute;left:0;top:9px;width:3px;height:16px;border-radius:2px;background:#0F6CBD}
+.set .ct{flex:1;padding:20px 22px;font-size:13px}
+.set h3{font-size:20px;font-weight:600;margin-bottom:16px}
+.card2{border:1px solid #e3e6ea;border-radius:8px;padding:14px;margin-bottom:12px}
+.card2 b{font-size:14px;display:block;margin-bottom:6px}
+.card2 p{color:#555;line-height:1.5;font-size:12.5px}
+.btn{display:inline-block;margin-top:10px;background:#0F6CBD;color:#fff;border-radius:5px;padding:7px 14px;font-size:13px;font-weight:600}
+.sw{display:inline-block;width:38px;height:20px;border-radius:10px;background:#0F6CBD;position:relative;vertical-align:middle}
+.sw:after{content:"";position:absolute;right:4px;top:4px;width:12px;height:12px;border-radius:50%;background:#fff}
+.n{position:absolute}
+</style></head><body><div class="stage">
+<div class="cap">OneDriveの設定を開き、「バックアップを管理」を押す<small>画面の右下の雲のアイコン → 歯車 → 設定 → 同期とバックアップ</small></div>
+<div class="fly"><div class="top"><i data-i="onedrive:22"></i>OneDrive<span class="gearbox hl" id="gear"><i data-i="gear:20"></i></span></div>
+ <div style="margin-top:14px;font-size:12.5px;color:#555;line-height:2.2">ファイルは最新の状態です<br><span style="color:#999">最近のファイル</span></div>
+ <div style="margin-top:6px;display:flex;flex-direction:column;gap:8px">
+  <div style="display:flex;gap:8px;align-items:center;font-size:12.5px"><i data-i="xlsx"></i>予算書.xlsx</div>
+  <div style="display:flex;gap:8px;align-items:center;font-size:12.5px"><i data-i="pdf"></i>会場見積書.pdf</div></div>
+ <div style="position:absolute;bottom:14px;left:14px;font-size:12px;color:#555">0.3 GB / 5 GB を使用中</div>
+</div>
+<div class="menu"><div>ヘルプとトラブルシューティング</div><div>同期を一時停止する</div><div class="hl" id="setm" style="background:#FDECEC;font-weight:700">設定</div><div>OneDrive を終了する</div></div>
+<div class="task"><span style="color:#666">∧</span><span class="hl" id="cloudic" style="padding:4px;border-radius:5px;display:inline-flex"><i data-i="onedrive:22"></i></span><span>あ</span><span>📶</span><span style="line-height:1.2;text-align:right">13:02<br>2026/10/16</span></div>
+<div class="set"><div class="tt"><i data-i="onedrive:16"></i>OneDrive の設定<span style="margin-left:auto;letter-spacing:14px;color:#555">—☐✕</span></div>
+ <div class="in"><div class="side"><div class="on hl" id="syncnav">同期とバックアップ</div><div>アカウント</div><div>通知</div><div>バージョン情報</div></div>
+ <div class="ct"><h3>同期とバックアップ</h3>
+  <div class="card2"><b>重要な PC フォルダーを OneDrive にバックアップする</b><p>デスクトップ、ドキュメント、写真などのフォルダーをバックアップすると、ほかのデバイスでも使えるようになります。</p><span class="btn hl" id="mng" style="outline-offset:3px">バックアップを管理</span></div>
+  <div class="card2"><b>詳細設定</b><p>ファイル オンデマンドなど</p></div>
+ </div></div></div>
+<span class="num n" id="n1" style="left:150px;top:530px">1</span>
+<span class="num n" id="n2" style="left:300px;top:118px">2</span>
+<span class="num n" id="n3" style="left:118px;top:226px">3</span>
+<span class="num n" id="n4" style="left:420px;top:200px">4</span>
+<span class="num n" id="n5" style="left:760px;top:300px">5</span>
+<div class="note" style="position:absolute;left:32px;top:548px;width:900px">※ 画面のイメージです。言葉や並びは OneDrive の版によって少し違います。</div>
+</div><script>fill();
+function place(n,id,dx,dy){const s=document.querySelector('.stage').getBoundingClientRect(),r=document.getElementById(id).getBoundingClientRect(),e=document.getElementById(n);e.style.left=(r.left-s.left+dx)+'px';e.style.top=(r.top-s.top+dy)+'px'}
+place('n1','cloudic',-36,6);place('n2','gear',-36,0);place('n3','setm',-36,2);place('n4','syncnav',-14,-26);place('n5','mng',-36,4);
+</script></body></html>

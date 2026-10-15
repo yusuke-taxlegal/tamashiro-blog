@@ -1,0 +1,24 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="icons.js"></script>
+<style>.stage{width:1010px;height:560px}
+.leg{position:absolute;left:560px;width:418px;display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:10px;padding:10px 14px;box-shadow:0 4px 14px rgba(0,0,0,.07);word-break:auto-phrase}
+.leg b{font-size:16px;display:block}.leg span{font-size:13.5px;color:#4b5563;line-height:1.5;display:block;margin-top:2px}
+.leg.warn{border:2.5px solid #E5484D}
+</style></head><body><div class="stage">
+<div class="cap">ファイルの横の「状態」のマークを見る<small>OneDriveのフォルダでは、ファイルごとに保存されている場所が違います</small></div>
+<div class="win" style="width:500px">
+ <div class="addr"><div class="crumb"><i data-i="desktop:15"></i><span class="sep">›</span>OneDrive - 個人用<span class="sep">›</span>デスクトップ<span class="sep">›</span>議案_地区大会</div></div>
+ <div class="main" style="padding:6px 10px 14px">
+  <div class="row head" style="grid-template-columns:1fr 54px"><span>名前</span><span>状態</span></div>
+  <div class="row" style="grid-template-columns:1fr 54px" id="r1"><span class="nm"><i data-i="folder"></i>yosan</span><span class="st"><i data-i="st_cloud:20"></i></span></div>
+  <div class="row" style="grid-template-columns:1fr 54px" id="r2"><span class="nm"><i data-i="xlsx"></i>予算書.xlsx</span><span class="st"><i data-i="st_avail:20"></i></span></div>
+  <div class="row" style="grid-template-columns:1fr 54px" id="r3"><span class="nm"><i data-i="pdf"></i>会場見積書.pdf</span><span class="st"><i data-i="st_keep:20"></i></span></div>
+  <div class="row" style="grid-template-columns:1fr 54px" id="r4"><span class="nm"><i data-i="pdf"></i>ポスター見積書.pdf</span><span class="st"><i data-i="st_sync:20"></i></span></div>
+  <div class="row" style="grid-template-columns:1fr 54px;background:#FEF2F2" id="r5"><span class="nm"><i data-i="xlsx"></i>事業計画.xlsx</span><span class="st"><i data-i="st_err:20"></i></span></div>
+ </div>
+</div>
+<div class="leg warn" style="top:112px"><i data-i="st_cloud:30"></i><div><b>雲：インターネット上にだけある</b><span>パソコンの中には無い。開くとダウンロードされる。通信が切れているとZIPにまとめられない</span></div></div>
+<div class="leg" style="top:204px"><i data-i="st_avail:30"></i><div><b>緑の枠のチェック：いまはパソコンにある</b><span>空きが足りなくなると、雲の状態に戻されることがある</span></div></div>
+<div class="leg" style="top:280px"><i data-i="st_keep:30"></i><div><b>緑で塗られたチェック：いつもパソコンにある</b><span>「このデバイス上で常に保持する」を選んだファイル</span></div></div>
+<div class="leg" style="top:356px"><i data-i="st_sync:30"></i><div><b>青い矢印：送っている途中</b><span>終わるまでパソコンを閉じない</span></div></div>
+<div class="leg warn" style="top:432px"><i data-i="st_err:30"></i><div><b>赤い×：送れていない</b><span>容量がいっぱいのときなどに付く。クラウドには最新が無い</span></div></div>
+</div><script>fill()</script></body></html>
