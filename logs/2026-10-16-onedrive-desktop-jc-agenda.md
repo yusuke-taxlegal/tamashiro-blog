@@ -4,7 +4,7 @@
 
 JCの仲間の議案で、アジェンダの予算書の見積書リンクが `https://d.docs.live.net/…/Desktop/…/yosan/….pdf` になり開けなかった。原因は Windows の更新後に OneDrive のデスクトップのバックアップがオンになり、議案フォルダが OneDrive のデスクトップに置かれていたこと。バックアップを止めて直った（アイコンの並びが変わった、とも）。玉城さんの依頼で記事にした。
 
-## 作ったもの（ブランチ post/onedrive-desktop-jc-agenda・未コミット）
+## 作ったもの（ブランチ post/onedrive-desktop-jc-agenda → main に合流）
 
 - 記事: `src/content/blog/onedrive-desktop-jc-agenda.md`（カテゴリ 仕事の道具・accent ink）
 - キャラクターの挿絵 2枚（Codex CLI で生成。正本 tamashiro-yusuke-character-sheet-v5.png と worried-business-owner-character-sheet-v1.png を参照画像に渡し、目視で照合）
@@ -31,5 +31,11 @@ JCの仲間の議案で、アジェンダの予算書の見積書リンクが `h
 ## 残り
 
 - 玉城さんの確認（とくに「私は、フォルダごと人に渡すものはパソコンの中で作り…」の一文は玉城さんの意見として書いた）
-- 公開（main への合流）は玉城さんの OK 待ち
 - 検査スクリプトに、画面の図（screen- / diagram-）を挿絵の決まりから外す仕組みを足すかどうか
+
+## 公開（2026-10-16 玉城さんの OK を受けて）
+
+- コミット 53b3642（記事・画像・図の HTML・作業ログ・記事一覧 articles.json）を main に合流（3cad456）して push。Cloudflare Pages が main から自動で本番に出した（約1分）
+- 合流後の確認: `npm run check` エラー0、`npm run test:engagement` 8件すべて成功、`npm run check:affiliate` 問題なし（注意3件はほかの記事）、`npm run build` 34ページ
+- 本番 https://ysk.life/blog/onedrive-desktop-jc-agenda/ が 200。タイトル・canonical・og:image が正しく、記事の画像9枚と共有用の画像がすべて 200。ブラウザで画像の読み込み失敗0・コンソールのエラー0。記事一覧にも出ている
+- 作業ブランチ post/onedrive-desktop-jc-agenda は削除した
