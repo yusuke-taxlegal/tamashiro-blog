@@ -9,3 +9,11 @@
   - 申請支援団体（ISVD）の案内には「非営利型の一般社団法人に限る」とする記述あり。本文ではリンクせず「そう書く案内もある」とだけ書いた
 - 挿絵3枚（Codex CLI で生成、正本: tamashiro-yusuke-character-sheet-v5.png / worried-business-owner-character-sheet-v1.png、画風見本 tl-four-character-style-master-v2.png も参照）。Read で正本と並べて照合済み
 - 確かめたこと: 機械検査 OK、npm run build OK、ローカルプレビューで画像3枚の読み込み・og:image・375px で横はみ出し無し
+
+## 公開（2026-10-17 玉城さんの OK）
+
+- コミット af0bf77 を main へ早送りで合流して push（2d129c1..af0bf77）。Cloudflare Pages が main から自動で本番に出した（Production 17eefdfc-0938-4802-9910-9e637e0226cc・source af0bf77）。wrangler からの直接公開はしていない
+- 公開前の点検: `npm run check` エラー0・`test:engagement` 8件合格・`check:affiliate` 問題なし・`npm run build` 成功
+- 本番 https://ysk.life/blog/jc-gian-google-drive-proposal/ が 200。canonical 正しい、og:image 200 image/jpeg、記事の画像すべて 200、ブラウザで読み込み失敗 0・コンソールのエラー 0・横はみ出しなし。記事一覧にも出ている
+- ブランチ feature/jc-gian-drive-proposal は公開後に消した
+- 前の2本の記事から、この3本目へのリンクはまだ無い（足すかは玉城さんに確認）
