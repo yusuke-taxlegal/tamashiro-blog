@@ -60,3 +60,4 @@ JCの仲間の議案で、アジェンダの予算書の見積書リンクが `h
 - 絵の中身：悩める社長がパソコンで仕上げた議案フォルダを雲の中の本棚（共有ドライブ）へ上げ、まわりにメール・予定表・文書・表計算・ビデオ会議のアイコンと、ほかのパソコン・スマホ・タブレットがつながる。玉城祐輔が手で示す。文字とロゴ（Google のロゴも）は入れていない
 - Codex の画像生成で、正本 tamashiro-yusuke-character-sheet-v5.png・worried-business-owner-character-sheet-v1.png・共通見本 tl-four-character-style-master-v2.png を参照画像に渡して作り、正本と並べて顔・服・靴を確かめた
 - 記事の点検スクリプトのエラー16件は、もとからある画面の図（人物なし）のもので、追加の前後で同じ件数。`npm run check` エラー0・`test:engagement` 8件成功・build 成功。手元のプレビューで 1440px と 375px の表示・横はみ出しなしを確かめた
+- コミット c6efc5d を main に push。Cloudflare Pages が約70秒で本番に出した。本番で新しい絵が 200（image/webp）、ブラウザで画像の読み込み失敗0・コンソールのエラー0
