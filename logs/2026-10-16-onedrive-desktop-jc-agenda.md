@@ -53,3 +53,10 @@ JCの仲間の議案で、アジェンダの予算書の見積書リンクが `h
 - コミット d2c7549 を main に合流（74d5830）して push。main には別のセッションの紹介ページの変更（499cc0a・4b67ab9、公開済み）が先に入っていたので、その上に重ねた。`npm run check` エラー0・`test:engagement` 8件成功・build 成功
 - 本番で一節があり、消した一文が無いことを確かめた。紹介ページ /about/ も 200 のまま
 - 続き：Google Workspace 紹介プログラムの登録（玉城さん）と、JC向けに Google ドライブで議案を作って引き継ぐ続編の記事は、残タスク台帳に記載
+
+## 追加：Google Workspace のイラスト（2026-10-16 玉城さんの依頼と公開の OK）
+
+- 「作業はパソコン、保管はGoogleドライブ」の「作る／残す」の箇条書きの後に `tamashiro-yusuke-worried-business-owner-google-workspace.webp`（1536x1024・126KB）を足した
+- 絵の中身：悩める社長がパソコンで仕上げた議案フォルダを雲の中の本棚（共有ドライブ）へ上げ、まわりにメール・予定表・文書・表計算・ビデオ会議のアイコンと、ほかのパソコン・スマホ・タブレットがつながる。玉城祐輔が手で示す。文字とロゴ（Google のロゴも）は入れていない
+- Codex の画像生成で、正本 tamashiro-yusuke-character-sheet-v5.png・worried-business-owner-character-sheet-v1.png・共通見本 tl-four-character-style-master-v2.png を参照画像に渡して作り、正本と並べて顔・服・靴を確かめた
+- 記事の点検スクリプトのエラー16件は、もとからある画面の図（人物なし）のもので、追加の前後で同じ件数。`npm run check` エラー0・`test:engagement` 8件成功・build 成功。手元のプレビューで 1440px と 375px の表示・横はみ出しなしを確かめた
