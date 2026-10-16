@@ -53,8 +53,12 @@
 - 手元の画面（worktree のビルドを 4332番で表示）：1440px と 390px で画像の読み込み失敗 0・横のはみ出しなし・共有ボタン 4つが 46px で1列・前の記事へのリンクあり。コンソールのエラーは /api/engagement の 404 だけ（静的な表示では動かない仕組みで、記事の不具合ではない）
 - 見出し（H1）は 1440px で6行。前の記事は5行。このサイトは見出しを大きく折り返す作り
 
-## 残っていること
+## 公開（2026-10-16 玉城さんの OK・題は今のまま）
 
-- 玉城さんの確認と公開の OK。まだコミットしていない（作業場所は `~/Cursor/_worktrees/tamashiro-blog-gdrive`、ブランチ `feature/gdrive-jc-gian`）
-- 公開するときは `git-main-release` で main に合流。元のフォルダ `~/Cursor/tamashiro-blog` では、別のセッションが前の記事に図を1枚足す変更（未コミット）を進めている。同じ記事の近い場所に今回の1行を足したので、合流の前に main の変化を見てから重ねる
-- Google Workspace 紹介プログラムへの登録がまだなので、紹介リンクは入れていない
+- コミット 6a0f4c7 を作り、GitHub の main（7ec904c。別のセッションが前の記事に Google Workspace のイラストを足したもの）を取り込んだ。重なりなし
+- 合流後に `npm run check`（エラー 0）・`npm run test:engagement`（8件成功）・`npm run build`・`npm run check:affiliate` を通した
+- main へ push（7ec904c..5d56786）。Cloudflare Pages が main から自動で本番に出した
+- 本番 https://ysk.life/blog/jc-gian-google-shared-drive/ が 200。本文の一文「閲覧者で足す」あり、canonical 正しい、og:image（ヒーロー）が 200 image/jpeg、記事の画像 15個すべて 200。ブラウザで画像 20枚の読み込み失敗 0・コンソールのエラー 0。前の記事から続編へのリンクあり
+- 作業場所（worktree）とブランチ feature/gdrive-jc-gian は公開後に片づけた
+
+- Google Workspace 紹介プログラムへの登録がまだなので、紹介リンクは入れていない。登録が済んだら、この記事と前の記事に広告表記つきで足す
