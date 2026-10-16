@@ -39,3 +39,9 @@ JCの仲間の議案で、アジェンダの予算書の見積書リンクが `h
 - 合流後の確認: `npm run check` エラー0、`npm run test:engagement` 8件すべて成功、`npm run check:affiliate` 問題なし（注意3件はほかの記事）、`npm run build` 34ページ
 - 本番 https://ysk.life/blog/onedrive-desktop-jc-agenda/ が 200。タイトル・canonical・og:image が正しく、記事の画像9枚と共有用の画像がすべて 200。ブラウザで画像の読み込み失敗0・コンソールのエラー0。記事一覧にも出ている
 - 作業ブランチ post/onedrive-desktop-jc-agenda は削除した
+
+## 追加：止める前と後のデスクトップの図（2026-10-16 玉城さんの依頼と公開の OK）
+
+- 「止めたら、デスクトップのアイコンが消えたように見える」の節に `screen-desktop-before-after.webp` を足した（元の HTML は docs/figures/…/fig8-desktop-before-after.html）。止める前は OneDrive の印付きのアイコンが並び、止めたあとはごみ箱とショートカットだけで、もとの場所を点線で示す
+- コミット 81f278f を main に合流（4b5fbfe）して push。`npm run check` エラー0・`test:engagement` 8件成功・build 成功
+- 本番で新しい図が 200（image/webp）、ブラウザで記事の画像の読み込み失敗0・コンソールのエラー0
