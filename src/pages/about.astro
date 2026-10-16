@@ -19,7 +19,7 @@ const gKenteiUrl = 'https://www.jdla.org/certificate/general/';
 	<head>
 		<BaseHead
 			title="玉城について｜玉城祐輔"
-			description="T&Lサポート株式会社代表取締役、玉城祐輔のプロフィール。G検定（ジェネラリスト検定）合格。2026年度の日本青年会議所沖縄地区協議会 規則財政審査局長、宜野湾青年会議所 副理事長、北谷町商工会青年部 監事。JC活動のAI活用や例会・セミナー開催のご相談も承ります。"
+			description="T&Lサポート株式会社代表取締役、玉城祐輔のプロフィール。G検定（ジェネラリスト検定）・ITパスポート試験 合格。2026年度の日本青年会議所沖縄地区協議会 規則財政審査局長、宜野湾青年会議所 副理事長、北谷町商工会青年部 監事。JC活動のAI活用や例会・セミナー開催のご相談も承ります。"
 		/>
 	</head>
 	<body class="journal-page about-page">
@@ -74,6 +74,13 @@ const gKenteiUrl = 'https://www.jdla.org/certificate/general/';
 								<p class="g-kentei-note">ここで学んだ知識を土台に、小さな会社と地域の団体のAI活用を支援しています。</p>
 								<a class="g-kentei-link" href={gKenteiUrl} target="_blank" rel="noopener noreferrer">G検定の公式ページ<span aria-hidden="true">↗</span><span class="sr-only">（新しいタブで開きます）</span></a>
 							</div>
+						</dd>
+					</div>
+					<div>
+						<dt>資格</dt>
+						<dd class="it-passport">
+							<p class="g-kentei-name">ITパスポート試験 合格</p>
+							<p class="g-kentei-meta">経済産業省が認定する国家試験</p>
 						</dd>
 					</div>
 				</dl>
@@ -179,7 +186,7 @@ const gKenteiUrl = 'https://www.jdla.org/certificate/general/';
 	.g-kentei { display:flex; align-items:center; gap:20px; }
 	.g-kentei-logo { flex:0 0 176px; display:block; }
 	.g-kentei-logo img { display:block; width:100%; height:auto; }
-	.g-kentei-body p { margin:0; }
+	.g-kentei-body p,.it-passport p { margin:0; }
 	.g-kentei-name { font-weight:750; }
 	.g-kentei-meta { margin-top:2px !important; color:var(--muted); font-size:14px; font-weight:500; }
 	.g-kentei-meta span { display:inline-block; }
