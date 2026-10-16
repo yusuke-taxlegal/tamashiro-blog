@@ -23,3 +23,9 @@
 - `npm run build`：成功（37ページ）
 - `npm run check:affiliate`：問題なし（既存記事の注意3件のみ）
 - 1440px・375px：画像がすべて表示・横はみ出しなし・共有ボタン4つ・og:image が 200（image/jpeg）
+
+## 公開
+
+- main に fast-forward で合流（2914fc0）し、push。Cloudflare Pages の自動公開（デプロイ 8fc3141f・本番 main・source 2914fc0）
+- 本番 https://ysk.life/blog/jc-gian-marugoto-check/ と固定URL https://8fc3141f.tamashiro-blog.pages.dev/ の両方で、1440px・390px とも画像21枚がすべて表示・横はみ出しなし・コンソールのエラーなし・共有ボタンあり・canonical は ysk.life・og:image が 200（image/jpeg）
+- 記事全体の撮影（logs/…-preview.png・2.3MB）は生成物なのでコミットに入れていない
