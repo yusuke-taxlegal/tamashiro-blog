@@ -1,0 +1,46 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="icons.js"></script>
+<style>.stage{width:1010px;height:700px}
+.dlg{position:absolute;left:32px;top:104px;width:540px;background:#fff;border-radius:16px;box-shadow:0 12px 32px rgba(20,30,50,.22),0 0 0 1px rgba(0,0,0,.06);padding:22px 24px}
+.dlg h2{font-size:21px;font-weight:500;color:#1f1f1f;margin-bottom:14px}
+.dlg .add{height:44px;border:1px solid #747775;border-radius:6px;display:flex;align-items:center;padding:0 14px;color:#5f6368;font-size:14px;margin-bottom:14px}
+.dlg h4{font-size:14px;font-weight:600;margin-bottom:6px}
+.m{display:flex;align-items:center;gap:12px;height:52px}
+.av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex:none}
+.who{flex:1;line-height:1.35}.who b{font-size:14px;font-weight:600;display:block}.who span{font-size:12px;color:#5f6368}
+.role{font-size:13.5px;color:#1f1f1f;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:6px}
+.role:after{content:"▾";color:#444;font-size:11px}
+.r-admin{background:#F3E8FF}.r-cm{background:#E0ECFF}.r-ct{background:#DCFCE7}
+.done{display:flex;justify-content:flex-end;margin-top:10px}.done span{background:#0B57D0;color:#fff;border-radius:18px;padding:9px 22px;font-size:14px;font-weight:600}
+.tbl{position:absolute;left:600px;top:104px;width:380px;background:#fff;border-radius:12px;border:2px solid #d5dbe3;padding:14px 16px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.tbl b{font-size:15.5px;color:#1f2a37;display:block;margin-bottom:10px}
+.tbl table{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{font-weight:600;color:#4a5563;font-size:12px;padding:6px 4px;border-bottom:1.5px solid #e5e7eb;text-align:center}
+.tbl th:first-child{text-align:left}
+.tbl td{padding:9px 4px;border-bottom:1px solid #f0f2f4;text-align:center;font-size:15px}
+.tbl td:first-child{text-align:left;font-size:13.5px;font-weight:600}
+.o{color:#15803D;font-weight:800}.x{color:#B91C1C;font-weight:800}
+.tbl p{font-size:12.5px;color:#4a5563;margin-top:10px;line-height:1.55;word-break:auto-phrase}
+</style></head><body><div class="stage">
+<div class="cap">委員は「投稿者」。消せる人をしぼる<small>共有ドライブの「メンバーを管理」で、1人ずつ権限を選びます</small></div>
+<div class="dlg">
+ <h2>「2027年度 議案」のメンバーを管理</h2>
+ <div class="add">ユーザーやグループを追加</div>
+ <h4>メンバー</h4>
+ <div class="m"><span class="av" style="background:#7C3AED">事</span><div class="who"><b>事務局長</b><span>jimukyoku@example.jp</span></div><span class="role r-admin">管理者</span></div>
+ <div class="m"><span class="av" style="background:#7C3AED">専</span><div class="who"><b>専務理事</b><span>senmu@example.jp</span></div><span class="role r-admin">管理者</span></div>
+ <div class="m"><span class="av" style="background:#2563EB">総</span><div class="who"><b>総務委員長</b><span>soumu-iincho@example.jp</span></div><span class="role r-cm" id="cm">コンテンツ管理者</span></div>
+ <div class="m"><span class="av" style="background:#2563EB">副</span><div class="who"><b>総務副委員長</b><span>soumu-fuku@example.jp</span></div><span class="role r-cm">コンテンツ管理者</span></div>
+ <div class="m"><span class="av" style="background:#15803D">A</span><div class="who"><b>総務委員 A</b><span>iin-a@example.jp</span></div><span class="role r-ct" id="ct">投稿者</span></div>
+ <div class="m"><span class="av" style="background:#15803D">B</span><div class="who"><b>総務委員 B</b><span>iin-b@example.jp</span></div><span class="role r-ct">投稿者</span></div>
+ <div class="done"><span>完了</span></div>
+</div>
+<div class="tbl"><b>それぞれ、できること</b>
+<table><tr><th>権限</th><th>足す<br>直す</th><th>動かす<br>ゴミ箱へ</th><th>メンバーを<br>変える</th></tr>
+<tr><td style="color:#7C3AED">管理者</td><td class="o">○</td><td class="o">○</td><td class="o">○</td></tr>
+<tr><td style="color:#2563EB">コンテンツ管理者</td><td class="o">○</td><td class="o">○</td><td class="x">×</td></tr>
+<tr><td style="color:#15803D">投稿者</td><td class="o">○</td><td class="x">×</td><td class="x">×</td></tr>
+<tr><td style="color:#4a5563">閲覧者</td><td class="x">×</td><td class="x">×</td><td class="x">×</td></tr></table>
+<p>投稿者は、議案を上げることはできても、ほかの人の議案を動かしたり消したりできません。終わった年度は、管理者以外を閲覧者にします。</p>
+</div>
+<div class="note" style="position:absolute;left:32px;top:668px">※ 画面のイメージです。名前とメールアドレスは例です。できることは Google の公式ヘルプ（2026年10月16日確認）から。</div>
+</div><script>fill();</script></body></html>

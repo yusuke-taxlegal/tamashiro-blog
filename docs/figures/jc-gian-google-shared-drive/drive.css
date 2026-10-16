@@ -1,0 +1,20 @@
+/* ブラウザで開いたGoogleドライブの画面のイメージ（ロゴは描かない） */
+.br{background:#fff;border-radius:10px;box-shadow:0 10px 30px rgba(20,30,50,.18),0 0 0 1px rgba(0,0,0,.08);overflow:hidden;position:absolute}
+.br .tabs{height:36px;background:#DEE3EA;display:flex;align-items:flex-end;padding-left:70px;position:relative}
+.br .tabs:before{content:"● ● ●";position:absolute;left:14px;top:10px;font-size:10px;letter-spacing:3px;color:#9aa3ad}
+.br .tab{background:#fff;height:29px;border-radius:8px 8px 0 0;padding:0 14px;display:flex;align-items:center;gap:8px;font-size:12.5px;width:300px;white-space:nowrap;color:#333}
+.br .url{height:38px;display:flex;align-items:center;gap:12px;padding:0 14px;border-bottom:1px solid #e6e8eb;font-size:12.5px;color:#555}
+.br .url .box{flex:1;height:26px;background:#F1F3F4;border-radius:13px;display:flex;align-items:center;padding:0 14px;color:#333}
+.gd{display:flex;background:#F8FAFD;min-height:420px}
+.gd .side{width:236px;padding:12px 10px;font-size:14px;color:#1f1f1f}
+.gd .new{display:inline-flex;align-items:center;gap:10px;background:#fff;border-radius:16px;padding:14px 20px;font-size:14.5px;font-weight:600;box-shadow:0 1px 3px rgba(60,64,67,.3),0 4px 8px 3px rgba(60,64,67,.12);margin:2px 0 14px 4px}
+.gd .si{height:32px;display:flex;align-items:center;gap:12px;padding-left:calc(14px + var(--d,0)*20px);border-radius:16px;white-space:nowrap;font-size:13.5px}
+.gd .si.sel{background:#C2E7FF;font-weight:600}
+.gd .si .chev{width:10px;color:#444;font-size:10px}
+.gd .main{flex:1;background:#fff;border-radius:16px;margin:8px 12px 12px 0;padding:14px 18px;font-size:13.5px}
+.gd .gcrumb{font-size:19px;color:#1f1f1f;display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.gd .gcrumb .sep{color:#666;font-size:15px}
+.gd .row{height:38px;display:grid;grid-template-columns:1fr 130px 130px;align-items:center;border-bottom:1px solid #eef0f2;padding:0 6px;gap:8px}
+.gd .row.head{height:32px;color:#555;font-size:12.5px;font-weight:600}
+.gd .row .nm{display:flex;align-items:center;gap:12px}
+.gd .row .sub{color:#555;font-size:12.5px}
