@@ -16,3 +16,14 @@
 
 - `npm run build` が通る
 - パソコン幅（1280px）とスマホ幅（375px）で表示を確認。横のはみ出しなし。見出しと説明文に `word-break:auto-phrase` を足して「合／格」の割れを直した
+
+## 公開（2026-10-16 09:3x JST）
+
+- `feat/about-g-kentei` を main へ早送りで合流 → push（main 499cc0a）。Cloudflare Pages の GitHub 連携で自動公開（Production `7dd30329-47d2-44b3-adf0-ed530fbb4155`・source 499cc0a）。wrangler からの直接公開はしていない
+- 公開前の点検：`npm run check` 0 errors・`check:affiliate` 問題なし・`test:engagement` 8件合格・`npm run build` 成功
+- 本番 https://ysk.life/about/ と固定URL https://7dd30329.tamashiro-blog.pages.dev/about/ がともに HTTP 200・本文に「G検定（ジェネラリスト検定）合格」・canonical は https://ysk.life/about/ ・ロゴ SVG は 200（image/svg+xml）・ブラウザでロゴ表示・コンソールのエラーなし
+
+## 残り（業務DX推進士）
+
+- 認定証の有効期限が「2025年8月」（2023年8月取得・認定番号 DX01032）。認定は2年有効で、更新テストに合格すると新しい認定証が出る（https://wppo.work/dx.html）。更新していなければ、ページの「業務DX推進士」は今のまま載せられない。玉城さんに更新の有無を確かめる
+- 公式ロゴは見当たらない（ページにも検索にも、認定者向けのマークや使い方の決まりが無い）。主催は 一般社団法人ワークパフォーマンス推進機構（旧 IT顧問化協会）。協会のロゴは認定者用ではないので使わない
