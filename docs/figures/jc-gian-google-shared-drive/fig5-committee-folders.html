@@ -1,0 +1,48 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><link rel="stylesheet" href="drive.css"><script src="icons.js"></script>
+<style>.stage{width:1010px;height:650px}
+.gd .row{grid-template-columns:1fr 130px}
+.inner{position:absolute;left:588px;top:430px;width:380px;background:#fff;border:2.5px solid #15803D;border-radius:12px;padding:12px 14px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+.inner b{display:flex;align-items:center;gap:8px;font-size:15px;color:#1f2a37}
+.inner .num{width:24px;height:24px;font-size:14px;background:#15803D}
+.inner p{word-break:auto-phrase;font-size:12.5px;color:#4a5563;margin:4px 0 8px 32px}
+.inner div{display:flex;align-items:center;gap:10px;font-size:13px;height:27px;white-space:nowrap}
+</style></head><body><div class="stage">
+<div class="cap">共有ドライブは年度ごとに1つ。中は委員会ごと、事業ごとのフォルダ<small>委員は材料を上げ、委員長は上程した版を戻します</small></div>
+<div class="br" style="left:32px;top:104px;width:946px">
+ <div class="tabs"><div class="tab"><i data-i="sdrive:15"></i>2027年度 議案 - Google ドライブ<span style="margin-left:auto;color:#666">✕</span></div></div>
+ <div class="url"><span>← → ⟳</span><div class="box">drive.google.com/drive/folders/……</div></div>
+ <div class="gd">
+  <div class="side">
+   <div class="new"><i data-i="plus:20"></i>新規</div>
+   <div class="si"><i data-i="mydrive:18"></i>マイドライブ</div>
+   <div class="si"><span class="chev">▼</span><i data-i="sdrive:18"></i>共有ドライブ</div>
+   <div class="si" style="--d:1"><i data-i="sdrive:18"></i>2025年度 議案</div>
+   <div class="si" style="--d:1"><i data-i="sdrive:18"></i>2026年度 議案</div>
+   <div class="si sel" style="--d:1" id="y27"><i data-i="sdrive:18"></i>2027年度 議案</div>
+  </div>
+  <div class="main">
+   <div class="gcrumb">2027年度 議案</div>
+   <div class="row head"><span>名前</span><span>最終更新</span></div>
+   <div class="row" id="c1"><span class="nm"><i data-i="gfolder:20"></i>01_総務委員会</span><span class="sub">2027/05/14</span></div>
+   <div class="row" id="c2"><span class="nm"><i data-i="gfolder:20"></i>02_広報委員会</span><span class="sub">2027/04/09</span></div>
+   <div class="row" id="c3"><span class="nm"><i data-i="gfolder:20"></i>03_会員拡大委員会</span><span class="sub">2027/03/12</span></div>
+   <div class="row"><span class="nm"><i data-i="gfolder:20"></i>04_まちづくり委員会</span><span class="sub">2027/03/12</span></div>
+   <div class="row"><span class="nm" id="c5"><i data-i="gfolder:20"></i>05_青少年育成委員会</span><span class="sub">2027/02/10</span></div>
+  </div>
+ </div>
+</div>
+<div class="call" id="k1" style="left:44px;top:446px;width:226px"><span class="num">1</span><div>年度ごとに1つ<small>終わった年度は、全員を閲覧者にして残す</small></div></div>
+<div class="call blue" id="k2" style="left:300px;top:470px;width:264px"><span class="num">2</span><div>委員会ごとのフォルダ<small>番号を付けると、毎年同じ並びになる</small></div></div>
+<div class="inner" id="inner"><b><span class="num">3</span>「01_総務委員会」の中</b><p>事業ごとにフォルダを作り、材料と上程した版を分ける</p>
+ <div><i data-i="gfolder:18"></i>4月例会_事業計画</div>
+ <div style="padding-left:28px"><i data-i="gfolder:18"></i>01_材料（見積書・写真・文案）</div>
+ <div style="padding-left:28px"><i data-i="gfolder:18"></i>02_上程した版</div>
+</div>
+<div class="note" style="position:absolute;left:32px;top:618px">※ 画面のイメージです。委員会と事業の名前は例です。</div>
+</div><script>fill();
+link('k1','y27','#E5484D',false,'up');
+link('k2','c5','#2563EB',false,'up');
+link('c1','inner','#15803D',true,'down');
+document.getElementById('y27').classList.add('hl');
+document.getElementById('c1').classList.add('hl');
+</script></body></html>
