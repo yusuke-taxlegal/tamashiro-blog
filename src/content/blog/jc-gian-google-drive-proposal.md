@@ -11,7 +11,7 @@ heroImage: '../../assets/blog/jc-gian-google-drive-proposal/hero-tamashiro-yusuk
 <!-- product-article-character-sheets: tamashiro-yusuke-character-sheet-v5.png, worried-business-owner-character-sheet-v1.png -->
 <!-- product-article-character-check: hero-and-body-verified -->
 
-[1本目](/blog/onedrive-desktop-jc-agenda/)の記事で、JCの議案はパソコンで作る、と書きました。[2本目](/blog/jc-gian-google-shared-drive/)の記事では、作っている途中の見積書や写真、文案をGoogleドライブに集め、上程（理事会に議案を出すこと）した版もそこに残す進め方を書きました。
+[1本目](/blog/onedrive-desktop-jc-agenda/)の記事で、JCの議案はパソコンで作る、と書きました。[2本目](/blog/jc-gian-google-shared-drive/)の記事では、作っている途中の見積書や写真、文案をGoogleドライブに集め、上程（理事会に議案を出すこと）した議案もそこに残す進め方を書きました。
 
 このやり方は、LOM（各地の青年会議所）や日本JC（日本青年会議所。全国のLOMをまとめる本会）の決まりではありません。規則も手引きも無いなかで、私が1人でやってきたことをもとに考えた案です。
 
@@ -19,7 +19,7 @@ heroImage: '../../assets/blog/jc-gian-google-drive-proposal/hero-tamashiro-yusuk
 
 ## 先に結論：便利な案の1つ。ただ、どのLOMでも同じようにはいかない
 
-Googleドライブの共有ドライブ（チームで持つ保管場所）に議案の材料を集めると、委員会のメンバーがLINEやメールでファイルを送り合わずに済みます。どれが最新の版かも、1か所を見れば分かります。
+Googleドライブの共有ドライブ（チームで持つ保管場所）に議案の材料を集めると、委員会のメンバーがLINEやメールでファイルを送り合わずに済みます。どれが最新のファイルかも、1か所を見れば分かります。
 
 一方で、どのLOMでも同じように回せるとは限らない理由も3つあります。
 

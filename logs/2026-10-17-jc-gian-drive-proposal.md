@@ -39,3 +39,10 @@
 - 画像: 新しい挿絵3枚（ヒーロー・LINEでZIPが行き交う場面・組み立てて戻す場面。正本 v5 と悩める社長 v1 で照合済み）、画面の図2枚を作り直し（`docs/figures/jc-gian-google-shared-drive/fig5-committee-folders.html`・`fig6-upload-joutei.html`）。使わなくなった6枚は外した（git の履歴には残る）
 - 3本目: 題を「JCの議案づくりをGoogleドライブで共有する案。便利だけれど、どのLOMでも同じようにはいかない理由」に。便利なところ・手引きの節・試し方を「現年の共有」に合わせた
 - 1本目: 2本目と3本目へのリンクの文を新しい題に合わせた
+
+## 「版」をやめる（2026-10-17 玉城さんの指摘と公開の OK）
+
+- 「版」は分かりにくい、と玉城さんから。3本の記事と画面の図で言い換えた：フォルダ名「02_上程した版」→「02_上程した議案」、「最新の版」→「最新のファイル」、「OneDriveの版によって」→「OneDriveのバージョンによって」など
+- 撮り直した図：2本目の screen-committee-project-folders・screen-upload-joutei-version、1本目の screen-onedrive-settings・screen-backup-toggle・screen-desktop-before-after
+- 製品の正式な名前「パソコン版Googleドライブ」は残した
+- ミス帳に feedback_ban_word_unclear.md を足した
