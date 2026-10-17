@@ -38,4 +38,12 @@
 - `npm run check:affiliate`: 問題なし
 - `npm run build`: 成功。`lib/engagement/articles.json` に記事が1行足された（記事と一緒にコミットする）
 - プレビュー（astro preview 4331）: 1440px と 390px で画像28枚すべて表示、横のはみ出しなし、og:image 200 image/jpeg、canonical・og:type article、共有ボタン 46×46
-- 公開・Git 操作はしていない
+- 型の検査（astro check）: エラー0件。集計テスト（test:engagement）: 8件すべて成功
+
+## 公開（2026-10-17）
+
+- コミット c6584c9 を main に push（手元・origin・GitHub の main が一致）
+- Cloudflare Pages の自動ビルド: デプロイ e8d8d7a8-07cc-46fa-8b41-fad68a58b80d（Production、main、c6584c9）
+- https://e8d8d7a8.tamashiro-blog.pages.dev/blog/hidock-p1-setup-guide/ と https://ysk.life/blog/hidock-p1-setup-guide/ が HTTP 200、題名どおり
+- 本番の og:image（hero-tamashiro-yusuke-rira-setup の jpg）が 200 image/jpeg、canonical と og:type article、ホームの一覧に掲載
+- 本番ブラウザで記事の画像16枚すべて表示、横のはみ出しなし、コンソールのエラーなし
