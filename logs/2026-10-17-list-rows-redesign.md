@@ -21,3 +21,10 @@
 ## 別に直すこと
 
 - 人気の一覧を集計する Worker（`ysk-life-engagement-sync`）が 2026-09-19 から公開し直されていない（別の作業として提案済み）
+
+## 公開
+
+- main に fast-forward で合流（e17340f）して push。Cloudflare Pages の自動公開（デプロイ c7727cac・source e17340f）
+- 本番 ysk.life の8ページ（トップ・読む・ジャンル3つ・記事・道具箱・玉城について）を 390px・1440px で確かめた。すべて 200、横はみ出しなし、画像の失敗なし、コンソールのエラーなし、canonical も正しい。トップと読むの人気の一覧は本番のデータで3件出た
+- 固定URL https://c7727cac.tamashiro-blog.pages.dev/ でもトップ・読む・ジャンルを確かめた
+- 以前のリンク /blog/#genre-tools は /blog/tools/ へ移る
