@@ -1,0 +1,63 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="helpers.js"></script>
+<style>.stage{height:930px}
+.legend{position:absolute;left:32px;top:752px;width:946px;display:grid;grid-template-columns:1fr 1fr;gap:10px}.legend .call{position:static;padding:8px 12px;font-size:15px}
+.nl{padding:7px 8px;border-radius:7px;display:flex;align-items:flex-start}.nl .d{width:6px;height:6px;border-radius:50%;background:#EC5962;margin:6px 0 0 auto;flex:none}
+.nl.on{background:#EFF4F4}
+.tp{display:flex;align-items:center;padding:9px 12px;font-size:12.5px;border-bottom:1px solid #f1f4f4}
+.rd{width:15px;height:15px;border-radius:50%;border:1.5px solid #aab5b7;margin-left:auto}.rd.on{border:5px solid #0097A7}
+.sel{height:32px;border:1px solid #dfe5e6;border-radius:7px;display:flex;align-items:center;padding:0 10px;font-size:12.5px}
+.bar{display:flex;align-items:center;gap:10px;border:1px solid #e3e8e9;border-radius:22px;padding:6px 12px;font-size:11px;color:#3c4a4c}
+.rb{width:36px;height:36px;border:1px solid #e3e8e9;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#546264;font-size:13px}
+</style></head><body><div class="stage">
+<div class="cap">録音を選んで、要約を作る<small>左のメニューの「ノート」を開き、取り込んだ録音を選ぶと、この画面になります</small></div>
+<div class="win" style="position:absolute;left:32px;top:104px;width:946px">
+ <script>document.write(chrome('hinotes.hidock.com','HiNotes'))</script>
+ <div class="app" style="--h:560px">
+  <script>document.write(rail('note'))</script>
+  <div class="panel">
+   <div class="col" style="width:236px">
+    <div class="ttl">ノート</div>
+    <div class="sel" style="margin-top:10px;color:#9aa9ab">⌕ 検索</div>
+    <div style="margin-top:8px;background:#E4F4F6;border-radius:8px;padding:8px 10px;font-size:11px;color:#2b5d63;line-height:1.5">ⓘ 録音ファイルを選び、テンプレートを選択してノートを生成。</div>
+    <div style="margin-top:6px">
+     <div class="nl on" id="sel1"><div><div class="fn">20261016-153012-Rec14.wav</div><div class="fm">2026/10/16 01:05</div></div><span class="d"></span></div>
+     <div class="nl"><div><div class="fn">2026年10月16日 販促チラシの…</div><div class="fm">2026/10/16 42:18</div></div></div>
+     <div class="nl"><div><div class="fn">2026年10月15日 店舗の売上と…</div><div class="fm">2026/10/15 28:40</div></div></div>
+     <div class="nl"><div><div class="fn">20261014-160233-Rec10.wav</div><div class="fm">2026/10/14 55:02</div></div><span class="d"></span></div>
+    </div>
+   </div>
+   <div style="flex:1;padding:16px 36px 12px">
+    <div style="font-size:21px;font-weight:700">20261016-153012-Rec14.wav</div>
+    <div style="display:flex;gap:8px;margin-top:8px"><span class="chip" style="background:#fff;border:1px solid #e3e8e9">📅︎ 10月16日 15:30</span><span class="chip" style="background:#fff;border:1px solid #e3e8e9">⇥ フォルダに移動</span></div>
+    <div style="border:1px solid #e3e8e9;border-radius:12px;padding:14px 16px;margin-top:12px">
+     <div style="font-size:15px;font-weight:700">要約をカスタマイズ</div>
+     <div style="font-size:12px;margin:10px 0 6px">テンプレート</div>
+     <div style="border:1px solid #e3e8e9;border-radius:8px" id="tpl">
+      <div class="tp" style="background:#F3FAFB" id="tp1">🗓︎ 通常会議<span class="rd on"></span></div>
+      <div class="tp">📈︎ 週次チームミーティング<span class="rd"></span></div>
+      <div class="tp">👥︎ 1on1ミーティング<span class="rd"></span></div>
+      <div class="tp" style="border:0">☎︎ ビジネス通話<span class="rd"></span></div>
+     </div>
+     <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px">
+      <div><div style="font-size:12px;margin-bottom:5px">言語</div><div class="sel" id="lang">自動<span style="margin-left:auto">⌄</span></div></div>
+      <div><div style="font-size:12px;margin-bottom:5px">AIモデル</div><div class="sel" id="model">✳︎ <span style="filter:blur(3px);margin-left:6px">Model Name 0.0</span><span style="margin-left:auto">⌄</span></div></div>
+     </div>
+     <div class="grad2" id="gen" style="height:38px;margin-top:14px;font-size:13.5px">今すぐ生成</div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:12px"><div class="bar" style="flex:1"><span style="color:#0097A7">▶</span>00:00:00<div class="wave"></div>00:01:05 &nbsp;1x</div><span class="rb">⇪</span><span class="rb">▭</span><span class="rb">⋮</span></div>
+   </div>
+  </div>
+ </div>
+</div>
+<span class="num n" id="n1">1</span><span class="num n" id="n2">2</span><span class="num n" id="n3">3</span><span class="num n" id="n4">4</span>
+<div class="legend">
+<div class="call"><span class="num">1</span><div>左の一覧から、要約したい録音を選ぶ<small>赤い点は、まだ要約を作っていない録音の印です。</small></div></div>
+<div class="call"><span class="num">2</span><div>テンプレートは、まず「通常会議」<small>まとめ方の型です。無料で8種類以上から選べます。</small></div></div>
+<div class="call"><span class="num">3</span><div>言語は「自動」、AIモデルは出ているままでよい<small>モデルの名前は時期によって変わります。</small></div></div>
+<div class="call"><span class="num">4</span><div>「今すぐ生成」を押して待つ<small>1時間の会議で約5〜6分が目安と、画面で案内されています。</small></div></div>
+</div>
+<div class="note" style="position:absolute;left:32px;top:896px">※ 取扱説明書（2026年10月版）の画面をもとにした図です。テンプレートの並びは人によって違います。</div>
+</div><script>fill();
+['sel1','tp1','lang','gen'].forEach((id,i)=>{document.getElementById(id).classList.add('hl')});
+place('n1','sel1',198,-14);place('n2','tp1',-40,4);place('n3','lang',-40,2);place('n4','gen',-40,5);
+</script></body></html>

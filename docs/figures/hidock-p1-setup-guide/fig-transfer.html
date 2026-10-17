@@ -1,0 +1,50 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="helpers.js"></script>
+<style>.stage{height:916px}
+.fi .ok{display:flex;align-items:center;justify-content:center;color:#fff;font-size:8px;font-weight:800}
+.legend{position:absolute;left:32px;top:762px;width:946px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.legend .call{position:static}
+.mi{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:7px;font-size:12.5px;color:#3c4a4c}
+.mi.on{background:#EFF4F4}
+.rc{margin-top:10px;border-radius:10px;background:linear-gradient(100deg,#DDEFF5,#EAF6F3);display:flex;align-items:center;gap:10px;padding:10px}
+.rec{width:30px;height:30px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;margin-left:auto}.rec i{width:20px;height:20px;border-radius:50%;background:#EC5962;display:block}
+.dh{font-size:11.5px;color:#718082;margin:12px 0 2px 4px}
+.tm{margin-left:auto;font-size:10.5px;color:#9aa9ab}
+.toast{position:absolute;background:#fff;border-radius:10px;box-shadow:0 8px 26px rgba(0,0,0,.18);width:330px}
+.spin{width:20px;height:20px;border-radius:50%;border:3px solid #cdeff2;border-top-color:#1BBFCA;border-right-color:#1BBFCA}
+</style></head><body><div class="stage">
+<div class="cap">P1をつなぐと、録音が自動でHiNotesへ送られる<small>左のメニューの「P1」を開くと、本体に入っている録音の一覧（ファイル）が見られます</small></div>
+<div class="win" style="position:absolute;left:32px;top:104px;width:946px">
+ <script>document.write(chrome('hinotes.hidock.com','HiNotes'))</script>
+ <div class="app" style="--h:560px">
+  <script>document.write(rail('devp1',{swap:true}))</script>
+  <div class="panel">
+   <div class="col" style="width:250px">
+    <div style="display:flex;align-items:center;gap:8px"><span class="ttl" style="font-size:17px">P1</span><span style="margin-left:auto;font-size:12px;color:#546264">🔒︎ &nbsp;<span style="color:#2EAE5A">▮</span> 100%</span></div>
+    <div class="rc"><div style="width:22px;height:40px">${''}</div><div><div style="font-size:12.5px;font-weight:600">録音していません</div><div style="font-size:10.5px;color:#546264">本体のボタンで録音開始</div></div><div class="rec"><i></i></div></div>
+    <div style="margin-top:12px"><div class="mi on">▤ ファイル</div><div class="mi" id="mset">⚙ デバイス設定</div><div class="mi">ⓘ デバイス情報</div><div class="mi">▯ 製品ガイド</div></div>
+   </div>
+   <div style="flex:1;padding:18px 26px">
+    <div class="ttl" style="font-size:19px">ファイル</div>
+    <div style="display:flex;gap:8px;margin-top:10px"><span class="chip">すべてのタイプ ⌄</span><span class="chip">すべての状態 ⌄</span><span class="chip" style="margin-left:auto">新しい順 ⌄</span></div>
+    <div class="dh">2026-10-16</div>
+    <div class="row2" id="r1"><div class="fi">▣</div><div><div class="fn">20261016-153012-Rec14.wav</div><div class="fm">録音 • 00:01:05 • 780.12 KB</div></div><span class="tm">15:30:12</span></div>
+    <div class="row2" id="r2"><div class="fi">▣<span class="ok">✓</span></div><div><div class="fn">2026年10月16日 販促チラシの打ち合わせ</div><div class="fm">録音 • 00:42:18 • 30.45 MB</div></div><span class="tm">14:05:12</span></div>
+    <div class="dh">2026-10-15</div>
+    <div class="row2"><div class="fi">▣<span class="ok">✓</span></div><div><div class="fn">2026年10月15日 店舗の売上と来月の段取り</div><div class="fm">録音 • 00:28:40 • 20.64 MB</div></div><span class="tm">10:02:44</span></div>
+    <div class="row2"><div class="fi">∥<span class="ok">✓</span></div><div><div class="fn">20261015-081530-Wip03.wav</div><div class="fm">ボイスメモ • 00:00:21 • 252.30 KB</div></div><span class="tm">08:15:30</span></div>
+   </div>
+  </div>
+ </div>
+ <div class="toast" id="toast" style="left:60px;top:470px"><div style="padding:12px 14px;font-size:12.5px;font-weight:600;border-bottom:1px solid #eef1f2">1 件のファイルを転送中 • HiDock P1</div><div style="display:flex;align-items:center;gap:10px;padding:12px 14px;font-size:12px">∥ 20261016-153012-Rec14.wav<span style="margin-left:auto;color:#546264">50%</span><span class="spin"></span></div></div>
+</div>
+<div class="legend">
+<div class="call"><span class="num">1</span><div>つなぐと送り始める<small>左下に進み具合が出ます。終わるまでケーブルを抜きません。</small></div></div>
+<div class="call green"><span class="num">2</span><div>緑の✓が付いたら取り込み完了<small>要約を作ると、名前がAIの付けた題名に変わります。</small></div></div>
+<div class="call blue"><span class="num">3</span><div>送られないとき<small>「デバイス設定」の「自動転送」がオンになっているかを見ます。</small></div></div>
+</div>
+<span class="num n" id="n1">1</span><span class="num n" id="n2" style="background:var(--green)">2</span><span class="num n" id="n3" style="background:var(--blue)">3</span>
+<div class="note" style="position:absolute;left:32px;top:882px">※ 取扱説明書（2026年10月版）の画面をもとにした図です。ファイル名と題名は説明のための例です。</div>
+</div><script>fill();
+document.querySelector('.rc>div').outerHTML=p1(46);
+document.getElementById('toast').classList.add('hl');const f2=document.querySelector('#r2 .fi');f2.id='f2';f2.style.outline='3px solid #15803D';f2.style.outlineOffset='3px';document.getElementById('mset').style.outline='3px solid #2563EB';place('n1','toast',316,-14);place('n2','f2',-40,2);place('n3','mset',232,4);
+</script></body></html>

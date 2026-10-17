@@ -1,0 +1,48 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="helpers.js"></script>
+<style>.stage{height:850px}
+.box{position:absolute;background:#fff;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.12),0 0 0 1px rgba(0,0,0,.05)}
+.sr{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #eef1f2}
+.sr b{display:block;font-size:13px;font-weight:600}.sr span{font-size:11px;color:#546264}
+.sb{margin-left:auto;background:#F3F6F6;border-radius:7px;padding:7px 14px;font-size:12px;white-space:nowrap}
+.zm{position:absolute;background:#1f1f1f;border-radius:10px;color:#e8e8e8;font-size:12.5px;padding:8px 0;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.zm h6{font-size:12px;color:#fff;padding:6px 14px 4px}.zm div{padding:5px 14px 5px 30px;position:relative}.zm .on:before{content:"✓";position:absolute;left:12px}
+.zm hr{border:0;border-top:1px solid #3a3a3a;margin:5px 0}
+.legend{position:absolute;left:32px;top:676px;width:946px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.legend .call{position:static;padding:8px 12px;font-size:15px}
+.tag{position:absolute;font-size:14px;font-weight:700;color:#1f2a37;background:#fff;border:2px solid #cbd5e1;border-radius:20px;padding:3px 12px}
+</style></head><body><div class="stage">
+<div class="cap">オンライン会議を録音するときの設定<small>P1をパソコンにつないだまま、イヤホンをP1に、会議アプリの音をP1に向けます</small></div>
+<span class="tag" style="left:32px;top:100px">HiNotes（最初の1回だけ）</span>
+<div class="box" style="left:32px;top:134px;width:470px;height:332px;padding:16px 20px">
+ <div style="font-size:18px;font-weight:600">デバイス設定</div>
+ <div class="sr"><div><b>録音品質</b><span>標準品質（ファイルサイズが小さく、転送が速い）</span></div><span class="sb">標準（96kbps） ⌄</span></div>
+ <div class="sr" id="bcrow"><div><b>BlueCatch</b><span>Bluetoothイヤホンをスキャンして接続。</span></div><span class="sb" id="show">デバイスを表示</span></div>
+ <div class="sr"><div><b>自動録音</b><span>すべての通話を自動で録音</span></div><span class="tg" style="margin-left:auto"></span></div>
+ <div class="sr" style="border:0"><div><b>自動転送</b><span>録音完了後に新しい録音を自動で転送</span></div><span class="tg" style="margin-left:auto"></span></div>
+</div>
+<div class="box" style="left:150px;top:448px;width:352px;padding:16px 18px">
+ <div style="display:flex"><b style="font-size:15px">BlueCatch</b><span style="margin-left:auto;color:#777">✕</span></div>
+ <div style="display:flex;align-items:center;margin-top:12px;font-size:12px"><span style="color:#546264">近くのデバイス</span><span style="margin-left:auto;color:#0097A7">◌ 検索中...</span></div>
+ <div style="display:flex;align-items:center;gap:10px;margin-top:8px;background:#F3F6F6;border-radius:8px;padding:9px 10px;font-size:12.5px" id="ear">🎧︎ AirPods Pro<span class="hn-btn" style="margin-left:auto;height:28px;font-size:12px;padding:0 14px;border-radius:6px" id="conn">接続</span></div>
+ <div style="font-size:12px;color:#546264;margin-top:12px">ペアリング済みデバイス</div><div style="font-size:11px;color:#9aa9ab;margin-top:4px">ペアリング済みデバイスがありません</div>
+</div>
+<span class="tag" style="left:560px;top:100px">会議アプリ（例：Zoom）</span>
+<div style="position:absolute;left:560px;top:134px;width:418px;height:510px;background:#2b2b2b;border-radius:12px;overflow:hidden">
+ <div style="position:absolute;left:170px;top:120px;width:70px;height:70px;border-radius:14px;background:#6b6fd6;color:#fff;font-size:34px;display:flex;align-items:center;justify-content:center">T</div>
+ <div style="position:absolute;left:0;right:0;bottom:0;height:52px;background:#1a1a1a;display:flex;align-items:center;gap:22px;padding:0 14px;color:#ddd;font-size:10px"><span id="aud" style="background:#333;border-radius:6px;padding:4px 8px;text-align:center">🎙︎<br>オーディオ ⌃</span><span style="text-align:center">▭<br>ビデオ</span><span style="margin-left:auto;color:#ff6b6b">終了</span></div>
+</div>
+<div class="zm" style="left:576px;top:226px;width:370px">
+ <h6>マイク</h6><div>システムと同じ（MacBook Proのマイク）</div><div>MacBook Proのマイク</div><div class="on hl" id="mic" style="outline-offset:-2px">HiDock P1</div><hr>
+ <h6>スピーカー</h6><div>システムと同じ（MacBook Proのスピーカー）</div><div>MacBook Proのスピーカー</div><div class="on hl" id="spk" style="outline-offset:-2px">HiDock P1</div><hr>
+ <div>スピーカー &amp; マイクをテストする...</div><div>オーディオ設定...</div>
+</div>
+<span class="num n" id="n1">1</span><span class="num n" id="n2">2</span><span class="num n" id="n3">3</span><span class="num n" id="n3b">3</span>
+<div class="legend">
+<div class="call"><span class="num">1</span><div>イヤホンを「ペアリングを待つ状態」にして「デバイスを表示」<small>AirPodsならケースのふたを開け、背面のボタンを白く点滅するまで長押し。</small></div></div>
+<div class="call"><span class="num">2</span><div>イヤホンを選んで「接続」<small>P1の側面ランプが青になれば成功。次からはP1のBlueCatchボタンを押すだけです。</small></div></div>
+<div class="call"><span class="num">3</span><div>会議アプリのマイクとスピーカーを、両方「HiDock P1」に<small>片方だけだと、相手か自分の声が録音に入りません。</small></div></div>
+</div>
+<div class="note" style="position:absolute;left:32px;top:812px">※ 公式のセットアップガイドと取扱説明書（2026年10月版）をもとにした図です。TeamsやGoogle Meetでも考え方は同じです。</div>
+</div><script>fill();
+['show','conn'].forEach(id=>document.getElementById(id).classList.add('hl'));
+place('n1','show',-38,0);place('n2','conn',-38,0);place('n3','mic',-34,-2);place('n3b','spk',-34,-2);
+</script></body></html>

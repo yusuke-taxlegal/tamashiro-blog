@@ -1,0 +1,63 @@
+/* HiDock P1 導入記事の画面図。HiNotes の実画面（2026-10-17確認）の色・文字に合わせる */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--teal:#0097A7;--teal-d:#00838F;--ink:#262C2D;--sub:#546264;--mute:#718082;--faint:#9AA9AB;--line:#E3E8E8;--soft:#F3F6F6;--red:#E5484D;--blue:#2563EB;--green:#15803D;--amber:#B45309}
+html,body{background:#EEF2F3}
+body{font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI",sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+.stage{width:1010px;padding:28px 32px 30px;position:relative;background:#EEF2F3}
+.cap{font-size:22px;font-weight:700;color:#1f2a37;margin-bottom:16px;letter-spacing:.02em}
+.cap small{display:block;font-size:15px;font-weight:500;color:#556;margin-top:4px}
+.note{font-size:13px;color:#667;margin-top:12px}
+svg{display:block;flex:none}
+/* Chrome のウィンドウ */
+.win{background:#fff;border-radius:10px;box-shadow:0 10px 30px rgba(20,30,50,.18),0 0 0 1px rgba(0,0,0,.08);overflow:hidden;position:relative}
+.tabbar{height:38px;background:#DEE3EA;display:flex;align-items:flex-end;padding-left:78px;position:relative}
+.dots{position:absolute;left:14px;top:13px;display:flex;gap:8px}.dots i{width:12px;height:12px;border-radius:50%;display:block}
+.tab{background:#fff;height:31px;border-radius:9px 9px 0 0;padding:0 12px;display:flex;align-items:center;gap:8px;font-size:12.5px;width:230px;color:#333}
+.tab .x{margin-left:auto;color:#777;font-size:11px}
+.addr{height:40px;background:#fff;display:flex;align-items:center;gap:12px;padding:0 12px;border-bottom:1px solid #e3e6ea}
+.navbtns{display:flex;gap:14px;color:#777;font-size:14px}
+.url{flex:1;height:28px;background:#EEF1F5;border-radius:14px;display:flex;align-items:center;gap:8px;padding:0 14px;font-size:13px;color:#222}
+.url .lock{color:#555;font-size:11px}
+/* 注釈 */
+.hl{outline:3px solid var(--red);outline-offset:2px;border-radius:8px}
+.num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--red);color:#fff;font-weight:800;font-size:16px;flex:none;box-shadow:0 2px 6px rgba(229,72,77,.35)}
+.call{word-break:auto-phrase;position:absolute;background:#fff;border:2.5px solid var(--red);border-radius:10px;padding:10px 14px;font-size:16px;font-weight:700;line-height:1.45;color:#1f2a37;box-shadow:0 6px 18px rgba(0,0,0,.12);display:flex;gap:10px;align-items:flex-start}
+.call small{display:block;font-size:13px;font-weight:500;color:#4a5563;margin-top:2px}
+.call.blue{border-color:var(--blue)}.call.blue .num{background:var(--blue)}
+.call.green{border-color:var(--green)}.call.green .num{background:var(--green)}
+.call.amber{border-color:var(--amber)}.call.amber .num{background:var(--amber)}
+.arrow{position:absolute;pointer-events:none}
+.n{position:absolute}
+/* HiNotes の部品 */
+.hn-h1{font-size:20px;font-weight:600;color:var(--ink);text-align:center}
+.hn-label{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:6px}
+.hn-input{height:34px;border:1px solid #D7DEDF;border-radius:8px;background:#fff;font-size:14px;color:#9CA3AF;display:flex;align-items:center;padding:0 12px}
+.hn-btn{height:44px;border-radius:6px;background:var(--teal);color:#fff;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.hn-btn2{height:45px;border-radius:8px;background:var(--soft);color:var(--ink);font-size:14px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px}
+.hn-link{color:var(--teal)}
+.hn-bg{background:radial-gradient(80% 80% at 100% 100%,rgba(0,151,167,.2) 0%,rgba(0,0,0,0) 60%),radial-gradient(80% 80% at 0% 0%,rgba(140,158,255,.3) 0%,rgba(0,0,0,0) 60%),#fff}
+/* HiNotes v3 のアプリ画面（取扱説明書 2026-10-09 版の画面写真に合わせる） */
+.app{display:flex;background:#EAF7F8;height:var(--h,560px);font-size:13px;color:var(--ink)}
+.rail{width:64px;flex:none;display:flex;flex-direction:column;align-items:center;padding-top:12px;gap:2px}
+.ri{width:56px;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;color:#4b5b5e;padding:6px 0}
+.ri .ic{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;color:#5f7275}
+.ri.on .ic{background:#BBE1E6;color:#007C89}
+.rail .sep{width:44px;height:1px;background:#cfe3e6;margin:6px 0}
+.rail .bot{margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:12px;padding-bottom:14px}
+.plus{width:30px;height:30px;border-radius:50%;background:#1BBFCA;color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;line-height:1}
+.ava{width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid #5f7275;display:flex;align-items:center;justify-content:center}
+.panel{background:#fff;border-radius:12px;margin:8px 8px 8px 0;flex:1;display:flex;overflow:hidden;position:relative}
+.col{border-right:1px solid #E9EDEE;padding:14px 12px;flex:none}
+.ttl{font-size:16px;font-weight:700;color:var(--ink)}
+.chip{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border-radius:7px;background:#F3F6F6;font-size:12px;color:#3c4a4c}
+.row2{display:flex;align-items:center;gap:10px;padding:8px 6px;border-radius:7px}
+.fi{width:32px;height:32px;border:1px solid #dfe5e6;border-radius:7px;display:flex;align-items:center;justify-content:center;position:relative;color:#6b7b7d;flex:none}
+.fi .ok{position:absolute;right:-4px;bottom:-4px;width:13px;height:13px;border-radius:50%;background:#2EAE5A;border:2px solid #fff}
+.fn{font-size:12.5px;color:var(--ink)}.fm{font-size:10.5px;color:var(--mute);margin-top:2px}
+.dim{position:absolute;inset:0;background:rgba(40,60,64,.38)}
+.dlg{position:absolute;background:#fff;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.25);padding:22px}
+.grad{background:linear-gradient(90deg,#8D96FF,#1BB4C8 55%,#58C86B);color:#fff;font-weight:600;border-radius:7px;display:flex;align-items:center;justify-content:center}
+.grad2{background:linear-gradient(90deg,#3B83F3,#22C460);color:#fff;font-weight:600;border-radius:7px;display:flex;align-items:center;justify-content:center}
+.gbtn{background:#F3F6F6;color:var(--ink);border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:500}
+.tg{width:38px;height:21px;border-radius:11px;background:#009BA3;position:relative;flex:none}.tg:after{content:"";position:absolute;right:3px;top:3px;width:15px;height:15px;border-radius:50%;background:#fff}
+.wave{height:22px;flex:1;background:repeating-linear-gradient(90deg,#c9d3d5 0 2px,transparent 2px 4px);mask:linear-gradient(0deg,#000,#000);-webkit-mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='22'><path d='M0 11 Q5 2 10 11 T20 11 T30 11 Q35 0 40 11 T50 11 T60 11 Q65 4 70 11 T80 11 Q85 1 90 11 T100 11 T110 11 Q115 3 120 11 T130 11 Q135 0 140 11 T150 11 T160 11 Q165 5 170 11 T180 11 T200 11 V22 H0Z' /></svg>");-webkit-mask-size:100% 100%}

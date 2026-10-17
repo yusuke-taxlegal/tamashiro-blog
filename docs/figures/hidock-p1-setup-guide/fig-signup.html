@@ -1,0 +1,41 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="helpers.js"></script>
+<style>.stage{width:1010px;height:812px}
+.form{width:400px;margin:0 auto}
+.f-row{margin-top:14px}
+.cap2{font-size:12px;color:var(--mute);margin-top:8px}
+.rc{width:300px;height:64px;border:1px solid #d3d3d3;border-radius:3px;background:#F9F9F9;display:flex;align-items:center;gap:10px;padding:0 10px;font-size:13px;color:#222;box-shadow:0 0 4px rgba(0,0,0,.06);margin-top:14px}
+.rc .box{width:24px;height:24px;border:2px solid #c1c1c1;border-radius:2px;background:#fff}
+.rc .lg{margin-left:auto;text-align:center;font-size:8px;color:#555;line-height:1.2}
+.or{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--sub);margin:14px 0 12px}.or:before,.or:after{content:"";flex:1;height:1px;background:var(--line)}
+.legal{font-size:10.5px;color:var(--faint);text-align:center;margin-top:16px;line-height:1.5}
+.legal u{text-decoration:underline}
+</style></head><body><div class="stage">
+<div class="cap">HiNotesのアカウントを作る画面<small>パソコンのブラウザ（Google Chrome）で hinotes.hidock.com を開き、「登録」から進みます</small></div>
+<div class="win" style="width:560px;position:absolute;left:32px;top:108px;zoom:.86">
+ <script>document.write(chrome('hinotes.hidock.com/login/signup','HiNotes'))</script>
+ <div class="hn-bg" style="padding:22px 0 18px">
+  <div style="display:flex;justify-content:center"><i data-i="hinotes:30"></i></div>
+  <div class="hn-h1" style="margin-top:8px">HiNotesに登録</div>
+  <div class="form" style="margin-top:14px" id="mail">
+   <div class="hn-label">メールアドレス</div><div class="hn-input">メールアドレスを入力してください</div>
+   <div class="hn-label" style="margin-top:12px">パスワード</div><div class="hn-input">パスワードを入力してください<span style="margin-left:auto"><i data-i="eye"></i></span></div>
+   <div class="hn-input" style="margin-top:10px">パスワードを確認してください<span style="margin-left:auto"><i data-i="eye"></i></span></div>
+  </div>
+  <div class="form"><div class="rc" id="robot"><span class="box"></span>私はロボットではありません<span class="lg">↻<br>reCAPTCHA</span></div>
+   <div class="cap2">登録前に認証を完了してください</div>
+   <div class="hn-btn" style="margin-top:12px" id="reg">登録</div>
+   <div class="or">または</div>
+   <div id="sso"><div class="hn-btn2"><i data-i="google:17"></i>Googleでログイン</div><div class="hn-btn2" style="margin-top:9px"><i data-i="apple:17"></i>Appleでログイン</div></div>
+   <div style="text-align:center;font-size:13px;color:var(--sub);margin-top:14px">すでにアカウントをお持ちですか？ <span class="hn-link" style="font-weight:500">ログイン</span></div>
+  </div>
+  <div class="legal">登録することで、HiDockの <u>利用規約</u>、<u>プライバシーポリシー</u>、<u>データ処理補遺条項</u> に同意したものとみなされます。</div>
+ </div>
+</div>
+<div class="call" id="c1" style="left:640px;top:200px;width:340px"><span class="num">1</span><div>メールアドレスと、決めたパスワードを入れる<small>パスワードは8文字以上で、大文字・小文字・数字・記号をそれぞれ1文字以上入れます。確認のため2回入れます。</small></div></div>
+<div class="call" id="c2" style="left:640px;top:352px;width:340px"><span class="num">2</span><div>「私はロボットではありません」にチェック<small>画像を選ぶ問題が出たら、それに答えます。</small></div></div>
+<div class="call" id="c3" style="left:640px;top:478px;width:340px"><span class="num">3</span><div>「登録」を押す<small>メールに届く6桁のコードを入れると、登録が終わります。</small></div></div>
+<div class="call blue" id="cA" style="left:640px;top:600px;width:340px"><span class="num">A</span><div>Google か Apple のアカウントがあれば、こちらが早い<small>パスワードを新しく覚えずに済みます。スマホのアプリでも、同じ方法でログインします。</small></div></div>
+<div class="note" style="position:absolute;left:32px;top:774px">※ 2026年10月17日の画面をもとにした図です。言葉や並びは変わることがあります。</div>
+</div><script>fill();
+link('c1','mail','#E5484D',false,'right');link('c2','robot','#E5484D',false,'right');link('c3','reg','#E5484D',false,'right');link('cA','sso','#2563EB',false,'right');
+</script></body></html>

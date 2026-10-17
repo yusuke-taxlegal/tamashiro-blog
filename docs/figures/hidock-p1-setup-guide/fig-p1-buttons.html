@@ -1,0 +1,39 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="helpers.js"></script>
+<style>.stage{height:904px}
+.lb{position:absolute;background:#fff;border-radius:10px;padding:9px 12px;font-size:13px;line-height:1.5;color:#374151;box-shadow:0 3px 10px rgba(0,0,0,.08);border:2px solid #d5dbe3;width:300px}
+.lb b{display:block;font-size:15px;color:#1f2a37}
+.lb.key{border-color:#E5484D;background:#FFF7F7}
+.led{position:absolute;left:32px;top:756px;width:946px;background:#fff;border-radius:12px;padding:12px 14px;border:2px solid #d5dbe3}
+.led h5{font-size:15px;margin-bottom:6px}
+.led .r{display:flex;flex-wrap:wrap;gap:4px 26px}.led .r div{display:flex;align-items:center;gap:10px;font-size:13px;padding:4px 0;color:#374151}
+.dot{width:16px;height:16px;border-radius:50%;flex:none}
+.side{position:absolute;left:300px;top:250px;width:14px;height:44px;background:#3d3f44;border-radius:3px}
+</style></head><body><div class="stage">
+<div class="cap">P1本体のボタンと光の意味<small>まず覚えるのは「✓ボタンを長押しで録音」だけで大丈夫です</small></div>
+<div id="dev" style="position:absolute;left:400px;top:110px"><script>document.write(p1(620,{led:'<circle cx="190" cy="475" r="152" fill="none" stroke="#22D3EE" stroke-width="10" opacity=".9"/>'}))</script></div>
+<span style="position:absolute;left:393px;top:252px;width:7px;height:34px;background:#3d3f44;border-radius:3px 0 0 3px"></span><span id="a-power" style="position:absolute;left:394px;top:267px;width:2px;height:2px"></span>
+<span id="a-bnc" style="position:absolute;left:561px;top:261px;width:2px;height:2px"></span>
+<span id="a-dial" style="position:absolute;left:424px;top:342px;width:2px;height:2px"></span>
+<span id="a-check" style="position:absolute;left:446px;top:528px;width:2px;height:2px"></span>
+<span id="a-mute" style="position:absolute;left:539px;top:567px;width:2px;height:2px"></span>
+<span id="a-call" style="position:absolute;left:446px;top:658px;width:2px;height:2px"></span>
+<span id="a-bc" style="position:absolute;left:539px;top:688px;width:2px;height:2px"></span>
+<div class="lb" id="l-power" style="left:32px;top:110px"><b>電源ボタン（左の側面）</b>長押しで電源を入れる・切る。入ると側面の小さなランプが白く光ります。</div>
+<div class="lb key" id="l-check" style="left:32px;top:410px"><b>✓ HiDockボタン ＝ 録音</b>3秒長押しで録音を始めます（止めるときも長押し）。録音中に軽く押すと、あとで見返す場所に印（ボイスマーク）が付きます。</div>
+<div class="lb" id="l-call" style="left:32px;top:600px"><b>通話ボタン</b>イヤホンで通話しているとき、電話に出る・切る。</div>
+<div class="lb" id="l-dial" style="left:32px;top:236px"><b>丸いつまみ（ボリュームノブ）</b>回すと音量。押し続けている間だけ録音する「呟きモード」にもなります。</div>
+<div class="lb" id="l-bnc" style="left:676px;top:160px"><b>赤い丸 ＝ BNCボタン</b>雑音を抑える機能のオン・オフ。録音のボタンではありません。</div>
+<div class="lb" id="l-mute" style="left:676px;top:440px"><b>ミュートボタン</b>自分のマイクを消す・戻す。消している間は赤く光ります。</div>
+<div class="lb" id="l-bc" style="left:676px;top:600px"><b>BlueCatch（ブルーキャッチ）ボタン</b>押すとBluetoothイヤホンとつなぐ。3秒長押しで切る。</div>
+<div class="led"><h5>光の色の意味</h5><div class="r">
+ <div><span class="dot" style="background:#22D3EE"></span>つまみの周りが水色（シアン）…録音中</div>
+ <div><span class="dot" style="background:#fff;border:3px solid #cbd5e1"></span>白く点滅…印（ボイスマーク）を付けた</div>
+ <div><span class="dot" style="background:#EF4444"></span>赤…マイクを消している</div>
+ <div><span class="dot" style="background:#F59E0B"></span>オレンジ…呟きモードで録音中</div>
+ <div><span class="dot" style="background:#3B82F6"></span>青（側面のランプ）…イヤホンとつながった</div>
+</div></div>
+<div class="note" style="position:absolute;left:32px;top:870px">※ 公式の取扱説明書（2026年10月版）と製品画像をもとにした図です。</div>
+</div><script>fill();
+link('l-power','a-power','#9CA3AF',true,'left');link('l-check','a-check','#E5484D',false,'left');link('l-call','a-call','#9CA3AF',true,'left');link('l-dial','a-dial','#9CA3AF',true,'left');
+link('l-bnc','a-bnc','#9CA3AF',true,'right');link('l-mute','a-mute','#9CA3AF',true,'right');link('l-bc','a-bc','#9CA3AF',true,'right');
+</script></body></html>

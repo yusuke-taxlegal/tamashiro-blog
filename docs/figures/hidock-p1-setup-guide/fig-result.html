@@ -1,0 +1,55 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="helpers.js"></script>
+<style>.stage{height:890px}
+.mk{background:#FEF3C7;box-shadow:0 0 0 2px #F59E0B inset;border-radius:3px;padding:0 2px}
+.legend{position:absolute;left:32px;top:752px;width:946px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.legend .call{position:static;padding:8px 12px;font-size:15px}
+.sm h3{font-size:14.5px;font-weight:700;margin:12px 0 6px}.sm li{font-size:11.5px;line-height:1.6;margin-left:16px;color:#2f3a3c}.sm b{font-weight:700}
+.tb{background:#F2F7F9;border-radius:8px;padding:8px 10px;font-size:11px;line-height:1.6;color:#4b5b5e;margin:4px 0 10px 26px}
+.sp{display:flex;align-items:center;gap:8px;font-size:11px;color:#3c4a4c}.sp i{width:18px;height:18px;border-radius:50%;background:#DCDDFB;color:#5b5fd6;font-style:normal;font-size:9px;display:flex;align-items:center;justify-content:center}
+.bar{display:flex;align-items:center;gap:10px;border:1px solid #e3e8e9;border-radius:22px;padding:6px 12px;font-size:11px;color:#3c4a4c;background:#fff}
+.rb{width:34px;height:34px;border:1px solid #e3e8e9;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#546264;font-size:13px;background:#fff}
+</style></head><body><div class="stage">
+<div class="cap">できあがった要約と、文字起こしを見比べる<small>真ん中に要約、右に文字起こし（会話をそのまま文字にしたもの）が並びます</small></div>
+<div class="win" style="position:absolute;left:32px;top:104px;width:946px">
+ <script>document.write(chrome('hinotes.hidock.com','HiNotes'))</script>
+ <div class="app" style="--h:560px">
+  <script>document.write(rail('note'))</script>
+  <div class="panel">
+   <div style="flex:1;padding:16px 26px 12px;position:relative">
+    <div style="font-size:19px;font-weight:700" id="title">2026年10月16日 販促チラシの打ち合わせ</div>
+    <div style="display:flex;gap:8px;margin-top:8px"><span class="chip" style="background:#fff;border:1px solid #e3e8e9">📅︎ 10月16日 14:05</span><span class="chip" style="background:#fff;border:1px solid #e3e8e9">⇥ フォルダに移動</span></div>
+    <div class="sm" id="sum" style="height:340px;overflow:hidden">
+     <h3>🗓︎ About Meeting</h3>
+     <ul><li><b>Date &amp; Time</b>: 2026-10-16 14:05（収録時間: 2538秒）</li><li><b>Attendee</b>: 店長、スタッフ2名</li></ul>
+     <h3>📒︎ Meeting Outline</h3>
+     <ul><li><b>秋の販促チラシの方向性</b>　11月の来店を増やすため、チラシでは新しいランチメニューを前面に出すことを決めました。写真は店内で撮り直します。</li>
+     <li><b>配る時期と部数</b>　配布は11月の第1週。部数は前回と同じ<span class="mk" id="m1">3,000部</span>で、印刷会社に見積もりを取ります。</li>
+     <li><b>次にやること</b>　デザイン案は<span class="mk">10月23日</span>までに店長が確認する。見積もりはスタッフが<span class="mk">10月20日</span>までに依頼する。</li></ul>
+    </div>
+    <div style="display:flex;gap:8px;position:absolute;left:26px;right:26px;bottom:12px"><div class="bar" style="flex:1"><span style="color:#0097A7">▶</span>00:00:00<div class="wave"></div>00:42:18 &nbsp;1x</div><span class="rb">⇪</span><span class="rb" id="tbtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#546264" stroke-width="2"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg></span><span class="rb">⋮</span></div>
+   </div>
+   <div style="width:300px;border-left:1px solid #E9EDEE;padding:16px 14px" id="tr">
+    <div style="display:flex;align-items:center"><span class="ttl">文字起こし</span><span style="margin-left:auto;color:#546264">⋮</span></div>
+    <div style="margin-top:10px">
+     <div class="sp"><i>S1</i><b style="font-weight:600">Speaker 1</b><span style="color:#9aa9ab">00:00:04</span></div>
+     <div class="tb">では、秋のチラシの打ち合わせを始めます。今回は11月の来店を増やしたいので、新しいランチを前に出したいと思っています。</div>
+     <div class="sp"><i>S1</i><b style="font-weight:600">Speaker 1</b><span style="color:#9aa9ab">00:01:12</span></div>
+     <div class="tb">写真は前のものだと少し暗いので、店内で撮り直しましょうか。</div>
+     <div class="sp"><i>S1</i><b style="font-weight:600">Speaker 1</b><span style="color:#9aa9ab">00:02:30</span></div>
+     <div class="tb">部数は前回と同じ<span class="mk" id="m1">3,000部</span>で、印刷会社に見積もりをお願いします。</div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<span class="num n" id="n1">1</span><span class="num n" id="n2">2</span><span class="num n" id="n3">3</span>
+<div class="legend">
+<div class="call"><span class="num">1</span><div>題名と要約はAIが作る<small>見出しが英語で出ることもあります。中身は日本語です。</small></div></div>
+<div class="call"><span class="num">2</span><div>吹き出しのボタンで文字起こしを開く<small>右側に、話した言葉が時刻つきで並びます。</small></div></div>
+<div class="call amber"><span class="num">3</span><div>名前・数字・日付は聞き直す<small>下の再生バーで音声を確かめてから使います。</small></div></div>
+</div>
+<div class="note" style="position:absolute;left:32px;top:858px">※ 取扱説明書（2026年10月版）の画面をもとにした図です。会議の内容は説明のための例です。</div>
+</div><script>fill();
+document.getElementById('tbtn').classList.add('hl');document.getElementById('title').classList.add('hl');
+place('n1','title',-36,-2);place('n2','tbtn',-6,-34);place('n3','m1',-14,-30);
+document.getElementById('n3').style.background='var(--amber)';
+</script></body></html>

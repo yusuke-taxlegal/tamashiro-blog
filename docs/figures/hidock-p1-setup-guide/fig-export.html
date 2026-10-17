@@ -1,0 +1,40 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="helpers.js"></script>
+<style>.stage{height:700px}
+.m{position:absolute;background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.18),0 0 0 1px rgba(0,0,0,.05);width:230px;padding:6px}
+.m div{padding:8px 12px;font-size:13px;border-radius:7px;color:#2f3a3c}.m hr{border:0;border-top:1px solid #eef1f2;margin:4px 0}
+.ex{position:absolute;background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.18),0 0 0 1px rgba(0,0,0,.05);display:flex;overflow:hidden}
+.cb{display:flex;align-items:center;gap:8px;font-size:12.5px;padding:5px 0}.cb i{width:15px;height:15px;border-radius:3px;background:#0097A7;color:#fff;font-size:10px;font-style:normal;display:flex;align-items:center;justify-content:center}
+.rdo{display:flex;align-items:center;gap:8px;font-size:12.5px;padding:6px 0}.rdo i{width:14px;height:14px;border-radius:50%;border:1.5px solid #b8c2c4}.rdo i.on{border:4.5px solid #0097A7}
+.lock{font-size:10.5px;color:#9aa9ab;margin-left:4px}
+</style></head><body><div class="stage">
+<div class="cap">要約と文字起こしを、文字のファイルで持ち帰る<small>無料のメンバーシップで書き出せる形式は TXT（テキストファイル）です</small></div>
+<div class="m" id="menu" style="left:32px;top:110px">
+ <div>要約を再生成</div><div>要約を翻訳</div><div>検索と置換</div><hr><div>要約をコピー</div><div>音声をダウンロード</div><div style="background:#F3F6F6" id="exp">エクスポート</div><hr><div style="color:#E5484D">削除</div>
+</div>
+<div style="position:absolute;left:96px;top:450px;font-size:13px;color:#546264;line-height:1.6">要約の画面の右下にある<br><b style="font-size:20px;color:#1f2a37">「⋮」</b>を押すと<br>このメニューが出ます</div>
+<div class="ex" id="dlg" style="left:300px;top:110px;width:678px;height:470px">
+ <div style="width:220px;border-right:1px solid #eef1f2;padding:20px 20px;display:flex;flex-direction:column">
+  <div style="font-size:14px">エクスポート</div>
+  <div style="font-size:12.5px;margin:16px 0 4px">設定</div>
+  <div class="cb"><i>✓</i>文字起こし</div><div class="cb" style="margin-left:18px"><i>✓</i>タイムスタンプを含める</div><div class="cb" style="margin-left:18px"><i>✓</i>話者名を含める</div><div class="cb"><i>✓</i>要約</div>
+  <div style="font-size:12.5px;margin:16px 0 4px">形式</div>
+  <div class="rdo" id="txt"><i class="on"></i>TXT</div><div class="rdo" style="color:#9aa9ab"><i></i>Word<span class="lock">有料</span></div><div class="rdo" style="color:#9aa9ab"><i></i>PDF<span class="lock">有料</span></div><div class="rdo" style="color:#9aa9ab"><i></i>Markdown<span class="lock">有料</span></div>
+  <div style="margin-top:auto"><div class="hn-btn" id="go" style="height:36px;font-size:13px;border-radius:6px">エクスポート</div><div class="gbtn" style="height:34px;font-size:13px;margin-top:8px">キャンセル</div></div>
+ </div>
+ <div style="flex:1;padding:22px 26px;position:relative"><span style="position:absolute;right:18px;top:14px;color:#777">✕</span>
+  <div style="font-size:21px;font-weight:700;line-height:1.35">2026年10月16日 販促チラシの<br>打ち合わせ</div>
+  <div style="font-size:15px;font-weight:700;margin-top:16px">🗓︎ About Meeting</div>
+  <ul style="font-size:11.5px;line-height:1.7;margin:6px 0 0 18px;color:#2f3a3c"><li><b>Date &amp; Time</b>: 2026-10-16 14:05（収録時間: 2538秒）</li><li><b>Attendee</b>: 店長、スタッフ2名</li></ul>
+  <div style="font-size:15px;font-weight:700;margin-top:14px">📒︎ Meeting Outline</div>
+  <ul style="font-size:11.5px;line-height:1.7;margin:6px 0 0 18px;color:#2f3a3c"><li><b>秋の販促チラシの方向性</b>　11月の来店を増やすため、チラシでは新しいランチメニューを前面に出すことを決めました。</li><li><b>配る時期と部数</b>　配布は11月の第1週。部数は前回と同じ3,000部…</li></ul>
+ </div>
+</div>
+<span class="num n" id="n1">1</span><span class="num n" id="n2">2</span><span class="num n" id="n3">3</span>
+<div class="call" style="left:300px;top:600px;width:212px;padding:8px 10px;font-size:14px"><span class="num">1</span><div>「エクスポート」を選ぶ</div></div>
+<div class="call" style="left:530px;top:600px;width:212px;padding:8px 10px;font-size:14px"><span class="num">2</span><div>形式は「TXT」</div></div>
+<div class="call" style="left:760px;top:600px;width:218px;padding:8px 10px;font-size:14px"><span class="num">3</span><div>「エクスポート」を押す</div></div>
+<div class="note" style="position:absolute;left:32px;top:666px">※ 取扱説明書（2026年10月版）の画面をもとにした図です。Word・PDF・Markdownは有料プランの形式です（図では「有料」と書き添えています）。</div>
+</div><script>fill();
+['exp','txt','go'].forEach(id=>document.getElementById(id).classList.add('hl'));
+place('n1','exp',196,2);place('n2','txt',-40,-6);place('n3','go',-40,4);
+</script></body></html>
