@@ -1,4 +1,6 @@
-import articles from '../../lib/engagement/articles.json';
+// 記事の一覧はここに持たない（持つと、記事を足すたびにこの Worker を公開し直す必要がある）。
+// /blog/記事名/ の形のページを全部記録し、どれを出すかは表示する側（lib/engagement/reports.ts）が決める。
+const GENRE_PAGES=new Set(['ai','tools','management']);
 type GARow={dimensionValues:{value:string}[];metricValues:{value:string}[]};
 type GAReport={rows?:GARow[];rowCount?:number;metadata?:{timeZone?:string;subjectToThresholding?:boolean;dataLossFromOtherRow?:boolean}};
 function base64url(input: Uint8Array | string) {
@@ -29,7 +31,7 @@ async function fetchReport(token:string,property:string,events:boolean):Promise<
  return data;
 }
 export function normalizeArticle(path:string) {
- const match=path.match(/^\/blog\/([^/?#]+)\/?$/);return match && articles.includes(match[1]) ? match[1] : null;
+ const match=path.match(/^\/blog\/([a-z0-9][a-z0-9-]{0,119})\/?$/);return match && !GENRE_PAGES.has(match[1]) ? match[1] : null;
 }
 export function aggregate(views:GAReport,events:GAReport) {
  const rows=new Map<string,{date:string;article:string;values:number[]}>();

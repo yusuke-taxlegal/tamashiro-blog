@@ -144,7 +144,16 @@ test('public ranking hides stale and empty data, then applies its view and helpf
 test('GA paths are normalized and aggregate sums trailing-slash variants', () => {
 	assert.equal(normalizeArticle('/blog/chatgpt-desktop-work-setup/'), 'chatgpt-desktop-work-setup');
 	assert.equal(normalizeArticle('/blog/chatgpt-desktop-work-setup?x=1'), null);
-	assert.equal(normalizeArticle('/blog/unknown/'), null);
+	// 記事の一覧は持たない。/blog/記事名/ の形なら記録し、絞り込みは表示する側（Pages）で行う
+	assert.equal(normalizeArticle('/blog/written-after-deploy/'), 'written-after-deploy');
+	// ジャンルの一覧ページと、形の合わないパスは記録しない
+	assert.equal(normalizeArticle('/blog/ai/'), null);
+	assert.equal(normalizeArticle('/blog/tools'), null);
+	assert.equal(normalizeArticle('/blog/management/'), null);
+	assert.equal(normalizeArticle('/blog/'), null);
+	assert.equal(normalizeArticle('/blog/a/b/'), null);
+	assert.equal(normalizeArticle('/blog/Bad_Slug/'), null);
+	assert.equal(normalizeArticle('/blog/' + 'a'.repeat(121) + '/'), null);
 	const rows = aggregate(
 		{ rows: [{ dimensionValues: [{ value: '20260918' }, { value: '/blog/chatgpt-desktop-work-setup' }], metricValues: [{ value: '2' }] }, { dimensionValues: [{ value: '20260918' }, { value: '/blog/chatgpt-desktop-work-setup/' }], metricValues: [{ value: '3' }] }] },
 		{ rows: [{ dimensionValues: [{ value: '20260918' }, { value: '/blog/chatgpt-desktop-work-setup/' }, { value: 'article_helpful' }], metricValues: [{ value: '4' }] }] },
