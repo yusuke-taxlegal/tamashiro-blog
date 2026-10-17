@@ -46,3 +46,9 @@
 - 撮り直した図：2本目の screen-committee-project-folders・screen-upload-joutei-version、1本目の screen-onedrive-settings・screen-backup-toggle・screen-desktop-before-after
 - 製品の正式な名前「パソコン版Googleドライブ」は残した
 - ミス帳に feedback_ban_word_unclear.md を足した
+
+## ほかの記事7本の「版」も言い換え（2026-10-17 玉城さんの指示と公開の OK）
+
+- ChatGPT・Claude の記事：「デスクトップ版」→「デスクトップアプリ」（題も）、「ブラウザ版」→「ブラウザ」、「無料版」→「無料プラン」、「最新版」→「最新のバージョン」。URLはそのまま
+- ほか5本：古い版と最新版→古いファイルと最新のファイル、note版の記事→noteで公開した記事、1m版→1mのケーブル、200米ドル版→200米ドルの区分、無料版→無料プラン
+- 残したもの：「macOS 版をダウンロード」（ボタンの文字）、版画風、上田写真製版所、版代、決定版
