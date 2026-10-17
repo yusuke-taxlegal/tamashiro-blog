@@ -215,6 +215,6 @@ HiDock製品を持っていれば、標準の文字起こしとAI要約は生涯
 - [HiDock P1 FAQ](https://www.hidock.com/blogs/user-guide/hidock-p1-faq)
 - [MacとBluetoothイヤホンで録音・取り込みする公式ガイド](https://www.hidock.com/blogs/user-guide/how-to-record-and-transcribe-teams-meetings-on-mac-with-airpods)
 - [HiDock友達紹介プログラム](https://jp.hidock.com/pages/referral-program?ref=uzxdtbsg)
-- [最初に公開したnote版の記事](https://note.com/tama_taxlegal/n/n50ec8cfe4865)
+- [最初にnoteで公開した記事](https://note.com/tama_taxlegal/n/n50ec8cfe4865)
 
 製品仕様、HiNotesの無料・有料の範囲、紹介リンクの10%OFFの条件は、2026年9月26日に公式情報を確認しました。
