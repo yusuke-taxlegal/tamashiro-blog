@@ -11,7 +11,7 @@ import gKenteiLogo from '../assets/about/g-kentei-2026-5.svg?url';
 
 const contactUrl = new URL('contact/', COMPANY_URL).href;
 const seminarUrl = `${contactUrl}?type=seminar`;
-const gKenteiUrl = 'https://www.jdla.org/certificate/general/';
+const gKenteiBadgeUrl = 'https://www.openbadge-global.com/ns/portal/openbadge/public/assertions/detail/RnZUMEtBblQ4cXc1cE9remdPQjdLQT09';
 ---
 
 <!doctype html>
@@ -65,14 +65,14 @@ const gKenteiUrl = 'https://www.jdla.org/certificate/general/';
 					<div>
 						<dt>資格</dt>
 						<dd class="g-kentei">
-							<a class="g-kentei-logo" href={gKenteiUrl} target="_blank" rel="noopener noreferrer">
+							<a class="g-kentei-logo" href={gKenteiBadgeUrl} target="_blank" rel="noopener noreferrer">
 								<img src={gKenteiLogo} width="2801" height="1706" alt="G検定 2026年第5回の合格者ロゴ（JDLA Deep Learning for GENERAL 2026 #5）" loading="lazy" decoding="async" />
 							</a>
 							<div class="g-kentei-body">
 								<p class="g-kentei-name">G検定（ジェネラリスト検定）合格</p>
 								<p class="g-kentei-meta">2026年 第5回｜<span>一般社団法人日本ディープラーニング協会</span></p>
 								<p class="g-kentei-note">ここで学んだ知識を土台に、小さな会社と地域の団体のAI活用を支援しています。</p>
-								<a class="g-kentei-link" href={gKenteiUrl} target="_blank" rel="noopener noreferrer">G検定の公式ページ<span aria-hidden="true">↗</span><span class="sr-only">（新しいタブで開きます）</span></a>
+								<a class="g-kentei-link" href={gKenteiBadgeUrl} target="_blank" rel="noopener noreferrer">合格の証明（オープンバッジ）を見る<span aria-hidden="true">↗</span><span class="sr-only">（新しいタブで開きます）</span></a>
 							</div>
 						</dd>
 					</div>
