@@ -33,7 +33,7 @@ body.journal-home { --journal-dark: #11160f; --journal-accent: #bf4a2f; --site-l
 .journal-home .journal-disclosure { font-size: 13px; color: #61665d; margin: 20px 0 0; }
 .journal-home .journal-disclosure a { margin-left: 10px; }
 .journal-home .apps-intro { font-size: 18px; margin: -8px 0 22px; }
-.journal-home .journal-app-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px; }
+.journal-home .journal-app-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px; }
 .journal-home .journal-app img { width: 100%; aspect-ratio: 1200/630; height: auto; }
 .journal-home .journal-app h3 { font-size: 21px; margin: 18px 0 6px; }
 .journal-home .journal-app p { margin: 0 0 4px; }

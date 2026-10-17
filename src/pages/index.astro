@@ -20,6 +20,7 @@ const tools = [
 const apps = [
  { name: 'SeminarFlow', image: '/images/apps/seminarflow-ogp.png', description: '申込受付から名簿・連絡・共有まで。', href: 'https://seminar-flow.com/' },
  { name: 'JIZOKA', image: '/images/apps/jizoka-ogp.png', description: '持続化補助金の計画書づくりをサポート。', href: 'https://jizoka.app/' },
+ { name: 'JC規則財審アシスタント', image: '/images/apps/kisoku-zaishin-ogp.png', description: '議案の提出前の見落としを、まとめて点検。', href: 'https://kisoku-zaishin.com/' },
 ];
 const title = '玉城祐輔｜仕事と暮らしの、役立つ実践ノート。';
 const description = 'AI、道具、経営の工夫を、玉城祐輔の経験から。沖縄を拠点に、仕事と暮らしで実際に試したことを発信しています。';
@@ -70,7 +71,7 @@ const description = 'AI、道具、経営の工夫を、玉城祐輔の経験か
      <div class="journal-app-grid">
       {apps.map(app => <article class="journal-app"><a href={app.href} target="_blank" rel="noopener noreferrer" aria-label={`${app.name}を開く（新しいタブ）`}><img src={app.image} alt={`${app.name}の紹介`} width="1200" height="630" loading="lazy" decoding="async" /><h3>{app.name}</h3><p>{app.description}</p><span class="app-open">アプリを開く <Icon name="ri:arrow-right-up-line" aria-hidden="true" /></span></a></article>)}
      </div>
-     <div class="other-apps"><span>その他のアプリ</span><a href="https://poireshi.com/" target="_blank" rel="noopener noreferrer">ポイレシ <Icon name="ri:arrow-right-up-line" aria-hidden="true" /></a><a href="https://kisoku-zaishin.com/" target="_blank" rel="noopener noreferrer">JCI規則財審アシスタント <Icon name="ri:arrow-right-up-line" aria-hidden="true" /></a></div>
+     <div class="other-apps"><span>その他のアプリ</span><a href="https://poireshi.com/" target="_blank" rel="noopener noreferrer">ポイレシ <Icon name="ri:arrow-right-up-line" aria-hidden="true" /></a></div>
     </div>
    </section>
 
