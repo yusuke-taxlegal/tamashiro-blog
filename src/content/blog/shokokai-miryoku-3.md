@@ -2,7 +2,7 @@
 title: '商工会の魅力3選。無料相談の先にある「営業しなくても思い出してもらえる」場所'
 description: '無料の経営相談、融資や補助金の入口、そして一緒に汗をかくことで仕事が生まれる関係づくり。元商工会職員で青年部員の目線から、事業者さん向けに商工会の使い方を3つにまとめました。'
 pubDate: '2026-09-28'
-category: '経営の現場'
+category: '経営と仕事の仕組み'
 accent: 'olive'
 heroImage: '../../assets/blog/shokokai-miryoku-3/hero-tamashiro-yusuke-worried-business-owner-festival-tent.webp'
 ---

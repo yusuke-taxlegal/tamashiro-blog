@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import BlogListPage from '../../components/BlogListPage.astro';
+import { BLOG_GENRES, type BlogGenreId } from '../../lib/blogNavigation';
+
+// ジャンルごとのページ（/blog/ai/・/blog/tools/・/blog/management/）
+export function getStaticPaths() {
+	return BLOG_GENRES.map((genre) => ({ params: { genre: genre.id } }));
+}
+
+const genre = Astro.params.genre as BlogGenreId;
+const label = BLOG_GENRES.find((item) => item.id === genre)!;
+const allPosts = await getCollection('blog');
+---
+
+<BlogListPage
+	allPosts={allPosts}
+	genre={genre}
+	pageTitle={`${label.label}｜玉城祐輔`}
+	description={`${label.description}。玉城祐輔が書いた「${label.label}」の記事です。`}
+/>

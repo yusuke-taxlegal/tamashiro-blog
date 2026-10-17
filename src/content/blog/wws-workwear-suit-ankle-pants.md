@@ -2,7 +2,7 @@
 title: '毎日履いて、ほつれない。WWSのアンクルパンツ'
 description: '仕事の日に毎日履いているWWS（ワークウェアスーツ）のアンクルパンツ。動き回っても傷まない持ちの良さ、素材ultimexの機能、洗濯で気をつけること、初回3,000円割引になる紹介コードまでまとめます。'
 pubDate: '2026-08-29'
-category: '仕事の道具'
+category: '仕事と暮らしの道具'
 accent: 'ink'
 heroImage: '../../assets/blog/wws-workwear-suit-ankle-pants/hero-tamashiro-yusuke-workday-start.webp'
 ---

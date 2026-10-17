@@ -2,7 +2,7 @@
 title: '外出先の充電器を一つに。CIO NovaPort SLIM DUOII 45W2C'
 description: 'セミナー会場や相談先でノートPCとスマホを充電する人向けに、厚さ約12.5mm・約70gのUSB-C 2ポート充電器 CIO NovaPort SLIM DUOII 45W2C を紹介します。2台同時のときの出力配分、向く人と向かない人、購入前に確認したいことをまとめました。'
 pubDate: '2026-09-26'
-category: '仕事の道具'
+category: '仕事と暮らしの道具'
 accent: 'ink'
 heroImage: '../../assets/blog/cio-novaport-slim-duo2-45w2c/hero-tamashiro-yusuke-seminar-outlet.webp'
 ---

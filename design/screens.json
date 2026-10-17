@@ -1,0 +1,15 @@
+{
+  "baseUrl": "http://localhost:4332",
+  "sizes": [
+    { "tag": "pc", "width": 1440, "height": 900, "deviceScaleFactor": 1 },
+    { "tag": "sp", "width": 390, "height": 844, "deviceScaleFactor": 2 }
+  ],
+  "screens": [
+    { "name": "トップ", "path": "/", "type": "一覧", "representative": true },
+    { "name": "読む", "path": "/blog/", "type": "一覧", "representative": true },
+    { "name": "ジャンル（AIの使い方）", "path": "/blog/ai/", "type": "一覧" },
+    { "name": "記事", "path": "/blog/jc-gian-marugoto-check/", "type": "詳細", "representative": true },
+    { "name": "道具箱", "path": "/toolbox/", "type": "一覧" },
+    { "name": "玉城について", "path": "/about/", "type": "詳細" }
+  ]
+}

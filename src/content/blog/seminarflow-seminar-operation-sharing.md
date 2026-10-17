@@ -2,7 +2,7 @@
 title: 'なぜSeminarFlowを作ったのか'
 description: 'セミナーの申込フォームを作った後に残る、人数や入金の確認、参加者への案内、関係者への共有。この仕事を一つの流れにつなぐSeminarFlowを作った理由と、無料で試せる範囲を紹介します。'
 pubDate: '2026-08-21'
-category: '仕事の仕組み'
+category: '経営と仕事の仕組み'
 accent: 'olive'
 heroImage: '../../assets/blog/seminarflow-seminar-operation-sharing/hero-tamashiro-yusuke-seminarflow-workflow.webp'
 ---

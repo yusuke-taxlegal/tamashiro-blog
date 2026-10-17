@@ -3,7 +3,7 @@ title: 'JCの議案づくりは「委員会の共有ドライブ」で。LINEで
 description: 'JCの議案は、完成した議案ならアジェンダシステムに残ります。困るのは、作っている途中の見積書や写真、文案のやりとりです。Googleドライブの共有ドライブに材料を集め、組み立ては委員長がパソコンでやる進め方を提案します。フォルダの分け方、権限、議案ができるまでの流れ、気をつけることまでまとめました。'
 pubDate: '2026-10-16'
 updatedDate: '2026-10-17'
-category: '仕事の仕組み'
+category: '経営と仕事の仕組み'
 accent: 'olive'
 heroImage: '../../assets/blog/jc-gian-google-shared-drive/hero-tamashiro-yusuke-worried-business-owner-shared-cloud-folder.webp'
 ---

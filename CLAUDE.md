@@ -31,7 +31,7 @@ ysk.lifeの記事にT&Lの法人CTA・サービス紹介をそのまま流用し
 title: '記事タイトル'
 description: '一覧・OGPに出る説明文'
 pubDate: '2026-08-15'
-category: '家と仕事の道具'   # 既存値: AIの使い方 / 仕事の道具 / 家と仕事の道具 / 仕事の仕組み / 経営の現場
+category: '仕事と暮らしの道具'   # 3つのどれか: AIの使い方 / 仕事と暮らしの道具 / 経営と仕事の仕組み（ほかの値はビルドで止まる）
 accent: 'olive'              # olive | coral | ink のみ
 heroImage: '../../assets/blog/<slug>/hero-xxx.webp'   # 任意。画像が実在する時だけ書く
 ---

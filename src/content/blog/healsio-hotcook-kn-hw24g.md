@@ -2,7 +2,7 @@
 title: '夕食を任せる。ホットクック KN-HW24G'
 description: '子育て家庭がヘルシオ ホットクック KN-HW24Gで夕食づくりの手を離せるか、置き場所、お手入れ、予約調理、新旧モデルの違いまで確認します。'
 pubDate: '2026-08-15'
-category: '家と仕事の道具'
+category: '仕事と暮らしの道具'
 accent: 'olive'
 heroImage: '../../assets/blog/healsio-hotcook-kn-hw24g/hero-tamashiro-yusuke-family-dinner.webp'
 ---

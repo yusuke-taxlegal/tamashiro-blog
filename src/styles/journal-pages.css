@@ -14,24 +14,6 @@ body.journal-page { --ink:#141914; --paper:#fff; --white:#fff; --paper-deep:#f7f
 .journal-page .button { min-height:48px; border:1px solid #bfc3b9; background:#fff; color:#141914; box-shadow:none; }
 .journal-page .button.primary { background:#11160f; color:#fffdf8; }
 .journal-page .button-row { display:flex; gap:16px; flex-wrap:wrap; }
-.journal-page .genre-picker { padding-bottom:32px; }
-.journal-page .genre-picker h2 { font-size:22px; margin-bottom:20px; }
-.journal-page .blog-genre-nav { background:#f7f5f0; }
-.journal-page .genre-section { padding-block:40px 48px; scroll-margin-top:90px; border-top:1px solid #dcded7; }
-.journal-page .genre-heading { display:flex; align-items:center; justify-content:space-between; gap:24px; margin-bottom:28px; }
-.journal-page .genre-heading h2 { margin:0 0 8px; }
-.journal-page .genre-heading p { margin:0; color:#5c6259; }
-.journal-page .genre-heading>span { white-space:nowrap; color:#5c6259; }
-.journal-page .article-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:36px 32px; }
-body.journal-page.blog-index .article-list .article-card { border:0; }
-body.journal-page.blog-index .article-list .article-card>a { display:block; padding:0; }
-body.journal-page.blog-index .article-list .card-visual { border-radius:8px; }
-body.journal-page.blog-index .article-list .card-visual img { aspect-ratio:3/2; width:100%; height:auto; object-fit:contain; }
-body.journal-page.blog-index .article-list .card-body { padding-top:18px; }
-body.journal-page.blog-index .article-list .card-meta { justify-content:flex-start; gap:4px 16px; color:#bf4a2f; }
-body.journal-page.blog-index .article-list .card-body h3 { font-size:22px; }
-body.journal-page.blog-index .article-list .card-body p { font-size:15px; }
-body.journal-page.blog-index .article-list .read-more { display:inline-flex; align-items:center; min-height:44px; color:#bf4a2f; }
 .journal-page .about-hero { display:grid; grid-template-columns:1.35fr 1fr; gap:64px; align-items:center; padding-block:64px; }
 .journal-page .about-copy h1 { font-size:clamp(34px,4vw,56px); line-height:1.4; margin-bottom:24px; }
 .journal-page .about-copy h1 strong { text-decoration:underline; text-decoration-color:#ed735b; text-underline-offset:12px; text-decoration-thickness:4px; }
@@ -124,12 +106,12 @@ body.toolbox-detail .tool-notes summary,body.toolbox-detail .tool-notes dl { fon
 .journal-page .footer-statement p { font-family:var(--font-sans); font-size:24px; }
 .journal-page .footer-links a { min-height:36px; display:inline-flex; align-items:center; }
 .journal-page .footer-bottom { margin-top:32px; }
-@media(max-width:1000px) { .journal-page .article-list { grid-template-columns:repeat(2,minmax(0,1fr)); } .journal-page .tool-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } body.toolbox-detail .tool-card { grid-template-columns:240px minmax(0,1fr); gap:28px; } .journal-page .about-hero { gap:32px; } .journal-page .work-layout { gap:28px; } }
+@media(max-width:1000px) { .journal-page .tool-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } body.toolbox-detail .tool-card { grid-template-columns:240px minmax(0,1fr); gap:28px; } .journal-page .about-hero { gap:32px; } .journal-page .work-layout { gap:28px; } }
 @media(max-width:700px) {
  .journal-page .shell { width:calc(100% - 40px); }
  .journal-page .page-intro,.journal-page .toolbox-hero { padding-block:36px 28px; }
  .journal-page .site-header nav { gap:8px; }
- .journal-page .article-list,.journal-page .about-hero,.journal-page .work-layout,.journal-page .pathway-list { grid-template-columns:1fr; }
+ .journal-page .about-hero,.journal-page .work-layout,.journal-page .pathway-list { grid-template-columns:1fr; }
  .journal-page .tool-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px 16px; }
  .journal-page .tool-copy h3 { font-size:15px; }
  .journal-page .tool-statement { font-size:13px; }
@@ -140,11 +122,7 @@ body.toolbox-detail .tool-notes summary,body.toolbox-detail .tool-notes dl { fon
  body.toolbox-detail .tool-image { max-width:280px; }
  body.toolbox-detail .tool-copy h3 { font-size:20px; }
  body.toolbox-detail .tool-statement { font-size:16px; }
- .journal-page .genre-section,.journal-page .tool-collection { padding-block:32px; }
- .journal-page .genre-heading { align-items:start; gap:16px; }
- .journal-page .genre-heading p { font-size:14px; }
- .journal-page .blog-genre-nav a { padding-inline:14px; }
- .journal-page .article-list { gap:36px; }
+ .journal-page .tool-collection { padding-block:32px; }
  .journal-page .about-hero { padding-block:36px; }
  .journal-page .about-copy .lead { font-size:16px; }
  .journal-page .about-photo { max-width:350px; }
@@ -163,6 +141,12 @@ body.toolbox-detail .tool-notes summary,body.toolbox-detail .tool-notes dl { fon
  .journal-page .footer-links { gap:20px; }
  .journal-page .footer-statement p { font-size:21px; }
 }
-@media(prefers-reduced-motion:reduce) { body.journal-page.blog-index .article-list .card-visual img { transition:none; } }
 .journal-page #work { scroll-margin-top:90px; }
 @media(max-width:700px) { .journal-page .hero-copy h1 strong { display:block; } }
+
+/* 2026-10-17 「読む」とジャンルのページの頭（design/layout.md のD案） */
+.journal-page .blog-intro { padding-block:36px 4px; }
+.journal-page .blog-intro h1 { font-size:clamp(28px,3.4vw,46px); margin:0 0 12px; }
+.journal-page .blog-intro > p:not(.eyebrow) { margin:0 0 14px; font-size:15px; }
+.journal-page .blog-intro nav { margin-top:18px; }
+@media(max-width:700px) { .journal-page .blog-intro { padding-block:26px 0; } }

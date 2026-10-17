@@ -30,20 +30,13 @@ export function sortPostsByRecency(posts: BlogPost[]): BlogPost[] {
 	return [...posts].sort(comparePostsByRecency);
 }
 
+// 記事の category は3つのジャンル名のどれか（content.config.ts で縛っている）。
 export function getBlogGenre(category: string): BlogGenreId {
-	if (category.includes('AI')) return 'ai';
-	if (category.includes('道具')) return 'tools';
-	return 'management';
+	return BLOG_GENRES.find((genre) => genre.label === category)?.id ?? 'management';
 }
 
-export function countPostsByGenre(posts: BlogPost[]): Record<BlogGenreId, number> {
-	return posts.reduce<Record<BlogGenreId, number>>(
-		(counts, post) => {
-			counts[getBlogGenre(post.data.category)] += 1;
-			return counts;
-		},
-		{ ai: 0, tools: 0, management: 0 },
-	);
+export function getBlogGenreLabel(category: string): string {
+	return BLOG_GENRES.find((genre) => genre.id === getBlogGenre(category))!.label;
 }
 
 export function groupPostsByGenre(posts: BlogPost[]): Record<BlogGenreId, BlogPost[]> {

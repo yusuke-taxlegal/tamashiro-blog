@@ -92,3 +92,21 @@ body.journal-home { --journal-dark: #11160f; --journal-accent: #bf4a2f; --site-l
 @media (max-width: 720px) { .journal-home .hero-copy h1 span::after { bottom: -10px; height: 3px; } }
 .journal-home .hero-copy p span { display: inline-block; }
 .journal-home .site-header .brand { min-height: 44px; }
+
+/* 2026-10-17 一番上を小さくする（一画面目から新しい記事が見えるように）。design/layout.md */
+.journal-home .hero-grid { grid-template-columns: minmax(0, 1fr) auto; gap: 48px; padding-block: 36px 40px; }
+.journal-home .hero-copy h1 { font-size: clamp(30px, 3.6vw, 52px); margin-bottom: 26px; }
+.journal-home .hero-copy p { font-size: clamp(15px, 1.4vw, 19px); }
+.journal-home .hero-photo { width: 220px; max-width: none; }
+.journal-home .home-apps { margin-top: 32px; padding-bottom: 36px; }
+.journal-home .app-thumb { aspect-ratio: 1200 / 630; }
+.journal-home .home-apps .row-title [data-icon] { width: 1em; height: 1em; vertical-align: -0.1em; color: var(--journal-accent); }
+.journal-home .list-section .journal-disclosure { margin-top: 4px; }
+.journal-home .journal-about { border-top: 0; }
+@media (max-width: 720px) {
+ .journal-home .hero-grid { grid-template-columns: minmax(0, 1fr) 84px; gap: 16px; align-items: center; padding-block: 22px 26px; }
+ .journal-home .hero-copy h1 { font-size: clamp(21px, 6vw, 28px); line-height: 1.45; margin-bottom: 14px; }
+ .journal-home .hero-copy h1 span::after { bottom: -6px; height: 3px; }
+ .journal-home .hero-copy p { font-size: 13.5px; line-height: 1.65; }
+ .journal-home .hero-photo { width: 84px; border-radius: 12px; align-self: center; }
+}

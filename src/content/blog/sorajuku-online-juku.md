@@ -2,7 +2,7 @@
 title: '中2の息子が「そら塾」に通っています。英語が30点上がるまでに起きたこと'
 description: 'オンライン個別指導のそら塾に、中学2年の長男が通っています。先生1人に生徒2人という形式、部活のあとに家で受けられること、そして英語の点数が30点伸びた理由を、息子の言葉と親の目線でまとめました。'
 pubDate: '2026-08-29'
-category: '家と仕事の道具'
+category: '仕事と暮らしの道具'
 accent: 'coral'
 heroImage: '../../assets/blog/sorajuku-online-juku/hero-tamashiro-yusuke-desk-setup.webp'
 ---

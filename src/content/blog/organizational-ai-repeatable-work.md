@@ -2,7 +2,7 @@
 title: '私が考える「組織としてのAI活用」'
 description: '組織のAI活用で大切なのは、AIが得意な一人だけでなく、担当者が変わっても使い続けられること。個人の仕事を速くするAI活用と、組織に再現性のある仕組みを残す支援の違いを、玉城祐輔が実践例から説明します。'
 pubDate: '2026-09-19'
-category: '仕事の仕組み'
+category: '経営と仕事の仕組み'
 accent: 'olive'
 heroImage: '../../assets/blog/organizational-ai-repeatable-work/hero-tamashiro-yusuke-rira.webp'
 ---

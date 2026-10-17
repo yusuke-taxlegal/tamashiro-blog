@@ -29,3 +29,9 @@ pnpm-debug.log*
 .dev.vars*
 worker-configuration.d.ts
 workers/**/worker-configuration.d.ts
+
+# design screenshots (only index.png is kept at design/)
+design/current/
+design/after/
+design/check/
+design/.auth/

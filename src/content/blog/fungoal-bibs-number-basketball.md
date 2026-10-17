@@ -2,7 +2,7 @@
 title: 'バスケ部のビブスを21枚買った理由。汗の使い回しと紛失をまとめて減らす'
 description: '練習用ビブスを父母会で買い替えました。番号入り21枚セットを選んだのは、部員1人に1枚を固定するためです。色・枚数・サイズの決め方と、Amazonで注文する前の確認をまとめます。'
 pubDate: '2026-09-23'
-category: '家と仕事の道具'
+category: '仕事と暮らしの道具'
 accent: 'coral'
 heroImage: '../../assets/blog/fungoal-bibs-number-basketball/hero-tamashiro-yusuke-gym-bibs.webp'
 ---

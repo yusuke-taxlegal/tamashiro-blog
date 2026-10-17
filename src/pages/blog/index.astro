@@ -1,59 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
-import '../../styles/journal-pages.css';
-import ArticleCard from '../../components/ArticleCard.astro';
-import BaseHead from '../../components/BaseHead.astro';
-import BlogGenreNav from '../../components/BlogGenreNav.astro';
-import Footer from '../../components/Footer.astro';
-import Header from '../../components/Header.astro';
-import { BLOG_GENRES, countPostsByGenre, groupPostsByGenre } from '../../lib/blogNavigation';
+import BlogListPage from '../../components/BlogListPage.astro';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
-const genreCounts = countPostsByGenre(posts);
-const groupedPosts = groupPostsByGenre(posts);
+const allPosts = await getCollection('blog');
 ---
 
-<!doctype html>
-<html lang="ja">
-	<head>
-		<BaseHead
-			title="読む｜玉城祐輔"
-			description="沖縄の小さな会社の現場から、AI、仕事の道具、経営の工夫について書いた記事です。"
-		/>
-	</head>
-	<body class="journal-page blog-index">
-		<Header showName />
-		<main id="main-content">
-			<header class="page-intro shell">
-				<p class="eyebrow">記事を読む</p>
-				<h1>実際に試して、<br />わかったこと。</h1>
-				<p>全{posts.length}本。AIの使い方、仕事と暮らしの道具、経営と仕事の仕組みについて書いています。</p>
-			</header>
-
-			<section class="genre-picker shell" aria-labelledby="genre-picker-heading">
-				<h2 id="genre-picker-heading">ジャンルを選ぶ</h2>
-				<BlogGenreNav counts={genreCounts} />
-			</section>
-
-			<section class="blog-content shell" aria-label="すべての記事">
-				{BLOG_GENRES.map((genre) => (
-					<section class="genre-section" id={`genre-${genre.id}`} aria-labelledby={`genre-${genre.id}-heading`}>
-						<header class="genre-heading">
-							<div>
-								<h2 id={`genre-${genre.id}-heading`}>{genre.label}</h2>
-								<p>{genre.description}</p>
-							</div>
-							<span>{groupedPosts[genre.id].length}本</span>
-						</header>
-						<div class="article-list">
-							{groupedPosts[genre.id].map((post) => <ArticleCard post={post} />)}
-						</div>
-					</section>
-				))}
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BlogListPage
+	allPosts={allPosts}
+	pageTitle="読む｜玉城祐輔"
+	description="沖縄の小さな会社の現場から、AI、仕事の道具、経営の工夫について書いた記事です。"
+/>

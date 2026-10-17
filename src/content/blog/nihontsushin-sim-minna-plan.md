@@ -3,7 +3,7 @@ title: '外の仕事は20GBで足りた。日本通信SIM'
 description: '外でのパソコン仕事も、スマホのテザリングでまかないたい人へ。月1,390円で20GBの日本通信SIM 合理的みんなのプランについて、しくみ、20GBで何ができるか、速度の注意、申込み前の確認を、専門用語の解説つきで紹介します。'
 pubDate: '2026-08-15'
 updatedDate: '2026-09-26'
-category: '家と仕事の道具'
+category: '仕事と暮らしの道具'
 accent: 'olive'
 heroImage: '../../assets/blog/nihontsushin-sim-minna-plan/hero-tamashiro-yusuke-tethering.webp'
 ---

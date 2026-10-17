@@ -2,7 +2,7 @@
 title: '鍵を出さずに玄関を開ける。SwitchBot Lock Pro'
 description: '子育て家庭や小さな会社向けに、SwitchBot ロックProの指紋認証やオートロックの使い方、ハブが必要になる場面、買う前と設置した日に確かめたいことをまとめます。'
 pubDate: '2026-08-15'
-category: '家と仕事の道具'
+category: '仕事と暮らしの道具'
 accent: 'olive'
 heroImage: '../../assets/blog/switchbot-lock-pro/hero-tamashiro-yusuke-family-entry.webp'
 ---

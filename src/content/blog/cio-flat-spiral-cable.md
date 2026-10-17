@@ -2,7 +2,7 @@
 title: 'カバンの中で絡まない。手を離すと勝手に丸くなるCIOのフラットスパイラルケーブル'
 description: 'ノートPCとスマホを持ち歩く人向けに、CIOのフラットスパイラルケーブル（USB-C、240W対応）を紹介します。何が楽になるか、1mと1.5mの選び方、買う前に知っておきたい重さと取り回しの癖までまとめます。'
 pubDate: '2026-09-26'
-category: '仕事の道具'
+category: '仕事と暮らしの道具'
 accent: 'olive'
 heroImage: '../../assets/blog/cio-flat-spiral-cable/hero-tamashiro-yusuke-coworking-plug-in.webp'
 ---

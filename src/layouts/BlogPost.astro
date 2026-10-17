@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { getCollection, type CollectionEntry } from 'astro:content';
-import ArticleCarousel from '../components/ArticleCarousel.astro';
+import ArticleRow from '../components/ArticleRow.astro';
 import ArticleEngagement from '../components/ArticleEngagement.astro';
 import BaseHead from '../components/BaseHead.astro';
 import BlogGenreNav from '../components/BlogGenreNav.astro';
@@ -11,7 +11,7 @@ import Header from '../components/Header.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import WebApps from '../components/WebApps.astro';
 import { COMPANY_URL, TOOLBOX_URL } from '../consts';
-import { countPostsByGenre, getRecommendedPosts, sortPostsByRecency } from '../lib/blogNavigation';
+import { getRecommendedPosts, sortPostsByRecency } from '../lib/blogNavigation';
 import { splitPhrases } from '../lib/phrases';
 
 type PostData = CollectionEntry<'blog'>['data'];
@@ -22,7 +22,6 @@ const { title, description, pubDate, updatedDate, category, postId, readingMinut
 const articleHeadings = headings.filter((heading) => heading.depth === 2);
 const allPosts = sortPostsByRecency(await getCollection('blog'));
 const recommendedPosts = getRecommendedPosts(allPosts, postId, category, 6);
-const genreCounts = countPostsByGenre(allPosts);
 const titlePhrases = splitPhrases(title);
 ---
 
@@ -132,18 +131,20 @@ const titlePhrases = splitPhrases(title);
 					<section class="article-related shell" aria-labelledby="related-heading">
 						<div class="related-heading">
 							<h2 id="related-heading">次に読む記事</h2>
-							<p>同じジャンルの記事を先に、ほかのテーマも混ぜています。画像を横に送って選べます。</p>
+							<p>同じジャンルの記事を先に、ほかのテーマも混ぜています。</p>
 						</div>
-						<ArticleCarousel posts={recommendedPosts} label="次に読む記事を選ぶ" />
+						<ul class="article-rows">
+							{recommendedPosts.map((post) => <ArticleRow post={post} />)}
+						</ul>
 					</section>
 				)}
 
 				<section class="article-genres shell" aria-labelledby="article-genres-heading">
 					<div class="related-heading">
 						<h2 id="article-genres-heading">ジャンルから記事を探す</h2>
-						<p>全{allPosts.length}本の記事を、3つのジャンルから選べます。</p>
+						<p>3つのジャンルから選べます。<a href="/blog/">すべての記事を見る</a></p>
 					</div>
-					<BlogGenreNav counts={genreCounts} />
+					<BlogGenreNav />
 				</section>
 
 				<section class="after-note narrow">

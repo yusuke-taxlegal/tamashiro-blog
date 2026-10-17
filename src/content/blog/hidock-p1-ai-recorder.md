@@ -3,7 +3,7 @@ title: '録音時間を気にしないAIレコーダー、HiDock P1'
 description: '相談や会議を録音すると、文字起こしと要約まで自動で進むAIボイスレコーダーHiDock P1。しくみ、使い方の4ステップ、無料で使える範囲、注意点を、専門用語の解説つきで紹介します。'
 pubDate: '2026-08-21'
 updatedDate: '2026-09-26'
-category: '家と仕事の道具'
+category: '仕事と暮らしの道具'
 accent: 'coral'
 heroImage: '../../assets/blog/hidock-p1/hero-tamashiro-yusuke-consultation.webp'
 ---

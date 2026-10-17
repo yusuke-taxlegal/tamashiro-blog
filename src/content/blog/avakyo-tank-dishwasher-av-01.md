@@ -2,7 +2,7 @@
 title: '食器洗いを任せる。AVAKYO AV-01'
 description: '水道工事なしで食洗機を使いたい家庭へ。AVAKYO AV-01に毎日の食器洗いを任せられるかを、給水、排水、置き場所、容量、手入れまで、使っている立場からまとめます。'
 pubDate: '2026-08-15'
-category: '家と仕事の道具'
+category: '仕事と暮らしの道具'
 accent: 'olive'
 heroImage: '../../assets/blog/avakyo-tank-dishwasher-av-01/hero-tamashiro-yusuke-loading-dishwasher.webp'
 ---

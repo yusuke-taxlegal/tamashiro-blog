@@ -1,28 +1,34 @@
 ---
 import { getImage } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
-import { BLOG_GENRES, getBlogGenre } from '../lib/blogNavigation';
+import { getBlogGenreLabel } from '../lib/blogNavigation';
+import '../styles/article-rows.css';
 
 interface Props {
 	posts: CollectionEntry<'blog'>[];
+	/** 「読者の参考になった記事」も出すか（トップだけ出す） */
+	showHelpful?: boolean;
 }
 
-const { posts } = Astro.props;
+const { posts, showHelpful = true } = Astro.props;
 
-// ランキングはブラウザ側で組み立てるため、サムネイルもビルド時に用意して渡す。
+// ランキングはブラウザ側で組み立てるため、サムネイル・ジャンル名・日付もビルド時に用意して渡す。
 // heroImage を持たない記事があるので、画像は任意として扱う。
 const articleEntries = await Promise.all(
 	posts.map(async (post) => {
 		const thumbnail = post.data.heroImage
-			? await getImage({ src: post.data.heroImage, width: 320, height: 213, format: 'webp' })
+			? await getImage({ src: post.data.heroImage, width: 320, height: 213, format: 'webp', quality: 80 })
 			: null;
+		const date = post.data.pubDate;
 		return [
 			post.id,
 			{
 				title: post.data.title,
 				href: `/blog/${post.id}/`,
-				category: BLOG_GENRES.find((genre) => genre.id === getBlogGenre(post.data.category))?.label ?? '',
-				image: thumbnail ? { src: thumbnail.src, width: 320, height: 213 } : null,
+				genre: getBlogGenreLabel(post.data.category),
+				date: `${date.getUTCFullYear()}.${String(date.getUTCMonth() + 1).padStart(2, '0')}.${String(date.getUTCDate()).padStart(2, '0')}`,
+				datetime: date.toISOString(),
+				image: thumbnail ? thumbnail.src : null,
 			},
 		] as const;
 	}),
@@ -30,129 +36,81 @@ const articleEntries = await Promise.all(
 const articleMetadata = Object.fromEntries(articleEntries);
 ---
 
-<section class="popular-articles journal-section shell" data-popular-articles data-articles={JSON.stringify(articleMetadata)} hidden aria-labelledby="popular-heading">
-	<div class="journal-heading"><h2 id="popular-heading">いま読まれていること</h2></div>
-	<div class="popular-columns">
-		<section aria-labelledby="popular-views-heading">
-			<h3 id="popular-views-heading">最近よく読まれている記事</h3>
-			<p>昨日までの30日間</p>
-			<ol data-popular-list="views"></ol>
-		</section>
-		<section aria-labelledby="popular-helpful-heading">
-			<h3 id="popular-helpful-heading">読者の参考になった記事</h3>
-			<p>昨日までの30日間</p>
-			<ol data-popular-list="helpful"></ol>
-		</section>
+<section class="popular-articles list-section shell" data-popular-articles data-articles={JSON.stringify(articleMetadata)} hidden aria-labelledby="popular-heading">
+	<div data-popular-group="views">
+		<div class="list-heading">
+			<h2 id="popular-heading">よく読まれている記事</h2>
+			<p class="list-sub">昨日までの30日間</p>
+		</div>
+		<ol class="article-rows ranked three" data-popular-list="views"></ol>
 	</div>
+	{showHelpful && (
+		<div class="popular-helpful" data-popular-group="helpful" hidden>
+			<h3 class="list-subheading">読者の参考になった記事</h3>
+			<ol class="article-rows ranked three" data-popular-list="helpful"></ol>
+		</div>
+	)}
 </section>
 
 <script>
 	const popularSection = document.querySelector('[data-popular-articles]');
 
 	if (popularSection instanceof HTMLElement) {
-		type ArticleMeta = {title:string;href:string;category:string;image:{src:string;width:number;height:number}|null};
-		const knownArticles:Record<string,ArticleMeta> = JSON.parse(popularSection.dataset.articles || '{}');
-		const viewsList = popularSection.querySelector('[data-popular-list="views"]');
-		const helpfulList = popularSection.querySelector('[data-popular-list="helpful"]');
-		const makeItems = (entries: {article:string}[] | undefined, list: Element | null) => {
-			if (!Array.isArray(entries) || !list) return 0;
-			const fragment = document.createDocumentFragment();
+		type ArticleMeta = { title: string; href: string; genre: string; date: string; datetime: string; image: string | null };
+		const knownArticles: Record<string, ArticleMeta> = JSON.parse(popularSection.dataset.articles || '{}');
+		const el = <K extends keyof HTMLElementTagNameMap>(tag: K, className?: string, text?: string) => {
+			const node = document.createElement(tag);
+			if (className) node.className = className;
+			if (text) node.textContent = text;
+			return node;
+		};
+		// ArticleRow.astro と同じ形の行を作る
+		const fill = (kind: 'views' | 'helpful', entries: { article: string }[] | undefined) => {
+			const list = popularSection.querySelector(`[data-popular-list="${kind}"]`);
+			const group = popularSection.querySelector<HTMLElement>(`[data-popular-group="${kind}"]`);
+			if (!list || !group || !Array.isArray(entries)) return 0;
 			let count = 0;
-			entries.forEach((entry) => {
+			for (const entry of entries) {
 				const article = knownArticles[entry?.article];
-				if (!article) return;
-				const item = document.createElement('li');
-				const link = document.createElement('a');
+				if (!article) continue;
+				const link = el('a');
 				link.href = article.href;
-
+				const thumb = el('span', 'row-thumb');
 				if (article.image) {
-					const image = document.createElement('img');
-					image.src = article.image.src;
-					image.width = article.image.width;
-					image.height = article.image.height;
+					const image = el('img');
+					image.src = article.image;
+					image.width = 320;
+					image.height = 213;
 					image.alt = '';
 					image.loading = 'lazy';
 					image.decoding = 'async';
-					link.append(image);
-				} else {
-					const placeholder = document.createElement('span');
-					placeholder.className = 'popular-thumb-placeholder';
-					link.append(placeholder);
+					thumb.append(image);
 				}
-
-				const body = document.createElement('span');
-				body.className = 'popular-body';
-				if (article.category) {
-					const category = document.createElement('span');
-					category.className = 'popular-category';
-					category.textContent = article.category;
-					body.append(category);
-				}
-				const heading = document.createElement('span');
-				heading.className = 'popular-title';
-				heading.textContent = article.title;
-				body.append(heading);
-				link.append(body);
-
+				const body = el('span', 'row-body');
+				body.append(el('span', 'row-genre', article.genre), el('span', 'row-title', article.title));
+				const time = el('time', 'row-date', article.date);
+				time.dateTime = article.datetime;
+				body.append(time);
+				link.append(thumb, body);
+				const item = el('li');
 				item.append(link);
-				fragment.append(item);
+				list.append(item);
 				count += 1;
-			});
-			list.append(fragment);
+			}
+			group.hidden = count === 0;
 			return count;
 		};
 
 		fetch('/api/popular', { credentials: 'same-origin' })
 			.then((response) => {
 				if (!response.ok) throw new Error('Popular request failed');
-				return response.json() as Promise<{popular?:{article:string}[];helpful?:{article:string}[]}>;
+				return response.json() as Promise<{ popular?: { article: string }[]; helpful?: { article: string }[] }>;
 			})
 			.then((payload) => {
-				const viewCount = makeItems(payload?.popular, viewsList);
-				const helpfulCount = makeItems(payload?.helpful, helpfulList);
-				if (viewsList?.parentElement) viewsList.parentElement.hidden = !viewCount;
-				if (helpfulList?.parentElement) helpfulList.parentElement.hidden = !helpfulCount;
+				const viewCount = fill('views', payload?.popular);
+				const helpfulCount = fill('helpful', payload?.helpful);
 				if (viewCount || helpfulCount) popularSection.hidden = false;
 			})
 			.catch(() => {});
 	}
 </script>
-
-<style>
-	.popular-articles[hidden], .popular-columns section[hidden] { display: none; }
-	.popular-articles { border-top: 1px solid var(--site-line, var(--line)); }
-	.popular-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(2rem, 6vw, 5rem); }
-	.popular-columns section { padding-top: 1rem; border-top: 3px solid var(--journal-accent, var(--coral)); }
-	.popular-columns h3 { margin: 0; font-size: 1.1rem; }
-	.popular-columns p { margin: 0.35rem 0 1rem; color: var(--site-muted, var(--muted)); font-size: 0.78rem; }
-	/* li から下はブラウザ側で組み立てるため、Astroのスコープ属性が付かない。
-	   :global() を付けないと、この指定は生成された要素に当たらない。 */
-	/* 既定のマーカーは画像の下端に揃ってしまうため、順位を自前の列にして上で揃える。 */
-	.popular-columns ol { display: grid; gap: 1.1rem; margin: 0; padding-left: 0; list-style: none; counter-reset: popular; }
-	.popular-columns :global(li) { counter-increment: popular; }
-	.popular-columns :global(li a) { display: grid; grid-template-columns: 1.4rem 112px minmax(0, 1fr); gap: 0.9rem; align-items: start; color: inherit; text-decoration: none; }
-	.popular-columns :global(li a)::before { content: counter(popular) "."; color: var(--site-muted, var(--muted)); font-size: 0.8rem; font-weight: 700; line-height: 1.4; text-align: right; }
-	.popular-columns :global(li img),
-	.popular-columns :global(.popular-thumb-placeholder) { display: block; width: 112px; height: auto; aspect-ratio: 3 / 2; object-fit: contain; background: #f6f3ed; border-radius: 4px; }
-	.popular-columns :global(.popular-category) { display: block; margin-bottom: 0.25rem; color: var(--journal-accent, var(--coral)); font-size: 12px; font-weight: 700; }
-	.popular-columns :global(.popular-title) { display: block; font-size: 0.92rem; font-weight: 700; line-height: 1.55; }
-	.popular-columns :global(li a:hover .popular-title) { text-decoration: underline; }
-	/* PCでは2つのランキングを縦に積み、記事3本を横一列のカードとして並べる。
-	   （片方のランキングが空でも、残った側が幅いっぱいを使える） */
-	@media (min-width: 900px) {
-		.popular-columns { grid-template-columns: 1fr; gap: clamp(2rem, 4vw, 3rem); }
-		.popular-columns ol { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(1.25rem, 3vw, 2.5rem); }
-		.popular-columns :global(li a) { grid-template-columns: 1.4rem minmax(0, 1fr); grid-template-rows: auto auto; gap: 0.6rem 0.7rem; }
-		.popular-columns :global(li a)::before { grid-column: 1; grid-row: 1; }
-		.popular-columns :global(li img),
-		.popular-columns :global(.popular-thumb-placeholder) { grid-column: 2; grid-row: 1; width: 100%; }
-		.popular-columns :global(.popular-body) { grid-column: 2; grid-row: 2; }
-		.popular-columns :global(.popular-title) { font-size: 17px; }
-	}
-	@media (max-width: 620px) {
-		.popular-columns { grid-template-columns: 1fr; }
-		.popular-columns :global(li a) { grid-template-columns: 1.2rem 96px minmax(0, 1fr); gap: 0.6rem; }
-		.popular-columns :global(li img),
-		.popular-columns :global(.popular-thumb-placeholder) { width: 96px; }
-	}
-</style>

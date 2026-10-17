@@ -2,7 +2,7 @@
 title: '立替払いを減らす法人カード、UPSIDER'
 description: '地方の小さな会社で、代表やスタッフの立替精算を減らしたい方へ。年会費無料のUPSIDERを法人で契約した理由と、スタッフ用カードの上限・利用先の設定、レシート撮影、明細共有の使い方を紹介します。'
 pubDate: '2026-09-18'
-category: '仕事の道具'
+category: '仕事と暮らしの道具'
 accent: 'ink'
 heroImage: '../../assets/blog/upsider-staff-card/hero-tamashiro-yusuke.webp'
 ---

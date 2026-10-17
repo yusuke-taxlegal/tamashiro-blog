@@ -3,7 +3,7 @@ title: 'JCの議案づくりをGoogleドライブで共有する案。便利だ�
 description: 'JCの議案づくりで、見積書や写真、文案をGoogleドライブの共有ドライブに集めるやり方は、LOMや日本JCの決まりではなく、私が1人でやってきたことをもとに考えた案です。便利なところと、デジタルの慣れが要ること、手引きが無いこと、非営利団体向けプランの審査といった不確かなところを並べ、小さく試す始め方をまとめました。'
 pubDate: '2026-10-17'
 updatedDate: '2026-10-17'
-category: '仕事の仕組み'
+category: '経営と仕事の仕組み'
 accent: 'coral'
 heroImage: '../../assets/blog/jc-gian-google-drive-proposal/hero-tamashiro-yusuke-worried-business-owner-balance-scale.webp'
 ---

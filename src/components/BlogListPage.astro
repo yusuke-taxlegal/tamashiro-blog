@@ -1,0 +1,80 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import '../styles/journal-pages.css';
+import '../styles/article-rows.css';
+import ArticleRow from './ArticleRow.astro';
+import BaseHead from './BaseHead.astro';
+import Footer from './Footer.astro';
+import Header from './Header.astro';
+import PopularArticles from './PopularArticles.astro';
+import { BLOG_GENRES, type BlogGenreId, sortPostsByRecency } from '../lib/blogNavigation';
+
+// 「読む」（/blog/）とジャンルごとのページ（/blog/ai/ など）の共通の形。design/layout.md のD案。
+interface Props {
+	allPosts: CollectionEntry<'blog'>[];
+	genre?: BlogGenreId;
+	pageTitle: string;
+	description: string;
+}
+
+const { allPosts, genre, pageTitle, description } = Astro.props;
+const current = BLOG_GENRES.find((item) => item.id === genre);
+const posts = sortPostsByRecency(current ? allPosts.filter((post) => post.data.category === current.label) : allPosts);
+
+// 新しい順に並べ、月ごとに見出しを入れる
+const months: { label: string; posts: typeof posts }[] = [];
+for (const post of posts) {
+	const date = post.data.pubDate;
+	const label = `${date.getUTCFullYear()}年${date.getUTCMonth() + 1}月`;
+	const last = months.at(-1);
+	if (last?.label === label) last.posts.push(post);
+	else months.push({ label, posts: [post] });
+}
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={pageTitle} description={description} />
+	</head>
+	<body class="journal-page blog-index">
+		<Header showName />
+		<main id="main-content">
+			<header class="page-intro blog-intro shell">
+				<p class="eyebrow">{current ? 'ジャンル' : '記事を読む'}</p>
+				<h1>{current ? current.label : <>実際に試して、<br />わかったこと。</>}</h1>
+				{current && <p>{current.description}</p>}
+				<nav aria-label="ジャンルで絞る">
+					<ul class="genre-chips">
+						<li><a href="/blog/" aria-current={!current ? 'page' : undefined}>すべて</a></li>
+						{BLOG_GENRES.map((item) => (
+							<li><a href={`/blog/${item.id}/`} aria-current={item.id === genre ? 'page' : undefined}>{item.label}</a></li>
+						))}
+					</ul>
+				</nav>
+			</header>
+
+			{!current && <PopularArticles posts={allPosts} showHelpful={false} />}
+
+			<section class="list-section shell" aria-labelledby="latest-heading">
+				<div class="list-heading"><h2 id="latest-heading">新しい順</h2></div>
+				{months.map((month) => (
+					<>
+						<h3 class="list-month">{month.label}</h3>
+						<ul class="article-rows">
+							{month.posts.map((post) => <ArticleRow post={post} titleTag="h4" />)}
+						</ul>
+					</>
+				))}
+			</section>
+		</main>
+		<Footer />
+		{!current && (
+			<script is:inline>
+				// 以前のジャンルへのリンク（/blog/#genre-ai など）を、ジャンルのページへ送る
+				const match = location.hash.match(/^#genre-(ai|tools|management)$/);
+				if (match) location.replace(`/blog/${match[1]}/`);
+			</script>
+		)}
+	</body>
+</html>

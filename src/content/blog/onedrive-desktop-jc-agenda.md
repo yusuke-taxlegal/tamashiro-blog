@@ -2,7 +2,7 @@
 title: 'デスクトップが2つある？OneDriveの混乱と、JCの議案リンクが開かない理由'
 description: 'Windowsのデスクトップが、いつのまにかOneDriveとつながっていた。そのせいで、JCのアジェンダに上げた議案の見積書リンクが開かなくなります。デスクトップが2つある仕組みと、バックアップを止めてCドライブのデスクトップで作り直す手順を、画面の図で説明します。'
 pubDate: '2026-10-16'
-category: '仕事の道具'
+category: '仕事と暮らしの道具'
 accent: 'ink'
 heroImage: '../../assets/blog/onedrive-desktop-jc-agenda/hero-tamashiro-yusuke-worried-business-owner-two-desktops.webp'
 ---

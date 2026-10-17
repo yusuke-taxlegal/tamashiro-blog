@@ -2,7 +2,7 @@
 title: '1歳の保育園弁当に360mlは大きい。それでも選ぶ理由。スケーターのパンどろぼう'
 description: '保育園用のお弁当箱を1歳で買うとき、270mlと360mlで迷います。子ども4人を育ててきた私の結論は360ml。サイズの決め方、1歳のうちの詰め方、フタを自分で開けられるかの確認までまとめます。'
 pubDate: '2026-09-23'
-category: '家と仕事の道具'
+category: '仕事と暮らしの道具'
 accent: 'olive'
 heroImage: '../../assets/blog/skater-pandorobou-lunchbox-360ml/hero-tamashiro-yusuke-morning-bento.webp'
 ---
