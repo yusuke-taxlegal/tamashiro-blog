@@ -87,9 +87,9 @@ const gKenteiBadgeUrl = 'https://www.openbadge-global.com/ns/portal/openbadge/pu
 				<div class="jc-roles" aria-labelledby="jc-roles-title">
 					<div class="jc-roles-heading"><h3 id="jc-roles-title">青年会議所（JC）・商工会青年部での役職</h3><span class="term-label">2026年度</span></div>
 					<dl class="jc-role-list">
-						<div><dt>日本青年会議所<br />沖縄地区協議会</dt><dd>規則財政審査局長</dd></div>
-						<div><dt>一般社団法人<br />宜野湾青年会議所</dt><dd>副理事長</dd></div>
-						<div><dt>北谷町商工会<br />青年部</dt><dd>監事</dd></div>
+						<div><dt>日本青年会議所沖縄地区協議会</dt><dd>規則財政審査局長</dd></div>
+						<div><dt>一般社団法人宜野湾青年会議所</dt><dd>副理事長</dd></div>
+						<div><dt>北谷町商工会青年部</dt><dd>監事</dd></div>
 					</dl>
 				</div>
 			</section>
@@ -203,6 +203,8 @@ const gKenteiBadgeUrl = 'https://www.openbadge-global.com/ns/portal/openbadge/pu
 	.jc-role-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; margin:24px 0 0; }
 	.jc-role-list > div + div { border-left:1px solid var(--line); padding-left:32px; }
 	.jc-role-list dd { font-size:clamp(23px,2.3vw,30px); margin-top:12px; }
+	.jc-role-list dt { white-space:nowrap; font-size:clamp(13px,1.3vw,16px); }
+	@media(max-width:960px) { .jc-role-list { grid-template-columns:1fr; gap:24px; } .jc-role-list > div + div { border-left:0; padding-left:0; border-top:1px solid var(--line); padding-top:24px; } .jc-role-list dt { font-size:16px; } }
 	.jc-consultation { padding-block:48px 56px; border-block:1px solid var(--line); scroll-margin-top:96px; }
 	.jc-topic-list { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:28px; }
 	.jc-topic-list h3,.jc-inquiry h3 { font-size:21px; margin-bottom:10px; }
