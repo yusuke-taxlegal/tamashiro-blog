@@ -1,0 +1,23 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>.stage{height:500px}.two{display:flex;gap:26px}.box{flex:1;background:#fff;border-radius:16px;padding:20px 22px;border:3px solid}
+.box h4{font-size:21px;font-weight:800;display:flex;align-items:center;gap:10px}.box h4 i{font-style:normal;font-size:26px}
+.box p{font-size:14.5px;line-height:1.7;color:var(--sub);margin-top:12px;word-break:auto-phrase}
+.mini{margin-top:14px;background:#FFFDF8;border:2px solid #D6CFC0;border-radius:6px;padding:10px 12px}
+tr.out td{color:#9a3412}</style></head><body><div class="stage">
+<div class="cap">口座にもともと100万円以上あっても、入金し直す<small>法務局が見るのは「残高」ではなく、出資金を入れた日と金額の記録です（例：出資金100万円）</small></div>
+<div class="two">
+ <div class="box" style="border-color:#FCA5A5"><h4><i class="ng">✕</i>残高があるだけ</h4>
+  <div class="mini"><table class="tx"><tr><th>日付</th><th>お取引</th><th class="r">お支払</th><th class="r">お預り</th><th class="r">残高</th></tr>
+  <tr><td>8-10-25</td><td>給与</td><td></td><td class="r">280,000</td><td class="r">1,532,400</td></tr>
+  <tr><td>8-10-28</td><td>カード</td><td class="r">32,400</td><td></td><td class="r">1,500,000</td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td></tr></table></div>
+  <p>150万円入っていても、どの日に・いくら出資したのかが通帳から読み取れません。これでは払込みの記録になりません。</p></div>
+ <div class="box" style="border-color:#86EFAC"><h4><i class="ok">◯</i>出してから、そのまま入れる</h4>
+  <div class="mini"><table class="tx"><tr><th>日付</th><th>お取引</th><th class="r">お支払</th><th class="r">お預り</th><th class="r">残高</th></tr>
+  <tr><td>8-10-28</td><td>カード</td><td class="r">32,400</td><td></td><td class="r">1,500,000</td></tr>
+  <tr class="out"><td>8-11-04</td><td>現金</td><td class="r">1,000,000</td><td></td><td class="r">500,000</td></tr>
+  <tr class="mk"><td><b>8-11-04</b></td><td><b>現金</b></td><td></td><td class="r"><b>1,000,000</b></td><td class="r">1,500,000</td></tr></table></div>
+  <p>ATMで100万円を引き出し、その場で同じ通帳へ100万円を入れます。黄色の行が「出資金を入れた記録」になります。残高は元に戻ります。</p></div>
+</div>
+<div class="note">※ 名前・金額・日付は見本です。入金する日は、事務所から合図があってからにしてください。</div>
+</div></body></html>

@@ -1,0 +1,28 @@
+/* 会社設立の出資金の払込み記事の図。通帳・書類はすべて見本（架空の名前・番号） */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#1f2a37;--sub:#4a5563;--mute:#6b7280;--line:#E2E8F0;--soft:#F8FAFC;--blue:#2563EB;--navy:#1E3A8A;--book:#2F5FA7;--book-d:#244A86;--red:#E5484D;--green:#15803D;--amber:#B45309;--mark:#FDE68A;--seal:#D9363E}
+html,body{background:#F4F1EA}
+body{font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI",sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+.stage{width:1010px;padding:28px 32px 30px;position:relative;background:#F4F1EA}
+.cap{font-size:24px;font-weight:800;color:var(--ink);margin-bottom:18px;letter-spacing:.02em;word-break:auto-phrase}
+.cap small{display:block;font-size:15px;font-weight:500;color:var(--sub);margin-top:6px}
+.note{font-size:13px;color:var(--mute);margin-top:14px}
+.num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;font-weight:800;font-size:18px;flex:none}
+.card{background:#fff;border-radius:16px;box-shadow:0 6px 18px rgba(30,40,60,.08);padding:18px}
+/* 通帳 */
+.cover{width:250px;height:340px;border-radius:10px;background:linear-gradient(160deg,var(--book),var(--book-d));color:#fff;padding:26px 20px;position:relative;box-shadow:0 8px 20px rgba(30,60,120,.25)}
+.cover .bk{font-size:15px;opacity:.9}.cover .tt{font-size:26px;font-weight:800;margin-top:18px;letter-spacing:.08em}
+.cover .nm{position:absolute;left:20px;right:20px;bottom:30px;background:#fff;color:var(--ink);border-radius:6px;padding:10px 12px;font-size:16px;font-weight:700}
+.cover .nm small{display:block;font-size:11px;color:var(--mute);font-weight:500}
+.page{width:300px;height:340px;background:#FFFDF8;border:2px solid #D6CFC0;border-radius:6px;padding:16px;position:relative;font-size:13px}
+.page h5{font-size:13px;color:var(--mute);font-weight:600;margin-bottom:10px}
+.kv{display:flex;border-bottom:1px solid #E7E0D2;padding:9px 2px}.kv span{width:86px;color:var(--mute);flex:none}.kv b{font-weight:700}
+table.tx{width:100%;border-collapse:collapse;font-size:12px}
+table.tx th{font-weight:600;color:var(--mute);border-bottom:1.5px solid #CFC6B4;padding:6px 3px;text-align:left}
+table.tx td{border-bottom:1px solid #EAE3D5;padding:8px 3px;font-variant-numeric:tabular-nums}
+table.tx td.r,table.tx th.r{text-align:right}
+tr.mk td{background:var(--mark)}
+.lbl{font-size:18px;font-weight:800;margin-top:14px;display:flex;align-items:flex-start;gap:10px;word-break:auto-phrase}
+.lbl small{display:block;font-size:13.5px;font-weight:500;color:var(--sub);margin-top:4px;line-height:1.55}
+.ok{color:var(--green)}.ng{color:var(--red)}
+.seal{width:44px;height:44px;border-radius:50%;border:3px solid var(--seal);color:var(--seal);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;line-height:1.1;text-align:center;background:rgba(255,255,255,.55)}
