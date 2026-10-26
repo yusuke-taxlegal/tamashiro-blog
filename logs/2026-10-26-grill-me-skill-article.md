@@ -43,3 +43,19 @@
 1. 玉城さんが記事を読んで OK を出す（題・体験の書き方・自作の SKILL.md の例）
 2. キャラクター挿絵3枚を生成して置く（引き継ぎファイルの手順）
 3. `git-main-release` で main に合流して公開
+
+## 2026-10-27 キャラクター挿絵3枚を PC で仕上げた（ysk-sashie-shiage）
+
+- 生成: PC の Codex CLI（`generate_character_image.sh`）。正本シートを参照画像として渡した。引き継ぎファイルのプロンプトをそのまま使った
+  - `~/.codex/config.toml` のモデル `gpt-6.1-sol` は ChatGPT のアカウントでは使えず（model_not_found）、3枚とも生成前に止まった。設定ファイルは変えず、今回の呼び出しだけ `-m gpt-6-astra` を指定して作った
+- ヒーロー `hero-tamashiro-yusuke-rira-question-cards.webp`（1536x1024）: 玉城祐輔（v5・共通見本v2・カジュアルv3）＋Rira（v3）。2回作って1回目を採用。Rira の花（見る人から右に大小2輪・左に小1輪）・イヤーピース（右）・服・靴は正本どおり。立っている Rira が約2.5頭身で正本（約2.0）より脚が長め（2回目は約2.7でさらに長く、1回目のほうが近い）。玉城の黒い紐付き革靴・紺のジャケット・白T は正本どおり。カードは Q1〜Q3 だけ
+- 本文1 `rira-worried-business-owner-question-cards.webp`（1672x941）: Rira（v3）＋悩める社長（v1）・共通見本v2。社長の髪・無精ひげ・作業ブルゾン・縞ポロ・茶色のワークブーツ、Rira の花とイヤーピースは正本どおり。どちらも約2頭身。カードは Q1〜Q4 だけ
+- 本文2 `tamashiro-yusuke-answer-in-own-words.webp`（1672x941）: 玉城祐輔（v5・共通見本v2・カジュアルv3）。上半身の構図。顔・髪・歯を見せる笑顔・ジャケットと白T は正本どおり。カードはチェック2枚と鉛筆1枚で、読める文字・ロゴなし
+- 記事: `heroImage` を足し、ヒーローのプレースホルダーを消して証跡コメント2行を置いた。本文のプレースホルダー2つを `![alt](…)` に置き換えた（alt は引き継ぎファイルと同じ）。引き継ぎファイルは「設置済み」にした
+- 検査: `check_product_article.py` はエラー0件。`npm run check:affiliate` は問題なし（既存記事の注意3件のみ）。`npm run build` 成功（43ページ・`lib/engagement/articles.json` は変化なし）
+- 手元の表示（dist を静的に配信）: 1440px・390px で横のはみ出しなし、挿絵3枚とも読み込み成功。og:image がヒーローの画像になった
+
+### 残り
+
+1. 玉城さんが本文と挿絵を見て OK を出す（ヒーローの Rira の頭身が気になるなら作り直す）
+2. `git-main-release` で main に合流して公開

@@ -4,11 +4,11 @@ description: 'AIに作業を頼む前に、AIのほうから質問してもら�
 pubDate: '2026-10-26'
 category: 'AIの使い方'
 accent: 'ink'
+heroImage: '../../assets/blog/grill-me-skill-claude-code-codex/hero-tamashiro-yusuke-rira-question-cards.webp'
 ---
 
-<!-- 画像プレースホルダー（ヒーロー）: 玉城祐輔がノートパソコンの前で、Riraが差し出す番号付きの質問カードを見ながら考えている場面
-     生成後の保存先: src/assets/blog/grill-me-skill-claude-code-codex/hero-tamashiro-yusuke-rira-question-cards.webp
-     → 画像設置後、フロントマターに heroImage: '../../assets/blog/grill-me-skill-claude-code-codex/hero-tamashiro-yusuke-rira-question-cards.webp' を足す -->
+<!-- product-article-character-sheets: tamashiro-yusuke-character-sheet-v5.png, tl-four-character-style-master-v2.png, tamashiro-yusuke-business-casual-character-sheet-v3.png, rira-character-sheet-v3.png, worried-business-owner-character-sheet-v1.png -->
+<!-- product-article-character-check: hero-and-body-verified -->
 
 「AIに頼んだら、すぐに作ってくれた。でも、できあがったものを見て『そうじゃない』となった」
 
@@ -95,10 +95,7 @@ AIの使い方を学び合うコミュニティを立ち上げようとしたと
 
 おすすめの答えが付いていると、つい全部「はい」と返したくなります。でも、全部「はい」で終わるなら、それはAIが考えた計画にうなずいただけです。私は**1回の grill-me で、少なくとも1つは自分の言葉で答える**ようにしています。
 
-<!-- 画像プレースホルダー: 悩める社長がRiraから質問カードを1枚ずつ受け取り、首をかしげながら考えている場面
-     生成後の保存先: src/assets/blog/grill-me-skill-claude-code-codex/rira-worried-business-owner-question-cards.webp
-     alt: AI秘書のRiraが番号の付いた質問カードを1枚ずつ差し出し、悩める社長がカードを手に持って首をかしげながら答えを考えているイラスト
-     → 画像設置後、この行を ![alt](../../assets/blog/grill-me-skill-claude-code-codex/rira-worried-business-owner-question-cards.webp) に置き換える -->
+![AI秘書のRiraが番号の付いた質問カードを1枚ずつ差し出し、悩める社長がカードを手に持って首をかしげながら答えを考えているイラスト](../../assets/blog/grill-me-skill-claude-code-codex/rira-worried-business-owner-question-cards.webp)
 
 ## 始める前に確認すること
 
@@ -338,10 +335,7 @@ grill-me は、ファイルを作りません。質問が終わったら、「�
 
 質問が何十問も続いて終わらないときは、一度に考える範囲が広すぎることがほとんどです。「アプリ全体」をやめて「月謝の記録のところだけ」のように分けてから、もう一度 grill-me を呼びます。
 
-<!-- 画像プレースホルダー: 玉城祐輔がノートパソコンに向かい、画面に並ぶおすすめの答えのうち1つを指さして「ここは違う」と自分の言葉で答えている場面
-     生成後の保存先: src/assets/blog/grill-me-skill-claude-code-codex/tamashiro-yusuke-answer-in-own-words.webp
-     alt: 玉城祐輔がノートパソコンの前で、画面に並んだ質問カードの1枚を指さし、自分の言葉で答えを書き足しているイラスト
-     → 画像設置後、この行を ![alt](../../assets/blog/grill-me-skill-claude-code-codex/tamashiro-yusuke-answer-in-own-words.webp) に置き換える -->
+![玉城祐輔がノートパソコンの前で、画面に並んだ質問カードの1枚を指さし、自分の言葉で答えを書き足しているイラスト](../../assets/blog/grill-me-skill-claude-code-codex/tamashiro-yusuke-answer-in-own-words.webp)
 
 ## よくある質問
 

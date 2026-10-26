@@ -7,7 +7,7 @@
 
 画面の図・図解3枚（`diagram-grill-flow`・`screen-grill-round`・`diagram-install-routes`）は、HTMLで組んで Chromium で撮影し、設置済みです。道具は `docs/figures/grill-me-skill-claude-code-codex/`（`base.css`・図ごとのHTML・`shot.cjs`）。
 
-キャラクターの挿絵3枚（ヒーロー1枚＋本文2枚）は**未生成**です。記事を書いたクラウドの環境に Codex CLI が無く、正本シートを参照画像に渡して生成できなかったためです。記事では `heroImage` を省き、本文はHTMLコメントのプレースホルダーにしてあります。
+キャラクターの挿絵3枚（ヒーロー1枚＋本文2枚）は**設置済み**です（2026-10-27、PC の Codex CLI で正本シートを参照画像に渡して生成し、正本と見比べて設置。記録は `logs/2026-10-26-grill-me-skill-article.md`）。記事を書いたクラウドの環境には Codex CLI が無かったため、PC で仕上げました。
 
 ## 使い方
 
@@ -41,7 +41,7 @@ ChatGPTで GPT Image 2 を選び（または Codex CLI の `generate_character_i
 - alt文言: 記事本文には書かず、フロントマターの `heroImage` に指定する
 - 添付する正本シート: `tamashiro-yusuke-character-sheet-v5.png`、`2026-09-19_style-unified/tl-four-character-style-master-v2.png`、`tamashiro-yusuke-business-casual-character-sheet-v3.png`、`rira-character-sheet-v3.png`
 - アスペクト比: 3:2（1536x1024）
-- 完了: - [ ]
+- 完了: - [x] 2026-10-27 設置
 
 ```text
 Use tamashiro-yusuke-character-sheet-v5.png and tl-four-character-style-master-v2.png as the current identity and style references. Use the old tamashiro-yusuke-business-casual-character-sheet-v3.png ONLY for the casual clothing design, overriding its brown shoes with BLACK lace-up leather shoes. Do not use a portrait photo to regenerate his face.
@@ -66,7 +66,7 @@ Aspect ratio: 3:2
 - alt文言: AI秘書のRiraが番号の付いた質問カードを1枚ずつ差し出し、悩める社長がカードを手に持って首をかしげながら答えを考えているイラスト
 - 添付する正本シート: `rira-character-sheet-v3.png`、`worried-business-owner-character-sheet-v1.png`、`2026-09-19_style-unified/tl-four-character-style-master-v2.png`
 - アスペクト比: 16:9（1672x941）
-- 完了: - [ ]
+- 完了: - [x] 2026-10-27 設置
 
 ```text
 Use the attached rira-character-sheet-v3.png as the canonical identity reference.
@@ -91,7 +91,7 @@ Aspect ratio: 16:9
 - alt文言: 玉城祐輔がノートパソコンの前で、画面に並んだ質問カードの1枚を指さし、自分の言葉で答えを書き足しているイラスト
 - 添付する正本シート: `tamashiro-yusuke-character-sheet-v5.png`、`2026-09-19_style-unified/tl-four-character-style-master-v2.png`、`tamashiro-yusuke-business-casual-character-sheet-v3.png`
 - アスペクト比: 16:9（1672x941）
-- 完了: - [ ]
+- 完了: - [x] 2026-10-27 設置
 
 ```text
 Use tamashiro-yusuke-character-sheet-v5.png and tl-four-character-style-master-v2.png as the current identity and style references. Use the old tamashiro-yusuke-business-casual-character-sheet-v3.png ONLY for the casual clothing design, overriding its brown shoes with BLACK lace-up leather shoes. Do not use a portrait photo to regenerate his face.
