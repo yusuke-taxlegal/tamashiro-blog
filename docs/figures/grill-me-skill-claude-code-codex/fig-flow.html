@@ -1,0 +1,33 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+.row{display:flex;gap:10px;align-items:stretch;margin-top:10px}
+.lane{border-radius:16px;padding:16px 16px 18px;margin-bottom:16px}
+.lane h3{font-size:18px;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.tag{font-size:12px;font-weight:800;border-radius:10px;padding:3px 10px}
+.st{flex:1;background:#fff;border-radius:12px;border:2px solid #CBD5E1;padding:12px 12px;font-size:14px;line-height:1.55;word-break:auto-phrase}
+.st b{display:block;font-size:16px;margin-bottom:4px}
+.bad{background:#FFF6F3}.bad .st.hl{border-color:var(--coral);background:var(--coral-l)}
+.good{background:#F6F8EE}.good .st.hl{border-color:var(--olive);background:var(--olive-l)}
+.loop{font-size:12.5px;color:var(--olive);font-weight:700;margin-top:6px}
+</style></head><body><div class="stage">
+<div class="cap">grill-me は「作る前」に、AIから質問してもらう<small>いきなり頼むと、決めていなかったことに、できあがってから気づきます</small></div>
+<div class="lane bad">
+ <h3><span class="tag" style="background:var(--coral-l);color:var(--coral)">いきなり頼む</span></h3>
+ <div class="row">
+  <div class="st"><b>やりたいこと</b>「教室の月謝を管理するアプリを作って」</div><div class="ar">›</div>
+  <div class="st"><b>AIがすぐ作る</b>決まっていないところは、AIが自分で想像して埋める</div><div class="ar">›</div>
+  <div class="st hl"><b>「そうじゃない」</b>保護者もログインする前提になっていた、など</div><div class="ar">›</div>
+  <div class="st"><b>やり直し</b>作った分だけ、直す手間も増える</div>
+ </div>
+</div>
+<div class="lane good">
+ <h3><span class="tag" style="background:var(--olive-l);color:var(--olive)">grill-me を挟む</span></h3>
+ <div class="row">
+  <div class="st"><b>やりたいこと</b>まだぼんやりしていてよい</div><div class="ar">›</div>
+  <div class="st hl"><b>AIが質問する</b>1問ずつ、または数問ずつ。どの質問にもAIのおすすめの答えが付く<div class="loop">答えるたびに、次の質問が変わる</div></div><div class="ar">›</div>
+  <div class="st"><b>決まったことを確かめる</b>決まったこと・まだ決めていないことを並べる</div><div class="ar">›</div>
+  <div class="st"><b>ここから作る</b>作業を頼むのは、自分が「これでいい」と言ってから</div>
+ </div>
+</div>
+<div class="note">※ grill-me 自体は質問するだけで、ファイルを作ったり、作業を始めたりはしません。</div>
+</div></body></html>

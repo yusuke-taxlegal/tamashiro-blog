@@ -1,0 +1,12 @@
+/* grill-me の記事の図。画面の文字は見本（架空の例） */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#1f2a37;--sub:#4a5563;--mute:#6b7280;--line:#E2E8F0;--soft:#F8FAFC;--olive:#5B6B2E;--olive-l:#EEF2DF;--coral:#C2563B;--coral-l:#FBE7E0;--blue:#2563EB;--blue-l:#DBEAFE;--term:#1E2230;--term-l:#2A3042;--green:#15803D;--amber:#B45309}
+html,body{background:#F4F1EA}
+body{font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","IPAPGothic",sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+.stage{width:1010px;padding:28px 32px 30px;position:relative;background:#F4F1EA}
+.cap{font-size:24px;font-weight:800;margin-bottom:18px;letter-spacing:.02em;word-break:auto-phrase}
+.cap small{display:block;font-size:15px;font-weight:500;color:var(--sub);margin-top:6px}
+.note{font-size:13px;color:var(--mute);margin-top:14px}
+.card{background:#fff;border-radius:16px;box-shadow:0 6px 18px rgba(30,40,60,.08);padding:18px}
+.ar{align-self:center;font-size:28px;color:#94A3B8;font-weight:800;flex:none}
+mono,.mono{font-family:"DejaVu Sans Mono","Menlo",monospace}

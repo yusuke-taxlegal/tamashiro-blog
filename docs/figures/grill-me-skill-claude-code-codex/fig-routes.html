@@ -1,0 +1,32 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.c{background:#fff;border-radius:14px;border:2.5px solid;padding:16px 18px}
+.c h4{font-size:18px;font-weight:800;margin-bottom:2px;word-break:auto-phrase}
+.c .who{font-size:12.5px;font-weight:700;color:var(--sub);margin-bottom:10px}
+.cmd{background:var(--term);color:#E7EAF2;border-radius:8px;padding:9px 12px;font-size:12.5px;line-height:1.6;margin-bottom:10px;white-space:pre}
+.c ul{list-style:none;font-size:14px;line-height:1.6}
+.c li{padding-left:16px;position:relative;word-break:auto-phrase}
+.c li:before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.5}
+.rec{display:inline-block;font-size:12px;font-weight:800;border-radius:10px;padding:2px 9px;margin-left:8px;vertical-align:2px}
+</style></head><body><div class="stage">
+<div class="cap">入れ方は4つ。迷ったら、上の2つ（公式のプラグイン）<small>同じ道具に2つの方法で入れると、同じスキルが2つずつ並びます。1つの道具に1つの方法で</small></div>
+<div class="grid">
+ <div class="c" style="border-color:#B9C78F"><h4>Claude Code のプラグイン<span class="rec" style="background:var(--olive-l);color:var(--olive)">おすすめ</span></h4><div class="who">Claude Code を使っている方</div>
+ <div class="cmd mono">claude plugin install mattpocock-skills@claude-plugins-official</div>
+ <ul><li>コマンドは1行。更新も自動</li><li>grill-me を含む27個のスキルがまとめて入る</li></ul></div>
+ <div class="c" style="border-color:#B9C78F"><h4>Codex のプラグイン<span class="rec" style="background:var(--olive-l);color:var(--olive)">おすすめ</span></h4><div class="who">Codex を使っている方</div>
+ <div class="cmd mono">codex plugin marketplace add mattpocock/skills
+codex plugin add mattpocock-skills@mattpocock</div>
+ <ul><li>コマンドは2行。起動するたびに更新される</li><li>grill-me を含むスキルがまとめて入る</li></ul></div>
+ <div class="c" style="border-color:#CBD5E1"><h4>grill-me だけを入れる</h4><div class="who">ほかのスキルは要らない方</div>
+ <div class="cmd mono">npx skills@latest add mattpocock/skills
+  --skill grill-me --skill grilling -g</div>
+ <ul><li>Node.js（22.20以上）が要る</li><li>更新は自分でコマンドを打つ</li></ul></div>
+ <div class="c" style="border-color:#CBD5E1"><h4>日本語の grill-me を自分で作る</h4><div class="who">日本語で、1問ずつ聞いてほしい方</div>
+ <div class="cmd mono">~/.claude/skills/grill-me/SKILL.md
+~/.agents/skills/grill-me/SKILL.md</div>
+ <ul><li>説明書のファイルを1枚置くだけ</li><li>作者の更新は届かない</li></ul></div>
+</div>
+<div class="note">※ 2026年10月26日に、作者のGitHubの説明と各道具の公式の説明で確かめた内容です。</div>
+</div></body></html>
