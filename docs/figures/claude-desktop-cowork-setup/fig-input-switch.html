@@ -1,0 +1,35 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+.pane{margin-bottom:16px}
+.lbl{display:inline-block;font-size:15px;font-weight:800;border-radius:10px;padding:4px 12px;margin-bottom:8px}
+.box{background:#fff;border:2px solid #D7DDE6;border-radius:18px;padding:16px 18px 14px;box-shadow:0 6px 18px rgba(30,40,60,.06)}
+.ph{font-size:18px;color:#9AA3B5;padding:4px 2px 16px}
+.bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.plus{width:34px;height:34px;border-radius:50%;border:2px solid #D7DDE6;color:var(--sub);font-size:22px;display:flex;align-items:center;justify-content:center}
+.seg{display:flex;background:#F1F5F9;border-radius:999px;padding:3px}
+.seg span{font-size:16px;font-weight:700;padding:6px 16px;border-radius:999px;color:var(--sub)}
+.seg span.on{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.12);outline:3px solid var(--coral)}
+.chip{font-size:15px;font-weight:700;border:2px solid #D7DDE6;border-radius:999px;padding:5px 12px;color:var(--sub)}
+.send{margin-left:auto;width:36px;height:36px;border-radius:10px;background:var(--coral);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:18px}
+.say{font-size:17px;line-height:1.6;margin-top:10px;padding-left:4px;word-break:auto-phrase}
+.say b{color:var(--coral)}
+</style></head><body><div class="stage">
+<div class="cap">仕事を頼む場所は、入力する欄で確かめる<small>画面は見本です。切り替えがあるかないかで、どちらの画面かが分かります</small></div>
+<div class="pane">
+ <span class="lbl" style="background:#E2E8F0;color:var(--ink)">これまでの画面</span>
+ <div class="box">
+  <div class="ph">仕事の内容を入力…</div>
+  <div class="bar"><div class="plus">＋</div><div class="seg"><span>Chat</span><span class="on">Cowork</span></div><div class="chip">手動 ▾</div><div class="send">↑</div></div>
+ </div>
+ <div class="say">切り替えがある → <b>「Cowork」を選んでから</b>仕事を頼む</div>
+</div>
+<div class="pane">
+ <span class="lbl" style="background:var(--olive-l);color:var(--olive)">新しい画面</span>
+ <div class="box">
+  <div class="ph">仕事の内容を入力…</div>
+  <div class="bar"><div class="plus">＋</div><div class="chip">手動 ▾</div><div class="send">↑</div></div>
+ </div>
+ <div class="say">切り替えがない → <b>そのまま頼めばよい</b>。短い答えで済むか、作業が要るかはClaudeが判断する</div>
+</div>
+<div class="note">※「手動 ▾」は承認の設定です（ステップ2）。「＋」からは、使うコネクタを選べます（ステップ6）。</div>
+</div></body></html>
