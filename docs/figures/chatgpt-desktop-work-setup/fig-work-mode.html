@@ -1,0 +1,36 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+.win{background:#fff;border-radius:16px;border:2px solid #D7DDE6;box-shadow:0 8px 22px rgba(30,40,60,.08);overflow:hidden}
+.top{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #E2E8F0;background:#FAFBFC}
+.menu{font-size:16px;font-weight:700;border:2px solid #D7DDE6;border-radius:10px;padding:5px 12px}
+.seg{display:flex;background:#F1F5F9;border-radius:999px;padding:3px;margin:0 auto}
+.seg span{font-size:16px;font-weight:700;padding:6px 18px;border-radius:999px;color:var(--sub)}
+.seg span.on{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.12);outline:3px solid var(--coral)}
+.main{padding:22px 20px 18px}
+.box{border:2px solid #D7DDE6;border-radius:16px;padding:14px 16px 12px}
+.ph{font-size:17px;color:#9AA3B5;padding-bottom:14px}
+.bar{display:flex;align-items:center;gap:10px}
+.chip{font-size:15px;font-weight:700;border:2px solid var(--coral);border-radius:999px;padding:5px 12px;color:var(--ink);background:var(--coral-l)}
+.send{margin-left:auto;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.dd{margin-top:10px;border:2px solid #D7DDE6;border-radius:14px;overflow:hidden;width:520px}
+.op{padding:12px 16px;font-size:15px;line-height:1.55;word-break:auto-phrase}
+.op+.op{border-top:1px solid #E2E8F0}
+.op b{display:block;font-size:17px}
+.op.on{background:var(--olive-l)}
+.op.on b::after{content:"　✓ この記事はこちら";font-size:14px;color:var(--olive)}
+.n{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--coral);color:#fff;font-size:14px;font-weight:800;align-items:center;justify-content:center;margin-right:4px;vertical-align:1px}
+.steps{margin-top:14px;font-size:16px;line-height:1.8}
+</style></head><body><div class="stage">
+<div class="cap">サインインしたら「Work」に切り替える<small>画面は見本です。表記は更新で変わることがあります</small></div>
+<div class="win">
+ <div class="top"><div class="menu"><span class="n">1</span>ChatGPT ▾</div><div class="seg"><span>Chat</span><span class="on"><span class="n">2</span>Work</span><span>Codex</span></div></div>
+ <div class="main">
+  <div class="box"><div class="ph">仕事の内容を入力…</div><div class="bar"><div class="chip"><span class="n">3</span>Work locally ▾</div><div class="send">↑</div></div></div>
+  <div class="dd">
+   <div class="op on"><b>Work locally（ローカル）</b>パソコンの中のファイルやアプリを使う。アプリを閉じると作業は止まる</div>
+   <div class="op"><b>Cloud（クラウド）</b>パソコンを閉じても続く。スマホやブラウザから続きも見られる。パソコンの中のファイルには触れない</div>
+  </div>
+ </div>
+</div>
+<div class="steps"><div><span class="n">1</span>左上のメニューで「ChatGPT」を選ぶ</div><div><span class="n">2</span>上の切り替えで「Work」を選ぶ</div><div><span class="n">3</span>入力欄の近くの切り替えは、ローカルのまま進める</div></div>
+</div></body></html>

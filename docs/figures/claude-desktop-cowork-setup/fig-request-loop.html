@@ -1,0 +1,32 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+.req{background:#fff;border-radius:16px;padding:14px 16px 16px;box-shadow:0 6px 18px rgba(30,40,60,.08)}
+.req h4{font-size:18px;font-weight:800;margin-bottom:10px}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.it{border-radius:12px;padding:9px 12px;font-size:15px;line-height:1.5;background:var(--blue-l);word-break:auto-phrase}
+.it b{display:block;font-size:17px;color:#1E40AF}
+.it.must{background:var(--coral-l)}.it.must b{color:var(--coral)}
+.steps{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.s{display:flex;gap:12px;align-items:flex-start;background:#fff;border:2px solid #E2E8F0;border-radius:12px;padding:10px 14px;font-size:16px;line-height:1.55;word-break:auto-phrase}
+.s .k{flex:none;font-size:13px;font-weight:800;border-radius:8px;padding:3px 8px;margin-top:2px}
+.you .k{background:var(--olive-l);color:var(--olive)}
+.ai .k{background:#E2E8F0;color:var(--ink)}
+.s b{font-weight:800}
+.loop{margin-top:8px;border:2px dashed var(--olive);border-radius:12px;padding:10px 14px;font-size:16px;line-height:1.55;color:var(--olive);font-weight:700;word-break:auto-phrase}
+</style></head><body><div class="stage">
+<div class="cap">小さな仕事を1つ頼み、終わったら説明書を育てる<small>最初は、失敗しても困らない10〜20分の仕事を選びます</small></div>
+<div class="req"><h4>依頼文に入れること</h4><div class="g">
+ <div class="it"><b>ほしい結果</b>例：3社を比べて判断できる比較表</div>
+ <div class="it"><b>形式</b>例：Excel。シートは2つ</div>
+ <div class="it"><b>必要な材料</b>例：「01_材料」の見積書3枚</div>
+ <div class="it must"><b>＋ 守ってほしいこと</b>書かれていない数字は足さない、送信はしない など</div>
+</div></div>
+<div class="ar" style="margin:8px 0 2px">⌄</div>
+<div class="steps">
+ <div class="s ai"><span class="k">Claude</span><div>進め方を見せて、<b>確認を待つ</b></div></div>
+ <div class="s ai"><span class="k">Claude</span><div>作ったファイルを「02_成果物」に保存し、保存先を報告する</div></div>
+ <div class="s you"><span class="k">自分</span><div>成果物は下書き。<b>数字・日付・固有名詞</b>を元の資料と見比べる</div></div>
+ <div class="s you"><span class="k">自分</span><div>直してほしい点は、同じ会話で伝える（例：「納期の行を上に移動」）</div></div>
+</div>
+<div class="loop">↻ 最後に「CLAUDE.mdに追記したほうがよいルール」を提案してもらう。書き足すのは、自分が「追記してよい」と返してから</div>
+</div></body></html>

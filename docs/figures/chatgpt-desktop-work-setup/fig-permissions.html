@@ -1,0 +1,28 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+.box{background:#fff;border:2px solid #D7DDE6;border-radius:16px;padding:14px 16px 12px;box-shadow:0 6px 18px rgba(30,40,60,.06)}
+.ph{font-size:17px;color:#9AA3B5;padding-bottom:6px}
+.under{display:flex;gap:10px;margin:10px 4px 0}
+.chip{font-size:15px;font-weight:700;border:2px solid var(--olive);border-radius:999px;padding:5px 12px;background:var(--olive-l)}
+.dd{margin-top:10px;background:#fff;border:2px solid #D7DDE6;border-radius:14px;overflow:hidden;box-shadow:0 8px 22px rgba(30,40,60,.08)}
+.op{display:grid;grid-template-columns:30px 1fr;gap:6px;padding:14px 16px;font-size:16px;line-height:1.55;word-break:auto-phrase}
+.op+.op{border-top:1px solid #E2E8F0}
+.op b{display:block;font-size:18px}
+.ck{font-size:20px;font-weight:800;color:var(--olive)}
+.op.on{background:var(--olive-l)}
+.op.off{color:#94A3B8}.op.off b{color:#94A3B8}
+.op .why{display:inline-block;margin-top:6px;font-size:14px;font-weight:700;border-radius:8px;padding:3px 9px}
+.on .why{background:#fff;color:var(--olive)}
+.off .why{background:#F1F5F9;color:var(--sub)}
+.risk{color:var(--coral)}
+</style></head><body><div class="stage">
+<div class="cap">権限は「Ask for approval」のまま使う<small>画面は見本です。権限は、Workがパソコンの中でどこまで自分の判断で動いてよいかを決めます</small></div>
+<div class="box"><div class="ph">仕事の内容を入力…</div></div>
+<div class="under"><div class="chip">Ask for approval ▾</div></div>
+<div class="dd">
+ <div class="op on"><div class="ck">✓</div><div><b>Ask for approval</b>作業フォルダの中は自由に読み書きする。インターネットを使うときや、フォルダの外へ出るときは、先に確認を求める<br><span class="why">最初から選べるのはこれだけ。おすすめ</span></div></div>
+ <div class="op off"><div class="ck"></div><div><b>Approve for me</b>フォルダの外へ出る確認を、人の代わりにAIが自動で判断する<br><span class="why">設定の「General」→「Permissions」で有効にしたときだけ出る</span></div></div>
+ <div class="op off"><div class="ck"></div><div><b>Full access</b>パソコンの中のどのファイルも、確認なしで変更できる <span class="risk">（データの消失や漏洩のおそれが大きく上がる）</span><br><span class="why">同じく、有効にしたときだけ出る</span></div></div>
+</div>
+<div class="note">※ 確認が多くて手間に感じたら、権限を広げる前に、必要な資料を作業フォルダの中へコピーします。</div>
+</div></body></html>
