@@ -8,6 +8,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { COMPANY_URL } from '../consts';
 import gKenteiLogo from '../assets/about/g-kentei-2026-5.svg?url';
+import ipassMark from '../assets/about/ipass-mark.png?url';
 
 const contactUrl = new URL('contact/', COMPANY_URL).href;
 const seminarUrl = `${contactUrl}?type=seminar`;
@@ -78,9 +79,14 @@ const gKenteiBadgeUrl = 'https://www.openbadge-global.com/ns/portal/openbadge/pu
 					</div>
 					<div>
 						<dt>資格</dt>
-						<dd class="it-passport">
-							<p class="g-kentei-name">ITパスポート試験 合格</p>
-							<p class="g-kentei-meta">経済産業省が認定する国家試験</p>
+						<dd class="g-kentei it-passport">
+							<div class="it-passport-mark">
+								<img src={ipassMark} width="868" height="817" alt="iパス（ITパスポート試験）のロゴマーク" loading="lazy" decoding="async" />
+							</div>
+							<div class="g-kentei-body">
+								<p class="g-kentei-name">ITパスポート試験 合格</p>
+								<p class="g-kentei-meta">経済産業省が認定する国家試験｜<span>独立行政法人情報処理推進機構</span></p>
+							</div>
 						</dd>
 					</div>
 				</dl>
@@ -186,7 +192,9 @@ const gKenteiBadgeUrl = 'https://www.openbadge-global.com/ns/portal/openbadge/pu
 	.g-kentei { display:flex; align-items:center; gap:20px; }
 	.g-kentei-logo { flex:0 0 176px; display:block; }
 	.g-kentei-logo img { display:block; width:100%; height:auto; }
-	.g-kentei-body p,.it-passport p { margin:0; }
+	.it-passport-mark { flex:0 0 176px; display:flex; justify-content:center; }
+	.it-passport-mark img { display:block; width:auto; height:76px; }
+	.g-kentei-body p { margin:0; }
 	.g-kentei-name { font-weight:750; }
 	.g-kentei-meta { margin-top:2px !important; color:var(--muted); font-size:14px; font-weight:500; }
 	.g-kentei-meta span { display:inline-block; }
@@ -217,6 +225,8 @@ const gKenteiBadgeUrl = 'https://www.openbadge-global.com/ns/portal/openbadge/pu
 		.roles,.jc-consultation { padding-block:36px; }
 		.g-kentei { flex-direction:column; align-items:flex-start; gap:10px; }
 		.g-kentei-logo { flex-basis:auto; width:168px; }
+		.it-passport-mark { flex-basis:auto; padding-block:10px 4px; }
+		.it-passport-mark img { height:64px; }
 		.credential-list > div { grid-template-columns:1fr; gap:6px; }
 		.jc-roles { padding:24px 20px; }
 		.jc-role-list,.jc-topic-list { grid-template-columns:1fr; gap:24px; }
