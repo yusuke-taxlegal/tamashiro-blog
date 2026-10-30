@@ -25,3 +25,11 @@
 - `npm run check` 0 errors・`check:affiliate` 問題なし・`test:engagement` 8件合格・`npm run build` 成功
 - ビルド結果をパソコン幅（1280px）とスマホ幅（375px）で表示。ロゴの表示・横のはみ出しなし・ロゴはリンクになっていない・コンソールのエラーなし
 - 作業は worktree `../tamashiro-blog-ipass`（ブランチ `feat/about-ipass-logo`）。公開は玉城さんの確認のあと
+
+## 公開（2026-10-31 05:5x JST）
+
+- 玉城さんの「公開する」で、`feat/about-ipass-logo` を main へ早送りで合流 → push（main 8e6f653）。Cloudflare Pages の GitHub 連携で自動公開（Production `0576e023-a315-4aa4-b053-1ac6b0eb03bc`・source 8e6f653）。wrangler からの直接公開はしていない
+- 本番 https://ysk.life/about/ と固定URL https://0576e023.tamashiro-blog.pages.dev/about/ がともに HTTP 200・canonical は https://ysk.life/about/ ・本文に「ITパスポート試験 合格」
+- ロゴ画像 `/_astro/ipass-mark.BhmhFQ_G.png` は 200（image/png）で、届いた 01_mark.png と中身が同じ（SHA-1 一致）
+- ブラウザで本番を表示し、G検定と iパスの両方のロゴが出ること・iパスのロゴがリンクでないこと・横のはみ出しなし・コンソールのエラーなしを確認
+- 残タスク台帳の「iパスのロゴ利用を IPA に申し込む」を完了にした
