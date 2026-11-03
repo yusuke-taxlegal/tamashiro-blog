@@ -1,0 +1,36 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+.cols{display:flex;gap:16px}
+.col{flex:1;border-radius:16px;padding:16px 18px 18px}
+.col h3{font-size:17px;font-weight:800;margin-bottom:12px}
+.flow{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.node{flex:1;background:#fff;border-radius:12px;border:2px solid #CBD5E1;padding:10px 8px;font-size:14px;font-weight:700;text-align:center;line-height:1.45;word-break:auto-phrase}
+.node.x{border-color:var(--coral);background:var(--coral-l);color:var(--coral)}
+.node.ok{border-color:var(--olive);background:var(--olive-l);color:var(--olive)}
+.ar{font-size:22px}
+.ex{font-size:14px;line-height:1.7;color:var(--sub);word-break:auto-phrase}
+.bad{background:#FFF6F3}.good{background:#F6F8EE}
+.need{margin-top:16px;background:#fff;border-radius:16px;padding:14px 18px;display:flex;gap:14px;align-items:center}
+.need b{font-size:16px;flex:none}
+.chip{flex:1;background:var(--soft);border:2px solid var(--line);border-radius:12px;padding:10px 14px;font-size:14px;line-height:1.6;word-break:auto-phrase}
+.chip strong{display:block;font-size:15px}
+</style></head><body><div class="stage">
+<div class="cap">災害のときもつながりやすいのは、空の衛星と直接やりとりするから<small>家のまわりの線や、近くの携帯電話の基地局が止まっても、使える場合があります</small></div>
+<div class="cols">
+ <div class="col bad">
+  <h3>ふだんの回線</h3>
+  <div class="flow"><div class="node">家</div><div class="ar">›</div><div class="node x">光回線の線・携帯の基地局</div><div class="ar">›</div><div class="node">インターネット</div></div>
+  <div class="ex">地震で線が切れたり、停電で基地局が止まったりすると、家からつながらなくなります。</div>
+ </div>
+ <div class="col good">
+  <h3>スターリンク</h3>
+  <div class="flow"><div class="node">家のアンテナ</div><div class="ar">›</div><div class="node ok">空の衛星</div><div class="ar">›</div><div class="node">インターネット</div></div>
+  <div class="ex">家のまわりの線や近くの基地局を通らないので、それらが止まっても使える場合があります。</div>
+ </div>
+</div>
+<div class="need"><b>使うのに要るもの</b>
+ <div class="chip"><strong>電気</strong>コンセントにつないで動きます。停電の日に使うなら、ポータブル電源などの備えが別に要ります</div>
+ <div class="chip"><strong>空が見える置き場所</strong>アンテナを空に向けて置きます。木や建物で少しさえぎられても動く作りです</div>
+</div>
+<div class="note">※ 2026年11月4日に Starlink 公式サイト（日本）の「信頼性」と「仕様」のページで確かめた内容をもとにした図です。</div>
+</div></body></html>
