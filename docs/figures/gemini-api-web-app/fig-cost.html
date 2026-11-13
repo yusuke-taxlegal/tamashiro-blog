@@ -1,0 +1,35 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+.grp{background:#fff;border-radius:14px;padding:16px 20px 18px;margin-bottom:14px}
+.grp h3{font-size:17px;font-weight:800;margin-bottom:12px}
+.grp h3 small{font-size:13.5px;font-weight:500;color:var(--sub);margin-left:8px}
+.row{display:flex;align-items:center;gap:12px;margin-top:9px}
+.nm{flex:none;width:232px;font-size:15px;font-weight:700;line-height:1.35}
+.nm small{display:block;font-size:12.5px;font-weight:500;color:var(--mute)}
+.tr{flex:1;height:30px;background:#F1F5F9;border-radius:8px;overflow:hidden}
+.tr i{display:block;height:100%;border-radius:8px;min-width:6px}
+.c-o{background:#94A3B8}.c-a{background:var(--coral)}.c-g{background:var(--olive)}
+.yen{flex:none;width:118px;text-align:right;font-size:19px;font-weight:900}
+.yen small{font-size:13px;font-weight:700;color:var(--sub);margin-left:1px}
+.sub{font-size:13.5px;color:var(--sub);line-height:1.7;margin-top:10px;word-break:auto-phrase}
+</style></head><body><div class="stage">
+<div class="cap">同じ仕事を1,000回動かしたときの費用<small>1回あたり入力2,000トークン・出力1,000トークン、1ドル150円と仮定した計算です</small></div>
+
+<div class="grp">
+ <h3>上位のモデル<small>料金表でいちばん上にある、賢いモデル</small></h3>
+ <div class="row"><div class="nm">gpt-6-astra<small>OpenAI</small></div><div class="tr"><i class="c-o" style="width:100%"></i></div><div class="yen">10,500<small>円</small></div></div>
+ <div class="row"><div class="nm">Claude Fable 5.2<small>Anthropic</small></div><div class="tr"><i class="c-a" style="width:80%"></i></div><div class="yen">8,400<small>円</small></div></div>
+ <div class="row"><div class="nm">Gemini 4 Carbon<small>Google</small></div><div class="tr"><i class="c-g" style="width:20%"></i></div><div class="yen">2,100<small>円</small></div></div>
+ <div class="sub">Gemini 4 Carbon は、2026年12月1日からの値段で計算すると4,200円になります。</div>
+</div>
+
+<div class="grp">
+ <h3>小さいモデル<small>決まった仕事をくり返すのに向く、手頃なモデル</small></h3>
+ <div class="row"><div class="nm">Gemini 3.5 Flash-Lite<small>Google</small></div><div class="tr"><i class="c-g" style="width:4.43%"></i></div><div class="yen">465<small>円</small></div></div>
+ <div class="row"><div class="nm">gpt-6-luna<small>OpenAI</small></div><div class="tr"><i class="c-o" style="width:1%"></i></div><div class="yen">105<small>円</small></div></div>
+ <div class="row"><div class="nm">Claude Haiku 5.5<small>Anthropic</small></div><div class="tr"><i class="c-a" style="width:1%"></i></div><div class="yen">105<small>円</small></div></div>
+ <div class="sub">棒の長さは、上の gpt-6-astra（10,500円）を端から端までとしたときの割合です。</div>
+</div>
+
+<div class="note">※ 2026年11月13日に、OpenAI・Anthropic・Google の公式の料金表で見た標準の値段から計算しました。モデルが考えるために使う分は入れていません。</div>
+</div></body></html>
