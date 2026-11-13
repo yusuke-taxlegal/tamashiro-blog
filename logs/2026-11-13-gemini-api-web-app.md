@@ -55,3 +55,23 @@
 - 直した主なところ：料金表の書き方を引用の形にしていたのをやめた／「水準」「単価」「完結」「用途」を和語に／短い言い切りが4つ続いていた段落をつなげた／「もう2つ、小さな理由があります」の前置きを消した
 - 「調べる前の私は〜と考えていました」「私の目には、Google は追いかける側に見えます」「日本語が自然だと私は感じています」は、玉城さんの言葉として書いた文。公開前に本人が読んで確かめる
 
+## 挿絵（Codex CLI の画像生成で作成・2026-11-13）
+
+- ヒーロー `hero-tamashiro-yusuke-compare.webp`（1536x1024）：玉城祐輔（ビジネスカジュアル）が、会話の吹き出しのカードと、歯車のついたアプリ画面のカードを見比べる
+- 本文 `tamashiro-yusuke-rira-cost-chart.webp`（1536x1024）：ホワイトボードの高い棒と低い棒の前で、Rira🌸 が低い棒を示し、玉城祐輔が電卓を持つ
+- 参照した正本：tamashiro-yusuke-character-sheet-v5.png、tl-four-character-style-master-v2.png、tamashiro-yusuke-business-casual-character-sheet-v3.png、rira-character-sheet-v3.png。生成後に Read で正本と見比べた（玉城の髪型・太い眉・笑顔、白い丸首Tシャツ、黒い紐付き革靴、約2頭身／Rira の花が見る人から見て右に大小2つ・左に小さく1つ、イヤーピースが右、薄紫の襟と袖口／文字・数字・ロゴなし）
+- プロンプトは `CHARACTER_GUIDE.md` のコピペ用プロンプトをそのまま使い、場面・表情・背景・比率だけを埋めた。2人の挿絵は、玉城のビジネスカジュアル用と Rira 用の2つを並べた
+
+## 検査
+
+- `check_product_article.py`：OK（警告0）
+- `npm run check:affiliate`：問題なし（既存記事の注意3件のみ。この記事にアフィリエイトリンクはない）
+- `npm run build`：成功（46ページ）。`og:image` はヒーロー画像
+- ビルド成果物のプレビュー（4331番）：記事の画像5枚がすべて読み込まれる、canonical は https://ysk.life/blog/gemini-api-web-app/、共有ボタンあり、パソコン幅と375px幅でページの横はみ出しなし（料金の表は、スマホ幅では表の中だけ横に動かせる）
+
+## メモ
+
+- Codex の通信が不安定で、ヒーローの1回目は「Reconnecting」をくり返して27分止まった。止めてやり直したら14分でできた。本文の挿絵は3分ほど
+- Codex の設定（`~/.codex/config.toml`）のモデルは `gpt-6.1-sol` のまま。前回と同じく設定は変えず、生成スクリプトの写しで `-m gpt-6-astra` を付けて生成した
+- Gemini 4 Carbon は12月1日、Gemini 3.8 Flash は2027年1月1日に値上げの予定。公開が12月以降になるときは、表と図の数字を直す
+- 公開（main への合流）はしていない

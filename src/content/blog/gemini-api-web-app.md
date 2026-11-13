@@ -4,7 +4,11 @@ description: '相談や分析の相手にはChatGPTやClaudeが頼りになり�
 pubDate: '2026-11-13'
 category: 'AIの使い方'
 accent: 'olive'
+heroImage: '../../assets/blog/gemini-api-web-app/hero-tamashiro-yusuke-compare.webp'
 ---
+
+<!-- product-article-character-sheets: tamashiro-yusuke-character-sheet-v5.png, tl-four-character-style-master-v2.png, tamashiro-yusuke-business-casual-character-sheet-v3.png, rira-character-sheet-v3.png -->
+<!-- product-article-character-check: hero-and-body-verified -->
 
 「Geminiより、ChatGPTやClaudeを仕事で使いたい」
 
@@ -66,7 +70,7 @@ DeepSeekの公式の料金表では、小さいモデルのdeepseek-flashが、�
 
 値段だけなら、gpt-6-lunaやClaude Haiku 5.5のほうが安い。それでも私は、自分の道具にはGeminiが合うと考えています。
 
-<!-- 挿絵：玉城祐輔とRiraが費用のグラフを見比べる（画像を置いたあとに差しかえる） -->
+![ホワイトボードに描いた高い棒と低い棒のグラフの前で、Rira🌸が低い棒を手で示し、玉城祐輔が電卓を持って見比べているイラスト](../../assets/blog/gemini-api-web-app/tamashiro-yusuke-rira-cost-chart.webp)
 
 ### 無料の枠で、何度でも試せる
 
