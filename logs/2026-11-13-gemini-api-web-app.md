@@ -75,3 +75,13 @@
 - Codex の設定（`~/.codex/config.toml`）のモデルは `gpt-6.1-sol` のまま。前回と同じく設定は変えず、生成スクリプトの写しで `-m gpt-6-astra` を付けて生成した
 - Gemini 4 Carbon は12月1日、Gemini 3.8 Flash は2027年1月1日に値上げの予定。公開が12月以降になるときは、表と図の数字を直す
 - 公開（main への合流）はしていない
+
+## 追記：公開した（2026-11-13）
+
+玉城さんの「これでよい」「公開する」を受けて、main に合流して公開した。
+
+- 合流：`claude/gemini-api-web-app` を main へ（合流コミット f8f503f）。合流後に `npm run build`・`check_product_article.py`・`npm run check:affiliate` をやり直して通った
+- push：main を1回だけ送った。local main・origin/main・GitHub の main がどれも f8f503f
+- 公開の経路：Cloudflare Pages の自動ビルド（main への push で動く）。手動のデプロイはしていない
+- 本番の確かめ（09:12ごろ）：https://ysk.life/blog/gemini-api-web-app/ が 200。題名・canonical が正しい、`og:image` はヒーロー画像で 200、記事一覧にも出ている。ブラウザで開いて、ヒーロー・図3枚・挿絵1枚がすべて読み込まれ、横はみ出しなし、コンソールのエラーなし
+- 後片付け：手元の作業ブランチは合流済みなので消した。GitHub 側の作業ブランチは残してある
